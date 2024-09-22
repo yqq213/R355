@@ -475,6 +475,7 @@
   padding-right: 20px;
   text-align: center;
   margin-right: 15px;
+  margin-bottom: 10px;
 }
 
 .n-li-hover {
@@ -773,6 +774,8 @@ div.filter_label_box > a {
   float: left;
   position: relative;
   margin-bottom: 30px;
+  padding-right: 20px;
+  box-sizing: border-box;
 }
 
 .cz-left {
@@ -798,6 +801,7 @@ div.filter_label_box > a {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding-right: 20px;
 }
 .cz1 a {
   color: #000;
@@ -1022,7 +1026,13 @@ div.filter_label_box > a {
 }
 
 
-
+/* 首页图片样式 */
+.fullSlide .bd {
+  overflow: unset;
+}
+.fullSlide .bd img {
+  width: 1024px;
+}
 
 /* 响应式调整 */
 @media screen and (min-width: 1900px) {
@@ -1076,7 +1086,11 @@ div.filter_label_box > a {
   .contentW {
     width: 1024px;
   }
-  .new-patterns-ul>li {
+  .new-patterns-ul > li {
+    width: 236px;
+    height: 280px;
+  }
+  .new-patterns-ul:has(.cp_txt) > li {
     width: 236px;
     height: 296px;
   }
@@ -1098,5 +1112,74 @@ div.filter_label_box > a {
   .new-patterns-ul .patter-label-position {
     width: 100%;
     box-sizing: border-box;
+  }
+  .cp_txt {
+    width: 218px;
+  }
+
+  /* 会员中心样式 */
+  .user {
+    width: 1024px;
+  }
+  .about {
+    width: 1024px;
+  }
+  .about .about_left {
+    width: 209px;
+  }
+  .about .about_right {
+    width: 742px;
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+}
+
+
+@media screen and (min-width: 1367px) and (max-width: 1600px) {
+  .cz-left {
+    width: 180px;
+    height: 230px;
+  }
+  .cz-right {
+    width: calc(100% - 200px);
+  }
+  .cz1 {
+    font-size: 20px;
+  }
+  .cz3 li {
+    height: 110px;
+  }
+}
+@media screen and (min-width: 1200px) and (max-width: 1366px) {
+  .cz-left {
+    width: 160px;
+    height: 210px;
+  }
+  .cz-right {
+    width: calc(100% - 180px);
+  }
+  .cz1 {
+    font-size: 20px;
+  }
+  .cz3 li {
+    height: 90px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .cz-left {
+    width: 140px;
+    height: 185px;
+  }
+  .cz-right {
+    width: calc(100% - 160px);
+  }
+  .cz1 {
+    font-size: 16px;
+  }
+  .cz2 {
+    font-size: 12px;
+  }
+  .cz3 li {
+    height: 80px;
   }
 }

@@ -1,0 +1,134 @@
+@charset "utf-8";
+.about {
+	margin: 30px auto 150px;
+	width: 1200px;
+	border: 1px solid #e3e3e3;
+	overflow: hidden; 
+	text-align:justify;
+}
+.about .about_left {
+	float: left;
+	width: 245px;
+}
+.about .about_left .h {
+	font-size: 20px;
+	line-height: 50px;
+	font-weight: bold;
+	text-align: center;
+	color: #FFF;
+	background: #333333;
+	border-bottom: 2px solid #d8b056;
+}
+.about .about_left .h_list {
+	padding: 20px;
+}
+.about .about_left .h_list li {
+	padding-left: 60px;
+	display: block;
+	line-height: 40px;
+}
+.about .about_left .h_list a {
+}
+.about .about_left .h_list .on {
+	background: url(../images/right_j.png) no-repeat 45px center;
+	color: #D8B056;
+}
+.about .about_left .h_list .on a {
+	color: #D8B056;
+}
+.about .about_right {
+	float: left;
+	border-left: 1px solid #e1e0e0;
+	padding-top: 20px;
+	padding-right: 40px;
+	padding-left: 40px;
+	width: 870px;
+}
+.about .about_right .titel_c {
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+}
+.about .about_right .titel_c span {
+	color: #d8b056;
+}
+.about .about_right .titel_e {
+	font-size: 14px;
+	font-weight: normal;
+	color: #666666;
+	border-bottom: 1px solid #eaeaea;
+	line-height: 50px;
+}
+.about .about_right hr {
+}
+.txt_main {
+	line-height: 24px;
+	margin-top: 40px;
+	margin-bottom: 140px;
+	color: #666666;
+}
+.txt_main p {
+	margin-bottom: 20px;
+	color: #666666;
+}
+.bo {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 48px;
+	color: #000;
+}
+.tab_b {
+	line-height: 24px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+.fu {
+	color: #FFFFFF;
+	background: #d8b056 !important;
+	line-height: 48px;
+	text-align: center;
+	font-size: 18px;
+}
+.fu td {
+	background: #d8b056 !important;
+}
+.tab_b td {
+	border: 1px solid #CCC;
+	padding: 8px;
+	background: #fafafa;
+}
+.tab_c{	border: 1px solid #CCC;
+}
+.tab_c td {
+	padding: 8px;
+}
+table {
+	border-collapse: collapse;
+}
+.color_c{
+	color: #D8B056;
+}
+
+.ol{
+	margin-left: 15px;
+	color: #666666;
+}
+.ol li{
+	list-style: decimal;
+	margin-bottom: 20px;
+}.r15{
+	background: none !important;
+	float: left;
+	position: relative;
+	padding-left: 10px;
+	line-height: 30px;
+	margin-left: 20px;
+	cursor: pointer;
+	width: 100px;
+	clear: right;
+	margin-top: -20px;
+}
+
+.txt_main a{
+	color: #D8B056;
+}

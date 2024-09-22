@@ -47,7 +47,6 @@
       	-o-transition: all .4s ease;
       	transition: all .4s ease;
       	background-image: url(images/down_b.png);
-      =
       	background-repeat: no-repeat;
       	background-position: 88px 52px;
       }
@@ -59,6 +58,13 @@
 
       	background-repeat: no-repeat;
       	background-position: 88px 52px;
+      }
+
+      /* 针对内部样式增加响应式控制 */
+      @media screen and (max-width: 1279px) {
+        .new-patterns-ul>li {
+          height: 280px;
+        }
       }
     </style>
   </head>

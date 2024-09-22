@@ -343,7 +343,7 @@ _width:expression(this.width > 270 ? "270px" : this.width);
 	background-color: rgba(0, 0, 0, 0.7);
 	width: 260px;
 	line-height: 30px;
-	bottom: 0px;
+	bottom: 4px;
 	text-align: center;
 	display: none;
 	padding-right: 10px;
