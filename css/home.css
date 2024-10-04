@@ -1,0 +1,306 @@
+@charset "utf-8";
+
+.content-wrap {
+  font-family: 'SimHei';
+}
+
+.content-top {
+  padding: 0 60px;
+}
+
+.banner {
+  display: flex;
+}
+
+.banner-img {
+  flex: 1;
+  height: 722px;
+  background: url('../images/home/banner-img.png');
+  background-size: cover;
+}
+
+.banner-right {
+  width: 387px;
+  border: 1px solid #D7D7D7;
+  border-left: 0;
+}
+
+.banner-title {
+  font-size: 14px;
+  color: #484848;
+  padding-left: 30px;
+  height: 76px;
+  border-bottom: 1px solid #D7D7D7;
+  line-height: 86px;
+  font-family: '微软雅黑';
+}
+
+.banner-title .bold {
+  font-size: 20px;
+  color: #212121;
+  margin-right: 5px;
+}
+
+.banner-bottom {
+  padding-left: 38px;
+}
+
+.banner-bottom-item {
+  border: 1px solid #D7D7D7;
+  border-radius: 20px;
+  height: 44px;
+  padding: 0 30px;
+  line-height: 44px;
+  display: inline-block;
+  margin-right: 20px;
+  color: #959595;
+  font-size: 14px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-family: 'SimSun';
+}
+
+.banner-btn {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.banner-line {
+  height: 1px;
+  border-bottom: 1px dashed #D7D7D7;
+  margin: 20px 8px 0 23px;
+}
+
+.buy-wrap {
+  border-radius: 23px;
+  border: 1px solid #D7D7D7;
+  width: 302px;
+  height: 48px;
+  font-size: 20px;
+  margin: 25px auto;
+  display: flex;
+  cursor: pointer;
+}
+
+.buy-orange {
+  width: 87px;
+  height: 100%;
+  background: #F57B14;
+  border-radius: 23px 0 0 23px;
+  color: #fff;
+  text-align: center;
+  line-height: 48px;
+  font-family: '微软雅黑';
+}
+
+.buy-text {
+  color: #959595;
+  border-radius: 0 23px 23px 0;
+  line-height: 48px;
+  text-align: center;
+  flex: 1;
+}
+
+.sign-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.sign-right {
+  text-align: center;
+  margin-left: 25px;
+}
+
+.sign-right .line1 {
+  color: #F57B14;
+  font-size: 27px;
+}
+
+.sign-right .line2 {
+  color: #717171;
+  font-size: 16px;
+}
+
+.sign-btn {
+  width: 120px;
+  height: 35px;
+  line-height: 35px;
+  cursor: pointer;
+  background: #F57B14;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 20px;
+  font-family: '微软雅黑';
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.counts {
+  font-size: 19px;
+  color: #D7D7D7;
+  padding-right: 32px;
+  text-align: right;
+  margin-top: 50px;
+  letter-spacing: 2px;
+}
+
+.choose-tip {
+  font-family: '微软雅黑';
+  font-size: 27px;
+  line-height: 27px;
+  text-align: center;
+  margin: 70px 0;
+}
+
+.member-wrap {
+  display: flex;
+  border: 1px solid #E5E4E2;
+  margin-bottom: 55px;
+}
+
+.member-item {
+  flex: 1;
+  padding: 30px 0;
+}
+
+.member-item:nth-child(2) {
+  border-left: 1px solid #E5E4E2;
+  border-right: 1px solid #E5E4E2;
+}
+
+.member-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 27px;
+  color: #000;
+}
+
+.member-top img {
+  width: 41px;
+  margin-right: 10px;
+}
+
+.member-bottom p {
+  color: #717171;
+  font-size: 16px;
+  text-align: center;
+  line-height: 23px;
+}
+
+.album-wrap {
+  background: #F6F1EB;
+  padding: 44px 10% 65px 10%;
+}
+
+.album-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.album-title {
+  font-size: 23px;
+}
+
+.album-more {
+  cursor: pointer;
+}
+
+.album-more:hover {
+  color: #b89035;
+}
+
+.album-ul {
+  display: flex;
+}
+
+.album-item {
+  width: 23.5%;
+  margin-right: 2%;
+  cursor: pointer;
+}
+
+.album-item:nth-last-child(1) {
+  margin-right: 0;
+}
+
+.img-wrap {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.album-img {
+  width: 100%;
+  transition: all ease .5s;
+}
+
+.album-img:hover {
+  transform: scale(1.2);
+
+}
+
+.album-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2px;
+  color: #000;
+}
+
+.album-intro:hover {
+  color: #b89035;
+}
+
+.album-text {
+  font-size: 20px;
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.album-jump {
+  width: 21px;
+  margin-left: 5px;
+}
+
+.register-wrap {
+  background: url('../images/home/register-wrap-bg.png');
+  background-size: cover;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.register-title {
+  margin: 25px 0;
+  font-size: 40px;
+  color: #fff;
+  font-family: '微软雅黑';
+}
+
+.register-btn {
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.color_box {
+  box-shadow: unset;
+}
