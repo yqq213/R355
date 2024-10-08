@@ -7,16 +7,20 @@
   position: relative;
 }
 /*图案列表样式*/
-.patterns-ul {
-  margin-left: -40px;
-}
 .patterns-ul > li {
   width: 208px;
   height: 256px;
   float: left;
   margin-bottom: 10px;
-  margin-left: 40px;
+  margin-right: 10px;
   position: relative;
+}
+/* 增加:nth-child(5n)是为了防止list.css文件里样式对新的图片造成影响 */
+.patterns-ul>li:nth-child(5n) {
+	margin-right: 10px;
+}
+.patterns-ul>li:nth-child(4n) {
+	margin-right: 0;
 }
 .patterns-ul > li > .pic_box {
   width: 200px;
@@ -111,13 +115,9 @@
   line-height: 24px;
 }
 /* 新卡片大小 */
-.new-patterns-ul {
-  margin-left: -26px;
-}
 .new-patterns-ul > li {
-  width: 368px;
+  width: 367px;
   height: 346px;
-  margin-left: 10px;
 }
 .new-patterns-ul > li > .pic_box {
   width: 358px;
@@ -196,8 +196,12 @@
   padding-right: 10px;
 }
 
+
+/* 注意：根据html加载的css来看，list_two.css文件里配置的样式是浅析未来、流行分析等页面的图片样式。list.css文件配置的是时装发布等页面的样式 */
+
+
 /* 抽离公共样式部分 */
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1520px) {
   .new-patterns-ul > li > .pic_box {
 		width: 100% !important;
 		height: calc(100% - 50px) !important;
@@ -219,10 +223,9 @@
 	}
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1520px) {
   .contentW {
     width: 1500px;
-		overflow-x: hidden;
   }
 }
 
@@ -231,7 +234,7 @@
     width: 1024px;
   }
 	.new-patterns-ul > li {
-		width: 249px !important;
+		width: 248px !important;
 		height: 256px !important;
 	}
 	.cp_txt {
@@ -239,12 +242,12 @@
 	}
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1500px) {
+@media screen and (min-width: 1280px) and (max-width: 1519px) {
   .contentW {
     width: 1200px;
   }
 	.new-patterns-ul > li {
-		width: 293px;
+		width: 292px;
 		height: 290px;
 	}
 	.cp_txt {
@@ -254,16 +257,4 @@
 
 @media screen and (min-width: 1024px) {
   /*图案列表样式*/
-  .patterns-ul {
-    margin-left: -50px;
-  }
-  .patterns-ul > li {
-    margin-left: 50px;
-  }
-  .new-patterns-ul {
-    margin-left: -9px;
-  }
-  .new-patterns-ul > li {
-    margin-left: 9px;
-  }
 }
