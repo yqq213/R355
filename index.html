@@ -203,7 +203,18 @@
   <div class="content-wrap">
     <div class="content-top">
       <div class="banner">
-        <div class="banner-img"></div>
+        <div class="banner-img">
+          <ul class="ul-pic">
+            <li><a href="#" target="_blank"><img src="/images/home/banner-img.png"/></a></li>
+            <li><a href="#" target="_blank"><img src="/images/home/banner-img.png"/></a></li>
+            <li><a href="#" target="_blank"><img src="/images/home/banner-img.png"/></a></li>
+          </ul>
+          <ul class="banner-num">
+            <li><a></a><span></span></li>
+            <li><a></a><span></span></li>
+            <li><a></a><span></span></li>
+          </ul>
+        </div>
         <div class="banner-right">
           <p class="banner-title">
             <span class="bold">热点区</span>
@@ -399,12 +410,23 @@
   </div>
 
   <script type="text/javascript" src="/js/Mouse.js" charset="utf-8"></script>
+  <script src="/js/jquery.SuperSlide.js"></script>
   <script>
     $(function () {
       AjaxInitForm("#feedbackform", "#btnSubmit_feedback", 0);
     });
   </script>
   <script src="/js/base.js"></script>
+  <script type="text/javascript">
+    jQuery(".banner-img").slide({
+      titCell: ".banner-num li",
+      mainCell: ".ul-pic",
+      effect: "fold",
+      autoPlay: true,
+      // autoPage: true,
+      trigger: "click",
+    });
+  </script>
 </body>
 
 </html>

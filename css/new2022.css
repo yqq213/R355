@@ -1034,6 +1034,7 @@ div.filter_label_box > a {
   width: 1024px;
 }
 
+
 /* 响应式调整 */
 @media screen and (min-width: 1900px) {
   .n-cp-box {
@@ -1181,5 +1182,69 @@ div.filter_label_box > a {
   }
   .cz3 li {
     height: 80px;
+  }
+}
+
+
+
+/* 市场款式页面VIP相关图片样式 */
+.vip-container {
+  width: 90%;
+  margin: 50px auto;
+}
+.vip-top {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.vip-more {
+  cursor: pointer;
+}
+.vip-more img {
+  margin-left: 10px;
+}
+.vip-bold {
+  font-size: 20px;
+}
+.vip-imgs {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.vip-item {
+  width: 230px;
+  cursor: pointer;
+}
+.vip-img {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.vip-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.vip-text .line {
+  width: 1px;
+  height: 14px;
+  background: #666;
+}
+
+/* 市场款式页面VIP相关图片响应式样式 */
+@media screen and (max-width: 1780px) {
+  .vip-imgs .vip-item:nth-last-child(-n + 1) {
+    display: none;
+  }
+}
+@media screen and (max-width: 1520px) {
+  .vip-imgs .vip-item:nth-last-child(-n + 2) {
+    display: none;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .vip-imgs .vip-item:nth-last-child(-n + 3) {
+    display: none;
   }
 }

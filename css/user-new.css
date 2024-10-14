@@ -4,7 +4,6 @@
   width: 1240px;
   margin-top: 36px;
   display: flex;
-  font-family: 'SimHei';
 }
 
 .user-navs {
@@ -44,7 +43,7 @@
 }
 
 .nav-item span {
-  width: 72px;
+  width: 76px;
 }
 
 .nav-arrow {
@@ -339,4 +338,40 @@
   .pay-title {
     padding: 70px 0 20px 50px;
   }
+}
+
+
+
+/* 登录日志以及消费记录样式 */
+
+.table-container {
+  padding: 50px 20px 20px;
+}
+
+.r355Table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.r355Table tr td {
+  text-align: center;
+  font-size: 12px;
+  padding: 12px 20px;
+}
+
+.r355Table thead tr {
+  background: #eaeaea;
+}
+
+.r355Table thead tr td {
+  font-size: 14px;
+}
+
+.r355Table tbody tr td {
+  border-bottom: 1px solid #eaeaea;
+  border-spacing: 0;
+}
+
+.r355Table .t-img {
+  width: 80px;
 }
