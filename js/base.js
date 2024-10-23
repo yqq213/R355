@@ -565,10 +565,95 @@ $(document).ready(function () {
 
 // 是否展示标签，flag为true表示展示标签，为false表示不展示标签
 function showTag(flag) {
-  flag ? $('.new-patterns-ul').addClass('addTag') : $('.new-patterns-ul').removeClass('addTag')
+  flag ? $('.patterns-ul').addClass('addTag') : $('.patterns-ul').removeClass('addTag')
 }
 
 // 给标签设置点数，value表示要添加的点数
 function setValueToTag(value) {
   $('.addTag>li').attr('data-content-before', value)
+  $('.addTag>.n-cp-box').attr('data-content-before', value)
+}
+
+// 点击拍照图标显示搜图弹框
+document.querySelector('.n_s3 img').addEventListener('click', function() {
+  $('.search-pop').show()
+  $('.search-content').show()
+  $('.upload-loading').hide()
+  $('.upload-error').hide()
+})
+
+// 点击外部隐藏搜图弹框
+document.addEventListener('click', function(event) {
+  if (document.querySelector('.search-pop')) {
+    var isClickPop = document.querySelector('.search-pop').contains(event.target)
+    var isClickButton = document.querySelector('.n_s3 img').contains(event.target)
+    if(!isClickPop && !isClickButton) {
+      $('.search-pop').hide()
+    }
+  }
+})
+
+// 点击重新上传
+document.querySelector('.upload-error-text a').addEventListener('click', function() {
+  $('.upload-error').hide()
+  $('.search-content').show()
+})
+
+// 拖拽dragover事件
+document.querySelector('.search-drop').addEventListener('dragover', function(event) {
+  event.preventDefault()
+  event.stopPropagation()
+  $(this).addClass('drag-over')
+})
+
+// 拖拽dragleave事件
+document.querySelector('.search-drop').addEventListener('dragleave', function(event) {
+  event.preventDefault()
+  event.stopPropagation()
+  $(this).removeClass('drag-over')
+})
+
+// 获取拖拽的文件
+document.querySelector('.search-drop').addEventListener('drop', function(event) {
+  event.preventDefault()
+  $(this).removeClass('drag-over')
+  handleUploadFile(event.dataTransfer.files[0])
+})
+
+// 监听文件上传
+document.querySelector('.upload-wrap input').addEventListener('change', function(event) {
+  handleUploadFile(event.target.files[0])
+})
+
+// 处理上传文件
+function handleUploadFile(file) {
+  console.log(file)
+  if (file.size / 1024 / 1024 > 10 || !/^image\//.test(file.type)) {
+    $('.search-content').hide()
+    $('.upload-loading').hide()
+    $('.upload-error').show()
+    return
+  }
+  // 显示上传loading
+  $('.search-content').hide()
+  $('.upload-loading').show()
+  var formData = new FormData()
+  formData.append('file', file)
+  $.ajax({
+    url: '',
+    type: 'POST',
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function(response) {
+      console.log('文件上传成功');
+      console.log(response);
+    },
+    complete: function() {
+      setTimeout(function() {
+        $('.upload-loading').hide()
+        $('.search-content').show()
+      }, 1000)
+    }
+  })
 }

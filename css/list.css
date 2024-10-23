@@ -127,6 +127,22 @@
 	background-size: 100% 100%;
 	z-index: 9;
 }
+/* 通过伪类:before给市场款式添加的标签 */
+.addTag>.n-cp-box::before {
+	content: attr(data-content-before);
+	position: absolute;
+	width: 50px;
+	height: 20px;
+	line-height: 20px;
+	right: 10px;
+	top: 10px;
+	color: #fff;
+	text-align: center;
+	font-size: 12px;
+	background: url('/images/tag-icon.png') center no-repeat;
+	background-size: 100% 100%;
+	z-index: 9;
+}
 /* 通过html里添加的标签 */
 .li-tag {
 	position: absolute;
