@@ -593,6 +593,11 @@ document.addEventListener('click', function(event) {
   }
 })
 
+// 点击关闭按钮
+document.querySelector('.upload-close').addEventListener('click', function() {
+  $('.search-pop').hide()
+})
+
 // 点击重新上传
 document.querySelector('.upload-error-text a').addEventListener('click', function() {
   $('.upload-error').hide()

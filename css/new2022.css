@@ -1280,6 +1280,15 @@ div.filter_label_box > a {
   top: 0;
   width: 100% !important;
   height: 100%;
+  font-size: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.upload-text {
+  width: 100%;
+  display: inline-block;
+  position: relative;
 }
 
 .upload-error-text {
@@ -1299,6 +1308,17 @@ div.filter_label_box > a {
   font-size: 13px;
   color: #9195a3;
   line-height: 100px;
+}
+
+.upload-close {
+  background: url('/images/close-icon.png') center no-repeat;
+  background-size: 100% 100%;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
 }
 
 .drag-over {
