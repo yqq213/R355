@@ -143,6 +143,10 @@
   position: relative;
 }
 
+.pay-item.on {
+  border-color: #FF1919;
+}
+
 .discount {
   position: absolute;
   width: 63px;
@@ -256,6 +260,10 @@
   align-items: center;
   cursor: pointer;
   position: relative;
+}
+
+.pay-img-item.on {
+  border-color: #FF1919;
 }
 
 .pay-img-item.active {
