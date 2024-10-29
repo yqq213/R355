@@ -43,6 +43,11 @@ function AjaxInitForm(formObj, btnObj, isDialog, urlObj, callback) {
     function formRequest(formData, jqForm, options) {
         $(btnObj).prop("disabled", true);
         $(btnObj).val("提交中...");
+        if(formData.length) {
+            formData.forEach(item => {
+                item.value = DOMPurify.sanitize(item.value)
+            })
+        }
     }
 
     //表单提交后

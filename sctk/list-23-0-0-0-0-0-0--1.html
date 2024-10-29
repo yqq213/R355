@@ -24,6 +24,8 @@
     <link href="/css/list.css" rel="stylesheet" type="text/css" />
     <link href="/css/smcm.css" rel="stylesheet" type="text/css" />
     <link href="/css/new2022.css" rel="stylesheet" type="text/css" />
+    <!-- 引入防xss攻击js -->
+    <script src="/js/purify.min.js"></script>
     <style>
           .accordion {
               padding: 0;
@@ -1406,7 +1408,7 @@
       $(document).ready(function () {
         $("ul.nav—b>li").eq(8).addClass("on—b");
         $("#searchBtn").click(function () {
-          var key = $("#txtkey").val();
+          var key = DOMPurify.sanitize($("#txtkey").val());
           window.location.href = "list-23-0-0-0-0-0-0-" + key + "-1.html";
         });
       });

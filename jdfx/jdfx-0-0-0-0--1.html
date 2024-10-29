@@ -26,6 +26,8 @@
     <link href="/css/list_two.css" rel="stylesheet" type="text/css" />
     <link href="/css/smcm.css" rel="stylesheet" type="text/css" />
     <link href="/css/new2022.css" rel="stylesheet" type="text/css" />
+    <!-- 引入防xss攻击js -->
+    <script src="/js/purify.min.js"></script>
   </head>
   <body>
     <script src="/js/jquery-1.7.2.min.js"></script>
@@ -964,7 +966,7 @@
       $(document).ready(function () {
         $("ul.nav—b>li").eq(3).addClass("on—b");
         $("#searchBtn").click(function () {
-          var key = $("#key").val();
+          var key = DOMPurify.sanitize($("#key").val());
           window.location.href = "jdfx-0-0-0-0-" + key + "-1.html";
         });
       });

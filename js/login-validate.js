@@ -7,13 +7,14 @@ $(function () {
             $("#msgtips").text("请填写用户名和登录密码！");
             return false;
         }
+        console.log(DOMPurify.sanitize($("#txtUserName").val()))
         $.ajax({
             type: "POST",
             url: $("#loginform").attr("url"),
             dataType: "json",
             data: {
-                "txtUserName": $("#txtUserName").val(),
-                "txtPassword": $("#txtPassword").val(),
+                "txtUserName": DOMPurify.sanitize($("#txtUserName").val()),
+                "txtPassword": DOMPurify.sanitize($("#txtPassword").val()),
                 "chkRemember": $("#chkRemember").prop("checked")
             },
             timeout: 20000,
@@ -26,10 +27,10 @@ $(function () {
                 if (data.status == 1) {
                     if (typeof (data.url) == "undefined") {
                         if (typeof ($("#turl").val()) == "undefined") {
-                            location.href = $("#user_role1_turl").val();
+                            location.href = DOMPurify.sanitize($("#user_role1_turl").val());
                         }
                         else {
-                            location.href = $("#turl").val();
+                            location.href = DOMPurify.sanitize($("#turl").val());
                         }
                     } else {
                         location.href = data.url;
