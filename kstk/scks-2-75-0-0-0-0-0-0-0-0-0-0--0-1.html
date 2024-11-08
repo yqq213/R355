@@ -2301,7 +2301,31 @@
           rotatable: false,
           scalable: false,
           title: false,
+          // 自动播放时，将图片传给后台
+          // viewed: function() {
+          //   var url = $('.viewer-navbar .viewer-active').find('img').attr('data-original-url')
+          //   if(url) doAjax(url)
+          // }
         });
+
+        // // 点击图片，将图片传给后台
+        // $('.n-cp-box .pic_box').click(function() {
+        //   var url = $(this).find('img').attr('data-original')
+        //   if(url) doAjax(url)
+        // })
+
+        // // 发送ajax
+        // function doAjax(url) {
+        //   $.ajax({
+        //     type: "POST",
+        //     url: "/ajax/add_userPoint_img.ashx",
+        //     dataType: "json",
+        //     data: {
+        //       url
+        //     },
+        //     success: function (data) {}
+        //   })
+        // }
       });
     </script>
   </body>
