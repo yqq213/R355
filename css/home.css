@@ -332,17 +332,238 @@
   cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .color_box {
   box-shadow: unset;
+}
+
+
+
+/****** 纷享网首页 style *******/
+.fenxiang {
+  background: #fff;
+}
+.home-banner {
+	height: 485px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+.banner-bg {
+	width: 100%;
+	height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.search-container {
+  width: 1024px;
+  height: 70px;
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 40px;
+}
+.search-container select {
+  color: #9FA2A8;
+  width: 80px;
+  text-align: center;
+  border: 0;
+  font-size: 18px;
+}
+.search-container .line {
+  width: 1px;
+  height: 33px;
+  margin: 0 20px;
+  background: #9FA2A8;
+}
+.search-container input {
+  flex: 1;
+  border: 0;
+  color: #9FA2A8;
+  font-size: 18px;
+}
+.search-container .camera-icon {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.search-container .search-btn {
+  width: 110px;
+  height: 100%;
+  background: #8B3DFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.w1500 {
+  width: 1500px;
+  margin: 0 auto;
+}
+.menu-list {
+  display: flex;
+  margin-bottom: 100px;
+}
+.menu-list img {
+  margin-right: 25px;
+  cursor: pointer;
+}
+.menu-list img:nth-last-child(1) {
+  margin-right: 0;
+}
+.hot-area {
+  width: 553px;
+  height: 152px;
+  position: relative;
+  background: url('/images/fenxiang/hot-choose.png') center no-repeat;
+}
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  width: 198px;
+  position: absolute;
+  top: 40px;
+  left: 327px;
+}
+.btn-group .btn-item {
+  width: 94px;
+  height: 30px;
+  background: #EEE9FE;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  color: #8B3DFF;
+  font-size: 12px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+.btn-group .btn-item:nth-child(2n) {
+  margin-right: 0;
+}
+.fenxiang .main-title {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 46px;
+}
+.photo-list1 {
+  display: flex;
+  margin-bottom: 70px;
+}
+.photo-list1 .photo-item {
+  width: 23%;
+  margin-right: calc(8% / 3);
+  cursor: pointer;
+}
+.photo-list1 .photo-item:hover .photo-item-title {
+  color: #8B3DFF;
+}
+.photo-list1 .photo-item:nth-last-child(1) {
+  margin-right: 0;
+}
+.photo-list1 .photo-item .img-wrap {
+  border-radius: 12px;
+}
+.photo-list1 .photo-item img {
+  border-radius: 12px;
+}
+.photo-item-title {
+  font-size: 23px;
+  color: #474747;
+  margin-bottom: 10px;
+}
+.photo-item-text {
+  font-size: 14px;
+  color: #717171;
+  line-height: 23px;
+}
+.recommand-bg {
+  margin-bottom: 34px;
+  display: block;
+}
+.recommand-btns {
+  display: flex;
+}
+.recommand-btn-item {
+  margin-right: 22px;
+  width: 148px;
+  height: 50px;
+  border: 1px solid;
+  border-image: radial-gradient(circle, rgba(16, 173, 211, 1), rgba(50, 125, 222, 1), rgba(78, 89, 229, 1), rgba(120, 41, 234, 1), rgba(247, 3, 251, 1)) 1 1;
+  border-radius: 3px 3px 3px 3px;
+  color: #717171;
+  font-size: 14px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  transition: all ease .5s;
+}
+.recommand-btn-item:hover {
+  background: #8B3DFF;
+  color: #fff;
+}
+.recommand-btn-item:nth-last-child(1) {
+  margin-right: 0;
+}
+.great-photo {
+  margin-bottom: 72px;
+}
+.theme-wrap {
+  background: #EEE9FE;
+  padding: 60px 0 30px 0;
+  margin-bottom: 70px;
+}
+.theme-wrap .load-more {
+  margin-bottom: 10px;
+  text-align: right;
+}
+.theme-wrap .album-more:hover {
+  color: #8B3DFF;
+}
+.theme-wrap .album-ul {
+  flex-wrap: wrap;
+}
+.theme-wrap .album-ul .album-item {
+  margin-bottom: 50px;
+}
+.theme-wrap .album-item:hover .album-text {
+  color: #8B3DFF;
+}
+.theme-wrap .album-ul .album-item:nth-child(4n) {
+  margin-right: 0;
+}
+.choose-wrap {
+  margin-bottom: 110px;
+}
+.choose-wrap .members {
+  display: flex;
+}
+.choose-wrap .members img {
+  width: 31px;
+}
+.choose-wrap .member-item {
+  border: 1px solid;
+  border-image: radial-gradient(circle, rgba(16, 173, 211, 1), rgba(50, 125, 222, 1), rgba(78, 89, 229, 1), rgba(120, 41, 234, 1), rgba(247, 3, 251, 1)) 1 1;
+}
+.choose-wrap .member-top {
+  position: relative;
+}
+.choose-wrap .free-icon {
+  position: absolute;
+  right: 25%;
+  top: 0px;
+  width: 40px;
+  height: 22px;
+  background: #8B3DFF;
+  border-radius: 3px;
+  font-size: 16px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
