@@ -1,20 +1,17 @@
 $(function() {
 
   // 模拟以图搜图返回的所有图片列表
-  var mockData = {
-    Count: 100,
-    ImageInfos: []
-  }
-  for(var i = 0; i < 100; i ++) {
-    mockData.ImageInfos.push({
-      PicName: 'http://www.r355.com/Ajax/imgtoliu.aspx?PPath=L3VwbG9hZEZpbGVzLzIwMjQxMjA5L2tzdGsvc21hbGxfMjAyNDEyMDkxMzAxNDI3NzY0LmpwZw%3d%3d',
-      Score: 83,
-      EntityId: 'qszx_one_2024041710444383097_28557'
-    })
-  }
+
+  //for(var i = 0; i < 100; i ++) {
+  //  mockData.ImageInfos.push({
+  //    PicName: 'http://www.r355.com/Ajax/imgtoliu.aspx?PPath=L3VwbG9hZEZpbGVzLzIwMjQxMjA5L2tzdGsvc21hbGxfMjAyNDEyMDkxMzAxNDI3NzY0LmpwZw%3d%3d',
+  //    Score: 83,
+  //    EntityId: 'qszx_one_2024041710444383097_28557'
+  //  })
+  //}
 
   // 每页显示的数量
-  var pageSize = 10
+  var pageSize = 20
 
   // 初始化分页
   $('#pagination').Pagination({
@@ -31,14 +28,37 @@ $(function() {
 
   // 获取分页数据
   function renderHtml(page) {
-    $('.img-container').html('')
-    var html = ''
-    for(var i = pageSize * page; i < pageSize * page + pageSize; i++) {
-      if (i < mockData.Count) {
-        html += '<li><img src=' + mockData.ImageInfos[i].PicName +' alt="' + i + '" /></li>'
-      }
+   
+    if (mockData.Count == 0) {
+        $("#pagination").hide();
+        $(".img-container").hide();
+        $('.empty-container').show();
     }
-    $('.img-container').html(html)
+    else
+    {
+        $('.img-container').html('')
+        var html = ''
+        for (let i = pageSize * page; i < pageSize * page + pageSize; i++) {
+            if (i < mockData.Count) {
+                var picurl = "https://www.r355.com/uploadFiles/" + mockData.ImageInfos[i].PicName;
+
+                // 将图片url转为base64
+                fetch(picurl).then(function(response) {
+                  return response.blob()
+                }).then(function(blob) {
+                  var reader = new FileReader()
+                  reader.onloadend = function () {
+                    picurl = reader.result;  // Base64 图片
+                    console.log(i);
+                    html += '<li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="' + picurl + '" data-original="' + picurl.replace('small_', '') + '" alt="' + mockData.ImageInfos[i].EntityId + '" /></a></li>';
+                    $('.img-container').html(html)
+                  };
+                  reader.readAsDataURL(blob);
+                })
+            }
+        }
+    }
+   
   }
 
   // 只有一页时分页隐藏
@@ -92,15 +112,26 @@ $(function() {
     var formData = new FormData()
     formData.append('file', file)
     $.ajax({
-      url: '',
-      type: 'POST',
-      data: formData,
-      contentType: false,
-      processData: false,
-      success: function(response) {
-        console.log('文件上传成功');
-        console.log(response);
-      }
+        url: '/Ajax/stTools.aspx',
+        type: 'POST',
+        data: formData,
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            if (response.state == 200) {
+                window.location.href = "/soutu.aspx?imgurl=" + response.msgbox;
+            }
+            else {
+                $('.upload-error').show();
+            }
+        },
+        complete: function () {
+            setTimeout(function () {
+                $('.upload-loading').hide()
+                $('.search-content').show()
+            }, 1000)
+        }
     })
   }
 
@@ -110,3 +141,15 @@ $(function() {
   })
 
 })
+
+function showDiv_c() {
+  document.getElementById("popDiv_c").style.display = "block";
+  document.getElementById("popIframe_c").style.display = "block";
+  document.getElementById("bg_c").style.display = "block";
+}
+
+function closeDiv_c() {
+  document.getElementById("popDiv_c").style.display = "none";
+  document.getElementById("bg_c").style.display = "none";
+  document.getElementById("popIframe_c").style.display = "none";
+}

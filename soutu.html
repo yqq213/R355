@@ -62,7 +62,7 @@
       <div class="n_img_c"><img src="images/n_img1.png" alt="" /></div>
       <div class="n_img_r">
         <div>
-          <a><img src="images/n_btn_1.png" alt="" /></a>
+          <!-- <a><img src="images/n_btn_1.png" alt="" /></a> -->
           <a href="javascript:;" onClick="javascript:showDiv_c()"
             ><img src="images/n_btn_2.png" alt=""
           /></a>
@@ -125,6 +125,12 @@
       <div class="rightc_main js-patterns-lists-box">
         <!-- 分页展示区域 -->
         <div class="img-container"></div>
+        <!-- 空数据展示 -->
+        <div
+          class="empty-container"
+          style="display: none; text-align: center; font-size: 16px; color: rgba(0,0,0,.5); padding: 80px;">
+          找不到类似相关图片！
+        </div>
         <!-- 分页 -->
         <div id="pagination" class="m-style"></div>
       </div>
@@ -265,7 +271,7 @@
       >
         <div
           class="drop_in_Close"
-          style="background: #22303d; width: 100%; margin-right: 0px"
+          style="background: #22303d; width: 100%; margin-right: 0px; z-index: 9; position: relative;"
         >
           <span
             style="
