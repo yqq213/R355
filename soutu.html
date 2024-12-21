@@ -1,327 +1,1130 @@
-{"Count":0,"ImageInfos":[],"Object":{"Box":{"Rect":{"X":340,"Y":136,"Width":480,"Height":1116},"Score":99.0,"CategoryId":0},"CategoryId":0,"Colors":[{"Color":"FFFFFF","Percentage":24.0,"Label":"White-white"},{"Color":"241D13","Percentage":18.0,"Label":"Black-seaweedgreen"},{"Color":"2C2326","Percentage":14.0,"Label":"Black-chocolate"},{"Color":"DCDCDC","Percentage":7.0,"Label":"White-gainsboro"}],"Attributes":[{"Type":"图案","Details":"国旗"},{"Type":"袖型","Details":"插肩袖"},{"Type":"颈线设计","Details":"连帽"},{"Type":"风格","Details":"复古"},{"Type":"类型","Details":"男装"},{"Type":"材质","Details":"麻织"},{"Type":"颜色","Details":"卡其"},{"Type":"类别","Details":"外套"},{"Type":"袖长","Details":"超长袖"},{"Type":"衣长","Details":"长款"}],"AllBox":[{"Rect":{"X":340,"Y":136,"Width":480,"Height":1116},"Score":99.0,"CategoryId":0},{"Rect":{"X":459,"Y":1274,"Width":169,"Height":169},"Score":63.0,"CategoryId":4},{"Rect":{"X":636,"Y":1339,"Width":220,"Height":124},"Score":71.0,"CategoryId":4},{"Rect":{"X":504,"Y":1388,"Width":125,"Height":56},"Score":50.0,"CategoryId":4},{"Rect":{"X":504,"Y":1407,"Width":41,"Height":29},"Score":26.0,"CategoryId":4}]},"RequestId":"02d13f53-31c6-4fbb-952e-714b71cc917c"}
-<!DOCTYPE html>
+<html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link href="css/base.css" rel="stylesheet" type="text/css" />
-    <link href="css/master.css" rel="stylesheet" type="text/css" />
-    <link href="css/list.css" rel="stylesheet" type="text/css" />
-    <link href="css/independent.css" rel="stylesheet" type="text/css" />
-    <link href="css/new2022.css" rel="stylesheet" type="text/css" />
-    <link href="css/soutu.css" rel="stylesheet" type="text/css">
-    <script src="/js/jquery-1.7.2.min.js"></script>
-    <style>
-      .patterns-ul .patter-left-label-position {
-        text-align: left;
-        padding: 10px 5px 0;
-        height: 45px;
-        min-height: 45px;
-      }
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>R355服饰资讯网</title>
+  <meta name="Description"
+    content="R355服饰资讯网,专业的服装设计网站,为您提供最专业的时装设计,时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会等信息">
+  <meta name="keywords"
+    content="时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会">
+  <meta name="subject" content="服装设计" />
+  <meta name="searchtitle" content="服装设计,R355服饰资讯网" />
+  <meta name="language" content="chinese" />
+  <meta name="location" content="China" />
 
-      .new-patterns-ul > li {
-        height: 330px;
-      }
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link href="css/base.css" rel="stylesheet" type="text/css" />
+  <link href="css/master.css" rel="stylesheet" type="text/css" />
+  <link href="css/list.css" rel="stylesheet" type="text/css" />
+  <link href="css/independent.css" rel="stylesheet" type="text/css" />
+  <link href="css/new2022.css" rel="stylesheet" type="text/css" />
+  <link href="/css/soutu.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/viewer.min.css">
+  <script src="/js/jquery-1.7.2.min.js"></script>
+  <style>
+    .patterns-ul .patter-left-label-position {
+      text-align: left;
+      padding: 10px 5px 0;
+      height: 45px;
+      min-height: 45px;
+    }
 
-      .n_txt li.on {
-        border-color: #b89035;
-      }
+    .new-patterns-ul>li {
+      height: 330px;
+    }
 
-      .n_txt li.on a {
-        color: #b89035;
-      }
-    </style>
-    <title> </title>
-  </head>
-  <body style="background-color: #fff">
-    <div class="new_top" style="border-bottom: 1px #22303d solid">
+    .n_txt li.on {
+      background-color: #000;
+    }
+
+    .n_txt li.on a {
+      color: #fff
+    }
+
+    .left_btn {
+      position: fixed;
+      z-index: 999999;
+      left: 5px;
+      top: 40%;
+    }
+
+    .right_btn_1 {
+      position: fixed;
+      z-index: 999999;
+      right: 5px;
+      top: 40% !important;
+    }
+  </style>
+</head>
+
+<body style="background-color: #fff;">
+
+  <script src="/js/jquery-1.7.2.min.js"></script>
+  <div id="top_nav">
+    <div class="new_top">
       <div class="new_top_box">
-        <div class="new_top_l"><img src="images/n_logo.png" alt="" /></div>
-        <div class="new_top_c">
-          <img src="images/n_icon_a.png" alt="" />以图搜图
-        </div>
-        <div class="new_top_r" style="padding-right: 30px">
-          <div class="n_search" style="width: 600px">
+        <div class="new_top_l"><a href="http://2024.r355.com/"><img src="/images/n_logo.png" alt="R355服饰资讯网"></a></div>
+        <div class="new_top_r1">
+          <div class="n_search">
             <div class="n_s1">
-              <img src="images/n_icon_c.png" alt="" />
+              <img src="/images/n_icon_c.png" alt="R355服饰资讯网">
             </div>
-            <div class="n_s2">
-              <input name="" type="text" placeholder="请输入关键词" class="" />
-            </div>
-            <div class="n_s4"><a>栏目搜</a> | <a>全站搜</a></div>
+            <div class="n_s2"><input name="" type="text" placeholder="请输入关键词" class=""></div>
+            <div class="n_s4"><a>全站搜</a></div>
             <div class="n_s3">
-              <a><img src="images/n_icon_b.png" alt="" /></a>
+              <a><img src="/images/n_icon_b.png" alt=""></a>
+            </div>
+            <!-- 拍照搜索弹框 -->
+            <div class="search-pop">
+              <div class="search-content">
+                <div class="search-drop">拖拽图片到这里</div>
+                <div class="upload-wrap">
+                  <input type="file" class="upload-pic" value="上传图片">
+                  <span class="upload-text">选择文件</span>
+                </div>
+              </div>
+              <div class="upload-error" style="display: none;">
+                <div class="upload-error-text">抱歉，您上传的文件不是图片格式，请<a href="javascript:void(0)">重新上传</a></div>
+                <div class="upload-error-text">仅支持5M以下jpg，jpeg，png格式图片,图片分辨率不超过4096*4096</div>
+              </div>
+              <div class="upload-loading" style="display: none;">正在加载图片...</div>
+              <div class="upload-close"></div>
             </div>
           </div>
+
+
+        </div>
+
+        <div class="n-user">欢迎您，<span style="background-color: #eeeeee;">yqq(内部会员) <a href="/member/default.aspx"
+              class="app" style="color: #ff0000;">会员中心</a> | <a href="/member/loginOut.aspx">退 出</a></span>
+          <a href="/about/downLoadUrl.aspx"><img src="/images/app.png" width="118" height="31"></a>
+        </div>
+
+      </div>
+    </div>
+    <div class="color_box">
+      <ul id="nav—b" class="nav—b clearfix—b" style="width:100%; text-align:center;">
+        <li class="nLi—b">
+          <h3><a href="http://2024.r355.com/">首页</a></h3>
+        </li>
+        <li class="nLi—b">
+          <h3><a>|</a></h3>
+        </li>
+        <li class="nLi—b">
+          <h3><a href="/qszx/scqs-0-0-0-0--1.html">浅析未来</a></h3>
+          <ul class="sub—b">
+            <li><a href="/qszx/scqs-0-0-0-0--1.html">全部</a></li>
+            <li><a href="/qszx/scqs-10-0-0-0--1.html">色彩趋势</a></li>
+            <li><a href="/qszx/scqs-13-0-0-0--1.html">图案趋势</a></li>
+            <li><a href="/qszx/scqs-11-0-0-0--1.html">面料趋势</a></li>
+          </ul>
+        </li>
+        <li class="nLi—b">
+          <h3><a href="/jdfx/jdfx-0-0-0-0--1.html">流行分析</a></h3>
+          <ul class="sub—b">
+            <li><a href="/jdfx/jdfx-12-0-0-0--1.html">T台分析</a></li>
+            <li><a href="/jdfx/jdfx-942-0-0-0--1.html">品牌分析</a></li>
+            <li><a href="/jdfx/jdfx-943-0-0-0--1.html">零售分析</a></li>
+            <li><a href="/jdfx/jdfx-945-0-0-0--1.html">展会分析</a></li>
+            <li><a href="/jdfx/jdfx-944-0-0-0--1.html">订货会分析</a></li>
+          </ul>
+        </li>
+        <li class="nLi—b">
+          <h3><a href="javascript:;">品牌图库</a></h3>
+          <ul class="sub—b">
+            <li><a href="/kstk/xiangce-881.html">设计师品牌</a></li>
+            <li><a href="/kstk/xiangce-3.html">商品品牌</a></li>
+            <li><a href="/kstk/xiangce-7.html">运动品牌</a></li>
+            <li><a href="/kstk/xiangce-8.html">户外品牌</a></li>
+
+            <li><a href="/qszx/dhh-0-0-0-0-1.html">订货会款式</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nLi—b">
+          <h3><a href="javascript:;">市场款式</a></h3>
+          <ul class="sub—b">
+            <li><a href="/kstk/scks-2-75-0-0-0-0-0-0-0-0-0-0--0-1.html">T恤</a></li>
+            <li><a href="/kstk/scks-2-80-0-0-0-0-0-0-0-0-0-0--0-1.html">卫衣</a></li>
+            <li><a href="/kstk/scks-2-270-0-0-0-0-0-0-0-0-0-0--0-1.html">夹克</a></li>
+            <li><a href="/kstk/scks-2-67-0-0-0-0-0-0-0-0-0-0--0-1.html">棉衣/羽绒</a></li>
+            <li><a href="/kstk/scks-2-271-0-0-0-0-0-0-0-0-0-0--0-1.html">马夹</a></li>
+            <li><a href="/kstk/scks-2-73-0-0-0-0-0-0-0-0-0-0--0-1.html">皮衣</a></li>
+            <li><a href="/kstk/scks-2-74-0-0-0-0-0-0-0-0-0-0--0-1.html">单西</a></li>
+            <li><a href="/kstk/scks-2-272-0-0-0-0-0-0-0-0-0-0--0-1.html">中长外套</a></li>
+            <li><a href="/kstk/scks-2-76-0-0-0-0-0-0-0-0-0-0--0-1.html">衬衫</a></li>
+            <li><a href="/kstk/scks-2-77-0-0-0-0-0-0-0-0-0-0--0-1.html">毛衫</a></li>
+            <li><a href="/kstk/scks-2-845-0-0-0-0-0-0-0-0-0-0--0-1.html">套装</a></li>
+            <li><a href="/kstk/scks-872-873-0-0-0-0-0-0-0-0-0-0--0-1.html">商务裤</a></li>
+            <li><a href="/kstk/scks-872-874-0-0-0-0-0-0-0-0-0-0--0-1.html">休闲裤</a></li>
+            <li><a href="/kstk/scks-872-875-0-0-0-0-0-0-0-0-0-0--0-1.html">牛仔裤</a></li>
+            <li><a href="/kstk/scks-872-876-0-0-0-0-0-0-0-0-0-0--0-1.html">欧货裤</a></li>
+            <li><a href="/kstk/scks-872-877-0-0-0-0-0-0-0-0-0-0--0-1.html">多袋裤</a></li>
+          </ul>
+        </li>
+
+        <li class="nLi—b">
+          <h3><a href="/qszx/fbh-0-0-0-0-0-0-0-1.html">时装发布</a></h3>
+        </li>
+
+        <li class="nLi—b">
+          <h3><a href="javascript:;">读物探究</a></h3>
+          <ul class="sub—b">
+            <li><a href="/books/list-946-0-0-0-0-0-1.html">月刊</a></li>
+            <li><a href="/books/list-947-0-0-0-0-0-1.html">趋势书籍</a></li>
+            <li><a href="/books/list-18-0-0-0-0-0-1.html">国外杂志</a></li>
+          </ul>
+        </li>
+
+        <li class="nLi—b">
+          <h3><a href="javascript:;">流行图案</a></h3>
+          <ul class="sub—b">
+            <li><a href="/sctk/list-23-0-0-0-0-0-0--1.html">灵感素材</a></li>
+            <li><a href="/sctk/list-948-0-0-0-0-0-0--1.html">原创图案</a></li>
+            <li><a href="/sctk/dptaList-949-0-0-0-0-0-0--1.html">大牌图案</a></li>
+          </ul>
+        </li>
+
+        <li class="nLi—b">
+          <h3><a href="javascript:;">独家原创</a></h3>
+          <ul class="sub—b">
+            <li><a href="/djyc/books-946-0-0-0-0-0-1.html">BRT</a></li>
+            <li><a href="/djyc/books-947-0-0-0-0-0-1.html">趋势</a></li>
+            <li><a href="/djyc/tuan-948-0-0-0-0-0-0--1.html">图案</a></li>
+          </ul>
+        </li>
+        <li class="nLi—b">
+          <h3><a>|</a></h3>
+        </li>
+        <li class="nLi—b n-bo">
+          <h3><a href="/djyc/books-946-0-0-0-0-0-1.html">BRT Book</a></h3>
+        </li>
+
+        <li class="nLi—b">
+          <h3><a href="/books/list-947-0-0-0-0-0-1.html">趋势书籍</a></h3>
+        </li>
+
+        <li class="nLi—b">
+          <h3><a href="/sctk/list-948-0-0-0-0-0-0--1.html">原创图案</a></h3>
+        </li>
+        <li class="nLi—b">
+          <h3><a href="/sctk/dptaList-949-0-0-0-0-0-0--1.html">大牌图案</a></h3>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="n_img">
+    <div class="n_img_c"><img src="/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg" alt=""></div>
+    <div class="n_img_r">
+      <div>
+        <a><img src="images/n_btn_1.png" alt=""></a>
+        <a href="javascript:;" onClick="javascript:showDiv_c()"><img src="images/n_btn_2.png" alt=""></a>
+      </div>
+      <div class="div">
+        <div style="float:left;line-height: 30px;">关键字：</div>
+        <div style="float:left">
+          <ul class="n_txt">
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=印绣花">印绣花</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=撞色拼接">撞色拼接</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=中长外套">中长外套</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=洗水">洗水</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=工装">工装</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=工艺">工艺</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=章仔">章仔</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=套装">套装</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=商务裤">商务裤</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=休闲裤">休闲裤</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=运动服">专业运动服</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=图案">图案</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=小标">小标</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=手绘">手绘</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=国潮">国潮</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=趣味">趣味</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=单色">单色</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=格子">格子</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=条纹">条纹</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=软壳">软壳</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=绗线">绗线</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=棒球服">棒球服</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=开衫">开衫</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=套头">套头</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=polo领">polo领</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=女装棉服">女装棉服</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=单西">单西</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=棉服羽绒">棉服羽绒</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=马夹">马夹</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=皮衣">皮衣</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=松紧">松紧</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=极简">极简</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=微潮">微潮</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=破洞">破洞</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=拉链">拉链</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=侧边">侧边</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=短裤">短裤</a></li>
+            <li><a href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg&tag=沙滩裤">沙滩裤</a></li>
+
+            <li style="background-color:#f1f1f1"><a
+                href="soutu.aspx?imgurl=/soutuImg/20241217/0N0F882F0FTPJ8FJ88.jpg">撤销关键字检索</a></li>
+          </ul>
         </div>
       </div>
     </div>
 
-    <div class="n_img">
-      <div class="n_img_c"><img src="images/n_img1.png" alt="" /></div>
-      <div class="n_img_r">
-        <div>
-          <!-- <a><img src="images/n_btn_1.png" alt="" /></a> -->
-          <a href="javascript:;" onClick="javascript:showDiv_c()"
-            ><img src="images/n_btn_2.png" alt=""
-          /></a>
-        </div>
-        <div class="div">
-          <div style="float: left; line-height: 30px">关键字：</div>
-          <div style="float: left">
-            <ul class="n_txt">
-              <li>
-                <a>格纹</a>
-              </li>
-              <li>
-                <a>拼接</a>
-              </li>
-              <li>
-                <a>撞色</a>
-              </li>
-              <li>
-                <a>迷彩</a>
-              </li>
-              <li>
-                <a>重工艺</a>
-              </li>
-              <li>
-                <a>满印</a>
-              </li>
-              <li>
-                <a>章仔</a>
-              </li>
-              <li>
-                <a>格纹</a>
-              </li>
-              <li>
-                <a>拼接</a>
-              </li>
-              <li>
-                <a>撞色</a>
-              </li>
-              <li>
-                <a>迷彩</a>
-              </li>
-              <li>
-                <a>重工艺</a>
-              </li>
-              <li>
-                <a>满印</a>
-              </li>
-              <li>
-                <a>章仔</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="rightc_top contentW" style="clear: both; overflow: hidden">
-      <div class="js_color_analysis" style="display: none">
-        <div class="color_analysis"></div>
-      </div>
-      <div class="rightc_main js-patterns-lists-box">
-        <!-- 分页展示区域 -->
-        <div class="img-container"></div>
-        <!-- 空数据展示 -->
-        <div
-          class="empty-container"
-          style="display: none; text-align: center; font-size: 16px; color: rgba(0,0,0,.5); padding: 80px;">
-          找不到类似相关图片！
-        </div>
-        <!-- 分页 -->
-        <div id="pagination" class="m-style"></div>
-      </div>
-    </div>
 
-    <script
-      type="text/javascript"
-      charset="utf-8"
-      src="/js/artdialog/dialog-plus-min.js"
-    ></script>
-    <script type="text/javascript" src="/js/jquery.form.min.js"></script>
-    <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
-    <script src="/js/smcm.js"></script>
-    <link rel="stylesheet" href="/css/validate.css" />
-    <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
-    <ul class="kf">
-      <li class="li1">
-        <div class="show_a">
+  </div>
+
+  <div class="rightc_top contentW" style="clear: both; overflow: hidden">
+    <div class="js_color_analysis" style="display: none">
+      <div class="color_analysis"></div>
+    </div>
+    <div class="rightc_main js-patterns-lists-box">
+      <!-- 分页展示区域 -->
+      <div class="img-container"></div>
+      <!-- 分页 -->
+      <div id="pagination" class="m-style"></div>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+  <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+  <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
+  <script src="/js/smcm.js"></script>
+  <link rel="stylesheet" href="/css/validate.css" />
+  <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
+  <ul class="kf">
+    <li class="li1">
+      <div class="show_a"><em></em>
+        <div style="padding-left:10px">
+          <div class="kf_titel">在线客服</div>
+          <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img
+              border="0" style="margin-top:5px" title="点击这里给我发消息" alt="点击这里给我发消息"
+              src="http://wpa.qq.com/pa?p=2:18550168:41"></a>
+        </div>
+        <div><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3871105&amp;site=qq&amp;menu=yes" target="_blank"><img
+              border="0" style="margin-top:5px; margin-left:10px" title="点击这里给我发消息" alt="点击这里给我发消息"
+              src="http://wpa.qq.com/pa?p=2:3871105:41"></a></div>
+      </div>
+    </li>
+    <li class="li2">
+      <div class="show_b"><em></em>
+        <div class="kf_titel">联系我们</div>
+        <p>020-31232355</p>
+      </div>
+    </li>
+    <li class="li3">
+      <div class="show_c">
+        <form id="feedbackform" name="feedbackform" url="/Ajax/addneed.ashx">
+          <div class="kf_titel">会员需求与建议</div>
           <em></em>
-          <div style="padding-left: 10px">
-            <div class="kf_titel">在线客服</div>
-            <a
-              href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes"
-              target="_blank"
-              ><img
-                border="0"
-                style="margin-top: 5px"
-                title="点击这里给我发消息"
-                alt="点击这里给我发消息"
-                src="http://wpa.qq.com/pa?p=2:18550168:41"
-            /></a>
-          </div>
-          <div>
-            <a
-              href="http://wpa.qq.com/msgrd?v=3&amp;uin=3871105&amp;site=qq&amp;menu=yes"
-              target="_blank"
-              ><img
-                border="0"
-                style="margin-top: 5px; margin-left: 10px"
-                title="点击这里给我发消息"
-                alt="点击这里给我发消息"
-                src="http://wpa.qq.com/pa?p=2:3871105:41"
-            /></a>
-          </div>
-        </div>
-      </li>
-      <li class="li2">
-        <div class="show_b">
-          <em></em>
-          <div class="kf_titel">联系我们</div>
-          <p>020-31232355</p>
-        </div>
-      </li>
-      <li class="li3">
-        <div class="show_c">
-          <form id="feedbackform" name="feedbackform" url="/Ajax/addneed.ashx">
-            <div class="kf_titel">会员需求与建议</div>
-            <em></em>
-            <textarea
-              rows="5"
-              name="xqjy"
-              class="textarea"
-              placeholder="请在此详细输入您公司目前所需资料类型或提交宝贵意见，我司将会在最短的时间内为您上传所需的资料，谢谢！"
-            ></textarea>
-            <div class="lay">
-              <input
-                type="submit"
-                id="btnSubmit_feedback"
-                class="Submission1"
-                value="提交"
-              />
-            </div>
-          </form>
-        </div>
-      </li>
-      <a
-        href="http://widget.weibo.com/dialog/follow.php?fuid=2825343592&refer=www.r355.com&language=zh_cn&type=widget_page&vsrc=app_followbutton&backurl=http%3A%2F%2Fwww.r355.com%2F&rnd=1395281896175"
-        title="新浪微博"
-        target="_blank"
-      >
-        <li class="li4"></li>
-      </a>
-      <li class="li5">
-        <div class="show_d">
-          <em></em
-          ><img src="/images/weixin_code.png" width="106" height="240" />
-        </div>
-      </li>
-      <li class="li7"></li>
-    </ul>
-    <div class="n-bottom">
-      <div class="n-bottom-l">
-        <p class="n-n1">UNLIMITED</p>
-        <p class="n-n1">INFORMATION</p>
-        <p>Accurate market information and effective innovation information</p>
-        <p>Capture information from all over the world at the fastest speed.</p>
+          <textarea rows="5" name="xqjy" class="textarea"
+            placeholder="请在此详细输入您公司目前所需资料类型或提交宝贵意见，我司将会在最短的时间内为您上传所需的资料，谢谢！"></textarea>
+          <div class="lay"><input type="submit" id="btnSubmit_feedback" class="Submission1" value="提交"></div>
+        </form>
       </div>
-      <div class="n-bottom-c">
-        <p>
-          <a href="/about/R355-1636.html">关于我们</a><i>|</i
-          ><a href="/about/R355-1637.html">联系我们</a><i>|</i
-          ><a href="/about/R355-1632.html">免责声明</a><i>|</i
-          ><a href="/about/R355-1633.html">会员须知</a><i>|</i
-          ><a href="/about/R355-1639.html">收费说明</a><i>|</i
-          ><a href="/about/R355-1640.html">汇款方式</a><i>|</i
-          ><a href="/about/R355-1641.html">办理流程</a>
-        </p>
-        <p class="n-copy">
-          Copyright 2007-2025 R355.com, All Rights Reserved
-          <a
-            href="https://beian.miit.gov.cn"
-            target="_blank"
-            style="font-size: 10px"
-            >闽ICP备07502261号-1</a
-          >
-        </p>
-        <p class="n-copy">R355服饰资讯网（R355.com）版权所有</p>
-      </div>
-      <div class="n-bottom-r"><img src="/images/ply-2.png" alt="" /></div>
+    </li>
+    <a href="http://widget.weibo.com/dialog/follow.php?fuid=2825343592&refer=www.r355.com&language=zh_cn&type=widget_page&vsrc=app_followbutton&backurl=http%3A%2F%2Fwww.r355.com%2F&rnd=1395281896175"
+      title="新浪微博" target="_blank">
+      <li class="li4"></li>
+    </a>
+    <li class="li5">
+      <div class="show_d"><em></em><img src="/images/weixin_code.png" width="106" height="240"></div>
+    </li>
+    <li class="li7"></li>
+  </ul>
+  <div class="n-bottom">
+    <div class="n-bottom-l">
+      <p class="n-n1">UNLIMITED</p>
+      <p class="n-n1">INFORMATION</p>
+      <p>Accurate market information and effective innovation information</p>
+      <p>Capture information from all over the world at the fastest speed.</p>
+
     </div>
+    <div class="n-bottom-c">
+      <p><a href="/about/R355-1636.html">关于我们</a><i>|</i><a href="/about/R355-1637.html">联系我们</a><i>|</i><a
+          href="/about/R355-1632.html">免责声明</a><i>|</i><a href="/about/R355-1633.html">会员须知</a><i>|</i><a
+          href="/about/R355-1639.html">收费说明</a><i>|</i><a href="/about/R355-1640.html">汇款方式</a><i>|</i><a
+          href="/about/R355-1641.html">办理流程</a></p>
+      <p class="n-copy">Copyright 2007-2025 R355.com, All Rights Reserved <a href="https://beian.miit.gov.cn"
+          target="_blank" style="font-size:10px">闽ICP备07502261号-1</a></p>
+      <p class="n-copy">R355服饰资讯网（R355.com）版权所有</p>
+    </div>
+    <div class="n-bottom-r"><img src="/images/ply-2.png" alt=""></div>
 
-    <script type="text/javascript" src="/js/Mouse.js" charset="utf-8"></script>
-    <script>
-      $(function () {
-        AjaxInitForm("#feedbackform", "#btnSubmit_feedback", 0);
-      });
-    </script>
-    <script src="/js/purify.min.js"></script>
-    <script src="/js/jquery.SuperSlide.js"></script>
-    <script src="/js/base.js"></script>
-    <script src="/js/jquery.pagination.js"></script>
-    <script src="/js/soutu.js"></script>
 
-    <div id="popDiv_c" class="mydiv_c" style="display: none">
-      <div
-        class="drop_in"
-        style="background-color: #eeeeee !important; height: auto !important"
-      >
-        <div
-          class="drop_in_Close"
-          style="background: #22303d; width: 100%; margin-right: 0px; z-index: 9; position: relative;"
-        >
-          <span
-            style="
+  </div>
+
+  <script type="text/javascript" src="/js/Mouse.js" charset="utf-8"></script>
+  <script>
+    $(function () {
+      AjaxInitForm('#feedbackform', '#btnSubmit_feedback', 0);
+    });
+  </script>
+  <script src="/js/purify.min.js"></script>
+  <script src="/js/jquery.SuperSlide.js"></script>
+  <script src="/js/base.js"></script>
+  <script>
+    var mockData = {
+      Count: 100,
+      ImageInfos: [
+        {
+          "EntityId": "scsz_one_20201119180308020012_190999",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20201120\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201119/kstk/small_202011191803010443.jpg",
+          "Score": 68
+        },
+        {
+          "EntityId": "scsz_one_2022061416414440782_222913",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20220616\", \"t5\": \"T恤\", \"t6\": \"3613\", \"t7\": \"休闲\"}",
+          "PicName": "20220614/kstk/small_202206141641377187.jpg",
+          "Score": 67
+        },
+        {
+          "EntityId": "scsz_one_2020100618104174911_186303",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20201007\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201006/kstk/small_202010061810404239.jpg",
+          "Score": 66
+        },
+        {
+          "EntityId": "scsz_one_2017032216492421750_109234",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t1\": \"\", \"t4\": \"20170323\", \"t5\": \"T恤\", \"t6\": \"2190\", \"t7\": \"休闲\"}",
+          "PicName": "20170322/kstk/small_201703221649153414.jpg",
+          "Score": 65
+        },
+        {
+          "EntityId": "scsz_one_2023031709571439356_236238",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20230317\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230317/kstk/small_202303170957090302.jpg",
+          "Score": 65
+        },
+        {
+          "EntityId": "scsz_one_2020100814551365543_186539",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20201009\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201008/kstk/small_202010081454510239.jpg",
+          "Score": 65
+        },
+        {
+          "EntityId": "scsz_one_20230327105236201914_236733",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20230327\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230327/kstk/small_202303271052290925.jpg",
+          "Score": 64
+        },
+        {
+          "EntityId": "scsz_one_20201016175239939033_187480",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20201017\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201016/kstk/small_202010161752311634.jpg",
+          "Score": 64
+        },
+        {
+          "EntityId": "scsz_one_2017040816323782421_110469",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t1\": \"\", \"t4\": \"20170410\", \"t5\": \"T恤\", \"t6\": \"2190\", \"t7\": \"休闲\"}",
+          "PicName": "20170408/kstk/small_201704081632275585.jpg",
+          "Score": 64
+        },
+        {
+          "EntityId": "scsz_one_20230331141721485616_236953",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20230331\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230331/kstk/small_202303311417123898.jpg",
+          "Score": 64
+        },
+        {
+          "EntityId": "scsz_one_2017051216594407005_113499",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t1\": \"字母\", \"t4\": \"20170513\", \"t5\": \"T恤\", \"t6\": \"2190\", \"t7\": \"休闲\"}",
+          "PicName": "20170512/kstk/small_201705121659377732.jpg",
+          "Score": 64
+        },
+        {
+          "EntityId": "scsz_one_20201031121019029512_189105",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20201102\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201031/kstk/small_202010311210130430.jpg",
+          "Score": 64
+        },
+        {
+          "EntityId": "scsz_one_2020062416370361492_176949",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20200626\", \"t5\": \"T恤\", \"t6\": \"2805\", \"t7\": \"休闲\"}",
+          "PicName": "20200624/kstk/small_202006241636529438.jpg",
+          "Score": 64
+        },
+        {
+          "EntityId": "scsz_one_20210424105407414926_199907",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20210401\", \"t5\": \"T恤\", \"t6\": \"3130\", \"t7\": \"休闲\"}",
+          "PicName": "20210331/kstk/small_202103311739048658.jpg",
+          "Score": 63
+        },
+        {
+          "EntityId": "scsz_one_2017052016572627510_114192",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t1\": \"\", \"t2\": \"\", \"t4\": \"20170522\", \"t5\": \"T恤\", \"t6\": \"2190\", \"t7\": \"休闲\"}",
+          "PicName": "20170520/kstk/small_201705201657218220.jpg",
+          "Score": 63
+        },
+        {
+          "EntityId": "scsz_one_2020112617383405891_191638",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20201127\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201126/kstk/small_202011261738293869.jpg",
+          "Score": 63
+        },
+        {
+          "EntityId": "scsz_one_2020111817315657212_190921",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t1\": \"字母\", \"t4\": \"20201119\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201118/kstk/small_202011181731544265.jpg",
+          "Score": 63
+        },
+        {
+          "EntityId": "scsz_one_2020111315483755812_190490",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t4\": \"20201114\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201113/kstk/small_202011131548334917.jpg",
+          "Score": 63
+        },
+        {
+          "EntityId": "scsz_one_2018062016490717034_139763",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"\", \"t1\": \"字母\", \"t2\": \"\", \"t4\": \"20180621\", \"t5\": \"T恤\", \"t6\": \"2250\", \"t7\": \"休闲\"}",
+          "PicName": "20180620/kstk/small_201806201649023051.jpg",
+          "Score": 63
+        },
+        {
+          "EntityId": "scsz_one_20210423140830324421_200017",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20210403\", \"t5\": \"T恤\", \"t6\": \"3130\", \"t7\": \"休闲\"}",
+          "PicName": "20210402/kstk/small_202104021645062420.jpg",
+          "Score": 63
+        },
+        {
+          "EntityId": "scsz_one_20201107152330480511_188237",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t4\": \"20201024\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201023/kstk/small_202010231759000446.jpg",
+          "Score": 63
+        },
+        {
+          "EntityId": "scsz_one_2023030409540959734_235576",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t4\": \"20230304\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230304/kstk/small_202303040954015104.jpg",
+          "Score": 63
+        },
+        {
+          "EntityId": "scsz_one_20230316154545875711_236191",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t4\": \"20230316\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230316/kstk/small_202303161545410603.jpg",
+          "Score": 63
+        },
+        {
+          "EntityId": "scsz_one_20230324155445149224_236540",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20230324\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230324/kstk/small_202303241553489939.jpg",
+          "Score": 63
+        },
+        {
+          "EntityId": "scsz_one_2020081916462248271_181919",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20200820\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20200819/kstk/small_202008191646192326.jpg",
+          "Score": 63
+        },
+        {
+          "EntityId": "scsz_one_2023031114302858983_235979",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20230311\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230311/kstk/small_202303111430091709.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_20170721163716165211_119410",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t1\": \"字母\", \"t4\": \"20170722\", \"t5\": \"T恤\", \"t6\": \"2190\", \"t7\": \"休闲\"}",
+          "PicName": "20170721/kstk/small_201707211637091417.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_2021041416592022722_200736",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20210415\", \"t5\": \"T恤\", \"t6\": \"3130\", \"t7\": \"休闲\"}",
+          "PicName": "20210414/kstk/small_202104141659133715.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_2022051217170391403_221820",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20220514\", \"t5\": \"T恤\", \"t6\": \"3613\", \"t7\": \"休闲\"}",
+          "PicName": "20220512/kstk/small_202205121716254191.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_2017042916594694671_112412",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t1\": \"字母\", \"t2\": \"\", \"t3\": \"\", \"t4\": \"20170502\", \"t5\": \"T恤\", \"t6\": \"2190\", \"t7\": \"休闲\"}",
+          "PicName": "20170429/kstk/small_201704291659411029.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_20230408172609077336_237288",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"工艺\", \"t4\": \"20230408\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230408/kstk/small_202304081725558234.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_2017051916555320096_114059",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t1\": \"字母\", \"t4\": \"20170520\", \"t5\": \"T恤\", \"t6\": \"2190\", \"t7\": \"休闲\"}",
+          "PicName": "20170519/kstk/small_201705191655461072.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_2017060615015380100_115706",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t4\": \"20170607\", \"t5\": \"T恤\", \"t6\": \"2190\", \"t7\": \"休闲\"}",
+          "PicName": "20170606/kstk/small_201706061501515510.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_20230408172607288219_237288",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"工艺\", \"t4\": \"20230408\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230408/kstk/small_202304081725519289.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_2022100811472474697_228579",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20221012\", \"t5\": \"T恤\", \"t6\": \"4102\", \"t7\": \"休闲\"}",
+          "PicName": "20221008/kstk/small_202210081147204844.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_2023040414044655255_237080",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20230404\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230404/kstk/small_202304041404414695.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_2020051409060644256_173110",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t4\": \"20200514\", \"t5\": \"T恤\", \"t6\": \"2805\", \"t7\": \"休闲\"}",
+          "PicName": "20200514/kstk/small_202005140905496971.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_20201031121018927011_189105",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20201102\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201031/kstk/small_202010311210128467.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_20230408153730998923_236901",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20230330\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230330/kstk/small_202303301110337797.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_20230304095244048916_235573",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20230304\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"电商\"}",
+          "PicName": "20230304/kstk/small_202303040950349790.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_20230519155024640814_236798",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20230328\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230328/kstk/small_202303280945066612.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_2017040215025280520_110190",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t1\": \"撞色拼接\", \"t2\": \"\", \"t3\": \"\", \"t4\": \"20170405\", \"t5\": \"T恤\", \"t6\": \"2190\", \"t7\": \"休闲\"}",
+          "PicName": "20170402/kstk/small_201704021502472896.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_2017030117254004952_107514",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t1\": \"字母\", \"t4\": \"201732\", \"t5\": \"T恤\", \"t6\": \"2190\", \"t7\": \"休闲\"}",
+          "PicName": "20170301/kstk/small_201703011725164399.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_2020110715275240215_187055",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20201014\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201013/kstk/small_202010131723195713.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_20230324155557171823_236548",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"工艺\", \"t4\": \"20230324\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230324/kstk/small_202303241555499257.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_2020092215485619751_185203",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20200923\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20200922/kstk/small_202009221548539650.jpg",
+          "Score": 62
+        },
+        {
+          "EntityId": "scsz_one_2020082617204085710_182794",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20200827\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20200826/kstk/small_202008261720357330.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_20230325095201223514_236624",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"工艺\", \"t4\": \"20230325\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230325/kstk/small_202303250951500878.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2020081916462259112_181919",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20200820\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20200819/kstk/small_202008191646193860.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2023032509555333313_236628",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20230325\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230325/kstk/small_202303250955442833.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_20230321104602103512_236406",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"工艺\", \"t4\": \"20230321\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"电商\"}",
+          "PicName": "20230321/kstk/small_202303211045574169.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2020100417525232783_186086",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20201005\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201004/kstk/small_202010041752369436.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2019042017503597878_154076",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"\", \"t4\": \"20190424\", \"t5\": \"T恤\", \"t6\": \"2578\", \"t7\": \"休闲\"}",
+          "PicName": "20190420/kstk/small_201904201750318147.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2019060612011300212_155561",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"\", \"t1\": \"字母\", \"t2\": \"\", \"t3\": \"\", \"t4\": \"20190606\", \"t5\": \"T恤\", \"t6\": \"2578\", \"t7\": \"休闲\"}",
+          "PicName": "20190606/kstk/small_201906061201114982.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_20230418153030515610_236361",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20230320\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230320/kstk/small_202303201410167059.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2023032710523535326_236733",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20230327\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230327/kstk/small_202303271052280359.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2020101617400958051_187470",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20201017\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201016/kstk/small_202010161740069564.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2017032316593166611_109317",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t1\": \"撞色拼接\", \"t2\": \"字母\", \"t4\": \"20170324\", \"t5\": \"T恤\", \"t6\": \"2190\", \"t7\": \"休闲\"}",
+          "PicName": "20170323/kstk/small_201703231659281025.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_20230316154545770310_236191",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t4\": \"20230316\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230316/kstk/small_202303161545409392.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2023031009581740652_235907",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20230310\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230310/kstk/small_202303100957171789.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2020102609441648590_188368",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t1\": \"撞色拼接\", \"t2\": \"字母\", \"t4\": \"20201026\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201024/kstk/small_202010241620039934.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_20230519155055579234_236797",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20230328\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230328/kstk/small_202303280944408692.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_20230519154821511726_236843",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"工艺\", \"t4\": \"20230329\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230329/kstk/small_202303291202167256.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_20201031121018824410_189105",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20201102\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201031/kstk/small_202010311210126602.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2023040116361345661_237003",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"极简\", \"t4\": \"20230401\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230401/kstk/small_202304011634480035.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2018081921544413110_141987",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"\", \"t1\": \"\", \"t4\": \"20180815\", \"t5\": \"T恤\", \"t6\": \"2250\", \"t7\": \"欧货\"}",
+          "PicName": "20180819/kstk/small_201808192154200745.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2021060717563471443_203658",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t4\": \"20210608\", \"t5\": \"T恤\", \"t6\": \"3130\", \"t7\": \"休闲\"}",
+          "PicName": "20210607/kstk/small_202106071756253979.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2017062916291771070_117431",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t4\": \"20170630\", \"t5\": \"T恤\", \"t6\": \"2190\", \"t7\": \"休闲\"}",
+          "PicName": "20170629/kstk/small_201706291629142888.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2020050818263000021_172649",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"印绣花\", \"t4\": \"20200509\", \"t5\": \"T恤\", \"t6\": \"2805\", \"t7\": \"休闲\"}",
+          "PicName": "20200508/kstk/small_202005081826283517.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2020050510290869130_172118",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"工艺\", \"t4\": \"20200505\", \"t5\": \"T恤\", \"t6\": \"2805\", \"t7\": \"欧货\"}",
+          "PicName": "20200505/kstk/small_202005051026514854.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2020033015262932934_170609",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20200331\", \"t5\": \"T恤\", \"t6\": \"2805\", \"t7\": \"休闲\"}",
+          "PicName": "20200330/kstk/small_202003301526109441.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2022090910042613231_226905",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20220914\", \"t5\": \"T恤\", \"t6\": \"4102\", \"t7\": \"休闲\"}",
+          "PicName": "20220909/kstk/small_202209091004107635.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2019111110203579708_162645",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20191111\", \"t5\": \"卫衣\", \"t6\": \"2892\", \"t7\": \"欧货\"}",
+          "PicName": "20191111/kstk/small_201911111020281952.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_20170518171608348612_113946",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t1\": \"字母\", \"t4\": \"20170519\", \"t5\": \"T恤\", \"t6\": \"2190\", \"t7\": \"休闲\"}",
+          "PicName": "20170518/kstk/small_201705181715568486.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2022052818215412791_222425",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20220530\", \"t5\": \"T恤\", \"t6\": \"3613\", \"t7\": \"休闲\"}",
+          "PicName": "20220528/kstk/small_202205281821478869.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_20230410093633102610_237321",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20230410\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230410/kstk/small_202304100936279727.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2019061915383120540_155969",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"\", \"t1\": \"字母\", \"t4\": \"20190620\", \"t5\": \"T恤\", \"t6\": \"2578\", \"t7\": \"休闲\"}",
+          "PicName": "20190619/kstk/small_201906191538230706.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2022032117580177713_219436",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20220324\", \"t5\": \"T恤\", \"t6\": \"3613\", \"t7\": \"休闲\"}",
+          "PicName": "20220321/kstk/small_202203211757549996.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2022020908532701731_216648",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t1\": \"印绣花\", \"t4\": \"20220212\", \"t5\": \"T恤\", \"t6\": \"3613\", \"t7\": \"休闲\"}",
+          "PicName": "20220119/kstk/small_202201191543389367.jpg",
+          "Score": 61
+        },
+        {
+          "EntityId": "scsz_one_2020100814551355182_186539",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20201009\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201008/kstk/small_202010081454508813.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_20230323094834296328_236461",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20230322\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230322/kstk/small_202303220943141478.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2021050717112733192_201908",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t1\": \"印绣花\", \"t4\": \"20210508\", \"t5\": \"T恤\", \"t6\": \"3130\", \"t7\": \"休闲\"}",
+          "PicName": "20210507/kstk/small_202105071711219344.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2022020908532712572_216648",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t1\": \"印绣花\", \"t4\": \"20220212\", \"t5\": \"T恤\", \"t6\": \"3613\", \"t7\": \"休闲\"}",
+          "PicName": "20220119/kstk/small_202201191543390735.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_20210507170452692520_201898",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20210508\", \"t5\": \"T恤\", \"t6\": \"3130\", \"t7\": \"休闲\"}",
+          "PicName": "20210507/kstk/small_202105071704466828.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2022042117381434703_220979",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20220423\", \"t5\": \"T恤\", \"t6\": \"3613\", \"t7\": \"休闲\"}",
+          "PicName": "20220421/kstk/small_202204211738086477.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2021041210565072586_200052",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20210403\", \"t5\": \"T恤\", \"t6\": \"3130\", \"t7\": \"休闲\"}",
+          "PicName": "20210402/kstk/small_202104021700448439.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2022052116563089823_222189",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20220524\", \"t5\": \"T恤\", \"t6\": \"3613\", \"t7\": \"休闲\"}",
+          "PicName": "20220521/kstk/small_202205211655455792.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2017051716144886411_113828",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t1\": \"字母\", \"t4\": \"20170518\", \"t5\": \"T恤\", \"t6\": \"2190\", \"t7\": \"休闲\"}",
+          "PicName": "20170517/kstk/small_201705171614451766.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2022060114172173570_222460",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"印绣花\", \"t4\": \"20220601\", \"t5\": \"T恤\", \"t6\": \"3613\", \"t7\": \"欧货\"}",
+          "PicName": "20220601/kstk/small_202206011416569527.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2022060516414328177_222611",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20220607\", \"t5\": \"T恤\", \"t6\": \"3613\", \"t7\": \"休闲\"}",
+          "PicName": "20220605/kstk/small_202206051641299017.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2021030818081759971_198410",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t1\": \"工装\", \"t4\": \"20210310\", \"t5\": \"T恤\", \"t6\": \"3130\", \"t7\": \"休闲\"}",
+          "PicName": "20210308/kstk/small_202103081808087351.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_20210306172113662916_198336",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20210309\", \"t5\": \"T恤\", \"t6\": \"3130\", \"t7\": \"欧货\"}",
+          "PicName": "20210306/kstk/small_202103061721046802.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2020111918030729835_190999",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20201120\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201119/kstk/small_202011191802595374.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2020103112091079330_189101",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t4\": \"20201102\", \"t5\": \"卫衣\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201031/kstk/small_202010311209066887.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2023030409540949283_235576",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t4\": \"20230304\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230304/kstk/small_202303040954009851.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2020102916463909573_188779",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"字母\", \"t4\": \"20201030\", \"t5\": \"T恤\", \"t6\": \"3741\", \"t7\": \"休闲\"}",
+          "PicName": "20201029/kstk/small_202010291646369121.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2023030809280995512_235808",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"撞色拼接\", \"t4\": \"20230308\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230308/kstk/small_202303080928006358.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_20230308092843286915_235810",
+          "CustomContent": "",
+          "Tags": "{\"t0\": \"工艺\", \"t4\": \"20230308\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230308/kstk/small_202303080928387948.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2018111514373688310_147187",
+          "CustomContent": "",
+          "Tags": "{\"t1\": \"字母\", \"t4\": \"20181115\", \"t5\": \"卫衣\", \"t6\": \"2598\", \"t7\": \"休闲\"}",
+          "PicName": "20181115/kstk/small_201811151437269475.jpg",
+          "Score": 60
+        },
+        {
+          "EntityId": "scsz_one_2023041412043910268_235976",
+          "CustomContent": "",
+          "Tags": "{\"t4\": \"20230311\", \"t5\": \"T恤\", \"t6\": \"4174\", \"t7\": \"休闲\"}",
+          "PicName": "20230311/kstk/small_202303111429287167.jpg",
+          "Score": 60
+        }
+      ],
+    }
+  </script>
+
+
+  <script src="/js/jquery.pagination.js"></script>
+  <script src="/js/viewer-soutu-jquery.min.js"></script>
+  <script src="/js/soutu.js"></script>
+  <script src="/js/aes.js"></script>
+  
+  <script>
+    $(function () {
+      // $('.img-container').viewer({
+      //   url: 'data-original',
+      //   rotatable: false,
+      //   scalable: false,
+      //   title: false
+      // });
+    });
+  </script>
+  <div id="popDiv_c" class="mydiv_c" style="display: none">
+    <div class="drop_in" style="background-color: #eeeeee !important; height: auto !important">
+      <div class="drop_in_Close" style="background: #22303d; width: 100%; margin-right: 0px">
+        <span style="
               float: left;
               line-height: 50px;
               color: #fff;
               padding-left: 15px;
               font-size: 18px;
-            "
-            >请选择图片</span
-          ><a
-            href="javascript:closeDiv_c()"
-            style="float: right; color: #fff; padding-right: 10px"
-            ><span class="icon1 iconfont">&#xe620;</span></a
-          >
-        </div>
-
-        <p style="text-align: center; position: relative;">
-          <input type="file" class="search-upload" value="上传图片">
-          <a>
-            <img style="margin: 20px" src="images/add.png" alt="" />
-          </a>
-          <div class="search-upload-error">请上传正确的图片</div>
-        </p>
-        <div style="color: #a0a0a0; margin: 20px">
-          <p>1.上传图片，智能搜索相似的款式或图案</p>
-          <p>2.支持jpg、png格式，图片最长边不超过2500px</p>
-        </div>
-
-        <div style="clear: both"></div>
-        <div class="do_img" style="margin: 0px !important">
-          <input
-            type="submit"
-            onClick="javascript:closeDiv_c()"
-            class="Submission"
-            value="确认"
-            style="
-              width: 180px;
-              margin-left: auto;
-              margin-right: auto;
-              margin-bottom: 0px;
-              font-size: 18px;
-              background-color: #22303d;
-            "
-          />
-        </div>
-        <div style="height: 20px"></div>
+            ">请选择图片</span><a href="javascript:closeDiv_c()"
+          style="float: right; color: #fff; padding-right: 10px"><span class="icon1 iconfont">&#xe620;</span></a>
       </div>
+
+      <p style="text-align: center; position: relative;">
+        <input type="file" class="search-upload" value="上传图片">
+        <a><img style="margin: 20px" src="images/add.png" alt="" /></a>
+      <div class="search-upload-error">请上传正确的图片</div>
+      </p>
+      <div style="color: #a0a0a0; margin: 20px">
+        <p>1.上传图片，智能搜索相似的款式或图案</p>
+        <p>2.支持jpg、png格式，图片像素不超过2500px,图片大小不超过5M</p>
+      </div>
+
+      <div style="clear: both"></div>
+
+      <div style="height: 20px"></div>
     </div>
-    <div id="bg_c" class="bg_show_c" style="display: none"></div>
-    <iframe id="popIframe_c" class="popIframe_c" frameborder="0"></iframe>
-  </body>
+  </div>
+  <div id="bg_c" class="bg_show_c" style="display: none"></div>
+  <iframe id="popIframe_c" class="popIframe_c" frameborder="0"></iframe>
+</body>
+
 </html>

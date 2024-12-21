@@ -1,0 +1,327 @@
+{"Count":0,"ImageInfos":[],"Object":{"Box":{"Rect":{"X":340,"Y":136,"Width":480,"Height":1116},"Score":99.0,"CategoryId":0},"CategoryId":0,"Colors":[{"Color":"FFFFFF","Percentage":24.0,"Label":"White-white"},{"Color":"241D13","Percentage":18.0,"Label":"Black-seaweedgreen"},{"Color":"2C2326","Percentage":14.0,"Label":"Black-chocolate"},{"Color":"DCDCDC","Percentage":7.0,"Label":"White-gainsboro"}],"Attributes":[{"Type":"图案","Details":"国旗"},{"Type":"袖型","Details":"插肩袖"},{"Type":"颈线设计","Details":"连帽"},{"Type":"风格","Details":"复古"},{"Type":"类型","Details":"男装"},{"Type":"材质","Details":"麻织"},{"Type":"颜色","Details":"卡其"},{"Type":"类别","Details":"外套"},{"Type":"袖长","Details":"超长袖"},{"Type":"衣长","Details":"长款"}],"AllBox":[{"Rect":{"X":340,"Y":136,"Width":480,"Height":1116},"Score":99.0,"CategoryId":0},{"Rect":{"X":459,"Y":1274,"Width":169,"Height":169},"Score":63.0,"CategoryId":4},{"Rect":{"X":636,"Y":1339,"Width":220,"Height":124},"Score":71.0,"CategoryId":4},{"Rect":{"X":504,"Y":1388,"Width":125,"Height":56},"Score":50.0,"CategoryId":4},{"Rect":{"X":504,"Y":1407,"Width":41,"Height":29},"Score":26.0,"CategoryId":4}]},"RequestId":"02d13f53-31c6-4fbb-952e-714b71cc917c"}
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link href="css/base.css" rel="stylesheet" type="text/css" />
+    <link href="css/master.css" rel="stylesheet" type="text/css" />
+    <link href="css/list.css" rel="stylesheet" type="text/css" />
+    <link href="css/independent.css" rel="stylesheet" type="text/css" />
+    <link href="css/new2022.css" rel="stylesheet" type="text/css" />
+    <link href="css/soutu.css" rel="stylesheet" type="text/css">
+    <script src="/js/jquery-1.7.2.min.js"></script>
+    <style>
+      .patterns-ul .patter-left-label-position {
+        text-align: left;
+        padding: 10px 5px 0;
+        height: 45px;
+        min-height: 45px;
+      }
+
+      .new-patterns-ul > li {
+        height: 330px;
+      }
+
+      .n_txt li.on {
+        border-color: #b89035;
+      }
+
+      .n_txt li.on a {
+        color: #b89035;
+      }
+    </style>
+    <title> </title>
+  </head>
+  <body style="background-color: #fff">
+    <div class="new_top" style="border-bottom: 1px #22303d solid">
+      <div class="new_top_box">
+        <div class="new_top_l"><img src="images/n_logo.png" alt="" /></div>
+        <div class="new_top_c">
+          <img src="images/n_icon_a.png" alt="" />以图搜图
+        </div>
+        <div class="new_top_r" style="padding-right: 30px">
+          <div class="n_search" style="width: 600px">
+            <div class="n_s1">
+              <img src="images/n_icon_c.png" alt="" />
+            </div>
+            <div class="n_s2">
+              <input name="" type="text" placeholder="请输入关键词" class="" />
+            </div>
+            <div class="n_s4"><a>栏目搜</a> | <a>全站搜</a></div>
+            <div class="n_s3">
+              <a><img src="images/n_icon_b.png" alt="" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="n_img">
+      <div class="n_img_c"><img src="images/n_img1.png" alt="" /></div>
+      <div class="n_img_r">
+        <div>
+          <!-- <a><img src="images/n_btn_1.png" alt="" /></a> -->
+          <a href="javascript:;" onClick="javascript:showDiv_c()"
+            ><img src="images/n_btn_2.png" alt=""
+          /></a>
+        </div>
+        <div class="div">
+          <div style="float: left; line-height: 30px">关键字：</div>
+          <div style="float: left">
+            <ul class="n_txt">
+              <li>
+                <a>格纹</a>
+              </li>
+              <li>
+                <a>拼接</a>
+              </li>
+              <li>
+                <a>撞色</a>
+              </li>
+              <li>
+                <a>迷彩</a>
+              </li>
+              <li>
+                <a>重工艺</a>
+              </li>
+              <li>
+                <a>满印</a>
+              </li>
+              <li>
+                <a>章仔</a>
+              </li>
+              <li>
+                <a>格纹</a>
+              </li>
+              <li>
+                <a>拼接</a>
+              </li>
+              <li>
+                <a>撞色</a>
+              </li>
+              <li>
+                <a>迷彩</a>
+              </li>
+              <li>
+                <a>重工艺</a>
+              </li>
+              <li>
+                <a>满印</a>
+              </li>
+              <li>
+                <a>章仔</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rightc_top contentW" style="clear: both; overflow: hidden">
+      <div class="js_color_analysis" style="display: none">
+        <div class="color_analysis"></div>
+      </div>
+      <div class="rightc_main js-patterns-lists-box">
+        <!-- 分页展示区域 -->
+        <div class="img-container"></div>
+        <!-- 空数据展示 -->
+        <div
+          class="empty-container"
+          style="display: none; text-align: center; font-size: 16px; color: rgba(0,0,0,.5); padding: 80px;">
+          找不到类似相关图片！
+        </div>
+        <!-- 分页 -->
+        <div id="pagination" class="m-style"></div>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="/js/artdialog/dialog-plus-min.js"
+    ></script>
+    <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+    <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
+    <script src="/js/smcm.js"></script>
+    <link rel="stylesheet" href="/css/validate.css" />
+    <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
+    <ul class="kf">
+      <li class="li1">
+        <div class="show_a">
+          <em></em>
+          <div style="padding-left: 10px">
+            <div class="kf_titel">在线客服</div>
+            <a
+              href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes"
+              target="_blank"
+              ><img
+                border="0"
+                style="margin-top: 5px"
+                title="点击这里给我发消息"
+                alt="点击这里给我发消息"
+                src="http://wpa.qq.com/pa?p=2:18550168:41"
+            /></a>
+          </div>
+          <div>
+            <a
+              href="http://wpa.qq.com/msgrd?v=3&amp;uin=3871105&amp;site=qq&amp;menu=yes"
+              target="_blank"
+              ><img
+                border="0"
+                style="margin-top: 5px; margin-left: 10px"
+                title="点击这里给我发消息"
+                alt="点击这里给我发消息"
+                src="http://wpa.qq.com/pa?p=2:3871105:41"
+            /></a>
+          </div>
+        </div>
+      </li>
+      <li class="li2">
+        <div class="show_b">
+          <em></em>
+          <div class="kf_titel">联系我们</div>
+          <p>020-31232355</p>
+        </div>
+      </li>
+      <li class="li3">
+        <div class="show_c">
+          <form id="feedbackform" name="feedbackform" url="/Ajax/addneed.ashx">
+            <div class="kf_titel">会员需求与建议</div>
+            <em></em>
+            <textarea
+              rows="5"
+              name="xqjy"
+              class="textarea"
+              placeholder="请在此详细输入您公司目前所需资料类型或提交宝贵意见，我司将会在最短的时间内为您上传所需的资料，谢谢！"
+            ></textarea>
+            <div class="lay">
+              <input
+                type="submit"
+                id="btnSubmit_feedback"
+                class="Submission1"
+                value="提交"
+              />
+            </div>
+          </form>
+        </div>
+      </li>
+      <a
+        href="http://widget.weibo.com/dialog/follow.php?fuid=2825343592&refer=www.r355.com&language=zh_cn&type=widget_page&vsrc=app_followbutton&backurl=http%3A%2F%2Fwww.r355.com%2F&rnd=1395281896175"
+        title="新浪微博"
+        target="_blank"
+      >
+        <li class="li4"></li>
+      </a>
+      <li class="li5">
+        <div class="show_d">
+          <em></em
+          ><img src="/images/weixin_code.png" width="106" height="240" />
+        </div>
+      </li>
+      <li class="li7"></li>
+    </ul>
+    <div class="n-bottom">
+      <div class="n-bottom-l">
+        <p class="n-n1">UNLIMITED</p>
+        <p class="n-n1">INFORMATION</p>
+        <p>Accurate market information and effective innovation information</p>
+        <p>Capture information from all over the world at the fastest speed.</p>
+      </div>
+      <div class="n-bottom-c">
+        <p>
+          <a href="/about/R355-1636.html">关于我们</a><i>|</i
+          ><a href="/about/R355-1637.html">联系我们</a><i>|</i
+          ><a href="/about/R355-1632.html">免责声明</a><i>|</i
+          ><a href="/about/R355-1633.html">会员须知</a><i>|</i
+          ><a href="/about/R355-1639.html">收费说明</a><i>|</i
+          ><a href="/about/R355-1640.html">汇款方式</a><i>|</i
+          ><a href="/about/R355-1641.html">办理流程</a>
+        </p>
+        <p class="n-copy">
+          Copyright 2007-2025 R355.com, All Rights Reserved
+          <a
+            href="https://beian.miit.gov.cn"
+            target="_blank"
+            style="font-size: 10px"
+            >闽ICP备07502261号-1</a
+          >
+        </p>
+        <p class="n-copy">R355服饰资讯网（R355.com）版权所有</p>
+      </div>
+      <div class="n-bottom-r"><img src="/images/ply-2.png" alt="" /></div>
+    </div>
+
+    <script type="text/javascript" src="/js/Mouse.js" charset="utf-8"></script>
+    <script>
+      $(function () {
+        AjaxInitForm("#feedbackform", "#btnSubmit_feedback", 0);
+      });
+    </script>
+    <script src="/js/purify.min.js"></script>
+    <script src="/js/jquery.SuperSlide.js"></script>
+    <script src="/js/base.js"></script>
+    <script src="/js/jquery.pagination.js"></script>
+    <script src="/js/soutu.js"></script>
+
+    <div id="popDiv_c" class="mydiv_c" style="display: none">
+      <div
+        class="drop_in"
+        style="background-color: #eeeeee !important; height: auto !important"
+      >
+        <div
+          class="drop_in_Close"
+          style="background: #22303d; width: 100%; margin-right: 0px; z-index: 9; position: relative;"
+        >
+          <span
+            style="
+              float: left;
+              line-height: 50px;
+              color: #fff;
+              padding-left: 15px;
+              font-size: 18px;
+            "
+            >请选择图片</span
+          ><a
+            href="javascript:closeDiv_c()"
+            style="float: right; color: #fff; padding-right: 10px"
+            ><span class="icon1 iconfont">&#xe620;</span></a
+          >
+        </div>
+
+        <p style="text-align: center; position: relative;">
+          <input type="file" class="search-upload" value="上传图片">
+          <a>
+            <img style="margin: 20px" src="images/add.png" alt="" />
+          </a>
+          <div class="search-upload-error">请上传正确的图片</div>
+        </p>
+        <div style="color: #a0a0a0; margin: 20px">
+          <p>1.上传图片，智能搜索相似的款式或图案</p>
+          <p>2.支持jpg、png格式，图片最长边不超过2500px</p>
+        </div>
+
+        <div style="clear: both"></div>
+        <div class="do_img" style="margin: 0px !important">
+          <input
+            type="submit"
+            onClick="javascript:closeDiv_c()"
+            class="Submission"
+            value="确认"
+            style="
+              width: 180px;
+              margin-left: auto;
+              margin-right: auto;
+              margin-bottom: 0px;
+              font-size: 18px;
+              background-color: #22303d;
+            "
+          />
+        </div>
+        <div style="height: 20px"></div>
+      </div>
+    </div>
+    <div id="bg_c" class="bg_show_c" style="display: none"></div>
+    <iframe id="popIframe_c" class="popIframe_c" frameborder="0"></iframe>
+  </body>
+</html>
