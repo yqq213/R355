@@ -20,18 +20,9 @@
   <link href="css/list.css" rel="stylesheet" type="text/css" />
   <link href="css/independent.css" rel="stylesheet" type="text/css" />
   <link href="css/new2022.css" rel="stylesheet" type="text/css" />
-  <style>
-    .patterns-ul .patter-left-label-position {
-      text-align: left;
-      padding: 10px 5px 0;
-      height: 45px;
-      min-height: 45px;
-    }
-
-    .new-patterns-ul>li {
-      height: 330px;
-    }
-  </style>
+  <link href="css/home.css" rel="stylesheet" type="text/css" />
+  <!-- 引入防xss攻击js -->
+  <script src="/js/purify.min.js"></script>
 </head>
 
 <body style="background-color: #fff">
@@ -211,18 +202,135 @@
     </div>
   </div>
 
-  <div class="fullSlide">
-    <div class="bd">
-      <ul>
-        <li>
-          <a href="http://www.r355.com/" target="_blank"><img
-              src="http://www.r355.com/uploadFiles/webad/X2ZX0V64VRDXLF4P8R.jpg" alt="传递服装潮流资讯" /></a>
+  <div class="content-wrap">
+    <div class="content-top">
+      <div class="banner">
+        <div class="banner-img">
+          <ul class="ul-pic">
+            <li><a href="#" target="_blank"><img src="/images/home/banner-img.png"/></a></li>
+            <li><a href="#" target="_blank"><img src="/images/home/banner-img.png"/></a></li>
+            <li><a href="#" target="_blank"><img src="/images/home/banner-img.png"/></a></li>
+          </ul>
+          <ul class="banner-num">
+            <li><a></a><span></span></li>
+            <li><a></a><span></span></li>
+            <li><a></a><span></span></li>
+          </ul>
+        </div>
+        <div class="banner-right">
+          <p class="banner-title">
+            <span class="bold">热点区</span>
+            <span>HOT SPOT AREA</span>
+          </p>
+          <div class="banner-bottom">
+            <span class="banner-bottom-item">单品合辑</span>
+            <span class="banner-bottom-item">大牌图案</span>
+            <span class="banner-bottom-item" style="padding: 0 35px;">Gucci古驰</span>
+            <span class="banner-bottom-item">植物花卉</span>
+            <span class="banner-bottom-item" style="padding: 0 40px;">卫衣正在热销</span>
+            <span class="banner-bottom-item">山系风</span>
+            <img src="./images/home/fenxiangwang.png" class="banner-btn">
+          </div>
+          <div class="banner-line"></div>
+          <div class="buy-wrap">
+            <span class="buy-orange">BUY</span>
+            <span class="buy-text">点击购买点数套餐</span>
+          </div>
+          <div class="banner-line"></div>
+          <div class="sign-wrap">
+            <img src="./images/home/signIn.png" />
+            <div class="sign-right">
+              <p class="line1">做任务，送好礼</p>
+              <p class="p2">每日签到、转发主题图册</p>
+              <p class="p2">送红包、送时限、送点数</p>
+              <div class="sign-btn">每日签到</div>
+            </div>
+          </div>
+          <p class="counts">+++</p>
+        </div>
+      </div>
+      <div class="choose-tip">为您提供更多选项</div>
+      <div class="member-wrap">
+        <li class="member-item">
+          <div class="member-top">
+            <img src="./images/home/vip-member-icon.png"/>
+            <span>VIP会员</span>
+          </div>
+          <div class="member-bottom">
+            <p>包年会员，在有效期内可以无限制的浏览网站里所有的资料</p>
+            <p>（趋势分析、款式图库、图案素材、独家原创等）。</p>
+          </div>
         </li>
-      </ul>
+        <li class="member-item">
+          <div class="member-top">
+            <img src="./images/home/count-member-icon.png"/>
+            <span>点数会员</span>
+          </div>
+          <div class="member-bottom">
+            <p>购买积分套餐，网站所有资料均可浏览，</p>
+            <p>浏览时根据图片设定点数，免费图片不扣除点数。</p>
+          </div>
+        </li>
+        <li class="member-item">
+          <div class="member-top">
+            <img src="./images/home/common-member-icon.png"/>
+            <span>普通会员</span>
+          </div>
+          <div class="member-bottom">
+            <p>免费会员，注册即可浏览到网站里海量的免费图片，</p>
+            <p>并可以下载高清大图。</p>
+          </div>
+        </li>
+      </div>
     </div>
-
-    <div class="hd">
-      <ul></ul>
+    <div class="album-wrap">
+      <div class="album-top">
+        <span class="album-title">主题图册</span>
+        <span class="album-more">加载更多内容&nbsp;&nbsp;<img src="./images/home/arrow-right.png" /></span>
+      </div>
+      <div class="album-ul">
+        <li class="album-item">
+          <div class="img-wrap">
+            <img src="./images/home/album-img1.png" class="album-img">
+          </div>
+          <div class="album-intro">
+            <span class="album-text">2024春夏男装极简主义设计2024春夏男装极简主义设计</span>
+            <img src="./images/home/jump-icon.png" class="album-jump">
+          </div>
+        </li>
+        <li class="album-item">
+          <div class="img-wrap">
+            <img src="./images/home/album-img2.png" class="album-img">
+          </div>
+          <div class="album-intro">
+            <span class="album-text">2025春夏男装中式国潮风</span>
+            <img src="./images/home/jump-icon.png" class="album-jump">
+          </div>
+        </li>
+        <li class="album-item">
+          <div class="img-wrap">
+            <img src="./images/home/album-img3.png" class="album-img">
+          </div>
+          <div class="album-intro">
+            <span class="album-text">2025春夏男装口袋细节集锦</span>
+            <img src="./images/home/jump-icon.png" class="album-jump">
+          </div>
+        </li>
+        <li class="album-item">
+          <div class="img-wrap">
+            <img src="./images/home/album-img4.png" class="album-img">
+          </div>
+          <div class="album-intro">
+            <span class="album-text">2024/25秋冬男装废土风</span>
+            <img src="./images/home/jump-icon.png" class="album-jump">
+          </div>
+        </li>
+      </div>
+    </div>
+    <div class="register-wrap">
+      <img src="./images/home/register-intro.png" class="register-intro">
+      <p class="register-title">加入R355，轻松获取无限设计灵感、掌握市场动向!</p>
+      <img src="./images/home/button_orange.png" class="register-btn">
     </div>
   </div>
 
@@ -304,26 +412,20 @@
   </div>
 
   <script type="text/javascript" src="/js/Mouse.js" charset="utf-8"></script>
+  <script src="/js/jquery.SuperSlide.js"></script>
   <script>
     $(function () {
       AjaxInitForm("#feedbackform", "#btnSubmit_feedback", 0);
     });
   </script>
-  <script src="/js/jquery.SuperSlide.js"></script>
   <script src="/js/base.js"></script>
   <script type="text/javascript">
-    $(document).ready(function () {
-      $("#Pagination").pagination("15");
-    });
-  </script>
-
-  <script type="text/javascript">
-    jQuery(".fullSlide").slide({
-      titCell: ".hd ul",
-      mainCell: ".bd ul",
+    jQuery(".banner-img").slide({
+      titCell: ".banner-num li",
+      mainCell: ".ul-pic",
       effect: "fold",
       autoPlay: true,
-      autoPage: true,
+      // autoPage: true,
       trigger: "click",
     });
   </script>

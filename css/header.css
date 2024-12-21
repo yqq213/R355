@@ -1,0 +1,477 @@
+@charset "utf-8";
+#header {
+  height: 170px;
+  padding-top: 30px;
+  position: relative;
+  box-sizing: border-box;
+  background: #fff;
+  font-family: 'SimHei';
+}
+
+#header .header-logo {
+  width: 250px;
+  position: absolute;
+  left: 30px;
+  top: 8px;
+}
+
+#header .header-first {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-right: 60px;
+  padding-left: 19vw;
+}
+
+.header-first .search {
+  width: 45vw;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px solid #141F43;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.header-first .search .search-icon {
+  width: 70px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-first .search .search-input {
+  border: 0;
+  box-shadow: unset;
+  padding: 0;
+  flex: 1;
+  height: 100%;
+  outline: none;
+  font-size: 16px;
+}
+
+.header-first .search .search-camera {
+  width: 70px;
+  height: 100%;
+  border-right: 1px solid #72798E;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-first .search .search-btn {
+  width: 80px;
+  height: 100%;
+  border-radius: 5px;
+  background: #DBFD73;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-first-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-first-exe {
+  width: 120px;
+  height: 37px;
+  border-radius: 3px;
+  border: 1px solid;
+  font-size: 12px;
+  cursor: pointer;
+  color: #191919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-image: radial-gradient(circle, rgba(16, 173, 211, 1), rgba(50, 125, 222, 1), rgba(78, 89, 229, 1), rgba(120, 41, 234, 1), rgba(247, 3, 251, 1)) 1 1;
+}
+
+.header-first-exe img {
+  margin-right: 10px;
+}
+
+.header-first-login {
+  background: #0057FF;
+  width: 120px;
+  height: 37px;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 16px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-first-login a {
+  color: #fff;
+}
+
+.header-first-login-line {
+  height: 16px;
+  width: 1px;
+  background: #fff;
+  margin: 0 5px;
+}
+
+/* 拍照搜索弹框 */
+.search-pop {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,.1);
+  border-radius: 12px;
+  font-size: 14px;
+  color: #9195A3;
+  background: #fff;
+  left: 0;
+  top: 60px;
+  z-index: 9999;
+  display: none;
+}
+
+.search-drop {
+  height: 58px;
+  line-height: 58px;
+  text-align: center;
+  border: 1px dashed #D7D9E0;
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.upload-wrap {
+  background: #b89035;
+  border-radius: 6px;
+  width: 80px;
+  height: 30px;
+  line-height: 31px;
+  text-align: center;
+  color: #fff;
+  font-size: 13px;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  margin: 0 auto;
+}
+
+.upload-pic {
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  width: 100% !important;
+  height: 100%;
+  font-size: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.upload-text {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+.upload-error-text {
+  font-size: 13px;
+  color: #9195a3;
+  text-align: center;
+  line-height: 25px;
+}
+
+.upload-error-text a {
+  color: #b89035;
+  margin-left: 5px;
+}
+
+.upload-loading {
+  text-align: center;
+  font-size: 13px;
+  color: #9195a3;
+  line-height: 100px;
+}
+
+.upload-close {
+  background: url('/images/close-icon.png') center no-repeat;
+  background-size: 100% 100%;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+}
+
+.drag-over {
+  background: #f5f5f6;
+}
+
+#header .navs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 95px;
+  overflow: hidden;
+  position: relative;
+}
+
+#header .navs .navs-item {
+  font-size: 16px;
+  padding: 0 1.5vw;
+  text-align: center;
+  position: relative;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#header .navs .navs-item:nth-child(1) {
+  margin-right: 30px;
+}
+
+#header .navs .navs-item:nth-child(1)::after {
+  content: '';
+  position: absolute;
+  right: -15px;
+  width: 1px;
+  height: 16px;
+  background: #999;
+}
+
+#header .navs .navs-item:nth-child(8) {
+  margin-right: 30px;
+}
+
+#header .navs .navs-item:nth-child(1)::after {
+  content: '';
+  position: absolute;
+  right: -15px;
+  width: 1px;
+  height: 16px;
+  background: #999;
+}
+
+.navs .navs-item img {
+  margin-right: 10px;
+}
+
+.navs .navs-item span {
+  flex-shrink: 0;
+}
+
+.navs #navArrow {
+  font-size: 60px;
+  position: absolute;
+  top: 105%;
+  transition: all ease .3s;
+  z-index: 9;
+}
+
+.nav-modal-wrap {
+  width: 90%;
+  height: 600px;
+  position: absolute;
+  top: 100%;
+  left: 5%;
+  overflow: hidden;
+}
+
+.navs-modal {
+  border-radius: 36px;
+  z-index: 999;
+  position: relative;
+  transform: translate3d(0, -100%, 0);
+  transition: all ease .3s;
+}
+
+.navs-modal-top {
+  height: 47px;
+  border-radius: 36px 36px 0 0;
+  position: relative;
+}
+
+.navs-modal-top .circle {
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  border-radius: 50%;
+  bottom: -12px;
+  right: 10vw;
+}
+
+.navs-modal-content {
+  padding: 60px 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+.navs-modal-content-left {
+  flex: 1;
+  padding: 0 6vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.navs-modal-content-left .category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.navs-modal-content-left .category .section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.navs-modal-content-left .category .section .icon-wrap {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navs-modal-content-left .label {
+  font-size: 28px;
+  color: #fff;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.navs-modal-content-left .wrap-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.navs-modal-content-left .sub-nav {
+  font-size: 16px;
+  color: #fff;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.navs-modal-content-left .sub-nav:hover {
+  color: #b89035;
+}
+
+.navs-modal-content-left .desc {
+  font-family: SimSun;
+  font-size: 12px;
+  color: #E6E6E6;
+  line-height: 23px;
+  width: 230px;
+  height: 60px;
+  margin-top: 25px;
+}
+
+.navs-modal-content-right {
+  width: 20vw;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.navs-modal-content-right .intro-title {
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.navs-modal-content-right .intro-title .link {
+  margin-right: 5px;
+  vertical-align: baseline;
+}
+
+.navs-modal-content-right .intro-text {
+  font-size: 12px;
+  color: #E6E6E6;
+  line-height: 23px;
+  width: 223px;
+  font-family: SimSun;
+}
+
+/* 品牌图库自定义样式 */
+
+.nav-modal-wrap .brand {
+  width: unset;
+  margin: 0;
+}
+
+.brand .navs-modal-content-left {
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.brand .navs-modal-content-right {
+  width: 15vw;
+}
+
+.brand .wrap-nav {
+  height: 300px;
+  flex-wrap: wrap;
+}
+
+.brand .wrap-nav .sub-nav {
+  padding: 0 10px;
+}
+
+/* 市场款式自定义样式 */
+
+.market .category {
+  flex-direction: row;
+}
+
+.market .category .section {
+  margin-right: 5vw;
+}
+
+.market .category .wrap-nav {
+  height: 250px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.market .category .wrap-nav .sub-nav {
+  padding: 0 50px;
+}
+
+.market .category .wrap-nav .sub-nav:nth-child(13) {
+  margin-top: 15px;
+}
+
+
+
+
+
+@media screen and (max-width: 1500px) {
+  .navs-modal-content-left .label {
+    font-size: 20px;
+  }
+  .brand .navs-modal-content-right {
+    width: 18vw;
+  }
+  #header .header-logo {
+    width: 210px;
+    top: 22px;
+  }
+}

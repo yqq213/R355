@@ -443,6 +443,12 @@ $(document).ready(function () {
 //下拉菜单
 
 $(function () {
+  // 加载顶部页面
+  $("#top_nav").load("../header.html", function() {
+    reloadScript()
+  });
+  // 加载底部页面
+  $(".n-bottom").load("../footer.html");
   $(".selectBox .imitationSelect").on("click", function (event) {
     $(this).parent().next().fadeToggle(100); //ul弹窗展开
     $(this).next().toggleClass("fa-caret-up"); //点击input选择适合，小图标动态切换
@@ -496,27 +502,27 @@ $(document).ready(function () {
 
 //2018/08/13
 
-$(function () {
-  if ($("#top_nav").length) {
-    //获取要定位元素距离浏览器顶部的距离
-    var navH = $("#top_nav").offset().top + 176;
-    //滚动条事件
-    $(window).scroll(function () {
-      //获取滚动条的滑动距离
-      var scroH = $(this).scrollTop();
-      //滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定，反之就不固定
-      if (scroH >= navH) {
-        $("#top_nav").addClass("fixed_top");
-        $(".color_box").addClass("fixed_nav");
-        $("html").css("padding-top", "161px");
-      } else if (scroH < navH) {
-        $("#top_nav").removeClass("fixed_top");
-        $(".color_box").removeClass("fixed_nav");
-        $("html").css("padding-top", "0px");
-      }
-    });
-  }
-});
+// $(function () {
+//     if ($("#top_nav").length) {
+//         //获取要定位元素距离浏览器顶部的距离
+//         var navH = $("#top_nav").offset().top + 176;
+//         //滚动条事件
+//         $(window).scroll(function () {
+//             //获取滚动条的滑动距离
+//             var scroH = $(this).scrollTop();
+//             //滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定，反之就不固定
+//             if (scroH >= navH) {
+//                 $("#top_nav").addClass("fixed_top");
+//                 $(".color_box").addClass("fixed_nav");
+//                 $("html").css("padding-top", "161px");
+//             } else if (scroH < navH) {
+//                 $("#top_nav").removeClass("fixed_top");
+//                 $(".color_box").removeClass("fixed_nav");
+//                 $("html").css("padding-top", "0px");
+//             }
+//         });
+//     }
+// });
 
 //2018/08/14
 
@@ -576,91 +582,118 @@ function setValueToTag(value) {
   $('.addTag>.n-cp-box').attr('data-content-before', value)
 }
 
-// 点击外部隐藏搜图弹框
-document.addEventListener('click', function(event) {
-  if (document.querySelector('.search-pop')) {
-    var isClickPop = document.querySelector('.search-pop').contains(event.target)
-    var isClickButton = document.querySelector('.n_s3 img').contains(event.target)
-    if(!isClickPop && !isClickButton) {
-      $('.search-pop').hide()
+function reloadScript() {
+  // 点击外部隐藏搜图弹框
+  document.addEventListener("click", function (event) {
+    if (document.querySelector(".search-pop")) {
+      var isClickPop = document
+        .querySelector(".search-pop")
+        .contains(event.target);
+      var isClickButton =
+        document.querySelector(".search-camera img") &&
+        document.querySelector(".search-camera img").contains(event.target);
+      if (!isClickPop && !isClickButton) {
+        $(".search-pop").hide();
+      }
     }
-  }
-})
+  });
 
-// 点击拍照图标显示搜图弹框
-document.querySelector('.n_s3 img').addEventListener('click', function() {
-  $('.search-pop').show()
-  $('.search-content').show()
-  $('.upload-loading').hide()
-  $('.upload-error').hide()
-})
+  // 点击拍照图标显示搜图弹框
+  document.querySelector(".search-camera img") &&
+    document
+      .querySelector(".search-camera img")
+      .addEventListener("click", function () {
+        $(".search-pop").show();
+        $(".search-content").show();
+        $(".upload-loading").hide();
+        $(".upload-error").hide();
+      });
 
-// 点击关闭按钮
-document.querySelector('.upload-close') && document.querySelector('.upload-close').addEventListener('click', function() {
-  $('.search-pop').hide()
-})
+  // 点击关闭按钮
+  document.querySelector(".upload-close") &&
+    document
+      .querySelector(".upload-close")
+      .addEventListener("click", function () {
+        $(".search-pop").hide();
+      });
 
-// 点击重新上传
-document.querySelector('.upload-error-text a') && document.querySelector('.upload-error-text a').addEventListener('click', function() {
-  $('.upload-error').hide()
-  $('.search-content').show()
-})
+  // 点击重新上传
+  document.querySelector(".upload-error-text a") &&
+    document
+      .querySelector(".upload-error-text a")
+      .addEventListener("click", function () {
+        $(".upload-error").hide();
+        $(".search-content").show();
+      });
 
-// 拖拽dragover事件
-document.querySelector('.search-drop') && document.querySelector('.search-drop').addEventListener('dragover', function(event) {
-  event.preventDefault()
-  event.stopPropagation()
-  $(this).addClass('drag-over')
-})
+  // 拖拽dragover事件
+  document.querySelector(".search-drop") &&
+    document
+      .querySelector(".search-drop")
+      .addEventListener("dragover", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        $(this).addClass("drag-over");
+      });
 
-// 拖拽dragleave事件
-document.querySelector('.search-drop') && document.querySelector('.search-drop').addEventListener('dragleave', function(event) {
-  event.preventDefault()
-  event.stopPropagation()
-  $(this).removeClass('drag-over')
-})
+  // 拖拽dragleave事件
+  document.querySelector(".search-drop") &&
+    document
+      .querySelector(".search-drop")
+      .addEventListener("dragleave", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        $(this).removeClass("drag-over");
+      });
 
-// 获取拖拽的文件
-document.querySelector('.search-drop') && document.querySelector('.search-drop').addEventListener('drop', function(event) {
-  event.preventDefault()
-  $(this).removeClass('drag-over')
-  handleUploadFile(event.dataTransfer.files[0])
-})
+  // 获取拖拽的文件
+  document.querySelector(".search-drop") &&
+    document
+      .querySelector(".search-drop")
+      .addEventListener("drop", function (event) {
+        event.preventDefault();
+        $(this).removeClass("drag-over");
+        handleUploadFile(event.dataTransfer.files[0]);
+      });
 
-// 监听文件上传
-document.querySelector('.upload-wrap input') && document.querySelector('.upload-wrap input').addEventListener('change', function(event) {
-  handleUploadFile(event.target.files[0])
-})
+  // 监听文件上传
+  document.querySelector(".upload-wrap input") &&
+    document
+      .querySelector(".upload-wrap input")
+      .addEventListener("change", function (event) {
+        handleUploadFile(event.target.files[0]);
+      });
 
-// 处理上传文件
-function handleUploadFile(file) {
-  console.log(file)
-  if (file.size / 1024 / 1024 > 10 || !/^image\//.test(file.type)) {
-    $('.search-content').hide()
-    $('.upload-loading').hide()
-    $('.upload-error').show()
-    return
-  }
-  // 显示上传loading
-  $('.search-content').hide()
-  $('.upload-loading').show()
-  var formData = new FormData()
-  formData.append('file', file)
-  $.ajax({
-    url: '',
-    type: 'POST',
-    data: formData,
-    contentType: false,
-    processData: false,
-    success: function(response) {
-      console.log('文件上传成功');
-      console.log(response);
-    },
-    complete: function() {
-      setTimeout(function() {
-        $('.upload-loading').hide()
-        $('.search-content').show()
-      }, 1000)
+  // 处理上传文件
+  function handleUploadFile(file) {
+    console.log(file);
+    if (file.size / 1024 / 1024 > 10 || !/^image\//.test(file.type)) {
+      $(".search-content").hide();
+      $(".upload-loading").hide();
+      $(".upload-error").show();
+      return;
     }
-  })
+    // 显示上传loading
+    $(".search-content").hide();
+    $(".upload-loading").show();
+    var formData = new FormData();
+    formData.append("file", file);
+    $.ajax({
+      url: "",
+      type: "POST",
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function (response) {
+        console.log("文件上传成功");
+        console.log(response);
+      },
+      complete: function () {
+        setTimeout(function () {
+          $(".upload-loading").hide();
+          $(".search-content").show();
+        }, 1000);
+      },
+    });
+  }
 }
