@@ -20,12 +20,12 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding-right: 60px;
+  padding-right: 2vw;
   padding-left: 19vw;
 }
 
 .header-first .search {
-  width: 45vw;
+  width: 40vw;
   height: 45px;
   border-radius: 5px;
   border: 1px solid #141F43;
@@ -121,6 +121,20 @@
   width: 1px;
   background: #fff;
   margin: 0 5px;
+}
+
+.header-first-user {
+  margin-left: 20px;
+}
+
+.header-first-user-info {
+  background-color: rgb(238, 238, 238);
+  display: inline-block;
+  padding: 3px 7px;
+}
+
+.header-first-user-info a {
+  color: #b89035;
 }
 
 /* 拍照搜索弹框 */
@@ -465,6 +479,9 @@
 
 
 @media screen and (max-width: 1500px) {
+  .header-first .search {
+    width: 30vw;
+  }
   .navs-modal-content-left .label {
     font-size: 20px;
   }

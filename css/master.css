@@ -591,7 +591,7 @@ content: "";
 	margin: -1 0 0;
 	background: #FFF;
 	position: absolute;
-	z-index: 9999;
+	z-index: 9;
 	border: 1px solid #F0F0F0;
 	width: 108px;
 }
@@ -958,8 +958,7 @@ content: "";
 /*Login*/
 
 .Login_box {
-	position: relative;
-	height: 450px;
+position:relative;
 	width: 1010px;
 	background: #FFF;
 	margin: 100px auto 250px;
