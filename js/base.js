@@ -443,6 +443,7 @@ $(document).ready(function () {
 //下拉菜单
 
 $(function () {
+  reloadScript()
   // 加载顶部页面
   $("#top_nav").load("../header.html", function() {
     reloadScript()

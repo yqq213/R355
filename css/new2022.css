@@ -458,6 +458,7 @@
   margin-right: auto;
   padding-top: 20px;
   overflow: hidden;
+  position: relative;
 }
 
 .n-li img {

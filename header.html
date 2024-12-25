@@ -84,7 +84,7 @@
         <div class="navs-modal-content">
           <div class="navs-modal-content-left">
             <div class="category" v-for="(item, index) in currentNav.children" :key="index">
-              <div class="section">
+              <div class="section" @click="jumpTo(item)">
                 <div class="icon-wrap">
                   <img :src="item.icon" />
                 </div>
@@ -121,7 +121,7 @@
 
     const app = createApp({
       setup() {
-        const navModalVisible = ref(true)
+        const navModalVisible = ref(false)
 
         const currentNav = ref({})
 

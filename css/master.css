@@ -958,6 +958,7 @@ content: "";
 /*Login*/
 
 .Login_box {
+	position: relative;
 	height: 450px;
 	width: 1010px;
 	background: #FFF;
