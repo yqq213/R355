@@ -1,0 +1,404 @@
+
+<html>
+<head>
+<title>R355服饰资讯网</title>
+<meta name="Description"  content="R355服饰资讯网,专业的服装设计网站,为您提供最专业的时装设计,时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会等信息">
+<meta name="keywords" content="时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会">
+<meta name="subject" content="服装设计" />
+<meta name="searchtitle" content="服装设计,R355服饰资讯网" />
+<meta name="language" content="chinese" />
+<meta name="location" content="China" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<meta name="resource-type" content="Good WebSites" />
+<meta name="email" content="R355@R355.com" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="author" content="R355服饰资讯网,http://www.R355.com" />
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+  <link href="css/master.css" rel="stylesheet" type="text/css" />
+  <!-- <link href="css/list.css" rel="stylesheet" type="text/css" /> -->
+  <link href="css/independent.css" rel="stylesheet" type="text/css" />
+  <link href="css/new2022.css" rel="stylesheet" type="text/css" />
+  <link href="css/home.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="new-home">
+    
+<script src="/js/jquery-1.7.2.min.js"></script>
+<section>
+  <link href="/css/header.css" rel="stylesheet" type="text/css" />
+  <link href="//at.alicdn.com/t/c/font_4789865_f95hj9izwcr.css" rel="stylesheet">
+  <script src="/js/vue.global.js"></script>
+  <script src="/js/menu.js"></script>
+  <!-- 引入防xss攻击js -->
+  <script src="/js/purify.min.js"></script>
+
+  <div id="header">
+    <a href="/" title="R355服饰资讯网"><img src="/images/header/logo.png" class="header-logo"></a>
+    <div class="header-first">
+      <div class="search">
+        <div class="search-icon">
+          <img src="/images/header/icon-search.png" alt="">
+        </div>
+        <input placeholder="请输入关键词" class="search-input" />
+        <div class="search-camera">
+          <img src="/images/header/camera-icon.png" />
+        </div>
+        <div class="search-btn">全站搜</div>
+        <!-- 拍照搜索弹框 -->
+        <div class="search-pop">
+          <div class="search-content">
+            <div class="search-drop">拖拽图片到这里</div>
+            <div class="upload-wrap">
+              <input type="file" class="upload-pic" />
+              <span class="upload-text">选择文件</span>
+            </div>
+          </div>
+          <div class="upload-error" style="display: none;">
+            <div class="upload-error-text">抱歉，您上传的文件不是图片格式，请<a href="javascript:void(0)">重新上传</a></div>
+            <div class="upload-error-text">仅支持10M以下jpg，jpeg，png，bmp，gif格式图片</div>
+          </div>
+          <div class="upload-loading" style="display: none;">正在加载图片...</div>
+          <div class="upload-close"></div>
+        </div>
+      </div>
+      <div class="header-first-right">
+        <a href="/about/downLoadUrl.aspx"><div class="header-first-exe"><img src="/images/header/exe-icon.png" />桌面客户端</div></a>
+        
+         <div class="header-first-login"><a href="/member/login.aspx">登录</a><span class="header-first-login-line"></span><a href="/member/reg.aspx">注册</a></div>
+   
+      </div>
+    </div>
+    <!-- 导航菜单 -->
+    <div class="navs">
+      <li
+        class="navs-item"
+        v-for="(item, index) in menuList"
+        :key="index"
+        @mouseenter="mouseEnterNav($event, item)"
+        @mouseleave="navModalVisible = false"
+        @click="jumpTo(item)"
+      >
+        <img :src="item.icon" v-if="item.icon" />
+        <span v-if="item.name">{{ item.name }}</span>
+      </li>
+       <!-- 导航菜单箭头 -->
+      <span
+        id="navArrow"
+        class="iconfont icon-a-xingzhuang12"
+        :style="{color: currentNav.backgroundTop, transform: navModalVisible ? 'translate3D(0, -40%, 0)' : 'translate3D(0, 0, 0)'}"
+        @mouseenter="navModalVisible = true"
+        @mouseleave="navModalVisible = false"
+      >
+      </span>
+    </div>
+    <!-- 导航菜单下拉项 -->
+    <div class="nav-modal-wrap">
+      <div
+        class="navs-modal"
+        ref="navModal"
+        :style="{background: currentNav.background, transform: navModalVisible ? 'translate3D(0, 0, 0)' : 'translate3D(0, -100%, 0)'}"
+        :class="currentNav.class"
+        
+        @mouseenter="navModalVisible = true"
+        @mouseleave="navModalVisible = false"
+      >
+        <div class="navs-modal-top" :style="{background: currentNav.backgroundTop}">
+          <span class="circle" :style="{background: currentNav.backgroundTop}"></span>
+        </div>
+        <div class="navs-modal-content">
+          <div class="navs-modal-content-left">
+            <div class="category" v-for="(item, index) in currentNav.children" :key="index">
+              <div class="section" @click="jumpTo(item)">
+                <div class="icon-wrap">
+                  <img :src="item.icon" />
+                </div>
+                <p class="label">{{ item.name }}</p>
+              </div>
+              <div class="wrap-nav">
+                <li class="sub-nav" v-for="(child, index) in item.subMenu" :key="index" @click="jumpTo(child)">{{ child.name }}</li>
+              </div>
+              <div class="desc" v-if="item.desc">{{ item.desc }}</div>
+            </div>
+          </div>
+          <div class="navs-modal-content-right" v-if="currentNav.category_intro">
+            <div>
+              <p class="intro-title">
+                <img src="/images/header/intro-title.png" style="margin-right: 5px;">栏目介绍
+              </p>
+              <p class="intro-text">{{ currentNav.category_intro }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    $(function() {
+      console.log('在此处输出jquery语法')
+
+
+    })
+
+    const { createApp, ref, computed } = Vue
+
+    const app = createApp({
+      setup() {
+        const navModalVisible = ref(false)
+
+        const currentNav = ref({})
+
+        const hoverFontColor = computed(() => currentNav.value.backgroundTop)
+
+        const menuList = window.menuList
+
+        // 鼠标移动到菜单
+        function mouseEnterNav(e, item) {
+          currentNav.value = item
+          if (item.children) navModalVisible.value = true
+          let navArrowDom = document.querySelector('#navArrow')
+          navArrowDom.style.left = (e.target.offsetLeft + 20 * (window.innerWidth / 1920)) + 'px'
+        }
+
+        // 点击导航菜单跳转
+        function jumpTo(item) {
+          if (item.link) {
+            window.location.href = item.link
+          }
+        }
+
+        return {
+          navModalVisible,
+          currentNav,
+          hoverFontColor,
+          menuList,
+          mouseEnterNav,
+          jumpTo,
+        }
+      }
+    })
+
+    app.mount("#header")
+
+  </script>
+
+</section>
+
+
+      <div class="banner">
+      <div class="banner-left">
+        <div class="banner-tool">
+          <img src="/images/home/Intelligent-Tools.png" />
+        </div>
+        <div class="banner-search">
+          <p class="banner-search-title">以图搜图</p>
+          <p class="banner-search-text">使用图片进行搜索，在R355图库中查找相似款式和图案，更加针对性查找资料,快速找到想要的内容。</p>
+        </div>
+        <div class="banner-ai">
+          <img src="/images/home/ai-text.png" />
+          <p class="banner-ai-text">随着AI技术的不断成熟，设计将更加智能化、定制化。通过训练模型生成图像，推动设计的多元化与创新发展</p>
+        </div>
+        <div class="banner-light">
+          <img src="/images/home/banner-fire.png" />
+        </div>
+      </div>
+      <div class="banner-right">
+        <div class="banner-img">
+          <ul class="ul-pic">
+           <li><a href="http://www.r355.com/"><img src="http://www.r355.com/uploadFiles/webad/26086LFXBF062648RX.jpg" alt="新时尚创造激发灵感" /></a></li>
+          </ul>
+          <ul class="banner-direction">
+            <img src="/images/home/carousel-arrow.png" class="arrow prev">
+            <img src="/images/home/carousel-arrow.png" class="arrow rotate next">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="recommend">
+      <p class="recommend-title">
+        <img src="/images/home/recommend-icon.png" />热门推荐
+      </p>
+      <div class="recommend-list">
+            
+
+      </div>
+    </div>
+    <div class="album">
+      <img src="/images/home/title-album.png" class="title">
+      <p class="sub-title">集单品、实拍、面料、图案、风格、细节等各方面的图片内容，整理成热门主题图册</p>
+      <div class="btn-more"><a href="/qszx/zthc-0-0-0-0-0-0-0-1.html" style="color:#fff">查看更多</a></div>
+      <div class="list">
+
+       <li class="item"><div class="img-wrap"><a href="show_zthc-1003-29689.html"><img src="https://www.r355.com/uploadFiles/20241231/hbh/202412311906129151.jpg"></a></div><div class="intro"><p>2024/25秋冬欧货棉服</p><p>223张</p></div></li><li class="item"><div class="img-wrap"><a href="show_zthc-1003-29688.html"><img src="https://www.r355.com/uploadFiles/20241231/hbh/202412311816094192.jpg"></a></div><div class="intro"><p>外单皮衣</p><p>230张</p></div></li><li class="item"><div class="img-wrap"><a href="show_zthc-1003-29687.html"><img src="https://www.r355.com/uploadFiles/20241231/hbh/202412311813552532.jpg"></a></div><div class="intro"><p>市场商务棉服</p><p>130张</p></div></li><li class="item"><div class="img-wrap"><a href="show_zthc-1003-29686.html"><img src="https://www.r355.com/uploadFiles/20241231/hbh/202412311811292410.jpg"></a></div><div class="intro"><p>品牌棉服</p><p>105张</p></div></li>
+       
+      </div>
+    </div>
+    <div class="popular">
+      <img src="/images/home/popular-title.png" class="popular-title">
+      <p class="popular-text">随着男装设计的多元化发展，图案设计成为表达个性与风格的重要元素。根据图案的视觉效果及应用场景将其分类。</p>
+      <div class="popular-category">
+        <a href="/sctk/list-948-0-0-0-0-0-0--1.html" title="原创图案"><img src="/images/home/popular-btn1.png" /></a>
+         <a href="/sctk/dptaList-949-0-0-0-0-0-0--1.html" title="打牌图案"><img src="/images/home/popular-btn2.png" /></a>
+         <a href="/sctk/list-23-0-0-0-0-0-0--1.html" title="灵感素材"><img src="/images/home/popular-btn3.png" /></a>
+      </div>
+      <div class="popular-btns">
+        <div class="popular-btns-line"></div>
+      <div class="popular-btns-line"></div>
+        <li class="popular-btns-item"><a href="/sctk/list-23-393-0-0-0-0-0--1.html">动物图案</a></li>
+        <li class="popular-btns-item"><a href="/sctk/list-23-229-0-0-0-0-0--1.html">几何元素</a></li>
+        <li class="popular-btns-item"><a href="/sctk/list-23-228-0-0-0-0-0--1.html">生活元素</a></li>
+        <li class="popular-btns-item"><a href="/sctk/list-23-225-0-0-0-0-0--1.html">字母文字</a></li>
+        <li class="popular-btns-item"><a href="/sctk/list-23-161-0-0-0-0-0--1.html">卡通动漫</a></li>
+        <li class="popular-btns-item"><a href="/sctk/list-23-220-0-0-0-0-0--1.html">植物花卉</a></li>
+        <li class="popular-btns-item"><a href="/sctk/list-23-221-0-0-0-0-0--1.html">交通工具</a></li>
+        <li class="popular-btns-item"><a href="/sctk/list-23-222-0-0-0-0-0--1.html">人物图案</a></li>
+        <li class="popular-btns-item"><a href="/sctk/list-23-233-0-0-0-0-0--1.html">贴章图标</a></li>
+      </div>
+      <div class="popular-wall">
+        <li class="popular-wall-item">
+          <img src="/images/home/popular-img1.png" />
+        </li>
+        <li class="popular-wall-item">
+          <img src="/images/home/popular-img2.png" />
+        </li>
+        <li class="popular-wall-item">
+          <img src="/images/home/popular-img1.png" />
+        </li>
+        <li class="popular-wall-item">
+          <img src="/images/home/popular-img2.png" />
+        </li>
+        <li class="popular-wall-item">
+          <img src="/images/home/popular-img1.png" />
+        </li>
+        <li class="popular-wall-item">
+          <img src="/images/home/popular-img2.png" />
+        </li>
+        <li class="popular-wall-item">
+          <img src="/images/home/popular-img1.png" />
+        </li>
+        <li class="popular-wall-item">
+          <img src="/images/home/popular-img2.png" />
+        </li>
+        <li class="popular-wall-item">
+          <img src="/images/home/popular-img1.png" />
+        </li>
+        <li class="popular-wall-item">
+          <img src="/images/home/popular-img2.png" />
+        </li>
+        <li class="popular-wall-item">
+          <img src="/images/home/popular-img1.png" />
+        </li>
+        <li class="popular-wall-item">
+          <img src="/images/home/popular-img2.png" />
+        </li>
+      </div>
+    </div>
+
+    
+<script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+            <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+            <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
+<script src="/js/smcm.js"></script>
+<link rel="stylesheet" href="/css/validate.css" />
+    <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
+<ul class="kf">
+  <li class="li1">
+    <div class="show_a"><em></em>
+      <div style="padding-left:10px">
+        <div class="kf_titel">在线客服</div>
+        <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px" title="点击这里给我发消息" alt="点击这里给我发消息" src="http://wpa.qq.com/pa?p=2:18550168:41"></a></div>
+      <div><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3871105&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px; margin-left:10px" title="点击这里给我发消息" alt="点击这里给我发消息" src="http://wpa.qq.com/pa?p=2:3871105:41"></a></div>
+    </div>
+  </li>
+  <li class="li2">
+    <div class="show_b"><em></em>
+      <div class="kf_titel">联系我们</div>
+      <p>020-31232355</p>
+    </div>
+  </li>
+  <li class="li3">
+     <div class="show_c">
+    <form id="feedbackform" name="feedbackform" url="/Ajax/addneed.ashx">
+      <div class="kf_titel">会员需求与建议</div>
+      <em></em>
+      <textarea rows="5" name="xqjy" class="textarea" placeholder="请在此详细输入您公司目前所需资料类型或提交宝贵意见，我司将会在最短的时间内为您上传所需的资料，谢谢！"></textarea>
+      <div class="lay"><input type="submit" id="btnSubmit_feedback" class="Submission1" value="提交"></div>
+        </form>
+    </div>
+  </li>
+  <a href="http://widget.weibo.com/dialog/follow.php?fuid=2825343592&refer=www.r355.com&language=zh_cn&type=widget_page&vsrc=app_followbutton&backurl=http%3A%2F%2Fwww.r355.com%2F&rnd=1395281896175" title="新浪微博" target="_blank">
+  <li class="li4"></li>
+  </a>
+  <li class="li5">
+    <div class="show_d"><em></em><img src="/images/weixin_code.png" width="106" height="240"></div>
+  </li>
+  <li class="li7"></li>
+</ul>
+<section>
+  <link href="/css/footer.css" rel="stylesheet" type="text/css" />
+  <div id="footer">
+    <img src="/images/footer/innovative-future.png" class="footer-future" />
+    <div class="footer-contact">
+      <img src="/images/footer/wechat-icon.png" />
+      <img src="/images/footer/qq-icon.png" />
+      <img src="/images/footer/phone-icon.png" />
+    </div>
+    <div class="footer-line"></div>
+    <div class="footer-bot">
+      <div class="footer-bot-left">
+        <div class="footer-bot-navs">
+          <li class="nav-item">
+            <a href="/about/R355-1636.html">关于我们</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1637.html">联系我们</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1632.html">免责声明</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1633.html">会员须知</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1639.html">收费说明</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1640.html">汇款方式</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1641.html">办理流程</a>
+          </li>
+        </div>
+        <p>Copyright 2007-2024 R355.com， All Rights Reserved 闽 ICP 备 07502261 号-1</p>
+      </div>
+      <img src="/images/footer/qrcode.png" style="width: 94px; height: 94px;">
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript" src="/js/Mouse.js" charset="utf-8"></script>
+   <script>
+       $(function () {
+           AjaxInitForm('#feedbackform', '#btnSubmit_feedback', 0);
+      });
+  </script>
+<script src="/js/purify.min.js"></script>
+  <script src="/js/jquery.SuperSlide.js"></script>
+      <script src="/js/base.js"></script> 
+   <script type="text/javascript">
+      $(function() {
+        // 注：不可同时引入多个jquery库，不然插件会报错
+        jQuery(".banner-img").slide({
+          titCell: ".banner-direction",
+          mainCell: ".ul-pic",
+          effect: "leftLoop",
+          autoPlay: true,
+          trigger: "click",
+          prevCell: '.prev',
+          nextCell: '.next',
+        });
+      })
+    </script>
+</body>
+</html>
