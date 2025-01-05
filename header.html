@@ -78,7 +78,7 @@
       <div
         class="navs-modal"
         ref="navModal"
-        :style="{background: currentNav.background, transform: navModalVisible ? 'translate3D(0, 0, 0)' : 'translate3D(0, -100%, 0)'}"
+        :style="{background: currentNav.background, transform: navModalVisible ? 'translate3D(0, 0, 0)' : 'translate3D(0, calc(-100% - 1px), 0)'}"
         :class="currentNav.class"
         
         @mouseenter="navModalVisible = true"

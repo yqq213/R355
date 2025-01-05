@@ -24,18 +24,55 @@
     <link href="/css/smcm.css" rel="stylesheet" type="text/css" />
     <link href="/css/new2022.css" rel="stylesheet" type="text/css" />
     <style>
-      .new-patterns-ul>li>.pic_box {
-        height: 180px;
+      .new-patterns-ul {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        column-gap: 25px;
       }
-      .new-patterns-ul>li {
+      .new-patterns-ul > li > .pic_box {
+        height: unset !important;
+        width: 100%;
+        padding: 0;
+      }
+      .new-patterns-ul>li>.pic_box a.img_click, .new-patterns-ul>li>.pic_box a.img_click>img {
+        width: 100%;
+        max-width: unset;
+      }
+      .new-patterns-ul > li {
         height: unset !important;
         margin-bottom: 30px;
+        width: 100% !important;
       }
-      .patterns-ul>li .titleBox {
+      .patterns-ul > li .titleBox {
         overflow: hidden;
+        width: 100%;
       }
-      .new-patterns-ul>li>.pic_box a.img_click {
+      .new-patterns-ul > li > .pic_box a.img_click {
         height: unset;
+      }
+      .titleBox .area {
+        display: flex;
+        justify-content: space-between;
+      }
+      .titleBox .area .area-num {
+        flex-shrink: 0;
+        margin-left: 10px;
+      }
+      .titleBox .area span:nth-child(1) {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .new-patterns-ul .patter-label-position {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 0;
+      }
+      .cp_txt {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        box-sizing: border-box;
       }
     </style>
   </head>
@@ -265,7 +302,7 @@
             <i class="fa fa-caret-down"></i>
           </div>
           <ul class="selectUl">
-            <li><a href="zthc-0-0-0-4999-0-0-0-1.html">2025秋冬</a></li>
+            <li><a href="zthc-1005-0-0-4999-0-0-0-1.html">2025秋冬</a></li>
           </ul>
         </div>
         <div class="selectBox">
@@ -275,14 +312,16 @@
               type="text"
               id="txtsex"
               class="imitationSelect"
-              value="分类"
+              value="图案"
               readonly=""
             />
             <i class="fa fa-caret-down"></i>
           </div>
           <ul class="selectUl">
             <li><a href="zthc-1004-0-0-0-0-0-0-1.html">风格</a></li>
-            <li><a href="zthc-1005-0-0-0-0-0-0-1.html">图案</a></li>
+            <li class="actived_li">
+              <a href="zthc-1005-0-0-0-0-0-0-1.html">图案</a>
+            </li>
             <li><a href="zthc-1006-0-0-0-0-0-0-1.html">工艺</a></li>
             <li><a href="zthc-1007-0-0-0-0-0-0-1.html">单品</a></li>
             <li><a href="zthc-1008-0-0-0-0-0-0-1.html">细节</a></li>
@@ -292,227 +331,98 @@
     </div>
 
     <div style="clear: both"></div>
+    <div id="fenleiBox" style="margin-top: 20px">
+      <dl style="border-bottom: 0; background-color: #f3f3f3">
+        <div class="filter_selected_box" style="float: left">
+          <span style="float: left; margin-left: 10px">已选项:</span>
+          <div class="filter_label_box" style="float: left">
+            <p title="图案">图案</p>
+            <a class="list_icon" href="zthc-0-0-0-0-0-0-0-1.html"></a>
+          </div>
+          <a
+            class="clear_label"
+            href="/qszx/zthc-0-0-0-0-0-0-0-1.html"
+            style="float: left"
+            ><i class="list_icon"></i>清空筛选</a
+          >
+        </div>
+      </dl>
+    </div>
 
-    <div class="rightc_top contentW">
+    <div class="rightc_top contentW" style="width: 90%; margin-top: 20px">
       <div class="rightc_main js-patterns-lists-box">
-        <ul class="patterns-ul js-list-parent clearfix new-patterns-ul theme">
+        <ul class="patterns-ul js-list-parent clearfix new-patterns-ul">
           <li>
             <div itemscope class="pic_box img">
-              <div class="cp_txt" style="text-align: right">2025/1/2</div>
+              <div class="cp_txt" style="text-align: right">2024/5/15</div>
               <a
                 itemprop="url"
                 class="img_click js-data-collect"
-                href="show_zthc-1003-29698-1.html"
+                href="show_zthc-1003-29699-1.html"
                 target="_blank"
                 ><div itemscope class=""></div>
                 <img
-                  alt="2024/25秋冬外单工装裤"
+                  alt="2024夏装涂鸦手绘抽象动物图案"
                   itemprop="thumbnail"
-                  src="http://www.r355.com/uploadFiles/20250102/hbh/202501021131012636.jpg" />
+                  src="http://www.r355.com/uploadFiles/20250103/hbh/202501031637023001.jpg" />
                 <div class="color-time-box"></div
               ></a>
             </div>
             <div class="titleBox titleBox-left">
               <div class="patter-label-position patter-left-label-position">
-                <p class="area"><span>24/25秋冬</span>211张</p>
+                <p class="area">
+                  <span>2024夏装涂鸦手绘抽象动物图案</span>
+                  <span class="area-num">72张</span>
+                </p>
               </div>
             </div>
           </li>
           <li>
             <div itemscope class="pic_box img">
-              <div class="cp_txt" style="text-align: right">2025/1/2</div>
+              <div class="cp_txt" style="text-align: right">2024/5/10</div>
               <a
                 itemprop="url"
                 class="img_click js-data-collect"
-                href="show_zthc-1003-29697-1.html"
+                href="show_zthc-1003-29701-1.html"
                 target="_blank"
                 ><div itemscope class=""></div>
                 <img
-                  alt="2024/25秋冬轻户外休闲裤"
+                  alt="2024夏装涂鸦文字与个性艺术交融图案"
                   itemprop="thumbnail"
-                  src="http://www.r355.com/uploadFiles/20250102/hbh/202501021127424893.jpg" />
+                  src="http://www.r355.com/uploadFiles/20250103/hbh/202501031739313210.jpg" />
                 <div class="color-time-box"></div
               ></a>
             </div>
             <div class="titleBox titleBox-left">
               <div class="patter-label-position patter-left-label-position">
-                <p class="area"><span>24/25秋冬</span>187张</p>
+                <p class="area">
+                  <span>2024夏装涂鸦文字与个性艺术交融图案</span>
+                  <span class="area-num">30张</span>
+                </p>
               </div>
             </div>
           </li>
           <li>
             <div itemscope class="pic_box img">
-              <div class="cp_txt" style="text-align: right">2025/1/2</div>
+              <div class="cp_txt" style="text-align: right">2024/4/20</div>
               <a
                 itemprop="url"
                 class="img_click js-data-collect"
-                href="show_zthc-1003-29696-1.html"
+                href="show_zthc-1003-29700-1.html"
                 target="_blank"
                 ><div itemscope class=""></div>
                 <img
-                  alt="2024/25秋冬外单毛领皮衣"
+                  alt="2024夏装手绘抽象人物图案"
                   itemprop="thumbnail"
-                  src="http://www.r355.com/uploadFiles/20250102/hbh/202501021122233189.jpg" />
+                  src="http://www.r355.com/uploadFiles/20250103/hbh/202501031740073911.jpg" />
                 <div class="color-time-box"></div
               ></a>
             </div>
             <div class="titleBox titleBox-left">
               <div class="patter-label-position patter-left-label-position">
-                <p class="area"><span>24/25秋冬</span>230张</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div itemscope class="pic_box img">
-              <div class="cp_txt" style="text-align: right">2025/1/2</div>
-              <a
-                itemprop="url"
-                class="img_click js-data-collect"
-                href="show_zthc-1003-29695-1.html"
-                target="_blank"
-                ><div itemscope class=""></div>
-                <img
-                  alt="2024/25秋冬外单外套"
-                  itemprop="thumbnail"
-                  src="http://www.r355.com/uploadFiles/20250102/hbh/202501021120045944.jpg" />
-                <div class="color-time-box"></div
-              ></a>
-            </div>
-            <div class="titleBox titleBox-left">
-              <div class="patter-label-position patter-left-label-position">
-                <p class="area"><span>24/25秋冬</span>189张</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div itemscope class="pic_box img">
-              <div class="cp_txt" style="text-align: right">2025/1/2</div>
-              <a
-                itemprop="url"
-                class="img_click js-data-collect"
-                href="show_zthc-1003-29694-1.html"
-                target="_blank"
-                ><div itemscope class=""></div>
-                <img
-                  alt="2024/25秋冬品牌微潮卫衣"
-                  itemprop="thumbnail"
-                  src="http://www.r355.com/uploadFiles/20250102/hbh/202501021116304854.jpg" />
-                <div class="color-time-box"></div
-              ></a>
-            </div>
-            <div class="titleBox titleBox-left">
-              <div class="patter-label-position patter-left-label-position">
-                <p class="area"><span>24/25秋冬</span>137张</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div itemscope class="pic_box img">
-              <div class="cp_txt" style="text-align: right">2025/1/2</div>
-              <a
-                itemprop="url"
-                class="img_click js-data-collect"
-                href="show_zthc-1003-29693-1.html"
-                target="_blank"
-                ><div itemscope class=""></div>
-                <img
-                  alt="2024/25秋冬时尚市场外套"
-                  itemprop="thumbnail"
-                  src="http://www.r355.com/uploadFiles/20250102/hbh/202501021114347211.jpg" />
-                <div class="color-time-box"></div
-              ></a>
-            </div>
-            <div class="titleBox titleBox-left">
-              <div class="patter-label-position patter-left-label-position">
-                <p class="area"><span>24/25秋冬</span>158张</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div itemscope class="pic_box img">
-              <div class="cp_txt" style="text-align: right">2025/1/2</div>
-              <a
-                itemprop="url"
-                class="img_click js-data-collect"
-                href="show_zthc-1003-29692-1.html"
-                target="_blank"
-                ><div itemscope class=""></div>
-                <img
-                  alt="2024/25秋冬轻户外外套"
-                  itemprop="thumbnail"
-                  src="http://www.r355.com/uploadFiles/20250102/hbh/202501021109468740.jpg" />
-                <div class="color-time-box"></div
-              ></a>
-            </div>
-            <div class="titleBox titleBox-left">
-              <div class="patter-label-position patter-left-label-position">
-                <p class="area"><span>24/25秋冬</span>165张</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div itemscope class="pic_box img">
-              <div class="cp_txt" style="text-align: right">2025/1/2</div>
-              <a
-                itemprop="url"
-                class="img_click js-data-collect"
-                href="show_zthc-1003-29691-1.html"
-                target="_blank"
-                ><div itemscope class=""></div>
-                <img
-                  alt="2024/25秋冬品牌商务棉服"
-                  itemprop="thumbnail"
-                  src="http://www.r355.com/uploadFiles/20250102/hbh/202501021108025670.jpg" />
-                <div class="color-time-box"></div
-              ></a>
-            </div>
-            <div class="titleBox titleBox-left">
-              <div class="patter-label-position patter-left-label-position">
-                <p class="area"><span>24/25秋冬</span>105张</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div itemscope class="pic_box img">
-              <div class="cp_txt" style="text-align: right">2025/1/2</div>
-              <a
-                itemprop="url"
-                class="img_click js-data-collect"
-                href="show_zthc-1003-29690-1.html"
-                target="_blank"
-                ><div itemscope class=""></div>
-                <img
-                  alt="2024/25秋冬时尚棒球服"
-                  itemprop="thumbnail"
-                  src="http://www.r355.com/uploadFiles/20250102/hbh/202501021101028496.jpg" />
-                <div class="color-time-box"></div
-              ></a>
-            </div>
-            <div class="titleBox titleBox-left">
-              <div class="patter-label-position patter-left-label-position">
-                <p class="area"><span>24/25秋冬</span>163张</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div itemscope class="pic_box img">
-              <div class="cp_txt" style="text-align: right">2024/12/31</div>
-              <a
-                itemprop="url"
-                class="img_click js-data-collect"
-                href="show_zthc-1003-29689-1.html"
-                target="_blank"
-                ><div itemscope class=""></div>
-                <img
-                  alt="2024/25秋冬欧货棉服"
-                  itemprop="thumbnail"
-                  src="http://www.r355.com/uploadFiles/20241231/hbh/202412311906129151.jpg" />
-                <div class="color-time-box"></div
-              ></a>
-            </div>
-            <div class="titleBox titleBox-left">
-              <div class="patter-label-position patter-left-label-position">
-                <p class="area"><span></span>223张</p>
+                <p class="area"><span>2024夏装手绘抽象人物图案</span>
+                  <span class="area-num">36张</span>
+                </p>
               </div>
             </div>
           </li>
@@ -1191,7 +1101,7 @@
       name="user_role1$turl"
       type="hidden"
       id="user_role1_turl"
-      value="http://2024.r355.com/qszx/zthc.aspx?fid=0&amp;cid=0&amp;scid=0&amp;jdid=0&amp;sbid=0&amp;aid=0&amp;kid=0&amp;p=1"
+      value="http://2024.r355.com/qszx/zthc.aspx?fid=1005&amp;cid=0&amp;scid=0&amp;jdid=0&amp;sbid=0&amp;aid=0&amp;kid=0&amp;p=1"
     />
   </body>
 </html>
