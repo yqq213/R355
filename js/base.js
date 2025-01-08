@@ -443,13 +443,13 @@ $(document).ready(function () {
 //下拉菜单
 
 $(function () {
-  reloadScript()
   // 加载顶部页面
-  $("#top_nav").load("../header.html", function() {
-    reloadScript()
-  });
+  reloadScript();
+  // $("#top_nav").load("../header.html", function() {
+  //  reloadScript()
+  // });
   // 加载底部页面
-  $(".n-bottom").load("../footer.html");
+  // $(".n-bottom").load("../footer.html");
   $(".selectBox .imitationSelect").on("click", function (event) {
     $(this).parent().next().fadeToggle(100); //ul弹窗展开
     $(this).next().toggleClass("fa-caret-up"); //点击input选择适合，小图标动态切换
@@ -574,13 +574,15 @@ $(document).ready(function () {
 
 // 是否展示标签，flag为true表示展示标签，为false表示不展示标签
 function showTag(flag) {
-  flag ? $('.patterns-ul').addClass('addTag') : $('.patterns-ul').removeClass('addTag')
+  flag
+    ? $(".patterns-ul").addClass("addTag")
+    : $(".patterns-ul").removeClass("addTag");
 }
 
 // 给标签设置点数，value表示要添加的点数
 function setValueToTag(value) {
-  $('.addTag>li').attr('data-content-before', value)
-  $('.addTag>.n-cp-box').attr('data-content-before', value)
+  $(".addTag>li").attr("data-content-before", value);
+  $(".addTag>.n-cp-box").attr("data-content-before", value);
 }
 
 function reloadScript() {
@@ -593,7 +595,13 @@ function reloadScript() {
       var isClickButton =
         document.querySelector(".search-camera img") &&
         document.querySelector(".search-camera img").contains(event.target);
-      if (!isClickPop && !isClickButton) {
+      var isClickNav = 
+        $('.navs .navs-item:last') &&
+        $('.navs .navs-item:last')[0].contains(event.target);
+      var isClickBanner =
+        document.querySelector(".banner .banner-search") &&
+        document.querySelector(".banner .banner-search").contains(event.target);
+      if (!isClickPop && !isClickButton && !isClickNav && !isClickBanner) {
         $(".search-pop").hide();
       }
     }
@@ -609,6 +617,22 @@ function reloadScript() {
         $(".upload-loading").hide();
         $(".upload-error").hide();
       });
+
+  // 点击以图搜图菜单显示搜图弹框
+  $(document).on('click', '.navs .navs-item:last', function() {
+    $(".search-pop").show();
+    $(".search-content").show();
+    $(".upload-loading").hide();
+    $(".upload-error").hide();
+  })
+
+  // 点击以图搜图banner显示搜图弹框
+  $('.banner .banner-search').click(function() {
+    $(".search-pop").show();
+    $(".search-content").show();
+    $(".upload-loading").hide();
+    $(".upload-error").hide();
+  })
 
   // 点击关闭按钮
   document.querySelector(".upload-close") &&
@@ -667,8 +691,8 @@ function reloadScript() {
 
   // 处理上传文件
   function handleUploadFile(file) {
-    console.log(file);
-    if (file.size / 1024 / 1024 > 10 || !/^image\//.test(file.type)) {
+    //console.log(file)
+    if (file.size / 1024 / 1024 > 2 || !/^image\//.test(file.type)) {
       $(".search-content").hide();
       $(".upload-loading").hide();
       $(".upload-error").show();
@@ -680,14 +704,22 @@ function reloadScript() {
     var formData = new FormData();
     formData.append("file", file);
     $.ajax({
-      url: "",
+      url: "/Ajax/stTools.aspx?action=soutu",
       type: "POST",
       data: formData,
+      dataType: "json",
       contentType: false,
       processData: false,
       success: function (response) {
-        console.log("文件上传成功");
-        console.log(response);
+        if (response.state == 200) {
+          $(".search-pop").hide();
+          window.location.href = "/soutu.aspx?imgurl=" + response.msgbox;
+        } else if (response.state == 1) {
+          $(".search-pop").hide();
+          showDiv();
+        } else {
+          $(".upload-error").show();
+        }
       },
       complete: function () {
         setTimeout(function () {

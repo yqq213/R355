@@ -69,6 +69,7 @@ li {
   padding-left: 3vw;
   color: #191919;
   transition: all ease-in-out.5s;
+  position: relative;
 }
 
 .banner-search:hover {
@@ -99,6 +100,7 @@ li {
   padding-left: 3vw;
   color: #fff;
   transition: all ease-in-out .5s;
+  position: relative;
 }
 
 .banner-ai:hover {
@@ -249,8 +251,10 @@ li {
   overflow: hidden;
   margin-bottom: 15px;
 }
-
-.album .list .img-wrap img {
+    .album .list .img-wrap a {  width: 100%;
+  height: 100%;
+    }
+.album .list .img-wrap a img {
   width: 100%;
   height: 100%;
   transition: all ease-in-out .5s;

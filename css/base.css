@@ -827,6 +827,8 @@ _top: expression(eval(document.compatMode && document.compatMode=='CSS1Compat') 
 	color: #D7B155;
 	clear: both;
 	margin-right: 10px;
+	z-index: 9;
+	position: relative;
 }
 .do-1 {
 	padding-left: 55px;
