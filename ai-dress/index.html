@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <title>R355服饰资讯网</title>
+    <title>智展衣模-R355服饰资讯网</title>
     <meta
       name="Description"
       content="R355服饰资讯网,专业的服装设计网站,为您提供最专业的时装设计,时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会等信息"
@@ -18,11 +18,20 @@
     <link rel="stylesheet" href="/css/ai-dress.css" />
     <link
       rel="stylesheet"
-      href="//at.alicdn.com/t/c/font_4789865_sq6oz95gygm.css"
+      href="//at.alicdn.com/t/c/font_4789865_kp8ze1cb0va.css"
     />
     <!-- 引入防xss攻击js -->
     <script src="/js/purify.min.js"></script>
-    <script src="/js/jquery-1.7.2.min.js"></script>
+    <script src="/js/NZ-MsgBox/jquery-3.4.1.min.js"></script>
+    <script src="/js/NZ-MsgBox/NZ-Drag.min.js"></script>
+    <script src="/js/NZ-MsgBox/NZ-MsgBox.min.js"></script>
+    <link href="/js/NZ-MsgBox/NZ-MsgBox.min.css" rel="stylesheet" />
+    <style>
+      .NZ-TipsBar-Container .tipbar.success .icon-state,
+      .NZ-TipsBar-Container .tipbar.info .icon-state {
+        display: inline-block;
+      }
+    </style>
   </head>
   <body>
     <div class="header flexBetween">
@@ -51,6 +60,24 @@
                 ><div class="create flexCenter">继续创建</div></a
               >
             </li>
+            <li class="task-item" data-id="5">
+              <a href="default.aspx?ID=5"
+                ><img
+                  src="http://www.r355.com/hwtastImg/20250110/0F0X8H000P068X20L8.jpg"
+              /></a>
+            </li>
+            <li class="task-item" data-id="4">
+              <a href="default.aspx?ID=4"
+                ><img
+                  src="http://www.r355.com/hwtastImg/20250110/N8040RR6RH00BJZBXZ.jpg"
+              /></a>
+            </li>
+            <li class="task-item" data-id="3">
+              <a href="default.aspx?ID=3"
+                ><img
+                  src="http://www.r355.com/hwtastImg/20250110/N268BHJ60880LZ4660.jpg"
+              /></a>
+            </li>
           </div>
           <div class="task-all flexCenter">
             全部任务
@@ -78,7 +105,7 @@
               <p>
                 以下内容由系统自动生成，因产品处于持续学习调优阶段，其中可能有不准确或不恰当的信息，不代表R355观点，请您谨慎鉴别。
               </p>
-              <p>2024.12.19 20:39:29</p>
+              <p id="addtime">2025/1/11 0:28:33</p>
             </div>
             <div class="result-container"></div>
           </div>
@@ -119,6 +146,7 @@
               <li data-id="连衣裙">连衣裙</li>
             </div>
             <div class="grid-container" id="jp_model_scene"></div>
+            <div id="pagination" class="m-style"></div>
           </div>
           <!-- 我的参考图 -->
           <div class="refer-container" style="display: none">
@@ -126,7 +154,7 @@
               <span class="iconfont icon-warning_fill"></span>
               温馨提示：最多可选5张参考图，请确保商品图与参考图为同类型商品，以达到最佳效果
             </div>
-            <div class="filter-wrap">
+            <div class="filter-wrap" style="display: none">
               <div class="refer-filter original" style="margin-bottom: 10px">
                 <span class="refer-filter-name">参考图来源</span>
                 <li class="refer-filter-item active">全部</li>
@@ -182,7 +210,7 @@
             <div class="flexCenter upload-empty">
               <img src="/images/ai-dress/upload-dress-icon.png" alt="" />
               <p style="margin: 10px 0 10px 0">上传单件衣服</p>
-              <p class="tip">图片大小50K-15M，分辨率大于400*400</p>
+              <p class="tip">图片大小50K-2M，分辨率大于400*400</p>
             </div>
             <input type="file" class="upload-input" data-action="single" />
             <div class="upload-img flexCenter" style="display: none">
@@ -198,7 +226,7 @@
             <div class="flexCenter upload-empty">
               <img src="/images/ai-dress/upload-dress-icon.png" alt="" />
               <p style="margin: 10px 0 10px 0">上传上装平铺图</p>
-              <p class="tip">图片大小50K-15M</p>
+              <p class="tip">图片大小50K-2M</p>
               <p class="tip">分辨率大于400*400</p>
             </div>
             <input type="file" class="upload-input" data-action="shangzhuang" />
@@ -213,7 +241,7 @@
             <div class="flexCenter upload-empty">
               <img src="/images/ai-dress/upload-dress-pants.png" alt="" />
               <p style="margin: 10px 0 10px 0">上传下装平铺图</p>
-              <p class="tip">图片大小50K-15M</p>
+              <p class="tip">图片大小50K-2M</p>
               <p class="tip">分辨率大于400*400</p>
             </div>
             <input type="file" class="upload-input" data-action="xiazhuang" />
@@ -277,20 +305,28 @@
             <p>持续调优中</p>
             <p>请谨慎鉴别生成结果</p>
           </div>
-          <div class="btn flexCenter generateBtn">
+          <div class="btn flexCenter generateBtn loading">
+            <span class="loading-wrap flexCenter">
+              <span class="iconfont icon-loading"></span>
+            </span>
             <span>立即生成</span>
             <span class="cost flexCenter">
               <img
                 src="/images/ai-dress/coin-icon.png"
                 style="margin-right: 5px"
               />
-              50
+              <em id="totalPoint">50</em>
             </span>
           </div>
         </div>
       </div>
     </div>
     <input type="hidden" id="_id" value="0" />
+    <input type="hidden" id="task_status" value="2" />
+    <input name="scene_img" type="hidden" id="scene_img" />
+    <input name="scene_text" type="hidden" id="scene_text" />
+    <input name="scene_num" type="hidden" id="scene_num" />
+    <input name="user_point" type="hidden" id="user_point" value="50" />
   </body>
   <script src="/js/jquery.pagination.js"></script>
   <script src="/js/ai-dress.js"></script>
