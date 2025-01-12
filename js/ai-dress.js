@@ -383,6 +383,10 @@ $(function () {
       },
     });
   });
+    var mockData = {
+      Count: 0,
+      ImageInfos: [],
+    };
   // 获取我的参考图
   function huiwa_model_scene(model_type, cat, bili) {
     if (cat == 0) {
@@ -393,31 +397,22 @@ $(function () {
         '<li class="grid-item grid-item-upload flexCenter" style="height:12vw"><div class="grid-item-upload-btn flexCenter"><span class="iconfont icon-upload grid-item-upload-icon"></span>上传参考图<input type="file" multiple class="refer-upload"></div><p class="upload-text">支持批量上传</p></li>'
       );
     }
-    loadPagination()
-    renderHtml(0)
-    //var bili = $("#bili").val();
     $.ajax({
-      type: "POST",
-      url: "/Ajax/hwAPI.ashx?action=model_scene",
-      dataType: "html",
-      data: { model_type, bili, cat },
-      beforeSend: function (XMLHttpRequest) {
-        //ShowLoading();
-      },
-      success: function (json, textStatus) {
-        if (cat == 0) {
-          $("#jp_model_scene").append(json);
-        } else {
-          $("#my_model_scene").append(json);
-        }
-      },
-      complete: function (XMLHttpRequest, textStatus) {
-        //HideLoading();
-      },
-      error: function () {
-        //请求出错处理
-      },
+        type: "POST",
+        url: "/Ajax/hwAPI.ashx?action=model_scene_count",
+        dataType: "JSON",
+        data: { model_type: model_type, bili: bili, cat: cat},
+        beforeSend: function (XMLHttpRequest) {
+        }, success: function (json, textStatus) {
+            mockData.Count = json.state;
+        },
+        complete: function (XMLHttpRequest, textStatus) {
+            loadPagination(model_type, cat, bili);
+        },
+        error: function () {
+        },
     });
+   
   }
   // 获取我的参考图
   function task_image_get(id) {
@@ -471,16 +466,12 @@ $(function () {
     }
   }
 
-  var mockData = {
-    Count: 100,
-    ImageInfos: [],
-  };
+ 
 
   // 每页显示的数量
   var pageSize = 18;
-
   // 加载分页
-  function loadPagination() {
+  function loadPagination(model_type, cat, bili) {
     // 初始化分页
     $("#pagination").Pagination({
       totalData: mockData.Count, // 总数据量
@@ -489,32 +480,32 @@ $(function () {
       current: 1, // 当前页码
       coping: true, // 是否开启首页和尾页功能
       callback: function (api) {
-        // 分页回调函数，在这里进行数据加载和页面渲染
-        // renderHtml(api.getCurrent() - 1);
-        console.log(api.getCurrent())
-        // 调用接口获取当前页数据
-        
+        renderHtml(model_type, cat, bili, api.getCurrent())
+      },
+    });
+    // 获取第一页数据
+    renderHtml(model_type, cat, bili, 1);
+  }
+
+  // 根据分页页数获取数据
+  function renderHtml(model_type, cat, bili, index) {
+    $.ajax({
+      type: "POST",
+      url: "/Ajax/hwAPI.ashx?action=model_scene",
+      dataType: "html",
+      data: { model_type: model_type, bili: bili, cat: cat, pageIndex: index },
+              beforeSend: function (XMLHttpRequest) {
+      },success: function (json, textStatus) {
+        if (cat == 0) {
+          $("#jp_model_scene").html(json);
+      } else {
+          $("#my_model_scene").html(json);
+      }
+      },
+          complete: function (XMLHttpRequest, textStatus) {
+      },
+          error: function () {
       },
     });
   }
-
-  // 获取分页数据
-  // function renderHtml(page) {
-  //   if (mockData.Count == 0) {
-  //     $("#pagination").hide();
-  //     $("#jp_model_scene").html(
-  //       '<div style="text-align:center; padding-bottom:30px; font-size:16px;width:100%">找不到类似相关图片！</div>'
-  //     );
-  //   } else {
-  //     $("#jp_model_scene").html("");
-  //     var html = "";
-  //     for (var i = pageSize * page; i < pageSize * page + pageSize; i++) {
-  //       if (i < mockData.Count) {
-  //         html +=
-  //           '<li class="grid-item" data-model_id="22071227269" data-id="1"><img src="/sceneImg/20250101/202501011919565001542.jpg" class="item-img"><div class="item-desc">【3:4】白底金发女士正面</div><span class="iconfont icon-xuanzhong checkIcon"></span></li>';
-  //       }
-  //     }
-  //     $("#jp_model_scene").html(html);
-  //   }
-  // }
 });
