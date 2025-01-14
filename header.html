@@ -146,7 +146,7 @@
         // 点击导航菜单跳转
         function jumpTo(item) {
           if (item.link) {
-            window.location.href = item.link
+            item.open ? window.open(item.link) : window.location.href = item.link
           }
         }
 

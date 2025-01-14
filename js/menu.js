@@ -508,6 +508,7 @@ window.menuList = [
       {
         icon: '/images/header/dapaituan.png',
         name: '智展衣模Ai',
+        open: true,
         desc: '不用模特拍摄也能打造逼真上身效果，让平铺服装仿佛有了灵魂，穿搭细节尽显，助力您快速营销。'
       },
     ]
