@@ -438,6 +438,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
+  cursor:pointer
 }
 
 .left-list .item.active::before {
@@ -498,6 +499,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .img-common .img-label {
@@ -515,6 +517,7 @@
 .img-common img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .img-result .old-img {
@@ -608,7 +611,7 @@
 
 #create-modal .upload-wrap {
   width: 100%;
-  height: 400px;
+  height: 500px;
   background: rgba(0, 0, 0, 0.02);
   border: 1px dashed #d9d9d9;
   border-radius: 8px;
@@ -618,7 +621,7 @@
   position: relative;
 }
 
-#create-modal .upload-wrap .upload-btn {
+#create-modal .upload-wrap .upload-btn {margin-top:20px;
   width: 106px;
   height: 32px;
   border-radius: 4px;
