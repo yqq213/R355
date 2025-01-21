@@ -1,0 +1,242 @@
+.common-btn {
+  width: 70px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+  cursor: pointer;
+}
+
+.main-content {
+  height: calc(100% - var(--header-height));
+  display: flex;
+  background: url('/images/ai-dress/content-bg.png') center no-repeat;
+  background-size: 100% 100%;
+  color: #333;
+  overflow: auto;
+}
+
+.invite-wrap {
+  width: 1000px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.invite-back-btn {
+  position: absolute;
+  top: 24px;
+  left: -80px;
+  width: 70px;
+  height: 30px;
+}
+
+.invite-back-btn .iconfont {
+  font-size: 13px;
+  margin-right: 5px;
+}
+
+.invite-banner {
+  background: url('https://gw.alicdn.com/imgextra/i3/O1CN01uqdqgJ259GjUClGtL_!!6000000007483-2-tps-2000-380.png') no-repeat 0 0;
+  background-size: 1000px 190px;
+  height: 190px;
+  margin-bottom: 25px;
+}
+
+.invite-link {
+  margin: 0 auto;
+  padding: 24px 0;
+  width: 920px;
+  background: #fff;
+  border: 1px solid #fff;
+  box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0);
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.invite-link-text {
+  display: inline-block;
+  width: 400px;
+  height: 48px;
+  line-height: 48px;
+  background: #f8f8f8;
+  border-radius: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  color: #666666;
+  font-weight: 400;
+  padding: 0 16px;
+}
+
+.invite-link-btn {
+  width: 180px;
+  height: 48px;
+  background-image: linear-gradient(87deg, #694a22 1%, #070705 100%);
+  color: #fff;
+  margin-left: 20px;
+}
+
+.invite-link-btn .iconfont {
+  margin-right: 5px;
+}
+
+.invite-info-wrap {
+  margin: 0 auto;
+  padding: 24px 0;
+  width: 920px;
+  background: #ffffff;
+  box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0);
+  border-radius: 12px;
+}
+
+.invite-info-left {
+  padding: 60px 40px;
+  min-width: 280px;
+  border-right: 1px solid #f2f2f2;
+  flex-direction: column;
+}
+
+.invite-info-wrap strong {
+  font-size: 40px;
+  color: #333333;
+}
+
+.invite-record {
+  width: 94px;
+  background: #657eb9;
+  color: #fff;
+}
+
+.invite-info-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.invite-info-item:nth-last-child(1) {
+  margin-bottom: 0;
+}
+
+.invite-info-title {
+  display: flex;
+  align-items: center;
+}
+
+.invite-info-title img {
+  margin-right: 5px;
+}
+
+.invite-info-item-desc span {
+  color: #FD2845;
+}
+
+.invite-info-item-left {
+  width: 190px;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.invite-info-item-left strong {
+  margin-bottom: 10px;
+}
+
+.invite-info-item-desc {
+  padding-right: 40px;
+  color: #999;
+  line-height: 20px;
+}
+
+.invite-copyright {
+  padding: 25px 0;
+  font-size: 12px;
+  color: #999999;
+  text-align: center;
+}
+
+
+
+
+/* modal style */
+.modal-shadow {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-shadow .modal-wrap {
+  border-radius: 8px;
+  background: linear-gradient(137deg, #fcf6f6 0%, #eef3ff 100%);
+  min-height: 200px;
+  min-width: 500px;
+  color: #161616;
+  position: relative;
+}
+
+.modal-shadow .modal-wrap .modal-content {
+  width: 100%;
+}
+
+.modal-shadow .modal-wrap .modal-title {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+#invite-modal .modal-wrap {
+  width: 900px;
+  display: flex;
+  padding: 20px;
+}
+
+.modal-wrap .modal-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 16px;
+  height: 16px;
+  background: url('/images/close-icon.png') center no-repeat;
+  cursor: pointer;
+}
+
+
+
+
+/* table style */
+.invite-table {
+  width: 100%;
+}
+
+.invite-table tr td {
+  text-align: center;
+  font-size: 12px;
+  padding: 12px 20px;
+}
+
+.invite-table thead tr {
+  background: #eaeaea;
+}
+
+.invite-table thead tr td {
+  font-size: 14px;
+}
+
+.invite-table tbody tr td {
+  border-bottom: 1px solid #eaeaea;
+  border-spacing: 0;
+}
+
+.table-empty {
+  text-align: center;
+  line-height: 100px;
+  color: rgba(0, 0, 0, 0.5);
+}

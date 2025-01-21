@@ -1,0 +1,158 @@
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <title>邀请新用户-R355服饰资讯网</title>
+  <meta name="Description"
+    content="R355服饰资讯网,专业的服装设计网站,为您提供最专业的时装设计,时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会等信息" />
+  <meta name="keywords"
+    content="时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会" />
+  <meta name="subject" content="服装设计" />
+  <meta name="searchtitle" content="服装设计,R355服饰资讯网" />
+  <meta name="language" content="chinese" />
+  <meta name="location" content="China" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/css/ai-dress.css" />
+  <link rel="stylesheet" href="/css/invite.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4789865_i5z6beq30c.css" />
+  <script src="/js/NZ-MsgBox/jquery-3.4.1.min.js"></script>
+  <script src="/js/NZ-MsgBox/NZ-Drag.min.js"></script>
+  <script src="/js/NZ-MsgBox/NZ-MsgBox.min.js"></script>
+  <link href="/js/NZ-MsgBox/NZ-MsgBox.min.css" rel="stylesheet">
+  <style>
+    .NZ-TipsBar-Container .tipbar.success .icon-state,.NZ-TipsBar-Container .tipbar.info .icon-state { display:inline-block }
+  </style>
+</head>
+
+<body>
+  <div class="header flexBetween">
+    <div class="left">
+      <span>智展衣模</span>
+      <img src="/images/ai-dress/ai-icon.png" class="ai-icon">
+    </div>
+    <div class="right">
+      <a href="default.aspx"><span class="title">服装上身</span></a>
+      <a href="javascript:;"><span class="title">我的作品</span></a>
+      <a href="/invite/index.html"><img src="/images/ai-dress/invite-btn.png" class="invite-btn"></a>
+      <div class="charge-btn" onclick=" window.location.href='/member/buyPoint.aspx'">9250</div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="invite-wrap">
+      <div class="invite-back-btn common-btn" onclick="window.history.back()"><span class="iconfont icon-back-o"></span>返回</div>
+      <div class="invite-banner"></div>
+      <div class="invite-link flexCenter">
+        <div class="invite-link-text">www.ihuiwa.com/invite?huiwaInviteCode=EQBCPL</div>
+        <div class="invite-link-btn common-btn" onclick="handleCopy()"><span class="iconfont icon-copy"></span>复制邀请链接</div>
+      </div>
+      <div class="invite-info-wrap flexCenter">
+        <div class="invite-info-left flexCenter">
+          <div class="invite-info-title">
+            <img src="https://g.alicdn.com/aigc-business/feapp-nvwa/0.8.84/assets/ebb9086a97adc43a039e.svg" alt="">
+            <span>已获赠算力点</span>
+          </div>
+          <strong style="margin: 10px 0;">0</strong>
+          <div class="invite-record common-btn">邀请记录</div>
+        </div>
+        <div class="invite-info-right">
+          <div class="invite-info-item">
+            <div class="invite-info-item-left flexCenter">
+              <strong>0</strong>
+              <span>邀请好友注册</span>
+            </div>
+            <div class="invite-info-item-desc">
+              把邀请码链接发给朋友，ta通过链接注册绘蛙后，您可
+              <span>获赠100算力点</span>
+              ，有效期1年
+            </div>
+          </div>
+          <div class="invite-info-item">
+            <div class="invite-info-item-left flexCenter">
+              <strong>0</strong>
+              <span>好友购买包月套餐</span>
+            </div>
+            <div class="invite-info-item-desc">
+              您邀请注册的好友购买绘蛙月费套餐/模特券/算力点加油包，您可
+              <span>获赠500算力点</span>
+              ，有效期1年
+            </div>
+          </div>
+          <div class="invite-info-item">
+            <div class="invite-info-item-left flexCenter">
+              <strong>0</strong>
+              <span>邀请好友注册</span>
+            </div>
+            <div class="invite-info-item-desc">
+              您邀请注册的好友购买年费套餐，您可
+              <span>获赠1000算力点</span>
+              ，有效期1年
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="invite-copyright">最终解释权归R355所有</div>
+    </div>
+  </div>
+  <!-- 邀请记录modal -->
+  <div id="invite-modal" class="modal-shadow" style="display: none">
+    <div class="modal-wrap">
+      <div class="modal-close"></div>
+      <div class="modal-content">
+        <div class="modal-title">邀请记录</div>
+        <div class="table-container">
+          <table class="invite-table">
+            <thead>
+              <tr>
+                <td>手机号</td>
+                <td>时间</td>
+                <td>记录</td>
+                <td>奖励</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>13566677777</td>
+                <td>2022-06-13 17:33:29</td>
+                <td>张三</td>
+                <td>500点</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="table-empty" style="display: none;">暂无邀请记录</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  // 复制邀请链接
+  function handleCopy() {
+    // 创建一个文本区域元素
+    var textarea = document.createElement('textarea');
+    textarea.value = $('.invite-link-text').text();
+    document.body.appendChild(textarea);
+    // 选中该文本
+    textarea.select();
+    // 执行复制命令
+    document.execCommand('copy');
+    // 移除临时文本区域
+    document.body.removeChild(textarea);
+    $.NZ_MsgBox.alert({
+      content: '邀请链接复制成功！快去分享给你的好友吧，此邀请链接仅对新用户有效',
+      type: "success",
+    });
+  }
+  
+  // 点击邀请记录按钮
+  $('.invite-wrap').on('click', '.invite-record', function() {
+    $('#invite-modal').show()
+  })
+
+  // 关闭弹框
+  $(".modal-wrap .modal-close").click(function () {
+    $("#invite-modal").hide();
+  });
+</script>
+
+</html>
