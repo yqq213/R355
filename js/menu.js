@@ -13,18 +13,19 @@ window.menuList = [
       {
         icon:  '/images/header/qianxiweilai.png',
         name: '浅析未来',
+        link: '/qszx/scqs-0-0-0-0--1.html',
         subMenu: [
           {
             name: '色彩趋势',
-            link: '/qszx/scqs-0-0-0-0--1.html'
+            link: '/qszx/scqs-10-0-0-0--1.html'
           },
           {
             name: '图案趋势',
-            link: '/qszx/scqs-0-0-0-0--1.html'
+            link: '/qszx/scqs-13-0-0-0--1.html'
           },
           {
             name: '面料趋势',
-            link: '/qszx/scqs-0-0-0-0--1.html'
+            link: '/qszx/scqs-11-0-0-0--1.html'
           }
         ]
       }
@@ -40,26 +41,27 @@ window.menuList = [
       {
         icon: '/images/header/liuxingfenxi.png',
         name: '流行分析',
+        link: '/jdfx/jdfx-0-0-0-0--1.html',
         subMenu: [
           {
             name: 'T台分析',
-            link: ''
+            link: '/jdfx/jdfx-12-0-0-0--1.html'
           },
           {
             name: '品牌分析',
-            link: ''
+            link: '/jdfx/jdfx-942-0-0-0--1.html'
           },
           {
             name: '零售分析',
-            link: ''
+            link: '/jdfx/jdfx-943-0-0-0--1.html'
           },
           {
             name: '展会分析',
-            link: ''
+            link: '/jdfx/jdfx-945-0-0-0--1.html'
           },
           {
             name: '订货会分析',
-            link: ''
+            link: '/jdfx/jdfx-944-0-0-0--1.html'
           },
         ]
       }
@@ -75,227 +77,245 @@ window.menuList = [
       {
         icon: '/images/header/shejishipinpai.png',
         name: '设计师品牌',
+        link: '/kstk/xiangce-881-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
         subMenu: [
           {
             name: 'T恤',
-            link: ''
+            link: '/kstk/xiangce-881-884-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '外套',
-            link: ''
+            link: '/kstk/xiangce-881-888-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '毛衫',
-            link: ''
+            link: '/kstk/xiangce-881-894-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '套装',
-            link: ''
+            link: '/kstk/xiangce-881-952-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '卫衣',
-            link: ''
+            link: '/kstk/xiangce-881-886-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '衬衫',
-            link: ''
+            link: '/kstk/xiangce-881-894-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '男裤',
-            link: ''
+            link: '/kstk/xiangce-881-952-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
         ]
       },
       {
         icon: '/images/header/dinghuohui.png',
         name: '订货会款式',
+        link: '/kstk/dhh-907-0-0-0-0-0-1.html',
         subMenu: [
           {
             name: '夹克',
-            link: ''
+            link: '/kstk/dhh-907-0-0-0-937-0-1.html'
           },
           {
             name: '皮衣',
-            link: ''
+            link: '/kstk/dhh-907-0-0-0-935-0-1.html'
           },
           {
             name: '卫衣',
-            link: ''
+            link: '/kstk/dhh-907-0-0-0-912-0-1.html'
           },
           {
             name: '毛衫',
-            link: ''
+            link: '/kstk/dhh-907-0-0-0-909-0-1.html'
           },
           {
             name: '运动',
-            link: ''
+            link: '/kstk/dhh-907-0-0-0-940-0-1.html'
           },
           {
             name: '休闲裤',
-            link: ''
+            link: '/kstk/dhh-907-0-0-0-913-0-1.html'
           },
           {
             name: '配件辅料',
-            link: ''
+            link: '/kstk/dhh-907-0-0-0-915-0-1.html'
           },
           {
             name: '棉服/羽绒',
-            link: ''
+            link: '/kstk/dhh-907-0-0-0-936-0-1.html'
           },
           {
             name: '大衣',
-            link: ''
+            link: '/kstk/dhh-907-0-0-0-914-0-1.html'
           },
           {
             name: 'T恤',
-            link: ''
+            link: '/kstk/dhh-907-0-0-0-910-0-1.html'
           },
           {
             name: '衬衫',
-            link: ''
+            link: '/kstk/dhh-907-0-0-0-911-0-1.html'
           },
           {
             name: '正装套装',
-            link: ''
+            link: '/kstk/dhh-907-0-0-0-918-0-1.html'
           },
           {
             name: '牛仔裤',
-            link: ''
+            link: '/kstk/dhh-907-0-0-0-939-0-1.html'
           },
           {
             name: '其它',
-            link: ''
+            link: '/kstk/dhh-907-0-0-0-956-0-1.html'
           },
         ]
       },
       {
         icon: '/images/header/danpinheji.png',
         name: '单品合辑',
+        link: '/kstk/dphz-17-0-0-0-0-0-1.html',
         subMenu: [
           {
             name: '潮流前卫',
-            link: ''
+            link: '/kstk/dphz-17-0-0-0-88-0-1.html'
           },
           {
             name: '休闲时尚',
-            link: ''
+            link: '/kstk/dphz-17-0-0-0-89-0-1.html'
           },
           {
             name: '运动户外',
-            link: ''
+            link: '/kstk/dphz-17-0-0-0-91-0-1.html'
           },
           {
             name: '商务休闲',
-            link: ''
+            link: '/kstk/dphz-17-0-0-0-893-0-1.html'
           }
+          //,
+          //{
+          //    name: '时尚街拍',
+          //    link: '/kstk/dphz-17-0-0-0-983-0-1.html'
+          //}
         ]
       },
       {
         icon: '/images/header/shangchangpinpai.png',
         name: '商场品牌',
+        link: '/kstk/xiangce-3-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
         subMenu: [
           {
             name: 'T恤',
-            link: ''
+            link: '/kstk/xiangce-3-61-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '外套',
-            link: ''
+            link: '/kstk/xiangce-3-279-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '毛衫',
-            link: ''
+            link: '/kstk/xiangce-3-63-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '套装',
-            link: ''
+            link: '/kstk/xiangce-3-973-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '卫衣',
-            link: ''
+            link: '/kstk/xiangce-3-974-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '衬衫',
-            link: ''
+            link: '/kstk/xiangce-3-62-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '男裤',
-            link: ''
+            link: '/kstk/xiangce-3-957-0-0-0-0-0-0-0-0-0-0--0-1.html'
           }
         ]
       },
       {
         icon: '/images/header/yundongpinpai.png',
         name: '运动品牌',
+        link: '/kstk/xiangce-7-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
         subMenu: [
           {
             name: 'T恤',
-            link: ''
+            link: '/kstk/xiangce-7-96-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '外套',
-            link: ''
-          },
-          {
-            name: '毛衫',
-            link: ''
+            link: '/kstk/xiangce-7-91-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '套装',
-            link: ''
+            link: '/kstk/xiangce-7-93-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '卫衣',
-            link: ''
+            link: '/kstk/xiangce-7-95-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '棉衣/羽绒',
-            link: ''
+            link: '/kstk/xiangce-7-92-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '衬衫',
-            link: ''
+            link: '/kstk/xiangce-7-982-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '男裤',
-            link: ''
+            name: '单裤',
+            link: '/kstk/xiangce-7-94-0-0-0-0-0-0-0-0-0-0--0-1.html'
           }
         ]
       },
       {
         icon: '/images/header/huwaipinpai.png',
         name: '户外品牌',
+        link: '/kstk/xiangce-8-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
         subMenu: [
           {
-            name: '衬衫',
+              name: '衬衫',
+              link: '/kstk/xiangce-8-105-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '卫衣',
+              name: '卫衣',
+              link: '/kstk/xiangce-8-981-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: 'T恤',
+              name: 'T恤',
+              link: '/kstk/xiangce-8-104-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '滑雪服',
+              name: '滑雪服',
+              link: '/kstk/xiangce-8-100-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '赛车服',
+              name: '赛车服',
+              link: '/kstk/xiangce-8-107-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '棉衣/羽绒',
+              name: '棉衣/羽绒',
+              link: '/kstk/xiangce-8-98-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '户外外套',
+              name: '户外外套',
+              link: '/kstk/xiangce-8-97-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '水洗外套',
+              name: '水洗外套',
+              link: '/kstk/xiangce-8-108-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '皮肤衣',
+              name: '皮肤衣',
+              link: '/kstk/xiangce-8-99-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '户外裤',
+              name: '户外裤',
+              link: '/kstk/xiangce-8-106-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
+
         ]
       },
     ]
@@ -310,70 +330,91 @@ window.menuList = [
       {
         icon: '/images/header/shichangkuanshi.png',
         name: '市场款式',
+        link: '/kstk/scks-2-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
         subMenu: [
           {
-            name: '夹克'
+              name: '夹克',
+              link: '/kstk/scks-2-270-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '棉衣/羽绒'
+              name: '棉衣/羽绒',
+              link: '/kstk/scks-2-67-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '马甲'
+              name: '马甲',
+              link: '/kstk/scks-2-271-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '单西'
+              name: '单西',
+              link: '/kstk/scks-2-74-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '皮衣'
+              name: '皮衣',
+              link: '/kstk/scks-2-73-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '中长外套'
+              name: '中长外套',
+              link: '/kstk/scks-2-272-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: 'T恤'
+              name: 'T恤',
+              link: '/kstk/scks-2-75-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '卫衣'
+              name: '卫衣',
+              link: '/kstk/scks-2-80-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '衬衫'
+              name: '衬衫',
+              link: '/kstk/scks-2-76-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '毛衫'
+              name: '毛衫',
+              link: '/kstk/scks-2-77-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '皮衣'
+              name: '皮衣',
+              link: '/kstk/scks-2-73-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '套装'
+              name: '套装',
+              link: '/kstk/scks-2-845-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '商务裤'
+              name: '商务裤',
+              link: '/kstk/scks-872-873-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '休闲裤'
+              name: '休闲裤',
+              link: '/kstk/scks-872-874-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '牛仔裤'
+              name: '牛仔裤',
+              link: '/kstk/scks-872-875-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '欧货裤'
+              name: '欧货裤',
+              link: '/kstk/scks-872-876-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '多袋裤'
+              name: '多袋裤',
+              link: '/kstk/scks-872-877-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
-          {
-            name: '外贸男装'
-          },
-          {
-            name: '细节'
-          }
+          //{
+          //    name: '外贸男装',
+          //    link: '/kstk/xiangce-8-106-0-0-0-0-0-0-0-0-0-0--0-1.html'
+          //},
+          //{
+          //    name: '细节',
+          //    link: '/kstk/xiangce-8-106-0-0-0-0-0-0-0-0-0-0--0-1.html'
+          //}
         ]
       }
     ]
   },
   {
-    name: '时装发布',
+      name: '时装发布',
+      link: '/qszx/fbh-0-0-0-0-0-0-0-1.html',
     background: 'rgb(26, 80, 126)',
     backgroundTop: 'rgb(219, 90, 108)',
     category_intro: '及时为您提供全球各大时装周最新资讯，祝您更好的了解秀场实况，把握趋势动向。',
@@ -381,7 +422,7 @@ window.menuList = [
       {
         icon: '/images/header/shizhuangfabu.png',
         name: '时装发布',
-        link: ''
+        link: '/qszx/fbh-0-0-0-0-0-0-0-1.html'
       }
     ]
   },
@@ -394,17 +435,17 @@ window.menuList = [
       {
         icon: '/images/header/yuekan.png',
         name: '月刊',
-        link: ''
+        link: '/books/list-946-0-0-0-0-0-1.html'
       },
       {
         icon: '/images/header/qushishuji.png',
         name: '趋势书籍',
-        link: ''
+        link: '/books/list-947-0-0-0-0-0-1.html'
       },
       {
         icon: '/images/header/guowaizazhi.png',
         name: '国外杂志',
-        link: ''
+        link: '/books/list-18-0-0-0-0-0-1.html'
       },
     ]
   },
@@ -417,17 +458,17 @@ window.menuList = [
       {
         icon: '/images/header/linggansucai.png',
         name: '灵感素材',
-        link: ''
+        link: '/sctk/list-23-0-0-0-0-0-0--1.html'
       },
       {
         icon: '/images/header/yuanchuangsucai.png',
         name: '原创素材',
-        link: ''
+        link: '/sctk/list-948-0-0-0-0-0-0--1.html'
       },
       {
         icon: '/images/header/dapaituan.png',
         name: '大牌图案',
-        link: ''
+        link: '/sctk/dptaList-949-0-0-0-0-0-0--1.html'
       },
     ]
   },
@@ -441,23 +482,24 @@ window.menuList = [
       {
         icon: '/images/header/yuekan.png',
         name: '月刊',
-        link: ''
+        link: '/djyc/books-946-0-0-0-0-0-1.html'
       },
       {
         icon: '/images/header/yuanchuangsucai.png',
         name: '图案',
-        link: ''
+        link: '/djyc/tuan-948-0-0-0-0-0-0--1.html'
       },
       {
         icon: '/images/header/qushishuji.png',
         name: '趋势',
-        link: ''
+        link: '/djyc/books-947-0-0-0-0-0-1.html'
       },
     ]
   },
   {
     icon: '/images/header/zhutituce.png',
     name: '主题图册',
+    link: '/qszx/zthc-0-0-0-0-0-0-0-1.html',
     background: 'rgb(103, 122, 162)',
     backgroundTop: 'rgb(253, 223, 221)',
     category_intro: '多品类，全方位展示特定主题的单品系列集合，旨在传达创意理念和设计理念，为您带来最前沿的单品研发参考。',
@@ -465,26 +507,27 @@ window.menuList = [
       {
         icon: '/images/header/zhutituce2.png',
         name: '主题图册',
+        link: '/qszx/zthc-0-0-0-0-0-0-0-1.html',
         subMenu: [
           {
             name: '风格',
-            link: ''
+            link: '/qszx/zthc-1004-0-0-0-0-0-0-1.html'
           },
           {
             name: '图案',
-            link: ''
+            link: '/qszx/zthc-1005-0-0-0-0-0-0-1.html'
           },
           {
             name: '工艺',
-            link: ''
+            link: '/qszx/zthc-1006-0-0-0-0-0-0-1.html'
           },
           {
             name: '单品',
-            link: ''
+            link: '/qszx/zthc-1007-0-0-0-0-0-0-1.html'
           },
           {
             name: '细节',
-            link: ''
+            link: '/qszx/zthc-1008-0-0-0-0-0-0-1.html'
           },
         ]
       }
@@ -506,9 +549,10 @@ window.menuList = [
         desc: '线稿一键成款，轻松跨越从线稿到成品款式的距离，创作从未如此迅速又简单。'
       },
       {
-        icon: '/images/header/dapaituan.png',
+          icon: '/images/header/dapaituan.png',
+          link: '/aiweb/shiyi/',
+          open:true,
         name: '智展衣模Ai',
-        open: true,
         desc: '不用模特拍摄也能打造逼真上身效果，让平铺服装仿佛有了灵魂，穿搭细节尽显，助力您快速营销。'
       },
     ]
