@@ -4,8 +4,7 @@
 	margin-top: 3px;
 	margin-right: auto;
 	margin-bottom: 0px;
-	margin-left: auto;
-	position: relative;
+	margin-left: auto; position:relative
 }
 .patterns-ul>li {
 	width: 208px;
@@ -157,7 +156,7 @@
 	font-size: 12px;
 	background: url('/images/tag-icon.png') center no-repeat;
 	background-size: 100% 100%;
-	z-index: 9;
+	z-index: 8;
 }
 .new-patterns-ul>li>.pic_box {
 	width: 270px;
@@ -179,6 +178,7 @@ _width:expression(this.width > 270 ? "270px" : this.width);
 .new-patterns-ul>li>.pic_box a.img_click {
 	width: 270px;
 	height: 360px;
+
 }
 .new-patterns-ul>li>.pic_box a.img_click>img {
 	max-width: 270px;

@@ -445,9 +445,9 @@ $(document).ready(function () {
 $(function () {
   // 加载顶部页面
   reloadScript();
-  // $("#top_nav").load("../header.html", function() {
-  //  reloadScript()
-  // });
+  $("#top_nav").load("../header.html", function() {
+   reloadScript()
+  });
   // 加载底部页面
   // $(".n-bottom").load("../footer.html");
   $(".selectBox .imitationSelect").on("click", function (event) {

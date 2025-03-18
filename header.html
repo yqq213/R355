@@ -13,7 +13,7 @@
         <div class="search-icon">
           <img src="/images/header/icon-search.png" alt="">
         </div>
-        <input placeholder="请输入关键词" class="search-input" />
+        <input placeholder="请输入品牌名" class="search-input" />
         <div class="search-camera">
           <img src="/images/header/camera-icon.png" />
         </div>
@@ -57,11 +57,11 @@
         v-for="(item, index) in menuList"
         :key="index"
         @mouseenter="mouseEnterNav($event, item)"
-        @mouseleave="navModalVisible = false"
-        @click="jumpTo(item)"
+        @mouseleave="handleMouseLeave"
+        @click="handleClickMenu($event, item)"
       >
         <img :src="item.icon" v-if="item.icon" />
-        <span v-if="item.name">{{ item.name }}</span>
+        <span v-if="item.name" style="pointer-events: none;">{{ item.name }}</span>
       </li>
        <!-- 导航菜单箭头 -->
       <span
@@ -135,12 +135,33 @@
 
         const menuList = window.menuList
 
+        let timeId = 0  // 定时器id，计算鼠标停留时间
+
         // 鼠标移动到菜单
         function mouseEnterNav(e, item) {
+          timeId = setTimeout(() => {
+            showModal(e, item)
+          }, 2000)
+        }
+
+        // 显示菜单
+        function showModal(e, item) {
           currentNav.value = item
           if (item.children) navModalVisible.value = true
           let navArrowDom = document.querySelector('#navArrow')
           navArrowDom.style.left = (e.target.offsetLeft + 20 * (window.innerWidth / 1920)) + 'px'
+        }
+
+        // 鼠标离开菜单
+        function handleMouseLeave() {
+          clearTimeout(timeId)
+          navModalVisible.value = false
+        }
+
+        // 点击菜单
+        function handleClickMenu(e, item) {
+          clearTimeout(timeId)
+          showModal(e, item)
         }
 
         // 点击导航菜单跳转
@@ -156,7 +177,9 @@
           hoverFontColor,
           menuList,
           mouseEnterNav,
+          handleMouseLeave,
           jumpTo,
+          handleClickMenu
         }
       }
     })

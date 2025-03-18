@@ -5,7 +5,7 @@ window.menuList = [
   },
   {
     name: '浅析未来',
-    link: '/qszx/scqs-0-0-0-0--1.html',
+    // link: '/qszx/scqs-0-0-0-0--1.html',
     background: 'rgb(0, 31, 62)',
     backgroundTop: 'rgb(174, 239, 207)',
     category_intro: '通过分析当前的时尚趋势、多元文化融合、科技创新和消费者行为等因素，来预测未来流行色彩、元素和风格。',
@@ -33,7 +33,7 @@ window.menuList = [
   },
   {
     name: '流行分析',
-    link: '/jdfx/jdfx-0-0-0-0--1.html',
+    // link: '/jdfx/jdfx-0-0-0-0--1.html',
     background: 'rgb(11, 136, 130)',
     backgroundTop: 'rgb(255, 175, 204)',
     category_intro: '对当前时尚趋势的细致观察和研究，了解正在流行，把握消费者的偏好变化，帮助更好的把握市场脉搏。',
@@ -413,8 +413,8 @@ window.menuList = [
     ]
   },
   {
-      name: '时装发布',
-      link: '/qszx/fbh-0-0-0-0-0-0-0-1.html',
+    name: '时装发布',
+    // link: '/qszx/fbh-0-0-0-0-0-0-0-1.html',
     background: 'rgb(26, 80, 126)',
     backgroundTop: 'rgb(219, 90, 108)',
     category_intro: '及时为您提供全球各大时装周最新资讯，祝您更好的了解秀场实况，把握趋势动向。',
@@ -499,7 +499,7 @@ window.menuList = [
   {
     icon: '/images/header/zhutituce.png',
     name: '主题图册',
-    link: '/qszx/zthc-0-0-0-0-0-0-0-1.html',
+    // link: '/qszx/zthc-0-0-0-0-0-0-0-1.html',
     background: 'rgb(103, 122, 162)',
     backgroundTop: 'rgb(253, 223, 221)',
     category_intro: '多品类，全方位展示特定主题的单品系列集合，旨在传达创意理念和设计理念，为您带来最前沿的单品研发参考。',

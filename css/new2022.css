@@ -80,6 +80,7 @@
 }
 
 .n_img {
+    position:relative;
   width: 1200px;
   overflow: hidden;
   margin-left: auto;
@@ -145,7 +146,10 @@
   overflow: hidden;
   padding: 4px 4px 4px 4px;
   border: 0px solid #fff;
-  border-bottom: none;
+  border-bottom: none;background-image: url('/images/load.gif'); /* 设置背景图 */
+  background-position: center center; /* 水平垂直居中 */
+  background-size: cover; /* 背景图覆盖整个元素，保持宽高比 */
+  background-repeat: no-repeat; /* 背景图不平铺 */
 }
 
 .n-user {
@@ -458,7 +462,7 @@
   margin-right: auto;
   padding-top: 20px;
   overflow: hidden;
-  position: relative;
+  position:relative
 }
 
 .n-li img {
@@ -512,6 +516,7 @@
   clear: both;
   height: 34px;
   line-height: 34px;
+  position:relative;
 }
 
 .se-box1 span {
@@ -695,8 +700,14 @@ div.filter_label_box > a {
   overflow: hidden;
   /* width: 224px; */
   width: 100%;
-  /* height: 224px; */
+  height: 224px;
+    background-image: url('/images/load.gif'); /* 设置背景图 */
+  background-position: center center; /* 水平垂直居中 */
+  background-size: cover; /* 背景图覆盖整个元素，保持宽高比 */
+  background-repeat: no-repeat; /* 背景图不平铺 */
 }
+/*.n-cp-box .pic_box img{ height:100%
+}*/
 .n-cp {
   width: 90%;
   margin-left: auto;
@@ -784,7 +795,10 @@ div.filter_label_box > a {
   width: 210px;
   height: 279px;
   overflow: hidden;
-  position: relative;
+  position: relative;background-image: url('/images/load.gif'); /* 设置背景图 */
+  background-position: center center; /* 水平垂直居中 */
+  background-size: cover; /* 背景图覆盖整个元素，保持宽高比 */
+  background-repeat: no-repeat; /* 背景图不平铺 */
 }
 
 .cz-left img {
@@ -822,7 +836,10 @@ div.filter_label_box > a {
   margin: 0 3px;
   position: relative;
   height: 146px;
-  overflow: hidden;
+  overflow: hidden;background-image: url('/images/load.gif'); /* 设置背景图 */
+  background-position: center center; /* 水平垂直居中 */
+  background-size: cover; /* 背景图覆盖整个元素，保持宽高比 */
+  background-repeat: no-repeat; /* 背景图不平铺 */
 }
 
 .cz3 li img {
@@ -935,6 +952,7 @@ div.filter_label_box > a {
 #fenleiBox {
   width: 90%;
   margin: 0px auto;
+  position:relative
 }
 
 .select {
