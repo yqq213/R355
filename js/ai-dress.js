@@ -3,7 +3,7 @@ $(function () {
     $(".result-container").append("任务正努力加载中...，请稍后！");
     $(".select-text").append($("#scene_text").val());
     $(".upload-model-empty .img").html(
-      '<img src="http://www.r355.com/' +
+      '<img src="https://www.r355.com/' +
         $("#scene_img").val() +
         '" style="width: 100%; height: 100%;" /><span class="label flexCenter">共' +
         $("#scene_num").val() +
@@ -19,6 +19,7 @@ $(function () {
       $(".multi .upload-item .upload-img").show();
     }
     $(".select-btns").show();
+     
     //task_image_get($("#_id").val());
     task_image_get_st($("#_id").val());
   }
@@ -58,16 +59,42 @@ $(function () {
   });
   // 点击切换上身类别
   $(".dress-tabs .tab").click(function (index) {
-    console.log($(this).index());
+    //console.log($(this).index());
     $(".dress-tabs .tab").removeClass("active");
     $(this).addClass("active");
     if ($(this).index() == 2) {
       $(".single").show();
       $(".multi").hide();
+      if($("#original_image_url").val()=='')
+      {
+          $(".single .upload-empty").show();
+          $(".single .upload-img").hide();
+      }
+      else
+      {
+          $(".single .upload-empty").hide();
+          $(".single .upload-img").show();
+      }
     }
     if ($(this).index() == 3) {
       $(".single").hide();
       $(".multi").show();
+      if ($("#original_image_url").val() == '') {
+          $("#multi_1 .upload-empty").show();
+          $("#multi_1 .upload-img").hide();
+      }
+      else {
+          $("#multi_1 .upload-empty").hide();
+          $("#multi_1 .upload-img").show();
+      }
+      if ($("#original_image_url_2").val() == '') {
+          $("#multi_2 .upload-empty").show();
+          $("#multi_2 .upload-img").hide();
+      }
+      else {
+          $("#multi_2 .upload-empty").hide();
+          $("#multi_2 .upload-img").show();
+      }
     }
     $("#type_id").val($(this).data("type_id"));
   });
@@ -84,7 +111,8 @@ $(function () {
     }
     $(".base-types li").removeClass("active");
     $(".base-types li:first-child").addClass("active");
-    huiwa_model_scene("", $("#tktype").val(), $("#bili").val());
+    huiwa_model_scene("", 0, $("#bili").val());
+    huiwa_model_scene("", 1, $("#bili").val());
   });
 
   // 关闭精品库
@@ -112,7 +140,7 @@ $(function () {
       $(".base-container").hide();
       $(".refer-container").show();
     }
-    huiwa_model_scene("", tktype, $("#bili").val());
+    //huiwa_model_scene("", tktype, $("#bili").val());
   });
   // 点击切换精品库类型
   $(".base-types li").click(function () {
@@ -138,12 +166,15 @@ $(function () {
       var param = [];
       var secce = "";
       $(".grid-container .selected").each(function (index, element) {
-        secce += $(element).attr("model_id") + ",";
-        param.push({
-          id: $(element).attr("model_id"),
-          name: $(element).find(".item-desc").text(),
-          url: $(element).find(".item-img").attr("src"),
-        });
+          if ($(element).attr("model_id") != 'undefined')
+          {
+              secce += $(element).attr("model_id") + ",";
+              param.push({
+                  id: $(element).attr("model_id"),
+                  name: $(element).find(".item-desc").text(),
+                  url: $(element).find(".item-img").attr("src"),
+              });
+          }
       });
 
       //console.log(param);
@@ -193,10 +224,10 @@ $(function () {
   $(".upload-input").change(function (e) {
     var action = $(this).data("action");
     var file = e.target.files[0];
-    if (file.size / 1024 / 1024 > 2 || !/^image\//.test(file.type)) {
+    if (file.size / 1024 / 1024 > 5 || !/^image\//.test(file.type)) {
       $.NZ_MsgBox.alert({
         title: "温馨提示！",
-        content: "图片格式不正确且大小不能超过2M!",
+        content: "图片格式不正确或大小超过5M!",
         type: "warning",
       });
       return;
@@ -248,7 +279,13 @@ $(function () {
       return;
     }
     for (var i = 0; i < files.length; i++) {
-      if (files[i].size / 1024 / 1024 > 2 || !/^image\//.test(files[i].type)) {
+        if (files[i].size / 1024 / 1024 > 10 || !/^image\//.test(files[i].type)) {
+            $.NZ_MsgBox.alert({
+                title: "温馨提示！",
+                content: "图片格式不正确或大小超过10M!",
+                type: "warning",
+            });
+            return;
       } else {
         formData.append("file", files[i]);
       }
@@ -260,13 +297,14 @@ $(function () {
       dataType: "json",
       contentType: false,
       processData: false,
+      beforeSend: function (XMLHttpRequest) { $.NZ_MsgBox.tipsbar({ title: "通知", content: "模特参考图正在训练中，请稍后~", type: "info", showtime: 3000 }); },
       success: function (response) {
         if (response.state == 200) {
           $("#my_model_scene").append(response.msgbox);
         } else {
           $.NZ_MsgBox.alert({
             title: "温馨提示！",
-            content: response.msg,
+            content: response.msgbox,
             type: "error",
           });
         }
@@ -277,6 +315,7 @@ $(function () {
   // 立即生成
   $(".generateBtn").click(function () {
     var bili = $("#bili").val();
+    $("#task_status").val(2);
     var type_id = $("#type_id").val();
     var original_image_url = $("#original_image_url").val();
     if (original_image_url == "") {
@@ -305,6 +344,15 @@ $(function () {
       return;
     }
     var scene_id = $("#scene_id").val();
+    if (scene_id.includes('undefined')) {
+        $.NZ_MsgBox.alert({
+            title: "温馨提示！",
+            content: "模特参考图参数错误！",
+            type: "error",
+        });
+        return;
+    }
+
     if (scene_id == "" || scene_id == ",") {
       $.NZ_MsgBox.alert({
         title: "温馨提示！",
@@ -331,7 +379,7 @@ $(function () {
           // 展示生成中
           $('.generateBtn').addClass('loading');
           var auto_hand_refine = $("#auto_hand_refine").val();
-          var cat_id = $("#cat_id").val();
+          var cat_id = $("#sel_cat_id").val();
           $.ajax({
             url: "/Ajax/hwAPI.ashx?action=addTask",
             type: "POST",
@@ -347,7 +395,14 @@ $(function () {
             },
             dataType: "json",
             beforeSend: function (XMLHttpRequest) {
-              //$(this).unbind("click");
+                $.NZ_MsgBox.tipsbar({
+                    title: "通知",
+                    content:
+                      '创建成功！<span style="color:#ff0000;">请等待任务执行完成~</span>',
+                    type: "success",
+                    showtime: 3000,
+                    processbar: false,
+                });
             },
             success: function (response) {
               if (response.state == 200) {
@@ -360,14 +415,7 @@ $(function () {
                 $("#addtime").text(response.addtime);
                 $(".task-list li:first").after(response.msgbox);
                 //task_image_get(response.task_id);
-                $.NZ_MsgBox.tipsbar({
-                  title: "通知",
-                  content:
-                    '创建成功！<span style="color:#ff0000;">请等待任务执行完成~</span>',
-                  type: "success",
-                  showtime: 3000,
-                  processbar: false,
-                });
+                
                 task_image_get_st(response.task_id);
               } else {
                 $.NZ_MsgBox.alert({
@@ -377,26 +425,19 @@ $(function () {
                 });
               }
             },
-            complete: function () {},
+            complete: function () { $('.generateBtn').removeClass('loading'); },
           });
         }
       },
     });
   });
     var mockData = {
-      Count: 0,
+        Count: 0,
+        Count_1: 0,
       ImageInfos: [],
     };
   // 获取我的参考图
-  function huiwa_model_scene(model_type, cat, bili) {
-    if (cat == 0) {
-      $("#jp_model_scene").html("");
-    } else {
-      $("#my_model_scene").html("");
-      $("#my_model_scene").append(
-        '<li class="grid-item grid-item-upload flexCenter" style="height:12vw"><div class="grid-item-upload-btn flexCenter"><span class="iconfont icon-upload grid-item-upload-icon"></span>上传参考图<input type="file" multiple class="refer-upload"></div><p class="upload-text">支持批量上传</p></li>'
-      );
-    }
+    function huiwa_model_scene(model_type, cat, bili) {
     $.ajax({
         type: "POST",
         url: "/Ajax/hwAPI.ashx?action=model_scene_count",
@@ -404,7 +445,14 @@ $(function () {
         data: { model_type: model_type, bili: bili, cat: cat},
         beforeSend: function (XMLHttpRequest) {
         }, success: function (json, textStatus) {
-            mockData.Count = json.state;
+            if (cat == 0)
+            {
+                mockData.Count = json.state;
+            }
+            else
+            {
+                mockData.Count_1 = json.state;
+            }
         },
         complete: function (XMLHttpRequest, textStatus) {
             loadPagination(model_type, cat, bili);
@@ -414,7 +462,7 @@ $(function () {
     });
    
   }
-  // 获取我的参考图
+  // 获取生图信息
   function task_image_get(id) {
     $(".result-container").html("");
     $(".database").hide();
@@ -431,10 +479,16 @@ $(function () {
       },
       success: function (json, textStatus) {
         $("#task_status").val(json.state);
-        $(".result-container").append(json.msgbox);
+        $(".result-container").html(json.msgbox);
       },
       complete: function (XMLHttpRequest, textStatus) {
-        //HideLoading();
+          //HideLoading();
+          $('.item').viewer({
+              url: 'data-original',
+              rotatable: false,
+              scalable: false,
+              title: false
+          });
       },
       error: function () {
         //请求出错处理
@@ -443,15 +497,18 @@ $(function () {
   }
 
   function task_image_get_st(id) {
-    task_image_get(id);
-    var intervalId = setInterval(function () {
       task_image_get(id);
-      if ($("#task_status").val() == 4) {
-        // 移除生成中
-        $('.generateBtn').removeClass('loading');
-        clearInterval(intervalId);
+      if ($("#task_status").val() == 2)
+      {
+          var intervalId = setInterval(function () {
+              task_image_get(id);
+              if ($("#task_status").val() == 4) {
+                  // 移除生成中
+                  //$('.generateBtn').removeClass('loading');
+                  clearInterval(intervalId);
+              }
+          }, 5000);
       }
-    }, 5000);
   }
   function total_point() {
     var user_point = $("#user_point").val();
@@ -472,17 +529,25 @@ $(function () {
   var pageSize = 18;
   // 加载分页
   function loadPagination(model_type, cat, bili) {
-    // 初始化分页
-    $("#pagination").Pagination({
-      totalData: mockData.Count, // 总数据量
-      showData: pageSize, // 每页显示的数据量
-      pageCount: 5, // 分页栏显示的页码数量
-      current: 1, // 当前页码
-      coping: true, // 是否开启首页和尾页功能
-      callback: function (api) {
-        renderHtml(model_type, cat, bili, api.getCurrent())
-      },
-    });
+      // 初始化分页
+      var totalnum=mockData.Count;
+      if(cat==1)
+      {
+          totalnum=mockData.Count_1;
+      }
+      if (totalnum > pageSize)
+      {
+          $("#pagination_" + cat).Pagination({
+              totalData: totalnum, // 总数据量
+              showData: pageSize, // 每页显示的数据量
+              pageCount: 5, // 分页栏显示的页码数量
+              current: 1, // 当前页码
+              coping: true, // 是否开启首页和尾页功能
+              callback: function (api) {
+                  renderHtml(model_type, cat, bili, api.getCurrent())
+              },
+          });
+      }
     // 获取第一页数据
     renderHtml(model_type, cat, bili, 1);
   }
@@ -493,13 +558,14 @@ $(function () {
       type: "POST",
       url: "/Ajax/hwAPI.ashx?action=model_scene",
       dataType: "html",
-      data: { model_type: model_type, bili: bili, cat: cat, pageIndex: index },
+      data: { model_type: model_type, bili: bili, cat: cat, pageIndex: index, sceneIds: $("#scene_id").val() },
               beforeSend: function (XMLHttpRequest) {
       },success: function (json, textStatus) {
         if (cat == 0) {
           $("#jp_model_scene").html(json);
-      } else {
-          $("#my_model_scene").html(json);
+        } else {
+
+            $("#my_model_scene").html('<li class="grid-item grid-item-upload flexCenter" style="height:12vw"><div class="grid-item-upload-btn flexCenter"><span class="iconfont icon-upload grid-item-upload-icon"></span>上传参考图<input type="file" multiple class="refer-upload"></div><p class="upload-text">支持批量上传</p></li>'+json);
       }
       },
           complete: function (XMLHttpRequest, textStatus) {

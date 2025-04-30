@@ -20,9 +20,22 @@
      <script src="/js/NZ-MsgBox/NZ-Drag.min.js"></script>
     <script src="/js/NZ-MsgBox/NZ-MsgBox.min.js"></script>
     <link href="/js/NZ-MsgBox/NZ-MsgBox.min.css" rel="stylesheet">
+       <link rel="stylesheet" href="/css/viewer.min.css">
      <style>
          .NZ-TipsBar-Container .tipbar.success .icon-state,.NZ-TipsBar-Container .tipbar.info .icon-state { display:inline-block
          }
+          .left_btn{
+	position: fixed;
+	z-index: 999999;
+	left: 5px;
+	top: 40%;
+}
+.right_btn_1{
+	position: fixed;
+	z-index: 999999;
+	right: 5px;
+	top: 40% !important;
+}
      </style>
   </head>
   <body>
@@ -36,8 +49,8 @@
       <div class="right">
         <a href="default.aspx"><span class="title">服装上身</span></a>
         <a href="mywork.aspx"><span class="title">我的作品</span></a>
-        <img src="/images/ai-dress/invite-btn.png" class="invite-btn">
-        <div class="charge-btn" onclick=" window.location.href='/member/buyPoint.aspx'">8100</div>
+        <img src="/images/ai-dress/invite-btn.png" class="invite-btn" onclick=" window.location.href='Invite.aspx'">
+        <div class="charge-btn" onclick=" window.location.href='/member/buyPoint.aspx'">99478</div>
       </div>
     </div>
     <div class="ai-content">
@@ -54,7 +67,7 @@
             <li class="task-item active">
               <a href="default.aspx?ID=0"><div class="create flexCenter">继续创建</div></a>
             </li>
-                 <li class="task-item" data-id="254"><a href="default.aspx?ID=254"><img src="/hwtastImg/20250118/J2N0842D4XZL6TZRR6.jpg"></a></li><li class="task-item" data-id="251"><a href="default.aspx?ID=251"><img src="/hwtastImg/20250118/48JD4BTT2XT2XL4608.jpg"></a></li><li class="task-item" data-id="250"><a href="default.aspx?ID=250"><img src="/hwtastImg/20250118/4THJ4PNFZP026LBVXJ.jpg"></a></li><li class="task-item" data-id="248"><a href="default.aspx?ID=248"><img src="/hwtastImg/20250118/8P660D2V40426HNNZ6.jpg"></a></li><li class="task-item" data-id="247"><a href="default.aspx?ID=247"><img src="/hwtastImg/20250118/8P660D2V40426HNNZ6.jpg"></a></li><li class="task-item" data-id="246"><a href="default.aspx?ID=246"><img src="/hwtastImg/20250118/2F260HRJLV064PTX8X.jpg"></a></li><li class="task-item" data-id="245"><a href="default.aspx?ID=245"><img src="/hwtastImg/20250118/F42Z0H0J2TL488642P.jpg"></a></li><li class="task-item" data-id="244"><a href="default.aspx?ID=244"><img src="/hwtastImg/20250118/TXRFZL20226P62NV04.jpg"></a></li><li class="task-item" data-id="243"><a href="default.aspx?ID=243"><img src="/hwtastImg/20250118/TXRFZL20226P62NV04.jpg"></a></li><li class="task-item" data-id="242"><a href="default.aspx?ID=242"><img src="/hwtastImg/20250118/ZTN4XDLN4X4XXX466X.png"></a></li><li class="task-item" data-id="241"><a href="default.aspx?ID=241"><img src="/hwtastImg/20250118/ZPF6J2BNN6R40R48JD.jpg"></a></li><li class="task-item" data-id="240"><a href="default.aspx?ID=240"><img src="/hwtastImg/20250118/6P8T4N42D6R4268PNN.jpg"></a></li><li class="task-item" data-id="239"><a href="default.aspx?ID=239"><img src="/hwtastImg/20250118/6P8T4N42D6R4268PNN.jpg"></a></li><li class="task-item" data-id="238"><a href="default.aspx?ID=238"><img src="/hwtastImg/20250118/6P8T4N42D6R4268PNN.jpg"></a></li><li class="task-item" data-id="176"><a href="default.aspx?ID=176"><img src="/hwtastImg/20250115/NT0HTJ2V6ZB0PB44NP.jpg"></a></li><li class="task-item" data-id="175"><a href="default.aspx?ID=175"><img src="/hwtastImg/20250114/0RLBZR0002HL6ZD86V.jpg"></a></li><li class="task-item" data-id="174"><a href="default.aspx?ID=174"><img src="/hwtastImg/20250115/NT0HTJ2V6ZB0PB44NP.jpg"></a></li><li class="task-item" data-id="159"><a href="default.aspx?ID=159"><img src="/hwtastImg/20250115/NT0HTJ2V6ZB0PB44NP.jpg"></a></li><li class="task-item" data-id="158"><a href="default.aspx?ID=158"><img src="/hwtastImg/20250115/Z02TD4LBP60JHP662X.jpg"></a></li><li class="task-item" data-id="95"><a href="default.aspx?ID=95"><img src="/hwtastImg/20250114/0RLBZR0002HL6ZD86V.jpg"></a></li><li class="task-item" data-id="92"><a href="default.aspx?ID=92"><img src="/hwtastImg/20250114/0N0DLF2680RNV0X4L2.jpg"></a></li><li class="task-item" data-id="87"><a href="default.aspx?ID=87"><img src="/hwtastImg/20250114/6ZXPDN2F26PR0600L0.jpg"></a></li><li class="task-item" data-id="71"><a href="default.aspx?ID=71"><img src="/hwtastImg/20250114/T40X2402T428X4428R.jpg"></a></li><li class="task-item" data-id="60"><a href="default.aspx?ID=60"><img src="/hwtastImg/20250113/PDV24NJ4N8H8D00Z64.jpg"></a></li><li class="task-item" data-id="59"><a href="default.aspx?ID=59"><img src="/hwtastImg/20250113/PDV24NJ4N8H8D00Z64.jpg"></a></li><li class="task-item" data-id="58"><a href="default.aspx?ID=58"><img src="/hwtastImg/20250113/8J4V2D6JZTL68ZVZPN.jpg"></a></li><li class="task-item" data-id="57"><a href="default.aspx?ID=57"><img src="/hwtastImg/20250113/8J4V2D6JZTL68ZVZPN.jpg"></a></li><li class="task-item" data-id="56"><a href="default.aspx?ID=56"><img src="/hwtastImg/20250113/PN2Z64ZF0PPN2LZZ80.jpg"></a></li><li class="task-item" data-id="55"><a href="default.aspx?ID=55"><img src="/hwtastImg/20250113/DB6XB604200DL64J22.jpg"></a></li><li class="task-item" data-id="54"><a href="default.aspx?ID=54"><img src="/hwtastImg/20250113/2RZFR68BT00T8L28ZL.jpg"></a></li>
+                 <li class="task-item" data-id="3733"><a href="default.aspx?ID=3733"><img src="https://hxzt.oss-cn-shenzhen.aliyuncs.com/hwtastImg/20250406/202504061000447446.jpg"></a></li><li class="task-item" data-id="3732"><a href="default.aspx?ID=3732"><img src="https://hxzt.oss-cn-shenzhen.aliyuncs.com/hwtastImg/20250406/202504061000447446.jpg"></a></li><li class="task-item" data-id="3731"><a href="default.aspx?ID=3731"><img src="https://hxzt.oss-cn-shenzhen.aliyuncs.com/hwtastImg/20250406/202504060950295241.jpg"></a></li><li class="task-item" data-id="3730"><a href="default.aspx?ID=3730"><img src="https://hxzt.oss-cn-shenzhen.aliyuncs.com/hwtastImg/20250406/202504060950295241.jpg"></a></li>
           </div>
             <div class="task-all flexCenter">
             全部任务
@@ -76,7 +89,7 @@
               <p>
                 以下内容由系统自动生成，因产品处于持续学习调优阶段，其中可能有不准确或不恰当的信息，不代表R355观点，请您谨慎鉴别。
               </p>
-              <p id="addtime">2025/1/18 21:00:16</p>
+              <p id="addtime">2025/4/30 16:18:36</p>
             </div>
             <div class="result-container"></div>
           
@@ -141,11 +154,10 @@
       <div class="content-right">
         <div class="flexBetween main-title">
           <span class="desc">服装平铺图一键上身</span>
-          <a href="https://www.yuque.com/lalala-9skqu/ute0t3/axu1sia632vckgpz?singleDoc#" class="flexCenter" style="color: #333;" target="_blank">
-            <img src="/images/ai-dress/couse-icon.png" alt="">
-            <span>教程</span>
-          </a>
-          <span class="iconfont icon-remove"></span>
+            <a href="https://www.yuque.com/lalala-9skqu/ute0t3/axu1sia632vckgpz?singleDoc#" target="_blank">
+          <img src="/images/ai-dress/couse-icon.png" style="vertical-align:middle;">
+          <span style="color:#000">教程</span></a>
+         
         </div>
         <div class="btn-tabs">
           <div data-bili="1" class="tab flexCenter first active" style="margin-right: 15px;">
@@ -291,7 +303,7 @@
       <input name="user_point" type="hidden" id="user_point" value="50" />
   </body>
     <script src="/js/jquery.pagination.js"></script>
-  <script src="/js/ai-dress.js?"></script>
-    
+     <script src="/js/zzym-viewer-jquery.min.js"></script> 
+  <script src="/js/ai-dress.js"></script>
 </html>
 
