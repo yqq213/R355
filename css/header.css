@@ -493,3 +493,19 @@
     top: 22px;
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .header-first .search {
+    width: 300px;
+  }
+  .navs-modal-content-left .label {
+    font-size: 20px;
+  }
+  .brand .navs-modal-content-right {
+    width: 18vw;
+  }
+  #header .header-logo {
+    width: 150px;
+    top: 22px;
+  }
+}
