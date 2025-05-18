@@ -1,0 +1,315 @@
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>智展衣模-R355服饰资讯网</title>
+    <meta
+      name="Description"
+      content="R355服饰资讯网,专业的服装设计网站,为您提供最专业的时装设计,时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会等信息"
+    />
+    <meta
+      name="keywords"
+      content="时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会"
+    />
+    <meta name="subject" content="服装设计" />
+    <meta name="searchtitle" content="服装设计,R355服饰资讯网" />
+    <meta name="language" content="chinese" />
+    <meta name="location" content="China" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="//at.alicdn.com/t/c/font_4789865_gb4immbiouf.css"
+    />
+    <!-- 引入防xss攻击js -->
+    <script src="/js/purify.min.js"></script>
+    <script src="/js/NZ-MsgBox/jquery-3.4.1.min.js"></script>
+    <script src="/js/NZ-MsgBox/NZ-Drag.min.js"></script>
+    <script src="/js/NZ-MsgBox/NZ-MsgBox.min.js"></script>
+    <link href="/js/NZ-MsgBox/NZ-MsgBox.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/viewer.min.css" />
+    <!-- <link rel="stylesheet" href="/css/layui/layui.css"> -->
+    <link href="//unpkg.com/layui@2.11.2/dist/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/photo-edit.css" />
+    <style>
+      .NZ-TipsBar-Container .tipbar.success .icon-state,
+      .NZ-TipsBar-Container .tipbar.info .icon-state {
+        display: inline-block;
+      }
+      .left_btn {
+        position: fixed;
+        z-index: 999999;
+        left: 5px;
+        top: 40%;
+      }
+      .right_btn_1 {
+        position: fixed;
+        z-index: 999999;
+        right: 5px;
+        top: 40% !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header flexBetween">
+      <div class="left">
+        <span>智展衣模</span>
+        <img src="/images/ai-dress/ai-icon.png" class="ai-icon" />
+      </div>
+      <div class="right">
+        <a href="default.aspx"><span class="title">服装上身</span></a>
+        <a href="mywork.aspx"><span class="title">我的作品</span></a>
+        <img
+          src="/images/ai-dress/invite-btn.png"
+          class="invite-btn"
+          onclick=" window.location.href='Invite.aspx'"
+        />
+        <div
+          class="charge-btn"
+          onclick=" window.location.href='/member/buyPoint.aspx'"
+        >
+          99478
+        </div>
+      </div>
+    </div>
+    <div class="ai-content">
+      <div class="content-left">
+        <div class="navs">
+          <li class="nav-item flexCenter">
+            <img src="/images/ai-dress/dress-on.png" alt="" />
+          </li>
+          <li class="nav-item flexCenter">
+            <img src="/images/ai-dress/dress-on.png" alt="" />
+          </li>
+        </div>
+        <div class="recent-area">
+          <p class="title">最近任务</p>
+          <div class="task-list">
+            <li class="task-item active">
+              <a href="default.aspx?ID=0"
+                ><div class="create flexCenter">继续创建</div></a
+              >
+            </li>
+            <li class="task-item" data-id="3733">
+              <a href="default.aspx?ID=3733"
+                ><img
+                  src="https://hxzt.oss-cn-shenzhen.aliyuncs.com/hwtastImg/20250406/202504061000447446.jpg"
+              /></a>
+            </li>
+          </div>
+          <div class="task-all flexCenter">
+            全部任务
+            <span class="iconfont icon-arrow"></span>
+          </div>
+        </div>
+      </div>
+      <div class="content-right">
+        <div class="content-right-top">
+          <div class="control-expand">局部重绘</div>
+          <div class="control-btn-group">
+            <li class="control-btn-item btn-selected">
+              <span class="iconfont icon-tumo"></span>
+              <span>涂抹选区</span>
+            </li>
+            <li class="control-btn-item">
+              <span class="iconfont icon-cachuzhangai"></span>
+              <span>擦除选区</span>
+            </li>
+            <!-- <li class="control-btn-item">
+              <span class="iconfont icon-tumo"></span>
+              <span>自动选区</span>
+            </li> -->
+          </div>
+          <div class="control-progress">
+            <span>笔刷大小</span>
+            <div id="slider"></div>
+          </div>
+          <div class="control-right">
+            <button type="button" class="layui-btn layui-btn-sm layui-btn-primary">全屏操作</button>
+          </div>
+        </div>
+        <div class="content-right-bottom">
+          <!-- 编辑tab区 -->
+          <div class="edit-nav-items">
+            <li class="edit-item">
+              <span class="iconfont icon-shoubuxiufu"></span>
+              <span>手脚修复</span>
+            </li>
+            <li class="edit-item">
+              <span class="iconfont icon-shangpinzhonghui"></span>
+              <span>商品重绘</span>
+            </li>
+            <li class="edit-item">
+              <span class="iconfont icon-renlianzhonghui"></span>
+              <span>人脸重绘</span>
+            </li>
+            <li class="edit-item active">
+              <span class="iconfont icon-jubuzhonghui"></span>
+              <span>局部重绘</span>
+            </li>
+            <li class="edit-item">
+              <span class="iconfont icon-xiaochubi"></span>
+              <span>消除笔</span>
+            </li>
+            <li class="edit-item">
+              <span class="iconfont icon-AIkuotu"></span>
+              <span>AI扩图</span>
+            </li>
+            <li class="edit-item">
+              <span class="iconfont icon-yinhuaxiufu"></span>
+              <span>印花修复</span>
+            </li>
+            <li class="edit-item">
+              <span class="iconfont icon-tiaose"></span>
+              <span>AI换色</span>
+            </li>
+          </div>
+          <!-- 查看生成结果区 -->
+          <div class="right-result">
+            <div class="result-item flexCenter">
+              <img src="https://img.alicdn.com/imgextra/i4/O1CN01w6YpTz1UdpQccUXku_!!4611686018427382253-2-aigc_biz_alg.png_640x640q90s150.jpg_.webp" alt="">
+              <span class="result-item-tip">原图</span>
+            </div>
+            <p class="result-text">查看生成结果</p>
+            <div class="result-container">
+              <div class="result-item selected flexCenter">
+                <img src="https://img.alicdn.com/imgextra/i4/O1CN01w6YpTz1UdpQccUXku_!!4611686018427382253-2-aigc_biz_alg.png_640x640q90s150.jpg_.webp" alt="">
+                <span class="result-item-tip">人脸</span>
+              </div>
+            </div>
+            <div class="result-arrow result-arrow-up flexCenter">
+              收起
+              <span class="iconfont icon-arrow"></span>
+            </div>
+            <div class="result-arrow result-arrow-down" style="display: none;">
+              展开
+              <span class="iconfont icon-arrow"></span>
+            </div>
+          </div>
+          <!-- 重绘参数区 -->
+          <div class="right-params">
+            <div>待重绘区预览</div>
+            <div class="params-upload flexCenter">
+              <p>请在图片上选择需要重绘的区域</p>
+              <div class="params-shadow flexCenter">
+                <div class="params-shadow-btn flexCenter">
+                  <span class="iconfont icon-upload1" style="margin-right: 5px;"></span>
+                  重新上传图片
+                </div>
+              </div>
+            </div>
+            <div>编辑重绘内容</div>
+            <div class="control-btn-group">
+              <li class="control-btn-item btn-selected">
+                <span>文字描述</span>
+              </li>
+              <li class="control-btn-item">
+                <span>物品穿戴</span>
+              </li>
+              <li class="control-btn-item">
+                <span>模特重绘</span>
+              </li>
+            </div>
+          </div>
+          <!-- 局部重绘介绍区域 -->
+          <div class="intro-center flexCenter">
+            <div class="intro-center-wrap">
+              <h2 style="margin-bottom: 15px;">局部重绘</h2>
+              <div>
+                <button type="button" class="layui-btn importWorkBtn" style="background-color: #657eb9;">
+                  从我的作品导入
+                </button>
+                <button type="button" class="layui-btn layui-btn-primary">
+                  上传图片
+                </button>
+              </div>
+              <p>文件大小在20KB~15MB之间，分辨率大于400*400, 小于8192*8192</p>
+              <p style="color: rgb(255, 0, 0);">请确保仅使用您本人或经他人合法授权的图片</p>
+              <video controlslist="nodownload" loop autoplay muted style="width: 420px; height: 252px;">
+                <source src="https://cloud.video.taobao.com/vod/play/ZHRMMmpqWEZ0RVBvbGRNVnhRQmRrUDJDVGZPbWxBTmtPeWJpY3FneTd5RzZQZWw1SnpKVVVCTlh4OVFON0V5UUVMUDduY1RJak82VE1sdXdHTjNOaHc9PQ" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>修改/替换或删除画面中不满意的地方, 如：修改发型，替换衣服或者人脸等</p>
+            </div>
+          </div>
+          <!-- 重绘canvas编辑区 -->
+          <div class="editor-center" style="display: none;">
+            <div class="editor-area">
+
+            </div>
+            <div class="editor-control flexCenter">
+              <div class="editor-control-part flexCenter" style="margin-right: 10px;">
+                <div class="editor-btn">
+                  <span class="iconfont icon-fuwei"></span>
+                </div>
+                <div class="editor-btn">
+                  <span class="iconfont icon-yidong"></span>
+                </div>
+                <div class="editor-btn">
+                  <span class="iconfont icon-jianhao"></span>
+                </div>
+                <div>8%</div>
+                <div class="editor-btn">
+                  <span class="iconfont icon-jiahao"></span>
+                </div>
+              </div>
+              <div class="editor-control-part flexCenter" style="padding-right: 0;">
+                <div class="editor-btn">
+                  <span class="iconfont icon-chehui"></span>
+                </div>
+                <div class="editor-btn">
+                  <span class="iconfont icon-zhongzuo_huaban"></span>
+                </div>
+                <div class="editor-btn">
+                  <span class="iconfont icon-shuaxin" style="font-size: 16px;"></span>
+                </div>
+                <div class="editor-btn">
+                  <span class="iconfont icon-shanchu" style="font-size: 18px;"></span>
+                </div>
+                <div class="editor-download flexCenter">下载图片</div>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+
+    <!-- 从我的作品导入modal -->
+    <div id="importWorkModal">
+      <div class="import-top layui-form">
+        <div class="layui-input-inline" style="width: 120px; margin-right: 15px;">
+          <select>
+            <option value="">全部类型</option>
+            <option value="1">服装上身</option>
+            <option value="2">换模特背景</option>
+            <option value="3">鞋子上脚</option>
+            <option value="4">包包上身</option>
+            <option value="5">搭配融图</option>
+            <option value="6">创意文生图</option>
+            <option value="7">AI修图</option>
+            <option value="8">裂变套图</option>
+            <option value="9">自由姿势</option>
+          </select>
+        </div>
+        <div class="layui-inline" id="importRange" style="margin-right: 20px;">
+          <div class="layui-input-inline">
+            <input type="text" autocomplete="off" id="importStartRange" class="layui-input" placeholder="开始日期">
+          </div>
+          -
+          <div class="layui-input-inline">
+            <input type="text" autocomplete="off" id="importEndRange" class="layui-input" placeholder="结束日期">
+          </div>
+        </div>
+        <button type="button" class="layui-btn">搜索</button>
+      </div>
+    </div>
+
+
+    <!-- <script src="/js/layui.js"></script> -->
+    <script src="//unpkg.com/layui@2.11.2/dist/layui.js"></script>
+
+    <script src="/js/photo-edit.js"></script>
+
+    <script>
+      
+    </script>
+  </body>
+</html>

@@ -799,7 +799,7 @@ input {
 }
 
 .grid-container .grid-item {
-  /*height: 12vw;*/
+  height: 12vw;
   position: relative;
   cursor: pointer;
 }
