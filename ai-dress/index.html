@@ -15,16 +15,15 @@
     <meta name="language" content="chinese" />
     <meta name="location" content="China" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link href="//unpkg.com/layui@2.11.2/dist/css/layui.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/ai-dress.css" />
-    <link
-      rel="stylesheet"
-      href="//at.alicdn.com/t/c/font_4789865_lvrrk40mz4.css"
-    />
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4789865_ojqppt86brs.css" />
     <!-- 引入防xss攻击js -->
     <script src="/js/purify.min.js"></script>
     <script src="/js/NZ-MsgBox/jquery-3.4.1.min.js"></script>
     <script src="/js/NZ-MsgBox/NZ-Drag.min.js"></script>
     <script src="/js/NZ-MsgBox/NZ-MsgBox.min.js"></script>
+    <script src="/js/fabric.min.js"></script>
     <link href="/js/NZ-MsgBox/NZ-MsgBox.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/viewer.min.css" />
     <style>
@@ -64,16 +63,13 @@
           class="charge-btn"
           onclick=" window.location.href='/member/buyPoint.aspx'"
         >
-          99478
+          99388
         </div>
       </div>
     </div>
     <div class="ai-content">
       <div class="content-left">
         <div class="navs">
-          <li class="nav-item flexCenter">
-            <img src="/images/ai-dress/dress-on.png" alt="" />
-          </li>
           <li class="nav-item flexCenter">
             <img src="/images/ai-dress/dress-on.png" alt="" />
           </li>
@@ -85,6 +81,12 @@
               <a href="default.aspx?ID=0"
                 ><div class="create flexCenter">继续创建</div></a
               >
+            </li>
+            <li class="task-item" data-id="10342">
+              <a href="default.aspx?ID=10342"
+                ><img
+                  src="https://hxzt.oss-cn-shenzhen.aliyuncs.com/hwtastImg/20250406/202504061000447446.jpg"
+              /></a>
             </li>
             <li class="task-item" data-id="3733">
               <a href="default.aspx?ID=3733"
@@ -137,7 +139,7 @@
               <p>
                 以下内容由系统自动生成，因产品处于持续学习调优阶段，其中可能有不准确或不恰当的信息，不代表R355观点，请您谨慎鉴别。
               </p>
-              <p id="addtime">2025/4/30 16:18:36</p>
+              <p id="addtime">2025/5/18 23:20:31</p>
             </div>
             <div class="result-container"></div>
           </div>
@@ -177,7 +179,24 @@
               <li data-id="连体衣">连体衣</li>
               <li data-id="连衣裙">连衣裙</li>
             </div>
-            <div class="grid-container" id="jp_model_scene"></div>
+            <div class="grid-container" id="jp_model_scene">
+              <li class="grid-item" model_id="22071686599">
+                <img
+                  src="https://www.r355.com/uploadFiles/20250116/sence/small_202501161121063021.jpg"
+                  class="item-img"
+                />
+                <div class="item-desc">【3:4】男士-卫衣</div>
+                <span class="iconfont icon-xuanzhong checkIcon"></span>
+              </li>
+              <li class="grid-item" model_id="22071659627">
+                <img
+                  src="https://www.r355.com/uploadFiles/20250116/sence/small_202501161121059928.jpg"
+                  class="item-img"
+                />
+                <div class="item-desc">【3:4】男士-卫衣</div>
+                <span class="iconfont icon-xuanzhong checkIcon"></span>
+              </li>
+            </div>
             <div id="pagination_0" class="pagination m-style"></div>
           </div>
           <!-- 我的参考图 -->
@@ -362,6 +381,104 @@
         </div>
       </div>
     </div>
+
+    <!-- 编辑选区modal -->
+    <div id="editAreaModal" style="display: none;">
+      <div class="edit-top">
+        <span class="edit-top-title">编辑选区</span>
+        <div class="control-btn-group">
+          <li class="control-btn-item">
+            <span class="iconfont icon-tumo"></span>
+            <span>涂抹选区</span>
+          </li>
+          <li class="control-btn-item">
+            <span class="iconfont icon-cachuzhangai"></span>
+            <span>擦除选区</span>
+          </li>
+          <li class="control-btn-item btn-selected">
+            <span class="iconfont icon-zidongxuanqu"></span>
+            <span>自动选区</span>
+          </li>
+        </div>
+        <div class="control-progress" style="display: none;">
+          <span>笔刷大小</span>
+          <div id="slider"></div>
+        </div>
+        <button class="layui-btn layui-btn-primary layui-border addAreaBtn active">
+          <span class="iconfont icon-tianjiamianxing" style="color: rgb(0, 153, 255);"></span>
+          增加选区
+        </button>
+        <button class="layui-btn layui-btn-primary layui-border reduceAreaBtn">
+          <span class="iconfont icon-shanjianmianxing" style="color: red;"></span>
+          减少选区
+        </button>
+        <button class="layui-btn layui-btn-primary layui-border reverseBtn">
+          <span class="iconfont icon-zhuanhuan"></span>
+          反选选区
+        </button>
+      </div>
+      <div class="edit-content">
+        <div class="edit-content-left">
+          <div class="edit-choose-item active">
+            <img src="https://img.alicdn.com/imgextra/i4/O1CN01w6YpTz1UdpQccUXku_!!4611686018427382253-2-aigc_biz_alg.png" alt="">
+          </div>
+          <div class="edit-choose-item">
+            <img src="https://img.alicdn.com/imgextra/i4/O1CN01w6YpTz1UdpQccUXku_!!4611686018427382253-2-aigc_biz_alg.png" alt="">
+          </div>
+        </div>
+        <div class="eidt-guide">
+          <ul>
+            <li>请在参考图上选择服装上身区域</li>
+            <li>r355将<span style="font-weight: bold;">仅在选中区域进行重绘，</span>选区外元素保持不变</li>
+          </ul>
+        </div>
+        <div class="edit-content-right">
+          <div class="draw-wrap origin">
+            <!-- 绘制背景图片 -->
+            <canvas id="originCanvas"></canvas>
+            <!-- 绘制曲线 -->
+            <canvas id="originCanvasBg" style="position: absolute; display: none;"></canvas>
+            <div class="canvas-mask" style="display: none;">
+              <span class="iconfont icon-loading"></span>
+              智能扣图准备中
+            </div>
+          </div>
+          <div class="draw-wrap target">
+            <canvas id="targetCanvas"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="edit-footer">
+        <div id="resetViewBtn" class="editor-btn editor-btn-common" title="复位视图">
+          <span class="iconfont icon-fuwei"></span>
+        </div>
+        <div id="moveImgBtn" class="editor-btn editor-btn-common" title="移动图片">
+          <span class="iconfont icon-yidong"></span>
+        </div>
+        <div id="reduceBtn" class="editor-btn editor-btn-common" title="缩小视图">
+          <span class="iconfont icon-jianhao"></span>
+        </div>
+        <div class="editor-num"><span>100</span>％</div>
+        <div id="enlargeBtn" class="editor-btn editor-btn-common" title="放大视图">
+          <span class="iconfont icon-jiahao"></span>
+        </div>
+        <div class="line"></div>
+        <!-- <div class="editor-btn editor-btn-common" title="撤销">
+          <span class="iconfont icon-chehui"></span>
+        </div>
+        <div class="editor-btn editor-btn-common" title="重做">
+          <span class="iconfont icon-zhongzuo_huaban"></span>
+        </div> -->
+        <div id="emptyAreaBtn" class="editor-btn editor-btn-common" title="清空选区">
+          <span class="iconfont icon-shuaxin" style="font-size: 14px;"></span>
+        </div>
+        <div class="edit-footer-btns">
+          <button class="layui-btn layui-btn-primary layui-border edit-cancel-btn">取 消</button>
+          <button class="layui-btn edit-confirm-btn" style="background: #657eb9;">完 成</button>
+        </div>
+      </div>
+    </div>
+
     <input type="hidden" id="_id" value="0" />
     <input type="hidden" id="task_status" value="2" />
     <input name="scene_img" type="hidden" id="scene_img" />
@@ -371,5 +488,6 @@
   </body>
   <script src="/js/jquery.pagination.js"></script>
   <script src="/js/zzym-viewer-jquery.min.js"></script>
+  <script src="//unpkg.com/layui@2.11.2/dist/layui.js"></script>
   <script src="/js/ai-dress.js"></script>
 </html>
