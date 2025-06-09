@@ -539,7 +539,7 @@ $(function () {
       {
           $("#pagination_" + cat).Pagination({
               totalData: totalnum, // 总数据量
-              showData: pageSize, // 每页显示的数据量
+              showData: cat === 1 ? 17 : pageSize, // 每页显示的数据量
               pageCount: 5, // 分页栏显示的页码数量
               current: 1, // 当前页码
               coping: true, // 是否开启首页和尾页功能
@@ -593,6 +593,8 @@ $(function () {
   let isMoving = false
   // 主画布对象
   let fabricCanvas;
+  // 预览画布对象
+  let previewCanvas;
   // 全局变量保存初始状态
   let initialStates = [];
 
@@ -639,6 +641,38 @@ $(function () {
     // 监听每次新增绘制内容（Path）后的事件
     fabricCanvas.on('path:created', function(e) {
       // e.path 就是新添加的 Path 对象
+      // 获取所有 Path
+      const paths = fabricCanvas.getObjects('path');
+      console.log('当前所有 Path:', paths);
+      if (!paths.length) {
+        // 没有涂抹时，显示完整图片
+        previewCanvas.getObjects('image')[0].clipPath = null;
+        previewCanvas.renderAll();
+        return;
+      }
+      // 异步 clone 所有 path
+      const clonePromises = paths.map(p =>
+        new Promise(resolve => p.clone(cloned => resolve(cloned)))
+      );
+      Promise.all(clonePromises).then(clonedPaths => {
+        // 合并为 Group
+        const maskGroup = new fabric.Group(clonedPaths, {
+          originX: 'center',
+          originY: 'center',
+          absolutePositioned: true
+        });
+        // 将maskGroup里的绘画笔填充为不透明（即右侧画布）
+        maskGroup._objects.forEach(obj => {
+          obj.stroke = 'rgba(101, 126, 185, 1)';
+        })
+        const img = previewCanvas.getObjects('image')[0];
+        img.visible = true;
+        img.clipPath = maskGroup;
+        // const previewBg = previewCanvas.getObjects()[0]
+        // previewBg.clipPath = maskGroup
+        previewCanvas.renderAll();
+      });
+
       // 在这里执行你的回调逻辑，比如记录初始状态
       recordInitialStates();
     });
@@ -750,9 +784,11 @@ $(function () {
       $(this).addClass('disabled')
     }
     fabricCanvas.setZoom(originScale)
+    previewCanvas.setZoom(originScale)
     // 让画布内容居中
     setViewCenter()
     fabricCanvas.renderAll()
+    previewCanvas.renderAll()
     getScale()
   })
 
@@ -779,18 +815,14 @@ $(function () {
     if (isMoving) {
       // 关闭绘画模式
       fabricCanvas.isDrawingMode = false;
-      // // 允许拖动背景图片
-      // if (fabricCanvas.backgroundImage) {
-      //   fabricCanvas.backgroundImage.selectable = true;
-      //   fabricCanvas.setActiveObject(fabricCanvas.backgroundImage);
-      //   fabricCanvas.renderAll();
-      // }
       // 一键全选所有对象
       const all = fabricCanvas.getObjects();
       fabricCanvas.discardActiveObject();
       const selection = new fabric.ActiveSelection(all, { canvas: fabricCanvas });
       fabricCanvas.setActiveObject(selection);
       fabricCanvas.requestRenderAll();
+      // 右侧区域同步移动
+      bindSyncMove();
     } else {
       // 禁止所有对象拖动
       fabricCanvas.getObjects().forEach(obj => {
@@ -801,21 +833,80 @@ $(function () {
     }
   })
 
+  function bindSyncMove() {
+    const leftImg = fabricCanvas.getObjects('image')[0];
+    const rightImg = previewCanvas.getObjects('image')[0];
+    const gridGroup = previewCanvas.getObjects('group')[0]; // 假设网格是第一个 group
+
+    // 监听左侧整体移动（ActiveSelection）
+    fabricCanvas.on('object:moving', function(e) {
+      console.log('左侧移动e.target:', e.target);
+      if (e.target && e.target.type === 'activeSelection') {
+        // 以左侧图片为基准同步
+        rightImg.set({
+          left: e.target.left,
+          top: e.target.top,
+        });
+        gridGroup.set({
+          left: e.target.left,
+          top: e.target.top,
+        });
+        // 同步clipPath
+        if (rightImg.clipPath) {
+          rightImg.clipPath.set({
+            originX: 'center',
+            originY: 'center',
+            absolutePositioned: false  // absolutePositioned可能决定了clipPath的坐标系是相对于画布还是相对于被裁剪对象。比如，设置为true时，clipPath的位置可能相对于画布原点，而不是被裁剪对象的中心
+          });
+        }
+        previewCanvas.renderAll();
+      }
+    });
+  }
+
   // 点击复位视图
   $('#resetViewBtn').click(function() {
     // 恢复所有对象到初始状态
+    // const objects = fabricCanvas.getObjects();
+    // objects.forEach((obj, i) => {
+    //   if (initialStates[i]) {
+    //     obj.set(initialStates[i]);
+    //   }
+    // });
     const objects = fabricCanvas.getObjects();
     objects.forEach((obj, i) => {
       if (initialStates[i]) {
         obj.set(initialStates[i]);
       }
     });
+
+    originScale = 1
+    $('#enlargeBtn, #reduceBtn').removeClass('disabled')
     fabricCanvas.setZoom(1)
-    fabricCanvas.requestRenderAll();
+    previewCanvas.setZoom(1)
+    // 让画布内容居中
+    const img = fabricCanvas.getObjects('image')[0];
+    if (img) {
+      const canvasWidth = fabricCanvas.getWidth();
+      const canvasHeight = fabricCanvas.getHeight();
+      const imgWidth = img.width * img.scaleX;
+      const imgHeight = img.height * img.scaleY;
+      img.set({
+        left: (canvasWidth - imgWidth) / 2,
+        top: (canvasHeight - imgHeight) / 2
+      });
+      fabricCanvas.renderAll();
+    }
+
+    setViewCenter()
+    fabricCanvas.renderAll()
+    previewCanvas.renderAll()
+    getScale()
   })
 
   // 清空选区
   $('#emptyAreaBtn').click(function() {
+    // 先清空左侧画布
     // 获取所有对象
     const objects = fabricCanvas.getObjects();
     // 假设初始化图片是第一个对象，只保留它
@@ -825,6 +916,22 @@ $(function () {
       }
     });
     fabricCanvas.renderAll();
+
+    // 清空右侧画布
+    const objs = previewCanvas.getObjects();
+    objs.forEach(obj => {
+      // 假设图片和网格是前两个对象
+      if (obj.type !== 'image' && obj.type !== 'group') {
+        previewCanvas.remove(obj);
+      }
+    });
+    // 图片设置为隐藏状态
+    const img = previewCanvas.getObjects('image')[0];
+    if (img) {
+      img.clipPath = null;
+      img.visible = false; // 如果初始是隐藏的
+    }
+    previewCanvas.renderAll();
   })
 
   // $('#emptyAreaBtn').click(function() {
@@ -900,46 +1007,46 @@ $(function () {
   // });
 
   // 初始化绘制图片 src: 图片的地址 isOrigin: 是否是原图  showMask: 是否显示loading mask,默认为false
-  function drawImg(src, isOrigin = true, showMask = false) {
-    const img = new Image()
-    img.src = src
-    img.crossOrigin = "anonymous";
-    img.onload = function () {
-      let canvas;
-      if (isOrigin) {
-        canvas = document.getElementById('originCanvas')
-        canvasBg = document.getElementById('originCanvasBg')
-        // canvas.width = $('.draw-wrap.origin').width()
-        canvas.height = $('.draw-wrap.origin').height()
-        canvasBg.height = $('.draw-wrap.origin').height()
-      } else {
-        canvas = document.getElementById('targetCanvas')
-        // canvas.width = $('.draw-wrap.target').width()
-        canvas.height = $('.draw-wrap.target').height()
-      }
-      // 计算图片等比例缩放后的尺寸
-      const aspectRatio = img.width / img.height
-      const targetWidth = aspectRatio * canvas.height
-      canvas.width = targetWidth
-      if (isOrigin) canvasBg.width = targetWidth
-      const ctx = canvas.getContext('2d')
-      // 清空画布
-      // ctx.clearRect(0, 0, canvas.width, canvas.height);
-      // 计算绘制起始位置（水平居中）
-      // const xPos = ($('.draw-wrap.origin').width() - targetWidth) / 2;
-      // 绘制图像
-      ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, targetWidth, canvas.height);
-      // 加载mask
-      if (showMask && editType === 2) drawMask(targetWidth)
-      if (isOrigin) {
-        // 绑定点击事件，绘制小圆
-        $('#originCanvasBg').off('click').on('click', function (e) {
-          if ($('#moveImgBtn').hasClass('on')) return;
-          if (editType === 2) drawDot(e, ctx);
-        });
-      }
-    }
-  }
+  // function drawImg(src, isOrigin = true, showMask = false) {
+  //   const img = new Image()
+  //   img.src = src
+  //   img.crossOrigin = "anonymous";
+  //   img.onload = function () {
+  //     let canvas;
+  //     if (isOrigin) {
+  //       canvas = document.getElementById('originCanvas')
+  //       canvasBg = document.getElementById('originCanvasBg')
+  //       // canvas.width = $('.draw-wrap.origin').width()
+  //       canvas.height = $('.draw-wrap.origin').height()
+  //       canvasBg.height = $('.draw-wrap.origin').height()
+  //     } else {
+  //       canvas = document.getElementById('targetCanvas')
+  //       // canvas.width = $('.draw-wrap.target').width()
+  //       canvas.height = $('.draw-wrap.target').height()
+  //     }
+  //     // 计算图片等比例缩放后的尺寸
+  //     const aspectRatio = img.width / img.height
+  //     const targetWidth = aspectRatio * canvas.height
+  //     canvas.width = targetWidth
+  //     if (isOrigin) canvasBg.width = targetWidth
+  //     const ctx = canvas.getContext('2d')
+  //     // 清空画布
+  //     // ctx.clearRect(0, 0, canvas.width, canvas.height);
+  //     // 计算绘制起始位置（水平居中）
+  //     // const xPos = ($('.draw-wrap.origin').width() - targetWidth) / 2;
+  //     // 绘制图像
+  //     ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, targetWidth, canvas.height);
+  //     // 加载mask
+  //     if (showMask && editType === 2) drawMask(targetWidth)
+  //     if (isOrigin) {
+  //       // 绑定点击事件，绘制小圆
+  //       $('#originCanvasBg').off('click').on('click', function (e) {
+  //         if ($('#moveImgBtn').hasClass('on')) return;
+  //         if (editType === 2) drawDot(e, ctx);
+  //       });
+  //     }
+  //   }
+  // }
 
   // 初始化 Fabric Canvas
   function initFabricCanvas() {
@@ -978,11 +1085,45 @@ $(function () {
       });
       fabricCanvas.add(img);
       fabricCanvas.sendToBack(img); // 保证图片在底层
+      console.log('加载图片成功:', img.left, img.top);
       // 记录初始状态
       recordInitialStates()
       drawMask(imgWidth)
       // fabricCanvas.setBackgroundImage(img, fabricCanvas.renderAll.bind(fabricCanvas), { erasable: false }); // erasable 为 false 时，背景图片不可被擦除
     }, { crossOrigin: 'anonymous' });
+  }
+
+  // 初始化预览透明区域
+  function loadPreviewBg(imgWidth) {
+    const cellSize = 12; // 网格单元格大小
+    const cols = Math.ceil(imgWidth / cellSize);
+    const rows = Math.ceil(previewCanvas.height / cellSize);
+    const offsetX = (previewCanvas.width - imgWidth) / 2; // 居中偏移
+    let rects = [];
+    for (let i = 0; i < cols; i++) {
+      for (let j = 0; j < rows; j++) {
+        const fill = (i + j) % 2 === 0 ? '#fff' : '#e5e5e5';
+        const rect = new fabric.Rect({
+          left: i * cellSize + offsetX,
+          top: j * cellSize,
+          width: cellSize,
+          height: cellSize,
+          fill: fill,
+          selectable: false,
+          evented: false,
+          hoverCursor: 'default'
+        });
+        rects.push(rect);
+      }
+    }
+    // 合并成一个 Group
+    const gridGroup = new fabric.Group(rects, {
+      selectable: false,
+      evented: false
+    });
+    previewCanvas.add(gridGroup);
+    previewCanvas.sendToBack(gridGroup);
+    previewCanvas.renderAll();
   }
 
   // 每次新增绘制内容后也要更新 initialStates
@@ -992,7 +1133,8 @@ $(function () {
       top: obj.top,
       scaleX: obj.scaleX,
       scaleY: obj.scaleY,
-      angle: obj.angle
+      originX: obj.originX || 'left',
+      originY: obj.originY || 'top'
     }));
   }
 
@@ -1028,6 +1170,8 @@ $(function () {
 
   // 放大缩小之后，让画布内容居中
   function setViewCenter() {
+    // 让视口居中
+
     // 计算让内容居中的偏移
     const canvasWidth = fabricCanvas.getWidth();
     const canvasHeight = fabricCanvas.getHeight();
@@ -1039,6 +1183,17 @@ $(function () {
     vp[4] = canvasWidth / 2 - (canvasWidth / 2) * zoom;
     vp[5] = canvasHeight / 2 - (canvasHeight / 2) * zoom;
     fabricCanvas.setViewportTransform(vp);
+
+    previewCanvas.setViewportTransform(vp);
+
+    // 让图片本身居中
+    // const img = fabricCanvas.getObjects('image')[0];
+    // if (img) {
+    //   img.set({
+    //     left: 82,
+    //     top: 0
+    //   });
+    // }
   }
 
   // 获取当前缩放比例
@@ -1092,9 +1247,36 @@ $(function () {
     // 模拟智能扣图准备完成后，关闭mask
     setTimeout(() => {
       closeMask()
-      // 绘制右侧图片
-      drawImg('/images/ai-dress/transparent.png', false)
-    }, 3000)
+      // 绘制右侧预览画布
+      previewCanvas = new fabric.Canvas('targetCanvas', {
+        isDrawingMode: false, // 初始不启用绘画
+        selection: false, // 只允许单选
+        height: $('.draw-wrap.origin').height(),
+        width: $('.draw-wrap.origin').width()
+      });
+      // 加载预览透明区域
+      loadPreviewBg(width)
+      // 给左侧画布同步绘制图片
+      const leftImg = fabricCanvas.getObjects()[0];
+      if (leftImg && leftImg.type === 'image') {
+        leftImg.clone(function(clonedImg) {
+          // 保持位置、缩放一致
+          // originX默认为'left', originY默认为'top'
+          clonedImg.set({
+            left: leftImg.left,
+            top: leftImg.top,
+            scaleX: leftImg.scaleX,
+            scaleY: leftImg.scaleY,
+            selectable: false,
+            evented: false,
+            visible: false, // 初始隐藏
+          });
+          previewCanvas.add(clonedImg);
+          // previewCanvas.sendToBack(clonedImg);
+          previewCanvas.renderAll();
+        });
+      }
+    }, 1000)
   }
 
   function closeMask() {
