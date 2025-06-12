@@ -7,7 +7,7 @@ $(function () {
         $("#scene_img").val() +
         '" style="width: 100%; height: 100%;" /><span class="label flexCenter">共' +
         $("#scene_num").val() +
-        "张</span>"
+        "张</span><div class=\"img-edit-btn\"><span class=\"iconfont\"></span>编辑选区</div>"
     );
     if ($("#type_id").val() == 1) {
       $(".single .upload-item .upload-empty").hide();
@@ -533,7 +533,8 @@ $(function () {
       var totalnum=mockData.Count;
       if(cat==1)
       {
-          totalnum=mockData.Count_1;
+          totalnum = mockData.Count_1;
+
       }
       if (totalnum > pageSize)
       {
@@ -576,6 +577,24 @@ $(function () {
   }
 
 
+ //根据选择获取绘蛙的参考图
+  function get_scene() {
+      $.ajax({
+          type: "POST",
+          url: "/Ajax/hwAPI.ashx?action=get_scene",
+          dataType: "html",
+          data: {sceneIds: $("#scene_id").val() },
+          beforeSend: function (XMLHttpRequest) {
+          }, success: function (json, textStatus) {
+              $(".edit-content-left").html(json);
+          },
+          complete: function (XMLHttpRequest, textStatus) {
+              loadFabricBg($('.edit-choose-item.active img').attr('src'))
+          },
+          error: function () {
+          },
+      });
+  }
 
 
 
@@ -600,6 +619,7 @@ $(function () {
 
   // 点击编辑选区
   $('.upload-model-empty').on('click', '.img-edit-btn', function (e) {
+      get_scene();
     // 取消冒泡
     e.stopPropagation();
     // 打开编辑选区弹框
@@ -623,6 +643,22 @@ $(function () {
     initFabricCanvas()
     loadFabricBg($('.edit-choose-item.active img').attr('src'))
     getScale()
+
+    $.ajax({
+      type: "POST",
+      url: "https://www.r355.com/Ajax/hwAPI.ashx?action=SegmentCloth",
+      dataType: "html",
+      data: {sceneIds: $("#scene_id").val() },
+      beforeSend: function (XMLHttpRequest) {
+      }, success: function (json, textStatus) {
+          $(".edit-content-left").html(json);
+      },
+      complete: function (XMLHttpRequest, textStatus) {
+          loadFabricBg($('.edit-choose-item.active img').attr('src'))
+      },
+      error: function () {
+      },
+    });
 
     // 监听画布选中事件，选中时将所有图层聚集，方便移动
     fabricCanvas.on('selection:created', function(e) {
@@ -1068,6 +1104,9 @@ $(function () {
 
   // 加载图片为背景
   function loadFabricBg(src) {
+
+
+
     fabric.Image.fromURL(src, function(img) {
       // 计算图片等比例缩放后的尺寸
       const scale = fabricCanvas.height / img.height;
