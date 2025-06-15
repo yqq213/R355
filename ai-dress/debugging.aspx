@@ -1,0 +1,423 @@
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>智展衣模-R355服饰资讯网111</title>
+  <meta name="Description"
+    content="R355服饰资讯网,专业的服装设计网站,为您提供最专业的时装设计,时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会等信息">
+  <meta name="keywords"
+    content="时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会">
+  <meta name="subject" content="服装设计" />
+  <meta name="searchtitle" content="服装设计,R355服饰资讯网" />
+  <meta name="language" content="chinese" />
+  <meta name="location" content="China" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/css/ai-dress.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4789865_ojqppt86brs.css" />
+  <link href="//unpkg.com/layui@2.11.2/dist/css/layui.css" rel="stylesheet">
+  <!-- 引入防xss攻击js -->
+  <script src="/js/purify.min.js"></script>
+  <script src="/js/NZ-MsgBox/jquery-3.4.1.min.js"></script>
+  <script src="/js/NZ-MsgBox/NZ-Drag.min.js"></script>
+  <script src="/js/NZ-MsgBox/NZ-MsgBox.min.js"></script>
+  <script src="/js/fabric.min.js"></script>
+  <link href="/js/NZ-MsgBox/NZ-MsgBox.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/viewer.min.css" />
+  <style>
+    .NZ-TipsBar-Container .tipbar.success .icon-state,
+    .NZ-TipsBar-Container .tipbar.info .icon-state {
+      display: inline-block
+    }
+
+    .left_btn {
+      position: fixed;
+      z-index: 999999;
+      left: 5px;
+      top: 40%;
+    }
+
+    .right_btn_1 {
+      position: fixed;
+      z-index: 999999;
+      right: 5px;
+      top: 40% !important;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="header flexBetween">
+    <div class="left">
+      <span>智展衣模</span>
+      <img src="/images/ai-dress/ai-icon.png" class="ai-icon">
+    </div>
+    <div class="right">
+      <a href="default.aspx"><span class="title">服装上身</span></a>
+      <a href="mywork.aspx"><span class="title">我的作品</span></a>
+      <img src="/images/ai-dress/invite-btn.png" class="invite-btn" onclick=" window.location.href='Invite.aspx'">
+      <div class="charge-btn" onclick=" window.location.href='/member/buyPoint.aspx'">99283</div>
+    </div>
+  </div>
+  <div class="ai-content">
+    <div class="content-left">
+      <div class="navs">
+        <li class="nav-item flexCenter">
+          <img src="/images/ai-dress/dress-on.png" alt="">
+
+        </li>
+      </div>
+      <div class="recent-area">
+        <p class="title">最近任务</p>
+        <div class="task-list">
+          <li class="task-item active">
+            <a href="default.aspx?ID=0">
+              <div class="create flexCenter">继续创建</div>
+            </a>
+          </li>
+          <li class="task-item" data-id="14284"><a href="default.aspx?ID=14284"><img
+                src="https://hxzt.oss-cn-shenzhen.aliyuncs.com/hwtastImg/20250406/202504061000447446.jpg"></a></li>
+          <li class="task-item" data-id="10342"><a href="default.aspx?ID=10342"><img
+                src="https://hxzt.oss-cn-shenzhen.aliyuncs.com/hwtastImg/20250406/202504061000447446.jpg"></a></li>
+          <li class="task-item" data-id="3733"><a href="default.aspx?ID=3733"><img
+                src="https://hxzt.oss-cn-shenzhen.aliyuncs.com/hwtastImg/20250406/202504061000447446.jpg"></a></li>
+          <li class="task-item" data-id="3732"><a href="default.aspx?ID=3732"><img
+                src="https://hxzt.oss-cn-shenzhen.aliyuncs.com/hwtastImg/20250406/202504061000447446.jpg"></a></li>
+          <li class="task-item" data-id="3731"><a href="default.aspx?ID=3731"><img
+                src="https://hxzt.oss-cn-shenzhen.aliyuncs.com/hwtastImg/20250406/202504060950295241.jpg"></a></li>
+          <li class="task-item" data-id="3730"><a href="default.aspx?ID=3730"><img
+                src="https://hxzt.oss-cn-shenzhen.aliyuncs.com/hwtastImg/20250406/202504060950295241.jpg"></a></li>
+        </div>
+        <div class="task-all flexCenter">
+          全部任务
+          <span class="iconfont icon-arrow"></span>
+        </div>
+      </div>
+    </div>
+    <div class="content-center">
+      <!-- 生成结果 -->
+      <div class="ai-result">
+        <div>
+          <p class="title">生成结果</p>
+        </div>
+        <div class="result-empty flexCenter">
+          <div class="result-pannel flexCenter">AI生图 服装上身</div>
+          <p class="label">可轻松生成不同姿态的模特图，使用教程详见上方视频</p>
+          <p class="tip">小贴士：如何生成不同模特和场景的商品平铺图？ 去看看<span class="iconfont icon-arrow"></span></p>
+        </div>
+        <div class="result-wrap" style="display: none;">
+          <div class="result-tip">
+            <p>
+              以下内容由系统自动生成，因产品处于持续学习调优阶段，其中可能有不准确或不恰当的信息，不代表R355观点，请您谨慎鉴别。
+            </p>
+            <p id="addtime">2025/6/16 1:08:55</p>
+          </div>
+          <div class="result-container"></div>
+
+        </div>
+      </div>
+      <div class="database" style="display: none;">
+        <div class="base-header">
+          <div class="base-navs">
+            <li class="active" data-type="0">精品库</li>
+            <li data-type="1">我的参考图</li>
+          </div>
+          <p class="base-tip">小贴士：如何生成不同模特和场景的商品平铺图？ 去看看</p>
+          <span class="iconfont icon-close close-database"></span>
+          <input type="hidden" id="tktype" value="0" />
+        </div>
+        <!-- 精品库 -->
+        <div class="base-container">
+          <div class="base-warn">
+            <span class="iconfont icon-warning_fill"></span>
+            温馨提示：最多可选5张参考图，请确保商品图与参考图为同类型商品，以达到最佳效果
+          </div>
+          <div class="base-types">
+            <li data-id="" class="active">全部</li>
+            <li data-id="男装">男装</li>
+            <li data-id="女装">女装</li>
+            <li data-id="童">童装</li>
+            <li data-id="外套">外套</li>
+            <li data-id="毛">毛衫</li>
+            <li data-id="衬衫">衬衫</li>
+            <li data-id="卫衣">卫衣</li>
+            <li data-id="大衣">大衣</li>
+            <li data-id="T恤">T恤</li>
+            <li data-id="长裤">长裤</li>
+            <li data-id="短裤">短裤</li>
+            <li data-id="半身裙">半身裙</li>
+            <li data-id="连体衣">连体衣</li>
+            <li data-id="连衣裙">连衣裙</li>
+          </div>
+          <div class="grid-container" id="jp_model_scene"></div>
+          <div id="pagination_0" class="pagination m-style"></div>
+        </div>
+        <!-- 我的参考图 -->
+        <div class="refer-container" style="display: none;">
+          <div class="base-warn">
+            <span class="iconfont icon-warning_fill"></span>
+            温馨提示：最多可选5张参考图，请确保商品图与参考图为同类型商品，以达到最佳效果
+          </div>
+          <div class="filter-wrap" style="display:none">
+            <div class="refer-filter original" style="margin-bottom: 10px;">
+              <span class="refer-filter-name">参考图来源</span>
+              <li class="refer-filter-item active">全部</li>
+              <li class="refer-filter-item">我的上传</li>
+              <li class="refer-filter-item">我的收藏</li>
+            </div>
+
+          </div>
+          <div class="grid-container" id="my_model_scene"></div>
+          <div id="pagination_1" class="pagination m-style"></div>
+        </div>
+      </div>
+    </div>
+    <div class="content-right">
+      <div class="flexBetween main-title">
+        <span class="desc">服装平铺图一键上身</span>
+        <a href="https://www.yuque.com/lalala-9skqu/ute0t3/axu1sia632vckgpz?singleDoc#" target="_blank">
+          <img src="/images/ai-dress/couse-icon.png" style="vertical-align:middle;">
+          <span style="color:#000">教程</span></a>
+
+      </div>
+      <div class="btn-tabs">
+        <div data-bili="1" class="tab flexCenter first active" style="margin-right: 15px;">
+          <span class="iconfont icon-pic"></span>
+          <span>图像比例3:4</span>
+        </div>
+        <div data-bili="2" class="tab second flexCenter ">
+          <span class="iconfont icon-pic"></span>
+          <span>图像比例1:1</span>
+        </div>
+        <input type="hidden" value="1" id="bili" />
+      </div>
+      <div class="dress-tabs">
+        <img src="/images/ai-dress/back-border-icon.png" style="margin-right: 5px;">
+        <span class="label">图片规则</span>
+        <div class="tab active" data-type_id="1" style="margin-right: 20px;">单件上身</div>
+        <div class="tab " data-type_id="2">多件上身</div>
+        <input type="hidden" value="1" id="type_id" />
+
+      </div>
+      <div class="upload-area single">
+        <div class="upload-item">
+          <select name="sel_cat_id" id="sel_cat_id" class="uplaod-select">
+            <option value="1">上装</option>
+            <option value="2">下装（裤）</option>
+            <option value="4">下装（裙）</option>
+            <option value="3">连体衣</option>
+          </select>
+          <div class="flexCenter upload-empty">
+            <img src="/images/ai-dress/upload-dress-icon.png" alt="" />
+            <p style="margin: 10px 0 10px 0">上传单件衣服</p>
+            <p class="tip">图片大小50K-5m，分辨率大于400*400</p>
+          </div>
+          <input type="file" class="upload-input" data-action="single" />
+          <div class="upload-img flexCenter" style="display: none">
+            <img src="" alt="" />
+            <div class="upload-shadow flexCenter">
+              <span class="flexCenter">重新上传</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="upload-area multi" style="display: none">
+        <div class="upload-item" style="margin-right: 10px;" id="multi_1">
+          <div class="flexCenter upload-empty">
+            <img src="/images/ai-dress/upload-dress-icon.png" alt="" />
+            <p style="margin: 10px 0 10px 0">上传上装平铺图</p>
+            <p class="tip">图片大小50K-5m</p>
+            <p class="tip">分辨率大于400*400</p>
+          </div>
+          <input type="file" class="upload-input" data-action="shangzhuang" />
+          <div class="upload-img flexCenter" style="display: none">
+            <img src="" alt="" />
+            <div class="upload-shadow flexCenter">
+              <span class="flexCenter">重新上传</span>
+            </div>
+          </div>
+        </div>
+        <div class="upload-item" id="multi_2">
+          <div class="flexCenter upload-empty">
+            <img src="/images/ai-dress/upload-dress-pants.png" alt="" />
+            <p style="margin: 10px 0 10px 0">上传下装平铺图</p>
+            <p class="tip">图片大小50K-5m</p>
+            <p class="tip">分辨率大于400*400</p>
+          </div>
+          <input type="file" class="upload-input" data-action="xiazhuang" />
+          <div class="upload-img flexCenter" style="display: none">
+            <img src="" alt="" />
+            <div class="upload-shadow flexCenter">
+              <span class="flexCenter">重新上传</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input type="hidden" value="" id="original_image_url" />
+      <input type="hidden" id="original_image_url_2" value="" />
+      <div class="upload-model-empty flexBetween">
+        <span class="iconfont icon-back-o"></span>
+        <div class="select-values">
+          <p style="color: #1F1F1F;">选择模特参考图</p>
+          <p class="select-text"></p>
+          <div class="select-btns" style="display: none;">
+            <div style="display: flex;">
+              <!-- <div class="select-btn-item flexCenter" style="margin-right: 10px;">
+                  <span class="iconfont icon-pic"></span>
+                  <span>设置已选图片</span>
+                </div> -->
+              <div class="select-btn-item flexCenter empty-refer">
+                <span class="iconfont icon-remove"></span>
+                <span>清空</span>
+              </div>
+            </div>
+
+            <input type="hidden" id="scene_id" value="" />
+          </div>
+        </div>
+        <div class="img flexCenter">
+          <img src="/images/ai-dress/img-add-icon.png" />
+        </div>
+      </div>
+      <div class="input-wrap">
+        <p class="title"><span>生成张数</span>（每张参考图最多8张）</p>
+        <div>
+          <input type="text" id="image_count" value="1" style="width: 100%;">
+        </div>
+      </div>
+      <div class="func-wrap">
+        <span>自动修图</span>
+        <img src="/images/ai-dress/strong-text.png" alt="">
+        <span style="color: #8D8E8E;">开启后约增加1分钟生成时间</span>
+        <span data-auto_hand_refine="1" class="iconfont icon-kaiguanguan"></span>
+        <span data-auto_hand_refine="0" class="iconfont icon-kaiguankai" style="display: none;"></span>
+        <input type="hidden" id="auto_hand_refine" value="0" />
+      </div>
+      <div class="bottom-wrap">
+        <div class="text">
+          <p>持续调优中</p>
+          <p>请谨慎鉴别生成结果</p>
+        </div>
+        <div class="btn flexCenter generateBtn">
+          <span class="loading-wrap flexCenter">
+            <span class="iconfont icon-loading"></span>
+          </span>
+          <span>立即生成</span>
+
+          <span class="cost flexCenter">
+            <img src="/images/ai-dress/coin-icon.png" style="margin-right: 5px;">
+            <em id="totalPoint">50</em>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 编辑选区modal -->
+  <div id="editAreaModal" style="display: none;">
+    <div class="edit-top">
+      <span class="edit-top-title">编辑选区</span>
+      <div class="control-btn-group">
+        <li class="control-btn-item">
+          <span class="iconfont icon-tumo"></span>
+          <span>涂抹选区</span>
+        </li>
+        <li class="control-btn-item">
+          <span class="iconfont icon-cachuzhangai"></span>
+          <span>擦除选区</span>
+        </li>
+        <li class="control-btn-item btn-selected">
+          <span class="iconfont icon-zidongxuanqu"></span>
+          <span>自动选区</span>
+        </li>
+      </div>
+      <div class="control-progress" style="display: none;">
+        <span>笔刷大小</span>
+        <div id="slider"></div>
+      </div>
+      <!-- <button class="layui-btn layui-btn-primary layui-border addAreaBtn active">
+        <span class="iconfont icon-tianjiamianxing" style="color: rgb(0, 153, 255);"></span>
+        增加选区
+      </button>
+      <button class="layui-btn layui-btn-primary layui-border reduceAreaBtn">
+        <span class="iconfont icon-shanjianmianxing" style="color: red;"></span>
+        减少选区
+      </button>
+      <button class="layui-btn layui-btn-primary layui-border reverseBtn">
+        <span class="iconfont icon-zhuanhuan"></span>
+        反选选区
+      </button> -->
+    </div>
+    <div class="edit-content">
+      <div class="edit-content-left">
+
+      </div>
+      <div class="eidt-guide">
+        <ul>
+          <li>请在参考图上选择服装上身区域</li>
+          <li>r355将<span style="font-weight: bold;">仅在选中区域进行重绘，</span>选区外元素保持不变</li>
+        </ul>
+      </div>
+      <div class="edit-content-right">
+        <div class="draw-wrap origin">
+          <!-- 绘制背景图片 -->
+          <canvas id="originCanvas"></canvas>
+          <!-- 绘制曲线 -->
+          <canvas id="originCanvasBg" style="position: absolute; display: none;"></canvas>
+          <div class="canvas-mask" style="display: none;">
+            <span class="iconfont icon-loading"></span>
+            智能扣图准备中
+          </div>
+        </div>
+        <div class="draw-wrap target">
+          <canvas id="targetCanvas"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="edit-footer">
+      <div id="resetViewBtn" class="editor-btn editor-btn-common" title="复位视图">
+        <span class="iconfont icon-fuwei"></span>
+      </div>
+      <!-- <div id="moveImgBtn" class="editor-btn editor-btn-common" title="移动图片">
+        <span class="iconfont icon-yidong"></span>
+      </div> -->
+      <div id="reduceBtn" class="editor-btn editor-btn-common" title="缩小视图">
+        <span class="iconfont icon-jianhao"></span>
+      </div>
+      <div class="editor-num"><span>100</span>％</div>
+      <div id="enlargeBtn" class="editor-btn editor-btn-common" title="放大视图">
+        <span class="iconfont icon-jiahao"></span>
+      </div>
+      <div class="line"></div>
+      <!-- <div class="editor-btn editor-btn-common" title="撤销">
+          <span class="iconfont icon-chehui"></span>
+        </div>
+        <div class="editor-btn editor-btn-common" title="重做">
+          <span class="iconfont icon-zhongzuo_huaban"></span>
+        </div> -->
+      <div id="emptyAreaBtn" class="editor-btn editor-btn-common" title="清空选区">
+        <span class="iconfont icon-shuaxin" style="font-size: 14px;"></span>
+      </div>
+      <div class="edit-footer-btns">
+        <button class="layui-btn layui-btn-primary layui-border edit-cancel-btn">取 消</button>
+        <button class="layui-btn edit-confirm-btn" style="background: #657eb9;">完 成</button>
+      </div>
+    </div>
+  </div>
+
+
+  <input type="hidden" id="_id" value="0" />
+  <input type="hidden" id="task_status" value="2" />
+  <input name="scene_img" type="hidden" id="scene_img" />
+  <input name="scene_text" type="hidden" id="scene_text" />
+  <input name="scene_num" type="hidden" id="scene_num" />
+  <input name="user_point" type="hidden" id="user_point" value="50" />
+</body>
+<script src="/js/jquery.pagination.js"></script>
+<script src="/js/zzym-viewer-jquery.min.js"></script>
+<script src="//unpkg.com/layui@2.11.2/dist/layui.js"></script>
+<script src="/js/ai-dress-new.js"></script>
+
+</html>
