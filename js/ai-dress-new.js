@@ -1,4 +1,5 @@
 $(function () {
+  alert(111)
   if ($("#_id").val() > 0) {
     $(".result-container").append("任务正努力加载中...，请稍后！");
     $(".select-text").append($("#scene_text").val());
@@ -669,7 +670,7 @@ $(function () {
       console.log('当前所有 Path:', paths);
       if (!paths.length) {
         // 没有涂抹时，显示完整图片
-        previewCanvas.getObjects('image')[0].clipPath = null;
+        previewCanvas.getObjects().find(obj => obj.segmentTag).clipPath = null;
         previewCanvas.renderAll();
         return;
       }
@@ -688,13 +689,16 @@ $(function () {
         maskGroup._objects.forEach(obj => {
           obj.stroke = 'rgba(101, 126, 185, 1)';
         })
-        // const img = previewCanvas.getObjects('image')[0];
-        const img = previewCanvas.getObjects().find(obj => obj.segmentTag);
-        img.visible = true;
-        img.clipPath = maskGroup;
-        // const previewBg = previewCanvas.getObjects()[0]
-        // previewBg.clipPath = maskGroup
-        previewCanvas.renderAll();
+        const originImg = previewCanvas.getObjects().find(obj => obj.segmentTag === 'origin');
+        originImg.opacity = 0.7
+        // originImg.visible = false
+        const clippedImg = previewCanvas.getObjects().find(obj => obj.segmentTag === 'clipped');
+        if (clippedImg) {
+          clippedImg.visible = true;
+          clippedImg.clipPath = maskGroup;
+          previewCanvas.bringToFront(clippedImg); // 再次保证在最上层
+          previewCanvas.renderAll();
+        }
       });
 
       // 在这里执行你的回调逻辑，比如记录初始状态
@@ -757,6 +761,10 @@ $(function () {
       $('.control-progress').show()
       $('.addAreaBtn, .reduceAreaBtn').hide()
       isDrawing = true
+      // 切换到擦除或涂抹时，移除所有圆点
+      const circles = fabricCanvas.getObjects('circle');
+      circles.forEach(circle => fabricCanvas.remove(circle));
+      fabricCanvas.renderAll();
     }
     // 初始笔刷大小为30
     if (editType === 0) enableBrush(30)
@@ -866,14 +874,27 @@ $(function () {
 
   // 自动选区分割
   function segmentCloth() {
+    var type_id=$("#type_id").val();
+    var cat_id=$("#sel_cat_id").val();
     $.ajax({
       type: "POST",
       url: "/Ajax/hwAPI.ashx?action=SegmentCloth",
       dataType: "json",
-      data: { url: $('.edit-choose-item.active img').attr('src') },
+      data: { url: $('.edit-choose-item.active img').attr('src'), type_id: type_id, cat_id:cat_id},
       success: function (json, textStatus) {
         console.log('自动选区分割json:', json);
-        const segmentImg = json.Elements[1].ClassUrl.tops;
+        var segmentImg = json.Elements[0].ImageURL;
+        if (type_id == 1 && cat_id==1)
+        {
+            segmentImg = json.Elements[1].ClassUrl.tops;
+        }
+        else if (type_id == 1 && cat_id == 2)
+        {
+            segmentImg = json.Elements[1].ClassUrl.pants;
+        }
+        else if (type_id == 1 && cat_id == 4) {
+            segmentImg = json.Elements[1].ClassUrl.skirt;
+        }
         // 先移除右侧已有的分割图片（如果有）
         const oldSegImg = previewCanvas.getObjects().find(obj => obj.segmentTag);
         if (oldSegImg) previewCanvas.remove(oldSegImg);
@@ -884,7 +905,7 @@ $(function () {
           // 计算图片相对canvas x轴偏移量
           const aspectRatio = img.width / img.height
           const imgWidth = aspectRatio * fabricCanvas.height
-          // 设置图片属性（可根据实际需求调整）
+          // 先设置完整底图
           img.set({
             left: (fabricCanvas.width - imgWidth) / 2,
             top: 0,
@@ -892,10 +913,23 @@ $(function () {
             scaleY: scale,
             selectable: false,
             evented: false,
-            segmentTag: true // 自定义标记，方便下次移除
+            segmentTag: 'origin', // 标记为原图
           });
           previewCanvas.add(img);
-          previewCanvas.renderAll();
+          // 再设置上层用于裁剪的图
+          img.clone(function(clippedImg) {
+            clippedImg.set({
+              left: img.left,
+              top: img.top,
+              scaleX: img.scaleX,
+              scaleY: img.scaleY,
+              selectable: false,
+              evented: false,
+              segmentTag: 'clipped' // 标记为裁剪图
+            });
+            previewCanvas.add(clippedImg);
+            previewCanvas.renderAll();
+          });
         }, { crossOrigin: 'anonymous' });
       },
       error: function () {
@@ -1170,34 +1204,47 @@ $(function () {
 
   // 初始化预览透明区域
   function loadPreviewBg(imgWidth) {
-    const cellSize = 12; // 网格单元格大小
-    const cols = Math.ceil(imgWidth / cellSize);
-    const rows = Math.ceil(previewCanvas.height / cellSize);
-    const offsetX = (previewCanvas.width - imgWidth) / 2; // 居中偏移
-    let rects = [];
-    for (let i = 0; i < cols; i++) {
-      for (let j = 0; j < rows; j++) {
-        const fill = (i + j) % 2 === 0 ? '#fff' : '#e5e5e5';
-        const rect = new fabric.Rect({
-          left: i * cellSize + offsetX,
-          top: j * cellSize,
-          width: cellSize,
-          height: cellSize,
-          fill: fill,
-          selectable: false,
-          evented: false,
-          hoverCursor: 'default'
-        });
-        rects.push(rect);
-      }
-    }
-    // 合并成一个 Group
-    const gridGroup = new fabric.Group(rects, {
+    // const cellSize = 12; // 网格单元格大小
+    // const cols = Math.ceil(imgWidth / cellSize);
+    // const rows = Math.ceil(previewCanvas.height / cellSize);
+    // const offsetX = (previewCanvas.width - imgWidth) / 2; // 居中偏移
+    // let rects = [];
+    // for (let i = 0; i < cols; i++) {
+    //   for (let j = 0; j < rows; j++) {
+    //     const fill = (i + j) % 2 === 0 ? '#fff' : '#e5e5e5';
+    //     const rect = new fabric.Rect({
+    //       left: i * cellSize + offsetX,
+    //       top: j * cellSize,
+    //       width: cellSize,
+    //       height: cellSize,
+    //       fill: fill,
+    //       selectable: false,
+    //       evented: false,
+    //       hoverCursor: 'default'
+    //     });
+    //     rects.push(rect);
+    //   }
+    // }
+    // // 合并成一个 Group
+    // const gridGroup = new fabric.Group(rects, {
+    //   selectable: false,
+    //   evented: false
+    // });
+
+    // 创建一个黑色大矩形
+    const rect = new fabric.Rect({
+      left: (previewCanvas.width - imgWidth) / 2,
+      top: 0,
+      width: imgWidth,
+      height: previewCanvas.height,
+      fill: '#000', // 黑色
       selectable: false,
-      evented: false
+      evented: false,
+      hoverCursor: 'default'
     });
-    previewCanvas.add(gridGroup);
-    previewCanvas.sendToBack(gridGroup);
+
+    previewCanvas.add(rect);
+    previewCanvas.sendToBack(rect);
     previewCanvas.renderAll();
   }
 
@@ -1374,7 +1421,5 @@ $(function () {
       }
     });
   });
-
-  $('.reverseBtn, #moveImgBtn').hide();
 
 });

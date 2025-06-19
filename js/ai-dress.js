@@ -579,21 +579,22 @@ $(function () {
 
  //根据选择获取绘蛙的参考图
   function get_scene() {
-      $.ajax({
-          type: "POST",
-          url: "/Ajax/hwAPI.ashx?action=get_scene",
-          dataType: "html",
-          data: {sceneIds: $("#scene_id").val() },
-          beforeSend: function (XMLHttpRequest) {
-          }, success: function (json, textStatus) {
-              $(".edit-content-left").html(json);
-          },
-          complete: function (XMLHttpRequest, textStatus) {
-              loadFabricBg($('.edit-choose-item.active img').attr('src'))
-          },
-          error: function () {
-          },
-      });
+    $.ajax({
+      type: "POST",
+      url: "/Ajax/hwAPI.ashx?action=get_scene",
+      dataType: "html",
+      data: {sceneIds: $("#scene_id").val() },
+      beforeSend: function (XMLHttpRequest) {
+      },
+      success: function (json, textStatus) {
+          
+      },
+      complete: function (XMLHttpRequest, textStatus) {
+          // loadFabricBg($('.edit-choose-item.active img').attr('src'))
+      },
+      error: function () {
+      },
+    });
   }
 
 
@@ -641,24 +642,11 @@ $(function () {
     });
 
     initFabricCanvas()
-    loadFabricBg($('.edit-choose-item.active img').attr('src'))
     getScale()
 
-    $.ajax({
-      type: "POST",
-      url: "https://www.r355.com/Ajax/hwAPI.ashx?action=SegmentCloth",
-      dataType: "html",
-      data: {sceneIds: $("#scene_id").val() },
-      beforeSend: function (XMLHttpRequest) {
-      }, success: function (json, textStatus) {
-          $(".edit-content-left").html(json);
-      },
-      complete: function (XMLHttpRequest, textStatus) {
-          loadFabricBg($('.edit-choose-item.active img').attr('src'))
-      },
-      error: function () {
-      },
-    });
+    // 加载左侧图片
+    // loadFabricBg($('.edit-choose-item.active img').attr('src'))
+    loadFabricBg('https://www.r355.com/uploadFiles/20250606/books/202506061041186208.jpg')
 
     // 监听画布选中事件，选中时将所有图层聚集，方便移动
     fabricCanvas.on('selection:created', function(e) {
@@ -730,7 +718,7 @@ $(function () {
       fabricCanvas.renderAll();
     });
 
-    // 监听 fabricCanvas 的 mouse:down 事件
+    // 监听 fabricCanvas 的 mouse:down 事件（点击增加选区）
     fabricCanvas.on('mouse:down', function(e) {
       // 判断是否为自动选区状态且点击的是图片对象（假设第一个对象是图片）
       if (editType === 2 && e.target && e.target === fabricCanvas.getObjects()[0]) {
@@ -747,6 +735,7 @@ $(function () {
         });
         fabricCanvas.add(circle);
         fabricCanvas.requestRenderAll();
+        segmentCloth();
       }
     });
   })
@@ -868,6 +857,39 @@ $(function () {
       fabricCanvas.requestRenderAll();
     }
   })
+
+  // 自动选区分割
+  function segmentCloth() {
+    $.ajax({
+      type: "POST",
+      url: "https://www.r355.com/Ajax/hwAPI.ashx?action=SegmentCloth",
+      dataType: "json",
+      data: { url: $('.edit-choose-item.active img').attr('src') },
+      success: function (json, textStatus) {
+        
+      },
+      complete: function (XMLHttpRequest, textStatus) {
+        // 调用接口成功后，模拟返回的图片数据，加载到画布，测试用
+        const apiResult = {
+          "Elements": [
+            {
+              "ClassUrl": null,
+              "ImageURL": "http://vibktprfx-prod-prod-aic-vd-cn-shanghai.oss-cn-shanghai.aliyuncs.com/eas-cloth_segmentation/2025-06-10/3325891e-e326-4c95-b16a-e3b173419ad3/clothes_image.png?OSSAccessKeyId=LTAI4G45u1DBkiaLMWCLJwrF&Expires=1749532166&Signature=kjVNTzXqT0%2Bq4ZhBdtIBSqnWX9Y%3D"
+            },
+            {
+              "ClassUrl": {
+                "tops": "http://vibktprfx-prod-prod-aic-vd-cn-shanghai.oss-cn-shanghai.aliyuncs.com/eas-cloth_segmentation/2025-06-10/3325891e-e326-4c95-b16a-e3b173419ad3/tops_image.png?OSSAccessKeyId=LTAI4G45u1DBkiaLMWCLJwrF&Expires=1749532166&Signature=AUEDVlzph7%2FsnC8a9M2NuJYtNGU%3D"
+              },
+              "ImageURL": null
+            }
+          ]
+        }
+        let segmentImg = apiResult.Elements[1].ClassUrl.tops
+      },
+      error: function () {
+      },
+    });
+  }
 
   function bindSyncMove() {
     const leftImg = fabricCanvas.getObjects('image')[0];
@@ -1104,9 +1126,6 @@ $(function () {
 
   // 加载图片为背景
   function loadFabricBg(src) {
-
-
-
     fabric.Image.fromURL(src, function(img) {
       // 计算图片等比例缩放后的尺寸
       const scale = fabricCanvas.height / img.height;

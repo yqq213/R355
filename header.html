@@ -162,6 +162,9 @@
         function handleClickMenu(e, item) {
           clearTimeout(timeId)
           showModal(e, item)
+          if (item.link) {
+            item.open ? window.open(item.link) : window.location.href = item.link
+          }
         }
 
         // 点击导航菜单跳转
