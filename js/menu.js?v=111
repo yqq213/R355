@@ -1,7 +1,7 @@
 window.menuList = [
   {
     name: '首页',
-    link: '/'
+    link: 'https://www.r355.com'
   },
   {
     name: '浅析未来',
@@ -55,14 +55,14 @@ window.menuList = [
             name: '零售分析',
             link: '/jdfx/jdfx-943-0-0-0--1.html'
           },
-          {
-            name: '展会分析',
-            link: '/jdfx/jdfx-945-0-0-0--1.html'
-          },
-          {
-            name: '订货会分析',
-            link: '/jdfx/jdfx-944-0-0-0--1.html'
-          },
+          // {
+          //   name: '展会分析',
+          //   link: '/jdfx/jdfx-945-0-0-0--1.html'
+          // },
+          // {
+          //   name: '订货会分析',
+          //   link: '/jdfx/jdfx-944-0-0-0--1.html'
+          // },
         ]
       }
     ]
@@ -74,41 +74,6 @@ window.menuList = [
     category_intro: '网罗全球各个品牌资讯，包括品牌的经典款式、当季款式、联名款、订货会款等，为设计师提供灵感和参考。',
     class: 'brand',
     children: [
-      {
-        icon: '/images/header/shejishipinpai.png',
-        name: '设计师品牌',
-        link: '/kstk/xiangce-881-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
-        subMenu: [
-          {
-            name: 'T恤',
-            link: '/kstk/xiangce-881-884-0-0-0-0-0-0-0-0-0-0--0-1.html'
-          },
-          {
-            name: '外套',
-            link: '/kstk/xiangce-881-888-0-0-0-0-0-0-0-0-0-0--0-1.html'
-          },
-          {
-            name: '毛衫',
-            link: '/kstk/xiangce-881-894-0-0-0-0-0-0-0-0-0-0--0-1.html'
-          },
-          {
-            name: '套装',
-            link: '/kstk/xiangce-881-952-0-0-0-0-0-0-0-0-0-0--0-1.html'
-          },
-          {
-            name: '卫衣',
-            link: '/kstk/xiangce-881-886-0-0-0-0-0-0-0-0-0-0--0-1.html'
-          },
-          {
-            name: '衬衫',
-            link: '/kstk/xiangce-881-894-0-0-0-0-0-0-0-0-0-0--0-1.html'
-          },
-          {
-            name: '男裤',
-            link: '/kstk/xiangce-881-952-0-0-0-0-0-0-0-0-0-0--0-1.html'
-          },
-        ]
-      },
       {
         icon: '/images/header/dinghuohui.png',
         name: '订货会款式',
@@ -201,119 +166,154 @@ window.menuList = [
         ]
       },
       {
-        icon: '/images/header/shangchangpinpai.png',
-        name: '商场品牌',
-        link: '/kstk/xiangce-3-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
+        icon: '/images/header/shejishipinpai.png',
+        name: '设计师品牌',
+        link: '/kstk/main-881-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
         subMenu: [
           {
             name: 'T恤',
-            link: '/kstk/xiangce-3-61-0-0-0-0-0-0-0-0-0-0--0-1.html'
+            link: '/kstk/main-881-884-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '外套',
-            link: '/kstk/xiangce-3-279-0-0-0-0-0-0-0-0-0-0--0-1.html'
+            link: '/kstk/main-881-888-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '毛衫',
-            link: '/kstk/xiangce-3-63-0-0-0-0-0-0-0-0-0-0--0-1.html'
+            link: '/kstk/main-881-894-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '套装',
-            link: '/kstk/xiangce-3-973-0-0-0-0-0-0-0-0-0-0--0-1.html'
+            link: '/kstk/main-881-952-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '卫衣',
-            link: '/kstk/xiangce-3-974-0-0-0-0-0-0-0-0-0-0--0-1.html'
+            link: '/kstk/main-881-886-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '衬衫',
-            link: '/kstk/xiangce-3-62-0-0-0-0-0-0-0-0-0-0--0-1.html'
+            link: '/kstk/main-881-894-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '男裤',
-            link: '/kstk/xiangce-3-957-0-0-0-0-0-0-0-0-0-0--0-1.html'
+            link: '/kstk/main-881-952-0-0-0-0-0-0-0-0-0-0--0-1.html'
+          },
+        ]
+      },
+      {
+        icon: '/images/header/shangchangpinpai.png',
+        name: '商场品牌',
+        link: '/kstk/main-3-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
+        subMenu: [
+          {
+            name: 'T恤',
+            link: '/kstk/main-3-61-0-0-0-0-0-0-0-0-0-0--0-1.html'
+          },
+          {
+            name: '外套',
+            link: '/kstk/main-3-279-0-0-0-0-0-0-0-0-0-0--0-1.html'
+          },
+          {
+            name: '毛衫',
+            link: '/kstk/main-3-63-0-0-0-0-0-0-0-0-0-0--0-1.html'
+          },
+          {
+            name: '套装',
+            link: '/kstk/main-3-973-0-0-0-0-0-0-0-0-0-0--0-1.html'
+          },
+          {
+            name: '卫衣',
+            link: '/kstk/main-3-974-0-0-0-0-0-0-0-0-0-0--0-1.html'
+          },
+          {
+            name: '衬衫',
+            link: '/kstk/main-3-62-0-0-0-0-0-0-0-0-0-0--0-1.html'
+          },
+          {
+            name: '男裤',
+            link: '/kstk/main-3-957-0-0-0-0-0-0-0-0-0-0--0-1.html'
           }
         ]
       },
       {
         icon: '/images/header/yundongpinpai.png',
         name: '运动品牌',
-        link: '/kstk/xiangce-7-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
+        link: '/kstk/main-7-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
         subMenu: [
           {
             name: 'T恤',
-            link: '/kstk/xiangce-7-96-0-0-0-0-0-0-0-0-0-0--0-1.html'
+            link: '/kstk/main-7-96-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '外套',
-            link: '/kstk/xiangce-7-91-0-0-0-0-0-0-0-0-0-0--0-1.html'
+            link: '/kstk/main-7-91-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '套装',
-            link: '/kstk/xiangce-7-93-0-0-0-0-0-0-0-0-0-0--0-1.html'
+            link: '/kstk/main-7-93-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '卫衣',
-            link: '/kstk/xiangce-7-95-0-0-0-0-0-0-0-0-0-0--0-1.html'
+            link: '/kstk/main-7-95-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '棉衣/羽绒',
-            link: '/kstk/xiangce-7-92-0-0-0-0-0-0-0-0-0-0--0-1.html'
+            link: '/kstk/main-7-92-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '衬衫',
-            link: '/kstk/xiangce-7-982-0-0-0-0-0-0-0-0-0-0--0-1.html'
+            link: '/kstk/main-7-982-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '单裤',
-            link: '/kstk/xiangce-7-94-0-0-0-0-0-0-0-0-0-0--0-1.html'
+            link: '/kstk/main-7-94-0-0-0-0-0-0-0-0-0-0--0-1.html'
           }
         ]
       },
       {
         icon: '/images/header/huwaipinpai.png',
         name: '户外品牌',
-        link: '/kstk/xiangce-8-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
+        link: '/kstk/main-8-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
         subMenu: [
           {
               name: '衬衫',
-              link: '/kstk/xiangce-8-105-0-0-0-0-0-0-0-0-0-0--0-1.html'
+              link: '/kstk/main-8-105-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
               name: '卫衣',
-              link: '/kstk/xiangce-8-981-0-0-0-0-0-0-0-0-0-0--0-1.html'
+              link: '/kstk/main-8-981-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
               name: 'T恤',
-              link: '/kstk/xiangce-8-104-0-0-0-0-0-0-0-0-0-0--0-1.html'
+              link: '/kstk/main-8-104-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
               name: '滑雪服',
-              link: '/kstk/xiangce-8-100-0-0-0-0-0-0-0-0-0-0--0-1.html'
+              link: '/kstk/main-8-100-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
               name: '赛车服',
-              link: '/kstk/xiangce-8-107-0-0-0-0-0-0-0-0-0-0--0-1.html'
+              link: '/kstk/main-8-107-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
               name: '棉衣/羽绒',
-              link: '/kstk/xiangce-8-98-0-0-0-0-0-0-0-0-0-0--0-1.html'
+              link: '/kstk/main-8-98-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
               name: '户外外套',
-              link: '/kstk/xiangce-8-97-0-0-0-0-0-0-0-0-0-0--0-1.html'
+              link: '/kstk/main-8-97-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
               name: '水洗外套',
-              link: '/kstk/xiangce-8-108-0-0-0-0-0-0-0-0-0-0--0-1.html'
+              link: '/kstk/main-8-108-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
               name: '皮肤衣',
-              link: '/kstk/xiangce-8-99-0-0-0-0-0-0-0-0-0-0--0-1.html'
+              link: '/kstk/main-8-99-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
               name: '户外裤',
-              link: '/kstk/xiangce-8-106-0-0-0-0-0-0-0-0-0-0--0-1.html'
+              link: '/kstk/main-8-106-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
 
         ]
@@ -372,13 +372,14 @@ window.menuList = [
               name: '毛衫',
               link: '/kstk/scks-2-77-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
-          {
-              name: '皮衣',
-              link: '/kstk/scks-2-73-0-0-0-0-0-0-0-0-0-0--0-1.html'
-          },
+         
           {
               name: '套装',
               link: '/kstk/scks-2-845-0-0-0-0-0-0-0-0-0-0--0-1.html'
+          },
+           {
+              name: '',
+              link: ''
           },
           {
               name: '商务裤',
@@ -402,11 +403,11 @@ window.menuList = [
           },
           //{
           //    name: '外贸男装',
-          //    link: '/kstk/xiangce-8-106-0-0-0-0-0-0-0-0-0-0--0-1.html'
+          //    link: '/kstk/main-8-106-0-0-0-0-0-0-0-0-0-0--0-1.html'
           //},
           //{
           //    name: '细节',
-          //    link: '/kstk/xiangce-8-106-0-0-0-0-0-0-0-0-0-0--0-1.html'
+          //    link: '/kstk/main-8-106-0-0-0-0-0-0-0-0-0-0--0-1.html'
           //}
         ]
       }
@@ -498,7 +499,7 @@ window.menuList = [
   },
   {
     icon: '/images/header/zhutituce.png',
-    name: '主题图册',
+    name: '特别推荐',
     // link: '/qszx/zthc-0-0-0-0-0-0-0-1.html',
     background: 'rgb(103, 122, 162)',
     backgroundTop: 'rgb(253, 223, 221)',
@@ -506,7 +507,7 @@ window.menuList = [
     children: [
       {
         icon: '/images/header/zhutituce2.png',
-        name: '主题图册',
+        name: '特别推荐',
         link: '/qszx/zthc-0-0-0-0-0-0-0-1.html',
         subMenu: [
           {
@@ -522,7 +523,7 @@ window.menuList = [
             link: '/qszx/zthc-1006-0-0-0-0-0-0-1.html'
           },
           {
-            name: '单品',
+            name: '爆款',
             link: '/qszx/zthc-1007-0-0-0-0-0-0-1.html'
           },
           {
@@ -540,7 +541,9 @@ window.menuList = [
     children: [
       {
         icon: '/images/header/linggansucai.png',
-        name: '绘享智图Ai',
+        link: '/draw-design',
+       name: '绘享智图Ai',
+       open: true,
         desc: '“无论图片还是文字，交给[绘享智图]AI，瞬间生成你心中所想之图，解锁无限创意，以图生图、以文生图就是这么神奇！”'
       },
       {

@@ -1248,7 +1248,44 @@ input {
 
 
 
+.quality-wrap {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.quality-check {
+  border-radius: 4px;
+  height: 32px;
+  width: 140px;
+  display: flex;
+  color: #606266;
+}
+
+.quality-check span.active {
+  background: #406BE2;
+  color: #fff;
+}
+
+.quality-check span {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #406BE2;
+  transition: background ease 0.5s;
+}
+
+.quality-check span:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.quality-check span:last-child {
+  border-radius: 0 4px 4px 0;
+  border-left: 0;
+}
 
 
 

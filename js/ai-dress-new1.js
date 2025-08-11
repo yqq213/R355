@@ -1,7 +1,4 @@
 $(function () {
-  $.getScript('https://cdn.jsdelivr.net/npm/imagetracerjs@1.2.6/imagetracer_v1.2.6.js', function() {
-    // 在文件加载完成后执行的回调函数
-    console.log(ImageTracer);
   if ($("#_id").val() > 0) {
     $(".result-container").append("任务正努力加载中...，请稍后！");
     $(".select-text").append($("#scene_text").val());
@@ -591,8 +588,7 @@ $(function () {
       },
       success: function (json, textStatus) {
         // 加载左侧图片
-        // $(".edit-content-left").html(json);
-        $(".edit-content-left").html('<div class="edit-choose-item active"><img src="http://www.r355.com/uploadFiles/20241212/jtss/202412121856139413.jpg"></div>');
+        $(".edit-content-left").html(json);
         const src = $('.edit-choose-item.active img').attr('src')
         loadFabricBg(src)
       },
@@ -667,8 +663,39 @@ $(function () {
 
     // 监听每次新增绘制内容（Path）后的事件
     fabricCanvas.on('path:created', function(e) {
-      // 更新右侧预览画布的clipPath
-      updatePreviewClipPath();
+      // e.path 就是新添加的 Path 对象
+      // 获取所有 Path
+      const paths = fabricCanvas.getObjects('path');
+      console.log('当前所有 Path:', paths);
+      if (!paths.length) {
+        // 没有涂抹时，显示完整图片
+        previewCanvas.getObjects().find(obj => obj.segmentTag).clipPath = null;
+        previewCanvas.renderAll();
+        return;
+      }
+      // 异步 clone 所有 path
+      const clonePromises = paths.map(p =>
+        new Promise(resolve => p.clone(cloned => resolve(cloned)))
+      );
+      Promise.all(clonePromises).then(clonedPaths => {
+        // 合并为 Group
+        const maskGroup = new fabric.Group(clonedPaths, {
+          originX: 'center',
+          originY: 'center',
+          absolutePositioned: true
+        });
+        // 将maskGroup里的绘画笔填充为不透明（即右侧画布）
+        maskGroup._objects.forEach(obj => {
+          obj.stroke = 'rgba(101, 126, 185, 1)';
+        })
+        // const img = previewCanvas.getObjects('image')[0];
+        const img = previewCanvas.getObjects().find(obj => obj.segmentTag);
+        img.visible = true;
+        img.clipPath = maskGroup;
+        // const previewBg = previewCanvas.getObjects()[0]
+        // previewBg.clipPath = maskGroup
+        previewCanvas.renderAll();
+      });
 
       // 在这里执行你的回调逻辑，比如记录初始状态
       recordInitialStates();
@@ -712,53 +739,6 @@ $(function () {
       }
     });
   })
-
-  // 更新右侧预览画布的clipPath
-  function updatePreviewClipPath() {
-    // 获取所有 Path
-    const paths = fabricCanvas.getObjects('path');
-    console.log('当前所有 Path:', paths);
-    
-    if (!paths.length) {
-      // 没有涂抹时，显示完整图片
-      const segmentImg = previewCanvas.getObjects().find(obj => obj.segmentTag);
-      if (segmentImg) {
-        segmentImg.clipPath = null;
-        segmentImg.visible = true;
-      }
-      previewCanvas.renderAll();
-      return;
-    }
-    
-    // 异步 clone 所有 path
-    const clonePromises = paths.map(p =>
-      new Promise(resolve => p.clone(cloned => resolve(cloned)))
-    );
-
-    Promise.all(clonePromises).then(clonedPaths => {
-      // 合并为 Group
-      const maskGroup = new fabric.Group(clonedPaths, {
-        originX: 'center',
-        originY: 'center',
-        absolutePositioned: true
-      });
-      
-      // 将maskGroup里的绘画笔填充为不透明（即右侧画布）
-      maskGroup._objects.forEach(obj => {
-        obj.fill = 'rgba(101, 126, 185, 1)';
-      });
-      
-      // 设置clipPath到右侧的segmentImg
-      // const segmentImg = previewCanvas.getObjects().find(obj => obj.segmentTag);
-      const segmentImg = previewCanvas.getObjects().find(obj => obj.originFlag);
-      if (segmentImg) {
-        segmentImg.visible = true;
-        segmentImg.clipPath = maskGroup;
-      }
-      
-      previewCanvas.renderAll();
-    });
-  }
 
   // 点击切换重绘内容操作按钮
   $('#editAreaModal .control-btn-item').click(function(a, b, c) {
@@ -813,14 +793,197 @@ $(function () {
 
   // 弹框点击确定
   $('.edit-confirm-btn').click(function() {
-    // 获取右侧画布中的图片，转化为base64格式
-    const base64 = previewCanvas.toDataURL({
-      format: 'png', // 或 'jpeg'
-      quality: 1.0   // 仅对jpeg有效
+    // 生成处理后的base64图片
+    generateProcessedImage().then(base64 => {
+      console.log('处理后的图片base64:', base64);
+      // 这里可以将base64发送到服务器或进行其他处理
+      layer.closeAll();
+    }).catch(error => {
+      console.error('生成图片失败:', error);
+      layer.closeAll();
     });
-    console.log(base64);
-    layer.closeAll()
   })
+
+  // 生成处理后的图片（底部黑色背景，切割图白色）
+  function generateProcessedImage() {
+    return new Promise((resolve, reject) => {
+      try {
+        // 创建一个临时canvas来处理图片
+        const tempCanvas = document.createElement('canvas');
+        const tempCtx = tempCanvas.getContext('2d');
+        
+        // 设置canvas尺寸与预览画布相同
+        tempCanvas.width = previewCanvas.getWidth();
+        tempCanvas.height = previewCanvas.getHeight();
+        
+        // 先绘制黑色背景
+        tempCtx.fillStyle = '#000000';
+        tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+        
+        // 获取预览画布的当前状态
+        const previewDataURL = previewCanvas.toDataURL({
+          format: 'png',
+          quality: 1.0
+        });
+        
+        // 加载预览画布的图片
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        
+        img.onload = function() {
+          // 绘制预览画布的内容
+          tempCtx.drawImage(img, 0, 0);
+          
+          // 获取临时canvas的图片数据
+          const imageData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+          const data = imageData.data;
+          
+          // 处理像素数据：将非黑色像素转换为白色
+          processImagePixels(data, tempCanvas.width, tempCanvas.height);
+          
+          // 将处理后的图片数据放回canvas
+          tempCtx.putImageData(imageData, 0, 0);
+          
+          // 转换为base64
+          const processedBase64 = tempCanvas.toDataURL('image/png', 1.0);
+          resolve(processedBase64);
+        };
+        
+        img.onerror = function() {
+          reject(new Error('加载预览图片失败'));
+        };
+        
+        img.src = previewDataURL;
+        
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+
+  // 处理图片像素数据
+  function processImagePixels(data, width, height) {
+    // 定义颜色阈值
+    const BLACK_THRESHOLD = 30; // 黑色阈值
+    const TRANSPARENCY_THRESHOLD = 10; // 透明度阈值
+    
+    for (let i = 0; i < data.length; i += 4) {
+      const r = data[i];
+      const g = data[i + 1];
+      const b = data[i + 2];
+      const a = data[i + 3];
+      
+      // 如果像素有足够的透明度
+      if (a > TRANSPARENCY_THRESHOLD) {
+        // 检查是否是黑色背景
+        const isBlack = r < BLACK_THRESHOLD && g < BLACK_THRESHOLD && b < BLACK_THRESHOLD;
+        
+        if (!isBlack) {
+          // 转换为白色
+          data[i] = 255;     // R
+          data[i + 1] = 255; // G
+          data[i + 2] = 255; // B
+          data[i + 3] = 255; // A
+        } else {
+          // 确保黑色背景
+          data[i] = 0;       // R
+          data[i + 1] = 0;   // G
+          data[i + 2] = 0;   // B
+          data[i + 3] = 255; // A
+        }
+      } else {
+        // 完全透明的像素保持透明
+        data[i + 3] = 0;
+      }
+    }
+  }
+
+  // 高级图片处理函数（可选）
+  function processImagePixelsAdvanced(data, width, height) {
+    // 定义颜色阈值
+    const BLACK_THRESHOLD = 30;
+    const TRANSPARENCY_THRESHOLD = 10;
+    const EDGE_THRESHOLD = 50; // 边缘检测阈值
+    
+    // 创建临时数组存储处理结果
+    const processedData = new Uint8ClampedArray(data.length);
+    
+    // 第一遍：基础颜色转换
+    for (let i = 0; i < data.length; i += 4) {
+      const r = data[i];
+      const g = data[i + 1];
+      const b = data[i + 2];
+      const a = data[i + 3];
+      
+      if (a > TRANSPARENCY_THRESHOLD) {
+        const isBlack = r < BLACK_THRESHOLD && g < BLACK_THRESHOLD && b < BLACK_THRESHOLD;
+        
+        if (!isBlack) {
+          processedData[i] = 255;     // R
+          processedData[i + 1] = 255; // G
+          processedData[i + 2] = 255; // B
+          processedData[i + 3] = 255; // A
+        } else {
+          processedData[i] = 0;       // R
+          processedData[i + 1] = 0;   // G
+          processedData[i + 2] = 0;   // B
+          processedData[i + 3] = 255; // A
+        }
+      } else {
+        processedData[i + 3] = 0;
+      }
+    }
+    
+    // 第二遍：边缘平滑处理
+    for (let y = 1; y < height - 1; y++) {
+      for (let x = 1; x < width - 1; x++) {
+        const index = (y * width + x) * 4;
+        
+        // 检查周围像素
+        const neighbors = [
+          (y - 1) * width + x,     // 上
+          (y + 1) * width + x,     // 下
+          y * width + (x - 1),     // 左
+          y * width + (x + 1)      // 右
+        ];
+        
+        let whiteCount = 0;
+        let blackCount = 0;
+        
+        // 统计周围像素的颜色
+        neighbors.forEach(neighborIndex => {
+          const nIndex = neighborIndex * 4;
+          const nr = processedData[nIndex];
+          const ng = processedData[nIndex + 1];
+          const nb = processedData[nIndex + 2];
+          
+          if (nr === 255 && ng === 255 && nb === 255) {
+            whiteCount++;
+          } else if (nr === 0 && ng === 0 && nb === 0) {
+            blackCount++;
+          }
+        });
+        
+        // 如果当前像素是白色，但周围大部分是黑色，则转换为黑色
+        if (processedData[index] === 255 && blackCount >= 3) {
+          processedData[index] = 0;
+          processedData[index + 1] = 0;
+          processedData[index + 2] = 0;
+        }
+        // 如果当前像素是黑色，但周围大部分是白色，则转换为白色
+        else if (processedData[index] === 0 && whiteCount >= 3) {
+          processedData[index] = 255;
+          processedData[index + 1] = 255;
+          processedData[index + 2] = 255;
+        }
+      }
+    }
+    
+    // 将处理结果复制回原数组
+    for (let i = 0; i < data.length; i++) {
+      data[i] = processedData[i];
+    }
+  }
 
   // 切换编辑选区选中图片
   $('#editAreaModal').on('click', '.edit-choose-item', function() {
@@ -899,7 +1062,7 @@ $(function () {
       data: { url: $('.edit-choose-item.active img').attr('src'), type_id: type_id, cat_id:cat_id},
       success: function (json, textStatus) {
         console.log('自动选区分割json:', json);
-        var segmentImg = json.ImageURL;
+        var segmentImg = json.Elements[0].ImageURL;
         //if (type_id == 1 && cat_id==1)
         //{
         //    segmentImg = json.Elements[1].ClassUrl.tops;
@@ -911,65 +1074,33 @@ $(function () {
         //else if (type_id == 1 && cat_id == 4) {
         //    segmentImg = json.Elements[1].ClassUrl.skirt;
         //}
-        
-        // 处理segmentImg，将其转换为Path对象添加到左侧画布
-        segmentImg = 'http://www.r355.com/mjimg/202506251605264649.png'
-        segmentImgToPath(segmentImg);
+        // 先移除右侧已有的分割图片（如果有）
+        const oldSegImg = previewCanvas.getObjects().find(obj => obj.segmentTag);
+        if (oldSegImg) previewCanvas.remove(oldSegImg);
+        // 加载新分割图片
+        fabric.Image.fromURL(segmentImg, function(img) {
+          // 计算图片等比例缩放后的尺寸
+          const scale = previewCanvas.height / img.height;
+          // 计算图片相对canvas x轴偏移量
+          const aspectRatio = img.width / img.height
+          const imgWidth = aspectRatio * fabricCanvas.height
+          // 设置图片属性（可根据实际需求调整）
+          img.set({
+            left: (fabricCanvas.width - imgWidth) / 2,
+            top: 0,
+            scaleX: scale,
+            scaleY: scale,
+            selectable: false,
+            evented: false,
+            segmentTag: true // 自定义标记，方便下次移除
+          });
+          previewCanvas.add(img);
+          previewCanvas.renderAll();
+        }, { crossOrigin: 'anonymous' });
       },
       error: function () {
-        // 测试用：模拟API响应
-        console.log('API调用失败，使用测试数据');
-        const testSegmentImg = 'https://img.alicdn.com/imgextra/i4/O1CN01w6YpTz1UdpQccUXku_!!4611686018427382253-2-aigc_biz_alg.png';
-        segmentImgToPath(testSegmentImg);
       },
     });
-  }
-
-  // 处理分割图片，将其转换为Path对象
-  function segmentImgToPath(segmentImgUrl) {
-    // const testImg = new Image()
-    // testImg.src = segmentImgUrl
-    // testImg.onload = function() {
-    //   debugger
-    // }
-    // 1. 加载图片并转为SVG
-    ImageTracer.imageToSVG(
-      segmentImgUrl,
-      function(svgstr) {
-        // 2. 提取 path 的 d 属性
-        const parser = new DOMParser();
-        const svgDoc = parser.parseFromString(svgstr, "image/svg+xml");
-        const pathEls = svgDoc.querySelectorAll('path');
-        pathEls.forEach(pathEl => {
-          const d = pathEl.getAttribute('d');
-          if (d) {
-            // 3. 创建 fabric.Path 并添加到画布
-            const path = new fabric.Path(d, {
-              fill: 'rgba(26, 88, 245, 0.5)', // 可自定义
-              stroke: 'rgba(26, 88, 245, 1)',
-              strokeWidth: 2,
-              selectable: false,
-              evented: false
-            });
-            fabricCanvas.add(path);
-            // 可选：手动触发 path:created 事件
-            fabricCanvas.fire('path:created', { path: path });
-          }
-        });
-        fabricCanvas.renderAll();
-      },
-      // 可选参数：提高精度
-      { 
-        // 你可以根据实际图片调整参数
-        ltres: 1, // 线条阈值，越小越精细
-        qtres: 1, // 曲线阈值
-        pathomit: 1, // 忽略小路径
-        numberofcolors: 2, // 分割图一般只有前景和背景
-        blurradius: 0,
-        strokewidth: 1
-      }
-    );
-
   }
 
   function bindSyncMove() {
@@ -1073,7 +1204,7 @@ $(function () {
     const img = previewCanvas.getObjects('image')[0];
     if (img) {
       img.clipPath = null;
-      // img.visible = false; // 如果初始是隐藏的
+      img.visible = false; // 如果初始是隐藏的
     }
     previewCanvas.renderAll();
   })
@@ -1300,7 +1431,6 @@ $(function () {
             selectable: false,
             evented: false,
             visible: false, // 初始隐藏
-            originFlag: true,   // 底部源图标志，方便后面切割使用
           });
           previewCanvas.add(clonedImg);
           // previewCanvas.sendToBack(clonedImg);
@@ -1328,5 +1458,5 @@ $(function () {
       }
     });
   });
-});
+
 });

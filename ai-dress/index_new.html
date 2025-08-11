@@ -335,6 +335,13 @@
             <input type="text" id="image_count" value="1" style="width: 100%" />
           </div>
         </div>
+        <div class="quality-wrap">
+          <div>生成质量</div>
+          <div class="quality-check">
+            <span data-type="0">快速</span>
+            <span data-type="1" class="active">慢速</span>
+          </div>
+        </div>
         <div class="func-wrap">
           <span>自动修图</span>
           <img src="/images/ai-dress/strong-text.png" alt="" />
@@ -383,4 +390,9 @@
   <script src="/js/zzym-viewer-jquery.min.js"></script>
   <script src="//unpkg.com/layui@2.11.2/dist/layui.js"></script>
   <script src="/js/ai-dress.js"></script>
+  <script>
+    $('.quality-wrap span').on('click', function() {
+      $(this).addClass('active').siblings().removeClass('active');
+    });
+  </script>
 </html>
