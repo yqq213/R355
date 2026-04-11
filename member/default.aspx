@@ -1,0 +1,534 @@
+
+<html>
+<head><title>
+	会员中心-R355服饰资讯网
+</title><meta name="Description" content="R355服饰资讯网,专业的服装设计网站,为您提供最专业的时装设计,时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会等信息" /><meta name="keywords" content="时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会" /><meta name="subject" content="服装设计" /><meta name="searchtitle" content="服装设计,R355服饰资讯网" /><meta name="language" content="chinese" /><meta name="location" content="China" /><meta name="resource-type" content="Good WebSites" /><meta name="email" content="R355@R355.com" /><meta name="author" content="R355服饰资讯网,http://www.R355.com" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /><link href="/css/base.css" rel="stylesheet" type="text/css" /><link href="/css/master.css" rel="stylesheet" type="text/css" /><link href="/css/user.css" rel="stylesheet" type="text/css" /><link href="/css/list.css" rel="stylesheet" type="text/css" /><link href="/css/new2022.css" rel="stylesheet" type="text/css" /></head>
+<body class="color_a">
+
+<script src="/js/jquery-1.7.2.min.js"></script>
+<section>
+  <link href="/css/header.css" rel="stylesheet" type="text/css" />
+  <link href="//at.alicdn.com/t/c/font_4789865_f95hj9izwcr.css" rel="stylesheet">
+  <script src="/js/vue.global.js"></script>
+  <script src="/js/menu.js?v=0.0121"></script>
+  <!-- 引入防xss攻击js -->
+  <script src="/js/purify.min.js"></script>
+
+  <div id="header">
+    <a href="/" title="R355服饰资讯网"><img src="/images/header/logo.png" class="header-logo"></a>
+    <div class="header-first">
+      <div class="search">
+        <div class="search-icon">
+          <img src="/images/header/icon-search.png" alt="">
+        </div>
+        <input placeholder="请输入品牌名" class="search-input" value="" id="key_barnd" />
+        <div class="search-camera">
+          <img src="/images/header/camera-icon.png" />
+        </div>
+        <div class="search-btn">全站搜</div>
+        <!-- 拍照搜索弹框 -->
+        <div class="search-pop">
+          <div class="search-content">
+            <div class="search-drop">拖拽图片到这里</div>
+            <div class="upload-wrap">
+              <input type="file" class="upload-pic" />
+              <span class="upload-text">选择文件</span>
+            </div>
+             
+          </div>
+          <div class="upload-error" style="display: none;">
+            <div class="upload-error-text" style="color:red">抱歉，您上传的文件不是图片格式，请<a href="javascript:void(0)">重新上传</a></div>
+            <div class="upload-error-text">仅支持2M以下jpg，jpeg，png，bmp，gif格式图片</div>
+          </div>
+          <div class="upload-loading" style="display: none;">正在加载图片...</div>
+          <div class="upload-close"></div>
+        </div>
+      </div>
+      <div class="header-first-right">
+        <a href="/about/downLoadUrl.aspx"><div class="header-first-exe"><img src="/images/header/exe-icon.png" />桌面客户端</div></a>
+        
+         <div class="header-first-user">欢迎您，<span>wusuowei(点数会员) <a href="/member/default.aspx" class="app" style="color: #ff0000;">会员中心</a> | <a href="/member/loginOut.aspx">退 出</a></span></div>
+   
+      </div>
+    </div>
+    <!-- 导航菜单 -->
+    <div class="navs">
+       <li
+        class="navs-item"
+        v-for="(item, index) in menuList"
+        :key="index"
+        @mouseenter="mouseEnterNav($event, item)"
+        @mouseleave="handleMouseLeave"
+        @click="handleClickMenu($event, item)"
+      >
+        <img :src="item.icon" v-if="item.icon" style="pointer-events: none;" />
+        <span v-if="item.name" style="pointer-events: none;">{{ item.name }}</span>
+      </li>
+       <!-- 导航菜单箭头 -->
+      <span
+        id="navArrow"
+        class="iconfont icon-a-xingzhuang12"
+        :style="{color: currentNav.backgroundTop, transform: navModalVisible ? 'translate3D(0, -40%, 0)' : 'translate3D(0, 0, 0)'}"
+        @mouseenter="navModalVisible = true"
+        @mouseleave="navModalVisible = false"
+      >
+      </span>
+    </div>
+    <!-- 导航菜单下拉项 -->
+    <div class="nav-modal-wrap">
+      <div
+        class="navs-modal"
+        ref="navModal"
+        :style="{background: currentNav.background, transform: navModalVisible ? 'translate3D(0, 0, 0)' : 'translate3D(0, calc(-100% - 1px), 0)'}"
+        :class="currentNav.class"
+        
+        @mouseenter="navModalVisible = true"
+        @mouseleave="navModalVisible = false"
+      >
+        <div class="navs-modal-top" :style="{background: currentNav.backgroundTop}">
+          <span class="circle" :style="{background: currentNav.backgroundTop}"></span>
+        </div>
+        <div class="navs-modal-content">
+          <div class="navs-modal-content-left">
+            <div class="category" v-for="(item, index) in currentNav.children" :key="index">
+              <div class="section" @click="jumpTo(item)">
+                <div class="icon-wrap">
+                  <img :src="item.icon" />
+                </div>
+                <p class="label">{{ item.name }}</p>
+              </div>
+              <div class="wrap-nav">
+                <li class="sub-nav" v-for="(child, index) in item.subMenu" :key="index" @click="jumpTo(child)">{{ child.name }}</li>
+              </div>
+              <div class="desc" v-if="item.desc">{{ item.desc }}</div>
+            </div>
+          </div>
+          <div class="navs-modal-content-right" v-if="currentNav.category_intro">
+            <div>
+              <p class="intro-title">
+                <img src="/images/header/intro-title.png" style="margin-right: 5px;">栏目介绍
+              </p>
+              <p class="intro-text">{{ currentNav.category_intro }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <script>
+    
+    $(function() {
+        $(".search-btn").on("click", function(){
+            var brandkey=$("#key_barnd").val();
+            if(brandkey!='')
+            {
+                window.location.href="/kstk/search-0-0-0-"+brandkey+"-1.html";
+            }
+        });
+    })
+
+    const {createApp, ref, computed} = Vue
+
+    const app = createApp({
+      setup() {
+        const navModalVisible = ref(false)
+
+        const currentNav = ref({})
+
+        const hoverFontColor = computed(() => currentNav.value.backgroundTop)
+
+        const menuList = window.menuList
+
+        let timeId = 0  // 定时器id，计算鼠标停留时间
+
+        // 鼠标移动到菜单
+        function mouseEnterNav(e, item) {
+          timeId = setTimeout(() => {
+            showModal(e, item)
+          }, 2000)
+        }
+
+        // 显示菜单
+        function showModal(e, item) {
+          currentNav.value = item
+          if (item.children) navModalVisible.value = true
+          let navArrowDom = document.querySelector('#navArrow')
+          navArrowDom.style.left = (e.target.offsetLeft + 20 * (window.innerWidth / 1920)) + 'px'
+        }
+
+        // 鼠标离开菜单
+        function handleMouseLeave() {
+          clearTimeout(timeId)
+          navModalVisible.value = false
+        }
+
+        // 点击菜单
+        function handleClickMenu(e, item) {
+          clearTimeout(timeId)
+          showModal(e, item)
+          jumpTo(item)
+        }
+
+        // 点击导航菜单跳转
+        function jumpTo(item) {
+          if (item.link) {
+            item.open ? window.open(item.link) : window.location.href = item.link
+          }
+        }
+
+        return {
+          navModalVisible,
+          currentNav,
+          hoverFontColor,
+          menuList,
+          mouseEnterNav,
+          handleMouseLeave,
+          jumpTo,
+          handleClickMenu
+        }
+      }
+    })
+
+    app.mount("#header")
+
+  </script>
+
+</section>
+
+    <div class="user">
+<div class="user_titel">个人资料</div>
+<div class="user_info">
+<div class="info_left"><img src="/images/user.png" width="61" height="61"><p>wusuowei</p></div>
+<div class="info_right"><h3>您的会员信息</h3>
+  <p>会员类型：<span>点数会员</span></p><p>账户信息：<span>剩余点数：621，到期时间：2026/10/21 11:32:22</span></p></div>
+<div class="info_btn"><a href="reset_password.aspx">修改密码</a></div>
+<div style="clear:both"></div>
+</div>
+<div class="user_main">
+<div class="user_main_left">
+<h2>账号管理</h2>
+<div class="user_list">
+<ul>
+<li><a href="default.aspx" class="on"><span class="icon1 iconfont">&#xe691;</span>&nbsp;账号信息</a></li>
+<li><a href="memberData.aspx"><span class="icon1 iconfont">&#xe614;</span>&nbsp;资 料 库</a></li>
+<li><a href="buyPoint.aspx"><span class="icon1 iconfont">&#xe615;</span>&nbsp;充值点数</a></li>
+<li><a href="user_recharge.aspx"><span class="icon1 iconfont">&#xe615;</span>&nbsp;充值记录</a></li>
+<li><a href="memberPoint.aspx"><span class="icon1 iconfont">&#xe615;</span>&nbsp;消费点数</a></li>
+<li><a href="reset_password.aspx"><span class="icon1 iconfont">&#xe610;</span>修改密码</a></li>
+<li><a href="loginOut.aspx"><span class="icon1 iconfont">&#xe611;</span>安全退出</a></li>
+</ul>
+</div>
+</div>
+<div class="user_main_right"><div class="register_main">
+    <form method="post" action="./default.aspx" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTIwNTg3NDE1NjUPZBYCAgIPZBYCAhEPEBYGHg5EYXRhVmFsdWVGaWVsZAUCSUQeDURhdGFUZXh0RmllbGQFC3JlZ2lvbl9uYW1lHgtfIURhdGFCb3VuZGcQFSMM6K+36YCJ5oup55yBBuWMl+S6rAblronlvr0G56aP5bu6BueUmOiCgwblub/kuJwG5bm/6KW/Bui0teW3ngbmtbfljZcG5rKz5YyXBuays+WNlwnpu5HpvpnmsZ8G5rmW5YyXBua5luWNlwblkInmnpcG5rGf6IuPBuaxn+ilvwbovr3lroEJ5YaF6JKZ5Y+kBuWugeWkjwbpnZLmtbcG5bGx5LicBuWxseilvwbpmZXopb8G5LiK5rW3BuWbm+W3nQblpKnmtKUG6KW/6JePBuaWsOeWhgbkupHljZcG5rWZ5rGfBumHjeW6hgbpppnmuK8G5r6z6ZeoBuWPsOa5vhUjATABMgEzATQBNQE2ATcBOAE5AjEwAjExAjEyAjEzAjE0AjE1AjE2AjE3AjE4AjE5AjIwAjIxAjIyAjIzAjI0AjI1AjI2AjI3AjI4AjI5AjMwAjMxAjMyAjMzAjM0AjM1FCsDI2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZGRkqyE4drcNr4PHu6+jj8bCBq+76Ca2kGJBLJbX6M8y9xk=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="2765C009" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAA4i699GsZiUyoxzDCP40JEsjPEVdSFVo/Ald+pKPHsZYNqtI1xM/GZuuGTJ3LTYQw8ULSgzLjicJC37NloIir5jd1OG7CSFe38QkuBo0kN/JLapSJ/hoY2EgeOk2byBM/eTtIXyvi5paWddsJJKcScFsYCjl6bmYZ5cuXXHrky6mEE5Z6fDHGP/ISIxV0t34o/iY7UE9NDS4BR/YjCbfTmnyNb32TtiEfGN2no30nyrSaRzC5Sw6EsWjPIqFaGBZl3SmIxJtYPWMmN6O2mwaVn0dGBMnbkVaKBt4WvzhWCjF7EZVzF481vMn7rD5nXRD0t/mJzw+KA8azZe9r+NvgqQ" />
+</div>
+    <div class="fill_in">
+      <div class="left">用户名：</div>
+      <div class="right">
+        <div class="vali">
+          <input name="nick" type="text" id="nick" placeholder="lxp" onKeyUp="value=value.replace(/[^\a-\z\A-\Z]/g,&#39;&#39;)" readonly="" onpaste="value=value.replace(/[^\a-\z\A-\Z]/g,&#39;&#39;)" oncontextmenu="value=value.replace(/[^\a-\z\A-\Z]/g,&#39;&#39;)" value="wusuowei" />
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">联系人：</div>
+      <div class="right">
+        <div class="vali">
+          <input name="person" type="text" id="person" placeholder="请输入联系人" value="吴渭坚" />
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">联系电话：</div>
+      <div class="right">
+        <div class="vali">
+          <input name="tel" type="text" id="tel" placeholder="请输入电话" value="0595-22443449" />
+        </div>
+      </div>
+    </div>
+        <input name="txtid" type="hidden" id="txtid" value="236" />
+    <div class="fill_in">
+      <div class="left">手机：</div>
+      <div class="right">
+        <div class="vali">
+          <input name="mobile" type="text" id="mobile" class="phone" placeholder="请填写联系手机号码" value="13959840124" />
+        </div>
+      </div>
+  </div>
+      <div class="fill_in">
+      <div class="left">QQ：</div>
+      <div class="right">
+        <div class="vali">
+          <input name="qq" type="text" id="qq" class="nub" placeholder="请填写QQ号码" value="33486461" />
+        </div>
+      </div>
+    </div>
+        <div class="fill_in">
+      <div class="left">公司名称：</div>
+      <div class="right">
+        <div class="vali">
+          <input name="company" type="text" id="company" class="Required" placeholder="请填写公司的全称" />
+        </div>
+      </div>
+    </div>
+        <div class="fill_in">
+      <div class="left">经营类别：</div>
+      <div class="right">
+      <select name="tion_id" id="tion_id" class="select">
+	<option value="">请选择企业主营类别</option>
+	<option value="女装">女装</option>
+	<option value="男装">男装</option>
+	<option value="童装">童装</option>
+	<option value="内衣">内衣</option>
+	<option value="家居服">家居服</option>
+	<option value="制服">制服</option>
+	<option value="运动服">运动服</option>
+	<option value="牛仔">牛仔</option>
+	<option value="礼服">礼服</option>
+	<option selected="selected" value="羽绒服">羽绒服</option>
+	<option value="皮衣皮草">皮衣皮草</option>
+	<option value="其他">其他</option>
+</select>
+      </div>
+    </div>
+        <div class="fill_in">
+      <div class="left">所在省份：</div>
+      <div class="right">
+        <div class="vali">
+
+
+<select name="country" id="selCountries_new" onchange="region.changed(this, 1, 'selProvinces_new')" style='display:none;'>
+        <option value="1" selected>中国</option>
+
+              </select>
+          <select name="selProvinces_new" id="selProvinces_new" onchange="region.changed(this, 2, &#39;selCities_new&#39;)">
+	<option value="0">请选择省</option>
+	<option value="2">北京</option>
+	<option value="3">安徽</option>
+	<option value="4">福建</option>
+	<option value="5">甘肃</option>
+	<option value="6">广东</option>
+	<option value="7">广西</option>
+	<option value="8">贵州</option>
+	<option value="9">海南</option>
+	<option value="10">河北</option>
+	<option value="11">河南</option>
+	<option value="12">黑龙江</option>
+	<option value="13">湖北</option>
+	<option value="14">湖南</option>
+	<option value="15">吉林</option>
+	<option value="16">江苏</option>
+	<option value="17">江西</option>
+	<option value="18">辽宁</option>
+	<option value="19">内蒙古</option>
+	<option value="20">宁夏</option>
+	<option value="21">青海</option>
+	<option value="22">山东</option>
+	<option value="23">山西</option>
+	<option value="24">陕西</option>
+	<option value="25">上海</option>
+	<option value="26">四川</option>
+	<option value="27">天津</option>
+	<option value="28">西藏</option>
+	<option value="29">新疆</option>
+	<option value="30">云南</option>
+	<option value="31">浙江</option>
+	<option value="32">重庆</option>
+	<option value="33">香港</option>
+	<option value="34">澳门</option>
+	<option value="35">台湾</option>
+</select>
+
+          <select name="selCities_new" id="selCities_new" onchange="region.changed(this, 3, &#39;selDistricts_new&#39;)">
+	<option value="0">请选择市</option>
+</select>
+          <select name="selDistricts_new" id="selDistricts_new">
+	<option value="0">请选择区</option>
+</select>
+        </div>
+      </div>
+    </div>
+        <div class="fill_in">
+      <div class="left">公司地址：</div>
+      <div class="right">
+        <div class="vali">
+          <input name="address" type="text" id="address" class="Required" placeholder="请正确详细填写公司地址" value="福建" />
+        </div>
+      </div>
+            
+    </div>
+        <input type="submit" name="btn" value="保存修改" id="btn" class="Submission" />
+    </form>
+</div></div>
+</div>
+</div>
+
+ <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
+<link rel="stylesheet" href="/css/validate.css" />
+<ul class="kf">
+  <li class="li1">
+    <div class="show_a"> <em></em>
+      <div style="padding-left:10px">
+        <div class="kf_titel">在线客服</div>
+        <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px" title="点击这里给我发消息" alt="点击这里给我发消息" src="http://wpa.qq.com/pa?p=2:18550168:41"></a></div>
+     
+    </div>
+  </li>
+  <li class="li2">
+    <div class="show_b"><em></em>
+      <div class="kf_titel">联系我们</div>
+      <p>020-31232355</p>
+    </div>
+  </li>
+  <li class="li3">
+    <div class="show_c">
+    <form id="feedbackform" name="feedbackform" url="/Ajax/addneed.ashx">
+      <div class="kf_titel">会员需求与建议</div>
+      <em></em>
+      <textarea rows="5" name="xqjy" class="textarea" placeholder="请在此详细输入您公司目前所需资料类型或提交宝贵意见，我司将会在最短的时间内为您上传所需的资料，谢谢！"></textarea>
+      <div class="lay"><input type="submit" id="btnSubmit_feedback" class="Submission1" value="提交"></div>
+        </form>
+    </div>
+  </li>
+  <a href="http://widget.weibo.com/dialog/follow.php?fuid=2825343592&refer=www.r355.com&language=zh_cn&type=widget_page&vsrc=app_followbutton&backurl=http%3A%2F%2Fwww.r355.com%2F&rnd=1395281896175" title="新浪微博
+  " target="_blank">
+  <li class="li4"></li>
+  </a>
+  <li class="li5">
+    <div class="show_d"><em></em><img src="/images/weixin_code.png" width="106" height="240"></div>
+  </li>
+  <li class="li7"></li>
+</ul>
+<section>
+  <link href="/css/footer.css" rel="stylesheet" type="text/css" />
+  <div id="footer">
+    <img src="/images/footer/innovative-future.png" class="footer-future" />
+    <div class="footer-contact">
+      <img src="/images/footer/wechat-icon.png" />
+      <img src="/images/footer/qq-icon.png" />
+      <img src="/images/footer/phone-icon.png" />
+    </div>
+    <div class="footer-line"></div>
+    <div class="footer-bot">
+      <div class="footer-bot-left">
+        <div class="footer-bot-navs">
+          <li class="nav-item">
+            <a href="/about/R355-1636.html">关于我们</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1637.html">联系我们</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1632.html">免责声明</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1633.html">会员须知</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1639.html">收费说明</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1640.html">汇款方式</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1641.html">办理流程</a>
+          </li>
+        </div>
+        <p>Copyright 2007-2024 R355.com， All Rights Reserved 闽 ICP 备 07502261 号-1</p>
+      </div>
+      <img src="/images/footer/qrcode.png" style="width: 94px; height: 94px;">
+    </div>
+  </div>
+</section>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.SuperSlide.js"></script> 
+<script src="/js/base.js"></script>
+<script src="/js/smcm.js"></script>
+<script type="text/javascript" src="/js/Mouse.js" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+            <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+            <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
+<input name="webBot1$turl" type="hidden" id="webBot1_turl" value="https://www.r355.com/member/default.aspx" />
+<script src="/js/purify.min.js"></script>
+ <script>
+       $(function () {
+           AjaxInitForm('#feedbackform', '#btnSubmit_feedback', 0);
+          $(this).keypress(function (e) {
+              var key = window.event ? e.keyCode : e.which;
+              if (key.toString() == "13") {
+                  return false;
+              }
+          });
+          var searchEmptyHtml = '<div class="wrap-tips"><div class="search-tips"><p class="cnt-tips">您可以点击上面字母快速检索品牌；</p><div class="extra"><p class="cnt">需要查看所有品牌，请点击：</p><a href="javascript:void(0)" onClick="getSiftDataTop(\'id\',\'topBrandStr\',\'all\');" title="查看所有品牌" class="link-btn">查看所有品牌</a></div><i class="notice-status"></i></div></div>';
+          var tipText = '请输入品牌名称';
+          $(".text_a").click(function () {
+              $(".ChoiceLayerTop").removeClass("currentTagR");
+
+              //默认选中A
+              $("#searchLetterTop a.current").removeClass('current');
+              //$("#searchLetterTop a").eq(0).addClass('current');
+              var text = $(".text_a").val();
+              if (text != '' && text.substr(0, 1) != '请') {
+                  checkLetter(text);
+                  getSiftDataTop('id', 'topBrandStr', text.substr(0, 1).toUpperCase());
+              } else {
+                  $('#searchContentTop').html(searchEmptyHtml);
+              }
+              if (text == tipText)
+                  $(".text_a").val('');
+          });
+
+          $("#searchLetterTop a").click(function () {
+              $("#searchLetterTop a.current").removeClass('current');
+              $(this).addClass('current');
+              var lt = ($(this).text() == '其他') ? 'qt' : $(this).text();
+              getSiftDataTop('id', 'topBrandStr', lt);
+          });
+
+          $(".Btnclose").click(function () {
+              $(".ChoiceLayerTop").addClass("currentTagR");
+              var text = $(".text_a").val();
+              if (text == '')
+                  $(".text_a").val(tipText);
+          });
+
+          $("#topBrandStr").keyup(function (e) {
+              var arr = [13, 37, 38, 39, 40];
+              if (jQuery.inArray(e.keyCode, arr) != -1) return;
+              var lt = $(this).val();
+              if (lt == '') {
+                  $('#searchContentTop').html(searchEmptyHtml);
+              } else {
+                  checkLetter(lt);
+                  getSiftDataTop('text', 'topBrandStr', lt);
+              }
+          });
+      });
+
+      function getSiftDataTop(tp, tag, lt) {
+          var hi = '加载中...';
+          $('#searchContentTop').html(hi);
+          $.ajax({
+              type: "post",
+              url: "/ajax/ret_brand_list_all.ashx",
+              data:{ cartype:lt,bid:0,tp:tp },
+              dataType: "html",
+              success: function (data) {
+                  $('#searchContentTop').html(data);
+              }
+          });
+      }
+  </script> 
+    <script type="text/javascript" src="/js/global.js"></script>
+    <script type="text/javascript" src="/js/region.js"></script>
+</body>
+</html>

@@ -551,6 +551,7 @@ window.menuList = [
         icon: '/images/header/zhinengchuandai.png',
         link: '/wear-everything',
         name: '智能穿戴Ai',
+        open: true,
         desc: '无模特也能出穿搭，智能穿戴一步到位，鞋包首饰虚拟上体，高效出片不耗时，助力您快速营销。'
       },
       {
