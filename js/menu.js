@@ -183,8 +183,8 @@ window.menuList = [
             link: '/kstk/main-881-894-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '套装',
-            link: '/kstk/main-881-952-0-0-0-0-0-0-0-0-0-0--0-1.html'
+            name: '男裤',
+            link: '/kstk/main-881-887-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
             name: '卫衣',
@@ -195,7 +195,7 @@ window.menuList = [
             link: '/kstk/main-881-894-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '男裤',
+            name: '套装',
             link: '/kstk/main-881-952-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
         ]
@@ -535,26 +535,28 @@ window.menuList = [
     ]
   },
   {
-    icon: '/images/header/ai_menu.png',
+      name: '纷享图Ai',
+    icon: '/images/header/ai_menu_1.png',
     background: 'rgb(50, 60, 123)',
     backgroundTop: 'rgb(53, 128, 133)',
     children: [
       {
-        icon: '/images/header/linggansucai.png',
-        link: '/draw-design',
-       name: '绘享智图Ai',
-       open: true,
+        icon: '/images/header/huixiangzhitu.png',
+        link: '/pattern-design',
+        name: '绘享智图Ai',
+        open: true,
         desc: '“无论图片还是文字，交给[绘享智图]AI，瞬间生成你心中所想之图，解锁无限创意，以图生图、以文生图就是这么神奇！”'
       },
       {
-        icon: '/images/header/yuanchuangsucai.png',
-        name: '线稿成款Ai',
-        desc: '线稿一键成款，轻松跨越从线稿到成品款式的距离，创作从未如此迅速又简单。'
+        icon: '/images/header/zhinengchuandai.png',
+        link: '/wear-everything',
+        name: '智能穿戴Ai',
+        desc: '无模特也能出穿搭，智能穿戴一步到位，鞋包首饰虚拟上体，高效出片不耗时，助力您快速营销。'
       },
       {
-          icon: '/images/header/dapaituan.png',
-          link: '/aiweb/shiyi/',
-          open:true,
+        icon: '/images/header/zhizhanyimo.png',
+        link: 'https://www.r355.com/ai-dress',
+        open:true,
         name: '智展衣模Ai',
         desc: '不用模特拍摄也能打造逼真上身效果，让平铺服装仿佛有了灵魂，穿搭细节尽显，助力您快速营销。'
       },

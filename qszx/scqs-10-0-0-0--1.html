@@ -1,0 +1,652 @@
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+ <title>色彩趋势-浅析未来-R355服饰资讯网</title>
+<meta name="Description"  content="R355服饰资讯网,专业的服装设计网站,为您提供最专业的时装设计,时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会等信息">
+<meta name="keywords" content="时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会">
+<meta name="subject" content="服装设计" />
+<meta name="searchtitle" content="服装设计,R355服饰资讯网" />
+<meta name="language" content="chinese" />
+<meta name="location" content="China" />
+<meta name="resource-type" content="Good WebSites" />
+<meta name="email" content="R355@R355.com" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="author" content="R355服饰资讯网,http://www.R355.com" />
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+<link href="/css/base.css" rel="stylesheet" type="text/css">
+<link href="/css/master.css" rel="stylesheet" type="text/css">
+<link href="/css/list.css" rel="stylesheet" type="text/css">
+<link href="/css/independent.css" rel="stylesheet" type="text/css">
+<link href="/css/list_two.css" rel="stylesheet" type="text/css">
+       <link href="/css/smcm.css" rel="stylesheet" type="text/css">
+     <link href="/css/new2022.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<script src="/js/jquery-1.7.2.min.js"></script>
+<section>
+  <link href="/css/header.css" rel="stylesheet" type="text/css" />
+  <link href="//at.alicdn.com/t/c/font_4789865_f95hj9izwcr.css" rel="stylesheet">
+  <script src="/js/vue.global.js"></script>
+  <script src="/js/menu.js?v=0.013"></script>
+  <!-- 引入防xss攻击js -->
+  <script src="/js/purify.min.js"></script>
+
+  <div id="header">
+    <a href="/" title="R355服饰资讯网"><img src="/images/header/logo.png" class="header-logo"></a>
+    <div class="header-first">
+      <div class="search">
+        <div class="search-icon">
+          <img src="/images/header/icon-search.png" alt="">
+        </div>
+        <input placeholder="请输入品牌名" class="search-input" value="" id="key_barnd" />
+        <div class="search-camera">
+          <img src="/images/header/camera-icon.png" />
+        </div>
+        <div class="search-btn">全站搜</div>
+        <!-- 拍照搜索弹框 -->
+        <div class="search-pop">
+          <div class="search-content">
+            <div class="search-drop">拖拽图片到这里</div>
+            <div class="upload-wrap">
+              <input type="file" class="upload-pic" />
+              <span class="upload-text">选择文件</span>
+            </div>
+             
+          </div>
+          <div class="upload-error" style="display: none;">
+            <div class="upload-error-text" style="color:red">抱歉，您上传的文件不是图片格式，请<a href="javascript:void(0)">重新上传</a></div>
+            <div class="upload-error-text">仅支持2M以下jpg，jpeg，png，bmp，gif格式图片</div>
+          </div>
+          <div class="upload-loading" style="display: none;">正在加载图片...</div>
+          <div class="upload-close"></div>
+        </div>
+      </div>
+      <div class="header-first-right">
+        <a href="/about/downLoadUrl.aspx"><div class="header-first-exe"><img src="/images/header/exe-icon.png" />桌面客户端</div></a>
+        
+         <div class="header-first-user">欢迎您，<span>yqq(点数会员) <a href="/member/default.aspx" class="app" style="color: #ff0000;">会员中心</a> | <a href="/member/loginOut.aspx">退 出</a></span></div>
+   
+      </div>
+    </div>
+    <!-- 导航菜单 -->
+    <div class="navs">
+       <li
+        class="navs-item"
+        v-for="(item, index) in menuList"
+        :key="index"
+        @mouseenter="mouseEnterNav($event, item)"
+        @mouseleave="handleMouseLeave"
+        @click="handleClickMenu($event, item)"
+      >
+        <img :src="item.icon" v-if="item.icon" style="pointer-events: none;" />
+        <span v-if="item.name" style="pointer-events: none;">{{ item.name }}</span>
+      </li>
+       <!-- 导航菜单箭头 -->
+      <span
+        id="navArrow"
+        class="iconfont icon-a-xingzhuang12"
+        :style="{color: currentNav.backgroundTop, transform: navModalVisible ? 'translate3D(0, -40%, 0)' : 'translate3D(0, 0, 0)'}"
+        @mouseenter="navModalVisible = true"
+        @mouseleave="navModalVisible = false"
+      >
+      </span>
+    </div>
+    <!-- 导航菜单下拉项 -->
+    <div class="nav-modal-wrap">
+      <div
+        class="navs-modal"
+        ref="navModal"
+        :style="{background: currentNav.background, transform: navModalVisible ? 'translate3D(0, 0, 0)' : 'translate3D(0, calc(-100% - 1px), 0)'}"
+        :class="currentNav.class"
+        
+        @mouseenter="navModalVisible = true"
+        @mouseleave="navModalVisible = false"
+      >
+        <div class="navs-modal-top" :style="{background: currentNav.backgroundTop}">
+          <span class="circle" :style="{background: currentNav.backgroundTop}"></span>
+        </div>
+        <div class="navs-modal-content">
+          <div class="navs-modal-content-left">
+            <div class="category" v-for="(item, index) in currentNav.children" :key="index">
+              <div class="section" @click="jumpTo(item)">
+                <div class="icon-wrap">
+                  <img :src="item.icon" />
+                </div>
+                <p class="label">{{ item.name }}</p>
+              </div>
+              <div class="wrap-nav">
+                <li class="sub-nav" v-for="(child, index) in item.subMenu" :key="index" @click="jumpTo(child)">{{ child.name }}</li>
+              </div>
+              <div class="desc" v-if="item.desc">{{ item.desc }}</div>
+            </div>
+          </div>
+          <div class="navs-modal-content-right" v-if="currentNav.category_intro">
+            <div>
+              <p class="intro-title">
+                <img src="/images/header/intro-title.png" style="margin-right: 5px;">栏目介绍
+              </p>
+              <p class="intro-text">{{ currentNav.category_intro }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <script>
+    
+    $(function() {
+        $(".search-btn").on("click", function(){
+            var brandkey=$("#key_barnd").val();
+            if(brandkey!='')
+            {
+                window.location.href="/kstk/search-0-0-0-"+brandkey+"-1.html";
+            }
+        });
+    })
+
+    const {createApp, ref, computed} = Vue
+
+    const app = createApp({
+      setup() {
+        const navModalVisible = ref(false)
+
+        const currentNav = ref({})
+
+        const hoverFontColor = computed(() => currentNav.value.backgroundTop)
+
+        const menuList = window.menuList
+
+        let timeId = 0  // 定时器id，计算鼠标停留时间
+
+        // 鼠标移动到菜单
+        function mouseEnterNav(e, item) {
+          timeId = setTimeout(() => {
+            showModal(e, item)
+          }, 2000)
+        }
+
+        // 显示菜单
+        function showModal(e, item) {
+          currentNav.value = item
+          if (item.children) navModalVisible.value = true
+          let navArrowDom = document.querySelector('#navArrow')
+          navArrowDom.style.left = (e.target.offsetLeft + 20 * (window.innerWidth / 1920)) + 'px'
+        }
+
+        // 鼠标离开菜单
+        function handleMouseLeave() {
+          clearTimeout(timeId)
+          navModalVisible.value = false
+        }
+
+        // 点击菜单
+        function handleClickMenu(e, item) {
+          clearTimeout(timeId)
+          showModal(e, item)
+          jumpTo(item)
+        }
+
+        // 点击导航菜单跳转
+        function jumpTo(item) {
+          if (item.link) {
+            item.open ? window.open(item.link) : window.location.href = item.link
+          }
+        }
+
+        return {
+          navModalVisible,
+          currentNav,
+          hoverFontColor,
+          menuList,
+          mouseEnterNav,
+          handleMouseLeave,
+          jumpTo,
+          handleClickMenu
+        }
+      }
+    })
+
+    app.mount("#header")
+
+  </script>
+
+</section>
+
+<div class="top_banner" style="background-image:url(/images/qianxiweilai.jpg)"></div>
+<ul id="accordion" class="accordion">
+  <div class="right_search">
+    <div class="right_search_titel">浅析未来</div>
+    <div class="right_search_box">
+      <input name="key" type="text" id="key" class="search_b" placeholder="请输入季度/主题名称" />
+      <div class="search_icon"><a href="javascript:;" id="searchBtn"><img src="/images/search_b.png" width="15" height="15"></a></div>
+        
+    </div>
+  </div>
+  <div class="list"><a href="/qszx/scqs-10-0-0-0--1.html" class="list_h">色彩趋势</a><a class="w1 " href="/qszx/scqs-13-0-0-0--1.html">图案趋势</a><a class="w2 " href="/qszx/scqs-11-0-0-0--1.html">面料趋势</a></div>
+  <div style="clear:both"></div>
+</ul>
+<div class="rightc_top contentW">
+  <div class="de2"> <span style="float:left">筛选项：</span>
+    <div class="selectBox">
+      <div class="inputCase">
+        <input name="jd_val" type="text" id="jd_val" class="imitationSelect" value="季节" readonly="" />
+        <i class="fa fa-caret-down"></i> </div>
+      <ul class="selectUl">
+        <li><a href="scqs-10-5000-0-0--1.html">25/26秋冬</a></li><li><a href="scqs-10-4603-0-0--1.html">24/25秋冬</a></li><li><a href="scqs-10-4175-0-0--1.html">23/24秋冬</a></li><li><a href="scqs-10-4390-0-0--1.html">23/24春夏</a></li><li><a href="scqs-10-3921-0-0--1.html">22/23秋冬</a></li><li><a href="scqs-10-3920-0-0--1.html">21/22秋冬</a></li><li><a href="scqs-10-5070-0-0--1.html">2026秋冬</a></li><li><a href="scqs-10-4994-0-0--1.html">2026春夏</a></li><li><a href="scqs-10-4176-0-0--1.html">2024春夏</a></li><li><a href="scqs-10-4174-0-0--1.html">2023春夏</a></li><li><a href="scqs-10-4172-0-0--1.html">2022早秋</a></li><li><a href="scqs-10-4173-0-0--1.html">2022秋季</a></li><li><a href="scqs-10-3613-0-0--1.html">2022春夏</a></li><li><a href="scqs-10-3919-0-0--1.html">2021早秋</a></li><li><a href="scqs-10-3130-0-0--1.html">2021春夏</a></li><li><a href="scqs-10-3112-0-0--1.html">2020秋冬</a></li><li><a href="scqs-10-2578-0-0--1.html">2019春夏</a></li><li><a href="scqs-10-2250-0-0--1.html">2018春夏</a></li><li><a href="scqs-10-2190-0-0--1.html">2017春夏</a></li><li><a href="scqs-10-2996-0-0--1.html">20/21秋冬</a></li><li><a href="scqs-10-3019-0-0--1.html">20/21春夏</a></li><li><a href="scqs-10-2585-0-0--1.html">19/20秋冬</a></li><li><a href="scqs-10-2380-0-0--1.html">18/19秋冬</a></li><li><a href="scqs-10-2192-0-0--1.html">17/18秋冬</a></li><li><a href="scqs-10-1658-0-0--1.html">16/17秋冬</a></li><li><a href="scqs-10-2144-0-0--1.html">16/17春夏</a></li>
+      </ul>
+    </div>
+    <div id="div_key_box" class="selectBox">
+      <div class="inputCase">
+        <input name="key_val" type="text" id="key_val" class="imitationSelect" value="标签" readonly="" />
+        <i class="fa fa-caret-down"></i> </div>
+      <ul class="selectUl">
+        <li><a href="scqs-10-0-0-817--1.html">运动</a></li><li><a href="scqs-10-0-0-818--1.html">欧洲色彩</a></li><li><a href="scqs-10-0-0-825--1.html">展会</a></li><li><a href="scqs-10-0-0-1298--1.html">拉丁美洲</a></li><li><a href="scqs-10-0-0-1299--1.html">中国色彩</a></li><li><a href="scqs-10-0-0-1300--1.html">美国色彩</a></li><li><a href="scqs-10-0-0-1301--1.html">零售分析</a></li><li><a href="scqs-10-0-0-1302--1.html">全球色彩</a></li><li><a href="scqs-10-0-0-1303--1.html">关键色彩</a></li><li><a href="scqs-10-0-0-1304--1.html">色彩警报</a></li>
+      </ul>
+    </div>
+    <div class="selectBox">
+      <div class="inputCase">
+        <input name="sex_val" type="text" id="sex_val" class="imitationSelect" value="性别" readonly="" />
+        <i class="fa fa-caret-down"></i> </div>
+      <ul class="selectUl">
+        <li><a href="scqs-10-0-5-0--1.html">男童</a></li><li><a href="scqs-10-0-3-0--1.html">男装</a></li><li><a href="scqs-10-0-6-0--1.html">女童</a></li><li><a href="scqs-10-0-4-0--1.html">女装</a></li>
+      </ul>
+    </div>
+    <div class="fr clearfix" id="s_result">
+      <p class="findstyle">共 <a title="110">110</a> 个</p>
+      <div class="btn_page"><a class="leftBtn neiyeList" href="javascript:void(0);"></a><span class="pageN">1</span>/<span class="totalN" title="7">7</span><a class="rightBtn neiyeList" href="scqs-10-0-0-0--2.html"></a></div>
+    </div>
+  </div>
+  <div class="js_color_analysis"  style="display: none;">
+    <div class="color_analysis"></div>
+  </div>
+  <div class="rightc_main js-patterns-lists-box ">
+    <ul class="patterns-ul js-list-parent clearfix new-patterns-ul">
+      <li><div itemscope class="pic_box img"> <div class="cp_txt">2025/8/19</div><a itemprop="url" class="img_click js-data-collect" href="show-10-31163.html" target="_blank"><div itemscope class=""></div><img alt="2026春夏中国关键色彩及运用：琥珀黄色" itemprop="thumbnail" src="/uploadFiles/20250819/qszx/202508191140103458.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2026春夏中国关键色彩及运用：琥珀黄色"><a href="show-10-31163.html" target="_blank">2026春夏中国关键色彩及运用：琥珀黄色</a></p></div></div><div class="li-tag">30点</div></li><li><div itemscope class="pic_box img"> <div class="cp_txt">2025/8/14</div><a itemprop="url" class="img_click js-data-collect" href="show-10-31155.html" target="_blank"><div itemscope class=""></div><img alt="2026春夏中国关键色彩及运用：琥珀黄色" itemprop="thumbnail" src="/uploadFiles/20250814/qszx/202508141623462824.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2026春夏中国关键色彩及运用：琥珀黄色"><a href="show-10-31155.html" target="_blank">2026春夏中国关键色彩及运用：琥珀黄色</a></p></div></div><div class="li-tag">30点</div></li><li><div itemscope class="pic_box img"> <div class="cp_txt">2025/6/12</div><a itemprop="url" class="img_click js-data-collect" href="show-10-30681.html" target="_blank"><div itemscope class=""></div><img alt="2025/26秋冬关键色分析：未来感的淡丁香色" itemprop="thumbnail" src="/uploadFiles/20250612/qszx/202506121753082069.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2025/26秋冬关键色分析：未来感的淡丁香色"><a href="show-10-30681.html" target="_blank">2025/26秋冬关键色分析：未来感的淡丁香色</a></p></div></div><div class="li-tag">30点</div></li><li><div itemscope class="pic_box img"> <div class="cp_txt">2025/2/27</div><a itemprop="url" class="img_click js-data-collect" href="show-10-30127.html" target="_blank"><div itemscope class=""></div><img alt="2025/26秋冬关键色分析：梦幻感的淡丁香色" itemprop="thumbnail" src="/uploadFiles/20250227/qszx/202502271015117344.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2025/26秋冬关键色分析：梦幻感的淡丁香色"><a href="show-10-30127.html" target="_blank">2025/26秋冬关键色分析：梦幻感的淡丁香色</a></p></div></div><div class="li-tag">30点</div></li><li><div itemscope class="pic_box img"> <div class="cp_txt">2025/2/20</div><a itemprop="url" class="img_click js-data-collect" href="show-10-30075.html" target="_blank"><div itemscope class=""></div><img alt="2025/26秋冬关键色分析：黑巧克力色的魅力" itemprop="thumbnail" src="/uploadFiles/20250220/qszx/202502202013214462.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2025/26秋冬关键色分析：黑巧克力色的魅力"><a href="show-10-30075.html" target="_blank">2025/26秋冬关键色分析：黑巧克力色的魅力</a></p></div></div><div class="li-tag">30点</div></li><li><div itemscope class="pic_box img"> <div class="cp_txt">2025/1/14</div><a itemprop="url" class="img_click js-data-collect" href="show-10-29761.html" target="_blank"><div itemscope class=""></div><img alt="2025/26秋冬中国关键色预警：樱桃红漆色" itemprop="thumbnail" src="/uploadFiles/20250114/qszx/202501141015453289.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2025/26秋冬中国关键色预警：樱桃红漆色"><a href="show-10-29761.html" target="_blank">2025/26秋冬中国关键色预警：樱桃红漆色</a></p></div></div><div class="li-tag">30点</div></li><li><div itemscope class="pic_box img"> <div class="cp_txt">2024/11/8</div><a itemprop="url" class="img_click js-data-collect" href="show-10-29484.html" target="_blank"><div itemscope class=""></div><img alt="2025/26秋冬中国关键色预警：黛绿色" itemprop="thumbnail" src="/uploadFiles/20241108/qszx/202411081136293182.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2025/26秋冬中国关键色预警：黛绿色"><a href="show-10-29484.html" target="_blank">2025/26秋冬中国关键色预警：黛绿色</a></p></div></div><div class="li-tag">30点</div></li><li><div itemscope class="pic_box img"> <div class="cp_txt">2024/9/5</div><a itemprop="url" class="img_click js-data-collect" href="show-10-29248.html" target="_blank"><div itemscope class=""></div><img alt="2025春夏中国关键色预警：超凡粉红" itemprop="thumbnail" src="/uploadFiles/20240905/qszx/202409051857355472.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2025春夏中国关键色预警：超凡粉红"><a href="show-10-29248.html" target="_blank">2025春夏中国关键色预警：超凡粉红</a></p></div></div><div class="li-tag">30点</div></li><li><div itemscope class="pic_box img"> <div class="cp_txt">2024/7/15</div><a itemprop="url" class="img_click js-data-collect" href="show-10-28964.html" target="_blank"><div itemscope class=""></div><img alt="2025/26秋冬运动色彩趋势" itemprop="thumbnail" src="/uploadFiles/20240629/qszx/202406292126554777.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2025/26秋冬运动色彩趋势"><a href="show-10-28964.html" target="_blank">2025/26秋冬运动色彩趋势</a></p></div></div><div class="li-tag">30点</div></li><li><div itemscope class="pic_box img"> <div class="cp_txt">2024/7/1</div><a itemprop="url" class="img_click js-data-collect" href="show-10-28970.html" target="_blank"><div itemscope class=""></div><img alt="2026年春夏流行色" itemprop="thumbnail" src="/uploadFiles/20240701/qszx/202407011626578886.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2026年春夏流行色"><a href="show-10-28970.html" target="_blank">2026年春夏流行色</a></p></div></div><div class="li-tag">30点</div></li><li><div itemscope class="pic_box img"> <div class="cp_txt">2024/5/18</div><a itemprop="url" class="img_click js-data-collect" href="show-10-28584.html" target="_blank"><div itemscope class=""></div><img alt="2024/25秋冬关键色彩：原力蓝" itemprop="thumbnail" src="/uploadFiles/20240512/qszx/202405121210189925.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2024/25秋冬关键色彩：原力蓝"><a href="show-10-28584.html" target="_blank">2024/25秋冬关键色彩：原力蓝</a></p></div></div><div class="li-tag">30点</div></li><li><div itemscope class="pic_box img"> <div class="cp_txt">2024/4/24</div><a itemprop="url" class="img_click js-data-collect" href="show-10-28563.html" target="_blank"><div itemscope class=""></div><img alt="2024/25秋冬男装买手关键色彩：沉静经典" itemprop="thumbnail" src="/uploadFiles/20240421/qszx/202404212348152919.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2024/25秋冬男装买手关键色彩：沉静经典"><a href="show-10-28563.html" target="_blank">2024/25秋冬男装买手关键色彩：沉静经典</a></p></div></div><div class="li-tag">30点</div></li><li><div itemscope class="pic_box img"> <div class="cp_txt">2024/3/29</div><a itemprop="url" class="img_click js-data-collect" href="show-10-28391.html" target="_blank"><div itemscope class=""></div><img alt="2024/25秋冬男装买手关键色彩：浓郁饱和" itemprop="thumbnail" src="/uploadFiles/20240317/qszx/202403172237517629.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2024/25秋冬男装买手关键色彩：浓郁饱和"><a href="show-10-28391.html" target="_blank">2024/25秋冬男装买手关键色彩：浓郁饱和</a></p></div></div><div class="li-tag">30点</div></li><li><div itemscope class="pic_box img"> <div class="cp_txt">2024/3/11</div><a itemprop="url" class="img_click js-data-collect" href="show-10-28317.html" target="_blank"><div itemscope class=""></div><img alt="2025/26秋冬北美色彩趋势" itemprop="thumbnail" src="/uploadFiles/20240310/qszx/202403102139348477.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2025/26秋冬北美色彩趋势"><a href="show-10-28317.html" target="_blank">2025/26秋冬北美色彩趋势</a></p></div></div><div class="li-tag">30点</div></li><li><div itemscope class="pic_box img"> <div class="cp_txt">2024/2/18</div><a itemprop="url" class="img_click js-data-collect" href="show-10-27979.html" target="_blank"><div itemscope class=""></div><img alt="2024/25秋冬中国关键色彩及运用：经典褐灰" itemprop="thumbnail" src="/uploadFiles/20240218/qszx/202402181507168293.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2024/25秋冬中国关键色彩及运用：经典褐灰"><a href="show-10-27979.html" target="_blank">2024/25秋冬中国关键色彩及运用：经典褐灰</a></p></div></div><div class="li-tag">30点</div></li><li><div itemscope class="pic_box img"> <div class="cp_txt">2024/1/16</div><a itemprop="url" class="img_click js-data-collect" href="show-10-27837.html" target="_blank"><div itemscope class=""></div><img alt="2025/26秋冬中国色彩趋势" itemprop="thumbnail" src="/uploadFiles/20240114/qszx/202401142151107479.jpg"><div class="color-time-box"></div></a></div><div class="titleBox titleBox-left"><div class="patter-label-position patter-left-label-position"><p class="cp_titel" title="2025/26秋冬中国色彩趋势"><a href="show-10-27837.html" target="_blank">2025/26秋冬中国色彩趋势</a></p></div></div><div class="li-tag">30点</div></li>
+    </ul>
+  </div>
+</div>
+<div style="clear:both"></div>
+<div class="pages"><span id="Pagination"><span class="pagination"><a href='scqs-10-0-0-0--1.html' style=" display:none">上一页</a><a href="scqs-10-0-0-0--1.html" class="current">1</a><a href="scqs-10-0-0-0--2.html"  class="prev">2</a><a href="scqs-10-0-0-0--3.html"  class="prev">3</a><a href="scqs-10-0-0-0--4.html"  class="prev">4</a><a href="scqs-10-0-0-0--5.html"  class="prev">5</a><a href="scqs-10-0-0-0--6.html"  class="prev">6</a><a href="scqs-10-0-0-0--7.html"  class="prev">7</a><a href="scqs-10-0-0-0--2.html" style=" display:none" class="next">下一页</a></span><input id="formatString" type="hidden" value="scqs-10-0-0-0--" /><span class="searchPage"><span class="page-sum">共<strong class="allPage">7</strong>页</span> <span class="page-go"><input type='text' class='textPut' placeholder="输入页码" id='gotopagepager' onKeyUp='if((event.keyCode ? event.keyCode : event.which ? event.which : event.charCode)==13){gotoPage()}'/><a href="javascript:;" onclick="gotoPage()">跳转</a></span></span></span></div>
+
+<script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+            <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+            <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
+<script src="/js/smcm.js"></script>
+<link rel="stylesheet" href="/css/validate.css" />
+    <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
+<ul class="kf">
+  <li class="li1">
+    <div class="show_a"><em></em>
+      <div style="padding-left:10px">
+        <div class="kf_titel">在线客服</div>
+        <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px" title="点击这里给我发消息" alt="点击这里给我发消息" src="http://wpa.qq.com/pa?p=2:18550168:41"></a></div>
+      <div><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3871105&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px; margin-left:10px" title="点击这里给我发消息" alt="点击这里给我发消息" src="http://wpa.qq.com/pa?p=2:3871105:41"></a></div>
+    </div>
+  </li>
+  <li class="li2">
+    <div class="show_b"><em></em>
+      <div class="kf_titel">联系我们</div>
+      <p>020-31232355</p>
+    </div>
+  </li>
+  <li class="li3">
+     <div class="show_c">
+    <form id="feedbackform" name="feedbackform" url="/Ajax/addneed.ashx">
+      <div class="kf_titel">会员需求与建议</div>
+      <em></em>
+      <textarea rows="5" name="xqjy" class="textarea" placeholder="请在此详细输入您公司目前所需资料类型或提交宝贵意见，我司将会在最短的时间内为您上传所需的资料，谢谢！"></textarea>
+      <div class="lay"><input type="submit" id="btnSubmit_feedback" class="Submission1" value="提交"></div>
+        </form>
+    </div>
+  </li>
+  <a href="http://widget.weibo.com/dialog/follow.php?fuid=2825343592&refer=www.r355.com&language=zh_cn&type=widget_page&vsrc=app_followbutton&backurl=http%3A%2F%2Fwww.r355.com%2F&rnd=1395281896175" title="新浪微博" target="_blank">
+  <li class="li4"></li>
+  </a>
+  <li class="li5">
+    <div class="show_d"><em></em><img src="/images/weixin_code.png" width="106" height="240"></div>
+  </li>
+  <li class="li7"></li>
+</ul>
+<section>
+  <link href="/css/footer.css" rel="stylesheet" type="text/css" />
+  <div id="footer">
+    <img src="/images/footer/innovative-future.png" class="footer-future" />
+    <div class="footer-contact">
+      <img src="/images/footer/wechat-icon.png" />
+      <img src="/images/footer/qq-icon.png" />
+      <img src="/images/footer/phone-icon.png" />
+    </div>
+    <div class="footer-line"></div>
+    <div class="footer-bot">
+      <div class="footer-bot-left">
+        <div class="footer-bot-navs">
+          <li class="nav-item">
+            <a href="/about/R355-1636.html">关于我们</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1637.html">联系我们</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1632.html">免责声明</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1633.html">会员须知</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1639.html">收费说明</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1640.html">汇款方式</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1641.html">办理流程</a>
+          </li>
+        </div>
+        <p>Copyright 2007-2024 R355.com， All Rights Reserved 闽 ICP 备 07502261 号-1</p>
+      </div>
+      <img src="/images/footer/qrcode.png" style="width: 94px; height: 94px;">
+    </div>
+  </div>
+</section>
+
+
+   <script>
+       $(function () {
+           AjaxInitForm('#feedbackform', '#btnSubmit_feedback', 0);
+      });
+  </script>
+<script src="/js/purify.min.js"></script>
+  <script src="/js/jquery.SuperSlide.js"></script>
+      <script src="/js/base.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".nav—b li").eq(2).addClass("on—b");
+                            $("#searchBtn").click(function () {
+                                var key = $("#key").val();
+                                window.location.href = "scqs-10-0-0-0-" + key + "-1.html";
+                            });
+                        });
+                    </script> 
+  <script src="/js/smcm.js"></script> 
+
+<link rel="stylesheet" href="/css/validate.css" />
+    <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
+<link href="/css/time.css" rel="stylesheet" type="text/css">
+<div id="popDiv_b" class="mydiv_b" style="display:none">
+  <div class="pop_titel">请先完善您的真实资料，获得更多免费资讯。</div>
+  <div class="register_main">
+    <form id="regform" name="regform" url="/ajax/cheuser.ashx?act=user_register_2">
+      <div class="fill_in">
+      <div class="left">公司名称：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="company" value="" class="Required" placeholder="请填写公司的全称" datatype="s6-16" nullmsg="请填写公司的全称" errormsg="范围在6-16位之间" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">公司电话：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="tel" value="" class="Required" placeholder="公司电话" datatype="*" nullmsg="请填写公司电话" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">经营类别：</div>
+      <div class="right" style="width:74%">
+           <div class="vali">
+        <select class="select" name="tion_id" datatype="*" nullmsg="请选择经营类别" sucmsg=" " style="width:65%">
+           <option value="">请选择企业主营类别</option>
+         <option value="女装">女装</option>
+		<option value="男装">男装</option>
+		<option value="童装" >童装</option>
+		<option value="内衣" >内衣</option>
+		<option value="家居服" >家居服</option>
+		<option value="制服" >制服</option>
+		<option value="运动服" >运动服</option>
+		<option value="牛仔" >牛仔</option>
+		<option value="礼服" >礼服</option>
+		<option value="羽绒服" >羽绒服</option>
+		<option value="皮衣皮草" >皮衣皮草</option>
+		<option value="其他" >其他</option>
+        </select>
+               </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">所在省份：</div>
+      <div class="right" style="width:74%">
+        <div class="vali">
+          <select name="country" id="selCountries_new" onchange="region.changed(this, 1, 'user_role1_selProvinces_new')" style='display:none;'>
+        <option value="1" selected>中国</option></select>
+          <select name="user_role1$selProvinces_new" id="user_role1_selProvinces_new" onchange="region.changed(this, 2, &#39;selCities_new&#39;)">
+	<option value="0">请选择省</option>
+	<option value="2">北京</option>
+	<option value="3">安徽</option>
+	<option value="4">福建</option>
+	<option value="5">甘肃</option>
+	<option value="6">广东</option>
+	<option value="7">广西</option>
+	<option value="8">贵州</option>
+	<option value="9">海南</option>
+	<option value="10">河北</option>
+	<option value="11">河南</option>
+	<option value="12">黑龙江</option>
+	<option value="13">湖北</option>
+	<option value="14">湖南</option>
+	<option value="15">吉林</option>
+	<option value="16">江苏</option>
+	<option value="17">江西</option>
+	<option value="18">辽宁</option>
+	<option value="19">内蒙古</option>
+	<option value="20">宁夏</option>
+	<option value="21">青海</option>
+	<option value="22">山东</option>
+	<option value="23">山西</option>
+	<option value="24">陕西</option>
+	<option value="25">上海</option>
+	<option value="26">四川</option>
+	<option value="27">天津</option>
+	<option value="28">西藏</option>
+	<option value="29">新疆</option>
+	<option value="30">云南</option>
+	<option value="31">浙江</option>
+	<option value="32">重庆</option>
+	<option value="33">香港</option>
+	<option value="34">澳门</option>
+	<option value="35">台湾</option>
+</select>
+          <select id="selCities_new" name="selCities_new" onchange="region.changed(this, 3, 'selDistricts_new')"><option value="0">请选择市</option>
+              </select>
+          <select id="selDistricts_new" name="selDistricts_new" datatype="n" nullmsg="请选择地区" sucmsg=" "><option value="">请选择区域</option></select>
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">公司地址：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="address" value="" class="Required" placeholder="请填写详细填写公司地址" datatype="*" nullmsg="请填写详细填写公司地址" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">QQ：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="qq" value="" class="nub" placeholder="请填写" datatype="n" nullmsg="请填写QQ号码" errormsg="QQ号码格式不正确" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+      <div class="protocol"></div>
+      <input type="submit" class="Submission" id="btnSubmit_Reg" value="完成信息填写" style="margin-bottom:30px">
+    </form>
+  </div>
+</div>
+<div id="bg_b" class="bg_show_b" style="display:none;"></div>
+<iframe id='popIframe_b' class='popIframe_b' frameborder='0' ></iframe>
+<!-- 补充资料结束 --> 
+
+
+
+<!-- 登录弹框 -->
+<div id="popDiv" class="mydiv" style="display:none">
+  <div class="Login_box" style="margin:0px">
+    <div class="top">
+      <div class="txt" style="float:left">请先登录</div>
+      <div class="close" style="float:right; padding-right:10px"><a href="javascript:closeDiv()"><span class="icon1 iconfont">&#xe620;</span></a></div>
+      <div style="clear:both"></div>
+    </div>
+      <form id="loginform" name="loginform" url="/Ajax/cheuser.ashx?act=user_login">
+    <div class="main1">
+    <div class="left1">
+      <div class="text_box1">
+        <div class="text_left">用户名：</div>
+        <div class="text_right">
+          <input class="input" type="text" name="txtUserName" id="txtUserName" value="" />
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">密码：</div>
+        <div class="text_right">
+          <input class="input" type="password" name="txtPassword" id="txtPassword" value="" />
+        </div>
+      </div>
+         <div class="text_box1">
+        <div class="text_left">验证码：</div>
+        <div class="text_right">
+          <input class="input" type="text" name="txtcode" id="txtcode" value="" style="width:100px"  dataType="Limit" min="5" max="5" msg="请输入5位验证码" /> <a href="javascript:fGetCode()"><img id="imgCount" name="imgCount" src="/VerifyCode.aspx" style="margin: auto 5px;  height: 46px" align="absmiddle"></a>
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">&nbsp;</div>
+        <div class="text_right" style="font-size:12px; color:#a8a7a7">
+          <label>
+            <input name="user_role1$remember" type="checkbox" id="user_role1_remember" value="1" />
+            下次自动登录</label> <div id="msgtips" class="tip-box"></div>
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">&nbsp;</div>
+        <div class="text_right" style="font-size:12px; color:#a8a7a7">
+          <div class="Login_btn">
+              <input id="btnSubmit" name="btnSubmit" value="立即登录" type="submit" class="submit_btn reglogin_btn">
+              </div>
+          <div class="get_back"><a href="#">忘记密码？</a></div>
+          <div class="ge"><a href="/about/R355-1636.html">关于我们</a> | <a href="/about/R355-1641.html">办理流程</a> | <a href="/about/downLoadUrl.aspx">客户端下载</a> | <a href="https://www.r355.com/">返回首页</a></div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="right1" style="position:relative">
+        <div class="r1">马上注册成为R355服饰资讯会员开通试用服务，就可以浏览更多精彩资讯！</div>
+        <div class="r2">客服电话：020-31232355</div>
+        <div class="r3"> <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px" title="点击这里给我发消息" alt="点击这里给我发消息" src="/images/qq.png"></a></div>
+        <div class="r4">微信咨询
+          <div class="wx_show"><img src="/images/wx_box.png" width="121" height="106"></div>
+        </div>
+        <div class="r5 award"><a href="/member/reg.aspx"><img src="/images/btn.png" width="114" height="46"></a></div>
+      </div>
+    </div>
+          </form>
+  </div>
+</div>
+<script type="text/javascript" charset="utf-8" src="/js/login-validate.js"></script>
+<div id="bg" class="bg_show" style="display:none;"></div>
+<iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
+
+<!-- 登录弹框结束 --> 
+
+
+<style>
+   .sm_u_right .Validform_checktip { top:5px
+    }
+    
+</style>
+
+
+<!-- 上门服务弹框 -->
+<div id="popDiv_c" class="mydiv_c" style="display:none">
+  <div class="drop_in">
+    <div class="right_btn"><img src="/images/s2.png" width="27" height="126"></div>
+    <div class="sm_box">
+      <div class="sm_Close"><a href="#"><span class="icon1 iconfont">&#xe620;</span></a></div>
+      <div style="clear:both"></div>
+      <div class="sm_titel">上门信息填写</div>
+         <form id="smform" name="smform" url="/Ajax/add_service.ashx">
+      <div class="sm_u">
+        <div class="sm_u_left">上门时间：</div>
+        <div class="sm_u_right">
+            <input type="text" name="act_start_time" value="" placeholder="请选择上门时间" datatype="*" nullmsg="请选择" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">公司名称：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_company" value="" placeholder="请填写公司名称" datatype="s6-18" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">联系地址：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_address" value="" placeholder="请填写联系地址" datatype="s6-18" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">手机号码：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_mobile" value="" placeholder="请填写手机号码" datatype="m" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">联系人：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_truename" value="" placeholder="请填写联系人" datatype="*" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">备注信息：</div>
+        <div class="sm_u_right">
+          <input type="text" name="remark" value="" placeholder="不超过20字">
+        </div>
+      </div>
+      <input type="submit" id="btnSubmit_sm" class="Submission1" value="发送">
+      </form>
+    </div>
+    <div class="drop_in_Close"><a href="javascript:closeDiv_c()"><span class="icon1 iconfont">&#xe620;</span></a></div>
+    <div class="drop_in_top"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe63d;</span>温馨提示：您的账号没有权限浏览当前内容，请联系客服<a href="/member/reg.aspx"><strong style="color:red">开通VIP会员</strong></a>或<a href="/member/buyPoint.aspx"><strong style="color:red">充值点数</strong></a>。</div>
+    <div class="do-1"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe618;</span>线上咨询客服</div>
+    <div class="tel">客服电话：020-31232355</div>
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=18550168&site=qq&menu=yes" target="_blank" style="float:left;padding-left:210px;color:#ddbb6d"><span class="icon1 iconfont">&#xe617;</span>在线咨询</a>
+    <div class="r14 r15" style="background-image:none;"><a href="javascript:;" style="color:#ddbb6d"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe6db;</span>微信咨询</a>
+      <div class="wx_show1"><img src="/images/wx_box.png" width="121" height="106"></div>
+    </div>
+    <div style="clear:both"></div>
+    <div class="do_img"><a href="/about/downLoadUrl.aspx"><img src="/images/s1.png" width="181" height="38"></a></div>
+  </div>
+</div>
+<div id="bg_c" class="bg_show_c" style="display:none;"></div>
+<iframe id='popIframe_c' class='popIframe_c' frameborder='0' ></iframe>
+<script type="text/javascript" src="/js/global.js"></script>
+    <script type="text/javascript" src="/js/region.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+            <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+            <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
+    <script src="/js/time.js"></script>
+            <script type="text/javascript">
+            $(function(){
+                //初始化表单
+                AjaxInitForm('#regform', '#btnSubmit_Reg', 0);
+                AjaxInitForm('#smform', '#btnSubmit_sm', 0, "#user_role1_turl");
+            });
+            </script>
+<script type="text/javascript">$( "input[name='act_start_time'],input[name='act_stop_time']" ).datetimepicker();</script>
+<!-- 上门服务弹框结束 --> 
+<input name="user_role1$turl" type="hidden" id="user_role1_turl" value="https://www.r355.com/qszx/default.aspx?oid=10&amp;jdid=0&amp;sexid=0&amp;kid=0&amp;k=&amp;p=1" />
+  
+</body>
+</html>

@@ -141,10 +141,12 @@
   border-radius: 10px;
   cursor: pointer;
   position: relative;
+  background: #fff;
+  padding: 20px 0;
 }
 
 .pay-item.on {
-  border-color: #FF1919;
+  border: 2px solid #FF1919;
 }
 
 .discount {
@@ -158,36 +160,63 @@
   color: #fff;
   text-align: center;
   line-height: 25px;
-  top: -10px;
+  top: -13px;
   right: 20px;
 }
 
 .pay-item-top {
   background: #fff;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  padding: 0 20px 5px 20px;
+  color: #333;
 }
 
 .pay-counts {
-  height: 102px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
+.pay-value {
+  color: #FF1919;
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+.pay-intro {
+  width: 100%;
+  margin-top: 20px;
+  padding-left: 10%;
+  box-sizing: border-box;
+}
+
+.pay-intro-row {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  color: #666;
+}
+
+.pay-intro-row > img {
+  width: 18px;
+}
+
+.pay-intro-price {
+  color: #1296db;
+  margin-left: 8px;
+}
+
 .pay-counts p {
-  font-size: 19px;
-  color: #717171;
+  font-size: 16px;
   line-height: 32px;
 }
 
 .pay-counts .red {
-  font-size: 31px;
+  font-size: 28px;
+  font-weight: bolder;
   line-height: 31px;
   color: #FF1919;
-  font-family: 'ArialMT';
+  font-family: Arial;
+  margin-left: 2px;
 }
 
 .remove-p {
@@ -211,21 +240,21 @@
 
 .pay-item-bottom {
   background: #F6F1EB;
-  height: 65px;
+  height: 60px;
   font-size: 19px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #717171;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  color: #333;
+  width: 100%;
 }
 
 .pay-item-bottom span {
-  font-size: 29px;
+  font-size: 28px;
+  line-height: 28px;
   color: #FF1919;
   vertical-align: middle;
-  margin: 0 5px;
+  margin: 0 10px;
   font-family: 'ArialMT';
 }
 

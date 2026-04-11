@@ -2,7 +2,7 @@
 * 图片浏览
 * @author baln balncom@gmail.com
 */
-document.write('<scr' + 'ipt ' + 'type="text/javascript" src="/js/jqDnR.js"' + '>' + '</scr' + 'ipt>');
+document.write('<scr' + 'ipt ' + 'type="text/javascript" src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"' + '>' + '</scr' + 'ipt>');
 document.write('<link rel="stylesheet" type="text/css" href="/css/enlarge_file.css" media="all" />');
 var box_html = '<div id="box_view" style="display: none;">'
 + '<div id="box_right">'
@@ -114,7 +114,8 @@ var viewPic = {
         if (document.addEventListener) document.addEventListener("DOMMouseScroll", viewPic.imgZoom, false);
         document.onmousewheel = viewPic.imgZoom;
         //拖动
-        $("#imgShow").jqDrag();
+        $("#imgShow").draggable();
+        // $("#imgShow").jqDrag();
         var old_x, old_y;
         $('#imgShow').mousedown(function () {
             old_x = parseInt(jQuery('#imgShow').css('left'));
@@ -570,7 +571,7 @@ var viewPic = {
                 pw = image.width * ph / image.height;
             }
         }
-        var w = window.open('', 'imgShow', 'scrollbars=0,toolbar=0,resizeble=0,location=0,width=1,height=1');
+        var w = window.open('', 'imgShow', 'scrollbars=0,toolbar=0,resizeble=0,location=0');//,width=1,height=1
         w.document.body.innerHTML = '<img src="' + image.src + '" width="' + pw + '" height="' + ph + '" border="0" />';
         setTimeout(function () {
             w.focus();
