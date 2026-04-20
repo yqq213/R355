@@ -250,7 +250,7 @@
     ></div>
     <ul id="accordion" class="accordion">
       <div class="right_search">
-        <div class="right_search_titel">流行分析</div>
+        <div class="right_search_titel" data-localize="menu.trend_analysis">流行分析</div>
         <div class="right_search_box">
           <input
             name="key"
@@ -258,6 +258,7 @@
             id="key"
             class="search_b"
             placeholder="请输入季度/主题名称"
+            data-localize="common.search_placeholder_list"
           />
           <div class="search_icon">
             <a href="javascript:;" id="searchBtn"
@@ -268,18 +269,18 @@
       </div>
 
       <div class="list1">
-        <a href="/jdfx/jdfx-12-0-0-0--1.html" class="">T台分析</a
-        ><a class="e1" href="/jdfx/jdfx-942-0-0-0--1.html">品牌分析</a
-        ><a class="e2" href="/jdfx/jdfx-943-0-0-0--1.html">零售分析</a
-        ><a class="e3" href="/jdfx/jdfx-945-0-0-0--1.html">展会分析</a
-        ><a class="e4" href="/jdfx/jdfx-944-0-0-0--1.html">订货会分析</a>
+        <a href="/jdfx/jdfx-12-0-0-0--1.html" class="" data-localize="menu.runway_analysis">T台分析</a
+        ><a class="e1" href="/jdfx/jdfx-942-0-0-0--1.html" data-localize="menu.brand_analysis">品牌分析</a
+        ><a class="e2" href="/jdfx/jdfx-943-0-0-0--1.html" data-localize="menu.retail_analysis">零售分析</a
+        ><a class="e3" href="/jdfx/jdfx-945-0-0-0--1.html" data-localize="menu.trend_analysis">展会分析</a
+        ><a class="e4" href="/jdfx/jdfx-944-0-0-0--1.html" data-localize="menu.trend_analysis">订货会分析</a>
       </div>
 
       <div style="clear: both"></div>
     </ul>
     <div class="rightc_top contentW">
       <div class="de2">
-        <span style="float: left">筛选项：</span>
+        <span style="float: left" data-localize="common.filter">筛选项：</span>
         <div class="selectBox">
           <div class="inputCase">
             <input
@@ -288,6 +289,7 @@
               id="jd_val"
               class="imitationSelect"
               value="季节"
+              data-localize="common.season"
               readonly=""
             />
             <i class="fa fa-caret-down"></i>
@@ -302,6 +304,7 @@
               id="key_val"
               class="imitationSelect"
               value="标签"
+              data-localize="common.label"
               readonly=""
             />
             <i class="fa fa-caret-down"></i>
@@ -316,19 +319,20 @@
               id="sex_val"
               class="imitationSelect"
               value="性别"
+              data-localize="common.gender"
               readonly=""
             />
             <i class="fa fa-caret-down"></i>
           </div>
           <ul class="selectUl">
-            <li><a href="jdfx-0-0-5-0--1.html">男童</a></li>
-            <li><a href="jdfx-0-0-3-0--1.html">男装</a></li>
-            <li><a href="jdfx-0-0-6-0--1.html">女童</a></li>
-            <li><a href="jdfx-0-0-4-0--1.html">女装</a></li>
+            <li><a href="jdfx-0-0-5-0--1.html" data-localize="common.boy">男童</a></li>
+            <li><a href="jdfx-0-0-3-0--1.html" data-localize="common.menswear">男装</a></li>
+            <li><a href="jdfx-0-0-6-0--1.html" data-localize="common.girl">女童</a></li>
+            <li><a href="jdfx-0-0-4-0--1.html" data-localize="common.womenswear">女装</a></li>
           </ul>
         </div>
         <div class="fr clearfix" id="s_result">
-          <p class="findstyle">共 <a title="1557">1557</a> 个</p>
+          <p class="findstyle"><span data-localize="common.total_prefix">共 </span><a title="1557">1557</a><span data-localize="common.total_suffix"> 个</span></p>
           <div class="btn_page">
             <a class="leftBtn neiyeList" href="javascript:void(0);"></a
             ><span class="pageN">1</span>/<span class="totalN" title="98"
@@ -813,7 +817,7 @@
     <div class="pages">
       <span id="Pagination"
         ><span class="pagination"
-          ><a href="jdfx-0-0-0-0--1.html" style="display: none">上一页</a
+          ><a href="jdfx-0-0-0-0--1.html" style="display: none" data-localize="common.prev_page">上一页</a
           ><a href="jdfx-0-0-0-0--1.html" class="current">1</a
           ><a href="jdfx-0-0-0-0--2.html" class="prev">2</a
           ><a href="jdfx-0-0-0-0--3.html" class="prev">3</a
@@ -821,21 +825,19 @@
           ><a href="jdfx-0-0-0-0--5.html" class="prev">5</a
           ><a href="jdfx-0-0-0-0--6.html">…</a
           ><a href="jdfx-0-0-0-0--98.html" class="next">98</a
-          ><a href="jdfx-0-0-0-0--2.html" class="next">下一页</a></span
+          ><a href="jdfx-0-0-0-0--2.html" class="next" data-localize="common.next_page">下一页</a></span
         ><input id="formatString" type="hidden" value="jdfx-0-0-0-0--" /><span
           class="searchPage"
-          ><span class="page-sum">共<strong class="allPage">98</strong>页</span>
+          ><span class="page-sum"><span data-localize="common.page_sum_prefix">共</span><strong class="allPage">98</strong><span data-localize="common.page_sum_suffix">页</span></span>
           <span class="page-go"
             ><input
               type="text"
               class="textPut"
               placeholder="输入页码"
+              data-localize="common.input_page"
               id="gotopagepager"
-              onKeyUp="if((event.keyCode ? event.keyCode : event.which ? event.which : event.charCode)==13){gotoPage()}"
-            /><a href="javascript:;" onclick="gotoPage()">跳转</a></span
-          ></span
-        ></span
-      >
+              onKeyUp="if((event.keyCode ? event.keyCode : event.with ? event.which : event.charCode)==13){gotoPage()}"
+            /><a href="javascript:;" onclick="gotoPage()" data-localize="common.jump">跳转</a></span></span></span>
     </div>
 
     <script

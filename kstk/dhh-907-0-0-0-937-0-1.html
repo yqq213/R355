@@ -1,0 +1,1070 @@
+
+<html>
+<head>
+ <title>夹克-订货会-品牌图库-R355服饰资讯网</title>
+<meta name="Description"  content="R355服饰资讯网,专业的服装设计网站,为您提供最专业的时装设计,时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会等信息">
+<meta name="keywords" content="时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会">
+<meta name="subject" content="服装设计" />
+<meta name="searchtitle" content="服装设计,R355服饰资讯网" />
+<meta name="language" content="chinese" />
+<meta name="location" content="China" />
+<meta name="resource-type" content="Good WebSites" />
+<meta name="email" content="R355@R355.com" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="author" content="R355服饰资讯网,http://www.R355.com" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link href="/css/base.css" rel="stylesheet" type="text/css">
+<link href="/css/master.css" rel="stylesheet" type="text/css">
+<link href="/css/list.css" rel="stylesheet" type="text/css">
+<link href="/css/independent.css" rel="stylesheet" type="text/css">
+    <link href="/css/smcm.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/viewer.min.css">
+    <link href="/css/new2022.css" rel="stylesheet" type="text/css">
+      <style>
+         .accordion { padding:0; background-color:none
+         }
+        .patterns-ul .patter-left-label-position {
+            text-align: left;
+            padding: 10px 5px 0;
+            height: 45px;
+            min-height: 45px;
+        }
+        .left_btn{
+	position: fixed;
+	z-index: 999999;
+	left: 5px;
+	top: 40%;
+}
+.right_btn_1{
+	position: fixed;
+	z-index: 999999;
+	right: 5px;
+	top: 40% !important;
+}
+        .new-patterns-ul>li {
+            height: 330px;
+        }
+    </style>
+    <link href="/css/smcm.css" rel="stylesheet" type="text/css">
+</head>
+<body style="background-color: #fff;">
+   
+<script src="/js/jquery-1.7.2.min.js"></script>
+<section>
+  <link href="/css/header.css" rel="stylesheet" type="text/css" />
+  <link href="//at.alicdn.com/t/c/font_4789865_f95hj9izwcr.css" rel="stylesheet">
+  <script src="/js/vue.global.js"></script>
+  <script src="/js/menu.js?v=0.0121"></script>
+  <!-- 引入防xss攻击js -->
+  <script src="/js/purify.min.js"></script>
+
+  <div id="header">
+    <a href="/" title="R355服饰资讯网"><img src="/images/header/logo.png" class="header-logo"></a>
+    <div class="header-first">
+      <div class="search">
+        <div class="search-icon">
+          <img src="/images/header/icon-search.png" alt="">
+        </div>
+        <input placeholder="请输入品牌名" class="search-input" value="" id="key_barnd" />
+        <div class="search-camera">
+          <img src="/images/header/camera-icon.png" />
+        </div>
+        <div class="search-btn">全站搜</div>
+        <!-- 拍照搜索弹框 -->
+        <div class="search-pop">
+          <div class="search-content">
+            <div class="search-drop">拖拽图片到这里</div>
+            <div class="upload-wrap">
+              <input type="file" class="upload-pic" />
+              <span class="upload-text">选择文件</span>
+            </div>
+             
+          </div>
+          <div class="upload-error" style="display: none;">
+            <div class="upload-error-text" style="color:red">抱歉，您上传的文件不是图片格式，请<a href="javascript:void(0)">重新上传</a></div>
+            <div class="upload-error-text">仅支持2M以下jpg，jpeg，png，bmp，gif格式图片</div>
+          </div>
+          <div class="upload-loading" style="display: none;">正在加载图片...</div>
+          <div class="upload-close"></div>
+        </div>
+      </div>
+      <div class="header-first-right">
+        <a href="/about/downLoadUrl.aspx"><div class="header-first-exe"><img src="/images/header/exe-icon.png" />桌面客户端</div></a>
+        
+         <div class="header-first-user">欢迎您，<span>wusuowei(点数会员) <a href="/member/default.aspx" class="app" style="color: #ff0000;">会员中心</a> | <a href="/member/loginOut.aspx">退 出</a></span></div>
+   
+      </div>
+    </div>
+    <!-- 导航菜单 -->
+    <div class="navs">
+       <li
+        class="navs-item"
+        v-for="(item, index) in menuList"
+        :key="index"
+        @mouseenter="mouseEnterNav($event, item)"
+        @mouseleave="handleMouseLeave"
+        @click="handleClickMenu($event, item)"
+      >
+        <img :src="item.icon" v-if="item.icon" style="pointer-events: none;" />
+        <span v-if="item.name" style="pointer-events: none;">{{ item.name }}</span>
+      </li>
+       <!-- 导航菜单箭头 -->
+      <span
+        id="navArrow"
+        class="iconfont icon-a-xingzhuang12"
+        :style="{color: currentNav.backgroundTop, transform: navModalVisible ? 'translate3D(0, -40%, 0)' : 'translate3D(0, 0, 0)'}"
+        @mouseenter="navModalVisible = true"
+        @mouseleave="navModalVisible = false"
+      >
+      </span>
+    </div>
+    <!-- 导航菜单下拉项 -->
+    <div class="nav-modal-wrap">
+      <div
+        class="navs-modal"
+        ref="navModal"
+        :style="{background: currentNav.background, transform: navModalVisible ? 'translate3D(0, 0, 0)' : 'translate3D(0, calc(-100% - 1px), 0)'}"
+        :class="currentNav.class"
+        
+        @mouseenter="navModalVisible = true"
+        @mouseleave="navModalVisible = false"
+      >
+        <div class="navs-modal-top" :style="{background: currentNav.backgroundTop}">
+          <span class="circle" :style="{background: currentNav.backgroundTop}"></span>
+        </div>
+        <div class="navs-modal-content">
+          <div class="navs-modal-content-left">
+            <div class="category" v-for="(item, index) in currentNav.children" :key="index">
+              <div class="section" @click="jumpTo(item)">
+                <div class="icon-wrap">
+                  <img :src="item.icon" />
+                </div>
+                <p class="label">{{ item.name }}</p>
+              </div>
+              <div class="wrap-nav">
+                <li class="sub-nav" v-for="(child, index) in item.subMenu" :key="index" @click="jumpTo(child)">{{ child.name }}</li>
+              </div>
+              <div class="desc" v-if="item.desc">{{ item.desc }}</div>
+            </div>
+          </div>
+          <div class="navs-modal-content-right" v-if="currentNav.category_intro">
+            <div>
+              <p class="intro-title">
+                <img src="/images/header/intro-title.png" style="margin-right: 5px;">栏目介绍
+              </p>
+              <p class="intro-text">{{ currentNav.category_intro }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <script>
+    
+    $(function() {
+        $(".search-btn").on("click", function(){
+            var brandkey=$("#key_barnd").val();
+            if(brandkey!='')
+            {
+                window.location.href="/kstk/search-0-0-0-"+brandkey+"-1.html";
+            }
+        });
+    })
+
+    const {createApp, ref, computed} = Vue
+
+    const app = createApp({
+      setup() {
+        const navModalVisible = ref(false)
+
+        const currentNav = ref({})
+
+        const hoverFontColor = computed(() => currentNav.value.backgroundTop)
+
+        const menuList = window.menuList
+
+        let timeId = 0  // 定时器id，计算鼠标停留时间
+
+        // 鼠标移动到菜单
+        function mouseEnterNav(e, item) {
+          timeId = setTimeout(() => {
+            showModal(e, item)
+          }, 2000)
+        }
+
+        // 显示菜单
+        function showModal(e, item) {
+          currentNav.value = item
+          if (item.children) navModalVisible.value = true
+          let navArrowDom = document.querySelector('#navArrow')
+          navArrowDom.style.left = (e.target.offsetLeft + 20 * (window.innerWidth / 1920)) + 'px'
+        }
+
+        // 鼠标离开菜单
+        function handleMouseLeave() {
+          clearTimeout(timeId)
+          navModalVisible.value = false
+        }
+
+        // 点击菜单
+        function handleClickMenu(e, item) {
+          clearTimeout(timeId)
+          showModal(e, item)
+          jumpTo(item)
+        }
+
+        // 点击导航菜单跳转
+        function jumpTo(item) {
+          if (item.link) {
+            item.open ? window.open(item.link) : window.location.href = item.link
+          }
+        }
+
+        return {
+          navModalVisible,
+          currentNav,
+          hoverFontColor,
+          menuList,
+          mouseEnterNav,
+          handleMouseLeave,
+          jumpTo,
+          handleClickMenu
+        }
+      }
+    })
+
+    app.mount("#header")
+
+  </script>
+
+</section>
+
+     <div class="n-li">
+        <ul>
+              <li class="n-li-hover"><a href="dhh-907-0-0-0-937-0-1.html">夹克</a></li><li><a href="dhh-907-0-0-0-936-0-1.html">棉服/羽绒</a></li><li><a href="dhh-907-0-0-0-935-0-1.html">皮衣</a></li><li><a href="dhh-907-0-0-0-914-0-1.html">大衣</a></li><li><a href="dhh-907-0-0-0-913-0-1.html">休闲裤</a></li><li><a href="dhh-907-0-0-0-939-0-1.html">牛仔裤</a></li><li><a href="dhh-907-0-0-0-912-0-1.html">卫衣</a></li><li><a href="dhh-907-0-0-0-911-0-1.html">衬衫</a></li><li><a href="dhh-907-0-0-0-910-0-1.html">T恤</a></li><li><a href="dhh-907-0-0-0-909-0-1.html">毛衫</a></li><li><a href="dhh-907-0-0-0-941-0-1.html">套装</a></li><li><a href="dhh-907-0-0-0-940-0-1.html">运动</a></li><li><a href="dhh-907-0-0-0-918-0-1.html">正装套装</a></li><li><a href="dhh-907-0-0-0-938-0-1.html">画册</a></li><li><a href="dhh-907-0-0-0-915-0-1.html">配件辅料</a></li><li><a href="dhh-907-0-0-0-956-0-1.html">其它</a></li>
+        </ul>
+    </div>
+<div class="se-box1">
+     <span>订货会<img src="/images/t11.png" alt="" ></span>
+     <div class="se-box">
+         <div class="selectBox">
+      <div class="inputCase">
+        <input name="txtsex" type="text" id="txtsex" class="imitationSelect" readonly="" value="季度" />
+        <i class="fa fa-caret-down"></i> </div>
+      <ul class="selectUl">
+         <li><a href="dhh-907-0-0-5070-937-0-1.html">2026秋冬</a></li><li><a href="dhh-907-0-0-4994-937-0-1.html">2026春夏</a></li><li><a href="dhh-907-0-0-4999-937-0-1.html">2025秋冬</a></li><li><a href="dhh-907-0-0-4817-937-0-1.html">2025春夏 </a></li><li><a href="dhh-907-0-0-4724-937-0-1.html">2024秋冬</a></li><li><a href="dhh-907-0-0-4176-937-0-1.html">2024春夏</a></li><li><a href="dhh-907-0-0-4342-937-0-1.html">2023秋冬</a></li><li><a href="dhh-907-0-0-4174-937-0-1.html">2023春夏</a></li><li><a href="dhh-907-0-0-4102-937-0-1.html">2022秋冬</a></li><li><a href="dhh-907-0-0-3613-937-0-1.html">2022春夏</a></li><li><a href="dhh-907-0-0-3340-937-0-1.html">2021秋冬</a></li><li><a href="dhh-907-0-0-3130-937-0-1.html">2021春夏</a></li><li><a href="dhh-907-0-0-3112-937-0-1.html">2020秋冬</a></li><li><a href="dhh-907-0-0-2805-937-0-1.html">2020春夏</a></li><li><a href="dhh-907-0-0-2892-937-0-1.html">2019秋冬</a></li>
+      </ul>
+    </div>
+      <div class="selectBox" style="width:150px">
+                <div class="inputCase">
+                    <input name="brandStr" type="text" id="brandStr" class="DropmenuSpc search_b imitationSelect" onFocus="javascript:if(this.value==&#39;请输入品牌名称&#39;)this.value=&#39;&#39;;" value="请输入品牌名称" onBlur="javascript:if(this.value==&#39;&#39;)this.value=&#39;请输入品牌名称&#39;" style=" background: url(../images/t12.png) no-repeat 130px center;" />
+                    <i class="fa fa-caret-down"></i> </div>
+            </div>
+     </div>
+    <div id="filter_selected_box" class="filter_selected_box">
+                <a class="clear_label" href="/kstk/dhh-17-0-0-0-0-0-1.html"><i class="list_icon"></i>清空</a>
+                <div class="filter_label_box"><p style="border:0">夹克</p><a class="list_icon" href="dhh-17-0-0-0-0-0-1.html"></a></div>
+                <span style="font-weight:normal">已选择:</span>
+            </div>
+</div>
+     <ul id="accordion" class="accordion">
+   <div style="position:absolute;top:2px;left:245px;" id="brandStrLayer" class="ChoiceLayer currentTagR">
+      <div class="SearchArea"> <strong>品牌选择：单击品牌首字母，出现该字母开头的设计师，通过按输入检索精确您的需求！</strong> <span id="brandStrClose" class="Btnclose right">[<a id="Btnclose" href="javascript:void(0)">点击关闭</a>]</span></div>
+      <h1 id="searchLetter" class="alphabeticalSearch"> <a id="check_A" href="javascript:void(0);">A</a> <a id="check_B" href="javascript:void(0);">B</a> <a id="check_C" href="javascript:void(0);">C</a> <a id="check_D" href="javascript:void(0);">D</a> <a id="check_E" href="javascript:void(0);">E</a> <a id="check_F" href="javascript:void(0);">F</a> <a id="check_G" href="javascript:void(0);">G</a> <a id="check_H" href="javascript:void(0);">H</a> <a id="check_I" href="javascript:void(0);">I</a> <a id="check_J" href="javascript:void(0);">J</a> <a id="check_K" href="javascript:void(0);">K</a> <a id="check_L" href="javascript:void(0);">L</a> <a id="check_M" href="javascript:void(0);">M</a> <a id="check_N" href="javascript:void(0);">N</a> <a id="check_O" href="javascript:void(0);">O</a> <a id="check_P" href="javascript:void(0);">P</a> <a id="check_Q" href="javascript:void(0);">Q</a> <a id="check_R" href="javascript:void(0);">R</a> <a id="check_S" href="javascript:void(0);">S</a> <a id="check_T" href="javascript:void(0);">T</a> <a id="check_U" href="javascript:void(0);">U</a> <a id="check_V" href="javascript:void(0);">V</a> <a id="check_W" href="javascript:void(0);">W</a> <a id="check_X" href="javascript:void(0);">X</a> <a id="check_Y" href="javascript:void(0);">Y</a> <a id="check_Z" href="javascript:void(0);">Z</a> <a class="others" href="javascript:void(0);">其他</a></h1>
+      <div id="searchContent">
+        <div class="wrap-tips">
+          <div class="search-tips">
+            <p class="cnt-tips">您可以点击上面字母快速检索品牌；</p>
+            <div class="extra">
+              <p class="cnt">需要查看所有品牌，请点击：</p>
+              <a href="javascript:void(0)" onClick="getSiftData('id','brandStr','all');" title="查看所有品牌" class="link-btn">查看所有品牌</a></div>
+            <i class="notice-status"></i> </div>
+        </div>
+      </div>
+    </div>
+</ul>
+
+<div style="clear:both; margin-top:30px"></div>
+    <div class="n-cp patterns-ul">
+      
+         <div class="cz" ><div class="cz5"><a href="/qszx/show_jtss-907-32077-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/qszx/show_jtss-907-32077-1.html" target="_blank"><img src="/uploadFiles/20260208/jtss/202602081140474532.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/qszx/show_jtss-907-32077-1.html" target="_blank">2026秋冬_ZEGNA_夹克欧洲大牌资料服装 </a></div><div class="cz1"><a href="dhh-907-0-2597-0-937-0-1.html">Z Zegna</a></div><div class="cz2">2026秋冬 | 2026/2/8</div><div class="cz3 viewBox_32077"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260208/jtss/small_202602081140516103.jpg" data-original="AEkQiQPZApJOB4aW+ucpS4MoUpn8/wDEf8bmwJolSnqpDOdTm8cZVJvhIChoJadbiP42pr2CpIwDnRklfkXYeQ==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_ZEGNA_夹克欧洲大牌资料服装" pid="5C64DA2C6A6166D55859146311658EAE"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260208/jtss/small_202602081140520489.jpg" data-original="AEkQiQPZApJOB4aW+ucpS4MoUpn8/wDEf8bmwJolSnpaTqRGMqE5WXinT/csXm7GHDuzjBoksCGc0UJffbRiBg==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_ZEGNA_夹克欧洲大牌资料服装" pid="5C64DA2C6A6166D55859146311658EAE"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260208/jtss/small_202602081140524418.jpg" data-original="AEkQiQPZApJOB4aW+ucpS4MoUpn8/wDEf8bmwJolSnooknRe7N/JbuyWjE4ngSEdmoZ7ZbPH0brpjAIdltbiDw==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_ZEGNA_夹克欧洲大牌资料服装" pid="5C64DA2C6A6166D55859146311658EAE"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260208/jtss/small_202602081140527861.jpg" data-original="AEkQiQPZApJOB4aW+ucpS4MoUpn8/wDEf8bmwJolSnqGfmTfAwOczjgxisEJVJLkfHoBrVJLH9RA3cAYoD5ivQ==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_ZEGNA_夹克欧洲大牌资料服装" pid="5C64DA2C6A6166D55859146311658EAE"></a></li><li><div class="cz4"><a href="/qszx/show_jtss-907-32077-1.html" target="_blank">18+</a></div><img src="/uploadFiles/20260208/jtss/small_202602081140532260.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/qszx/show_jtss-907-31800-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/qszx/show_jtss-907-31800-1.html" target="_blank"><img src="/uploadFiles/20260119/jtss/202601191037447112.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/qszx/show_jtss-907-31800-1.html" target="_blank">2026秋冬_fendi_画册_欧洲大牌资料服装 </a></div><div class="cz1"><a href="dhh-907-0-188-0-937-0-1.html">Fendi 芬迪</a></div><div class="cz2">2026秋冬 | 2026/1/19</div><div class="cz3 viewBox_31800"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260119/jtss/small_202601191037530567.jpg" data-original="AEkQiQPZApJOB4aW+ucpS7HcsvcJPdBgw8jmtn7v5y2M6YDZtjY3E9pSx7fWuNbuzX7x/joxx6R/5iYWIv1AFg==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_fendi_画册_欧洲大牌资料服装" pid="8F83E4586AF416A5BE8BDE0910557744"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260119/jtss/small_202601191037534638.jpg" data-original="AEkQiQPZApJOB4aW+ucpS7HcsvcJPdBgw8jmtn7v5y1h3CT9RWctKbekP/CNet6BH6rdeka3t/vM4gGubZEezw==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_fendi_画册_欧洲大牌资料服装" pid="8F83E4586AF416A5BE8BDE0910557744"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260119/jtss/small_202601191037537931.jpg" data-original="AEkQiQPZApJOB4aW+ucpS7HcsvcJPdBgw8jmtn7v5y0aacHem6gR5YVcRe+rIHxvFeJx1Os3VSYHP8kplierSQ==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_fendi_画册_欧洲大牌资料服装" pid="8F83E4586AF416A5BE8BDE0910557744"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260119/jtss/small_202601191037542950.jpg" data-original="AEkQiQPZApJOB4aW+ucpS7HcsvcJPdBgw8jmtn7v5y1kY6aIU6pT53Fn6XG72JzcsOqhAIRZmaYficOI28nDWA==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_fendi_画册_欧洲大牌资料服装" pid="8F83E4586AF416A5BE8BDE0910557744"></a></li><li><div class="cz4"><a href="/qszx/show_jtss-907-31800-1.html" target="_blank">59+</a></div><img src="/uploadFiles/20260119/jtss/small_202601191037547501.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/qszx/show_jtss-907-31753-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/qszx/show_jtss-907-31753-1.html" target="_blank"><img src="/uploadFiles/20251231/jtss/202512311154264816.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/qszx/show_jtss-907-31753-1.html" target="_blank">2026秋冬_GUCCI_画册_欧洲大牌资料服装 </a></div><div class="cz1"><a href="dhh-907-0-89-0-937-0-1.html">Gucci 古驰</a></div><div class="cz2">2026秋冬 | 2025/12/31</div><div class="cz3 viewBox_31753"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251231/jtss/small_202512311154313423.jpg" data-original="AEkQiQPZApJOB4aW+ucpSyx64qFP79cImq60Tgy/yHvKtLdSqKrSD6vvpH/l589EYXE3WNZVWxEduyyguChjjQ==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_GUCCI_画册_欧洲大牌资料服装" pid="7EE64CAB631248A04B9EBDCE198AAEA4"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251231/jtss/small_202512311154317973.jpg" data-original="AEkQiQPZApJOB4aW+ucpSyx64qFP79cImq60Tgy/yHt73KriI6em8gAol5zxlYsMbBLrTeGxHxIhIW4hHwyD9g==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_GUCCI_画册_欧洲大牌资料服装" pid="7EE64CAB631248A04B9EBDCE198AAEA4"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251231/jtss/small_202512311154323304.jpg" data-original="AEkQiQPZApJOB4aW+ucpSyx64qFP79cImq60Tgy/yHt9UnZ6PrdmVsaZIRGOzR8R12Xy29zMR6aOR3hs8zcUZw==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_GUCCI_画册_欧洲大牌资料服装" pid="7EE64CAB631248A04B9EBDCE198AAEA4"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251231/jtss/small_202512311154327227.jpg" data-original="AEkQiQPZApJOB4aW+ucpSyx64qFP79cImq60Tgy/yHuLQTr6VgG7wII7GaUbELG+boOfnNqMlMZ0QllKmHe6bA==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_GUCCI_画册_欧洲大牌资料服装" pid="7EE64CAB631248A04B9EBDCE198AAEA4"></a></li><li><div class="cz4"><a href="/qszx/show_jtss-907-31753-1.html" target="_blank">32+</a></div><img src="/uploadFiles/20251231/jtss/small_202512311154330989.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/qszx/show_jtss-907-31746-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/qszx/show_jtss-907-31746-1.html" target="_blank"><img src="/uploadFiles/20251231/jtss/202512311149410377.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/qszx/show_jtss-907-31746-1.html" target="_blank">2026秋冬_Balenciaga_夹克_欧洲大牌资料服装 </a></div><div class="cz1"><a href="dhh-907-0-914-0-937-0-1.html">Balenciaga 巴黎世家</a></div><div class="cz2">2026秋冬 | 2025/12/31</div><div class="cz3 viewBox_31746"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251231/jtss/small_202512311149453989.jpg" data-original="AEkQiQPZApJOB4aW+ucpSyx64qFP79cImq60Tgy/yHvrYlhkeyDzdrmhDQiUaw032t0zOOUMvMXfM2KXxjNPcg==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Balenciaga_夹克_欧洲大牌资料服装" pid="54659ECB914BD92463180483C7F2DFCA"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251231/jtss/small_202512311149459160.jpg" data-original="AEkQiQPZApJOB4aW+ucpSyx64qFP79cImq60Tgy/yHssS4aqWb9UZKRvR/ddOmUxQH5ucnmqBdHKXs7xWYjEwA==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Balenciaga_夹克_欧洲大牌资料服装" pid="54659ECB914BD92463180483C7F2DFCA"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251231/jtss/small_202512311149463392.jpg" data-original="AEkQiQPZApJOB4aW+ucpSyx64qFP79cImq60Tgy/yHtoISnTloFlROTUcfN3SwhpNeMkwAoUoQU7/O8dkP4WVA==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Balenciaga_夹克_欧洲大牌资料服装" pid="54659ECB914BD92463180483C7F2DFCA"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251231/jtss/small_202512311149466995.jpg" data-original="AEkQiQPZApJOB4aW+ucpSyx64qFP79cImq60Tgy/yHs8F90wusnpfX0cdNGSY+apZqMCoR+DDYU/xbisL5zbww==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Balenciaga_夹克_欧洲大牌资料服装" pid="54659ECB914BD92463180483C7F2DFCA"></a></li><li><div class="cz4"><a href="/qszx/show_jtss-907-31746-1.html" target="_blank">14+</a></div><img src="/uploadFiles/20251231/jtss/small_202512311149471540.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/qszx/show_jtss-907-31720-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/qszx/show_jtss-907-31720-1.html" target="_blank"><img src="/uploadFiles/20251222/jtss/202512221155079022.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/qszx/show_jtss-907-31720-1.html" target="_blank">2026秋冬_Dsquared2 D_夹克_欧洲大牌资料服装 </a></div><div class="cz1"><a href="dhh-907-0-23-0-937-0-1.html">DSquared2 D二次方</a></div><div class="cz2">2026秋冬 | 2025/12/22</div><div class="cz3 viewBox_31720"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251222/jtss/small_202512221155156894.jpg" data-original="AEkQiQPZApJOB4aW+ucpS77aPlg4h1NLA5qzJla+a2U9YTF3sxIvPfGwwy6Ka1UDNaKoVROb84+dZC5lrsa9qA==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Dsquared2 D_夹克_欧洲大牌资料服装" pid="09F5FBF37F81E61E1AF68FEEC451ACA7"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251222/jtss/small_202512221155164888.jpg" data-original="AEkQiQPZApJOB4aW+ucpS77aPlg4h1NLA5qzJla+a2XT6l/3nfga9PdELZ8czjhYTUBzHdFnQPS2nliPP3NRfg==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Dsquared2 D_夹克_欧洲大牌资料服装" pid="09F5FBF37F81E61E1AF68FEEC451ACA7"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251222/jtss/small_202512221155170056.jpg" data-original="AEkQiQPZApJOB4aW+ucpS77aPlg4h1NLA5qzJla+a2Wvb0rM76OsAgQos4lK24dd3kpMEVzrwLJNRoY2a0G32A==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Dsquared2 D_夹克_欧洲大牌资料服装" pid="09F5FBF37F81E61E1AF68FEEC451ACA7"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251222/jtss/small_202512221155175077.jpg" data-original="AEkQiQPZApJOB4aW+ucpS77aPlg4h1NLA5qzJla+a2WGEGS3UJx+a+IdupchnPgpXu/Eb8nlkykWIZZVIia9/Q==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Dsquared2 D_夹克_欧洲大牌资料服装" pid="09F5FBF37F81E61E1AF68FEEC451ACA7"></a></li><li><div class="cz4"><a href="/qszx/show_jtss-907-31720-1.html" target="_blank">84+</a></div><img src="/uploadFiles/20251222/jtss/small_202512221155181816.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/qszx/show_jtss-907-31705-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/qszx/show_jtss-907-31705-1.html" target="_blank"><img src="/uploadFiles/20251219/jtss/202512191018081261.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/qszx/show_jtss-907-31705-1.html" target="_blank">2026秋冬_Emporio Armani x EA7_夹克_欧洲大牌资料服装 </a></div><div class="cz1"><a href="dhh-907-0-1-0-937-0-1.html">Emporio Armani </a></div><div class="cz2">2026秋冬 | 2025/12/19</div><div class="cz3 viewBox_31705"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251219/jtss/small_202512191018131640.jpg" data-original="AEkQiQPZApJOB4aW+ucpS7rqF/fdCshiCqzYRRCQ9I+oHmPGg764jINoV7zcW5vZ5V26VkTLVAvinH9YPJTKVA==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Emporio Armani x EA7_夹克_欧洲大牌资料服装" pid="C0AF22BD2F64870332929AE80714894B"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251219/jtss/small_202512191018135870.jpg" data-original="AEkQiQPZApJOB4aW+ucpS7rqF/fdCshiCqzYRRCQ9I+h2QbU5SYjQpIqFELLyMZ/SsSY9Hnv0JTSMa7iXFOz5A==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Emporio Armani x EA7_夹克_欧洲大牌资料服装" pid="C0AF22BD2F64870332929AE80714894B"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251219/jtss/small_202512191018139628.jpg" data-original="AEkQiQPZApJOB4aW+ucpS7rqF/fdCshiCqzYRRCQ9I+VUVAB1J5ZVHbe4t4/ShXXec89AkEKfoCoAmf3JCGdlA==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Emporio Armani x EA7_夹克_欧洲大牌资料服装" pid="C0AF22BD2F64870332929AE80714894B"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251219/jtss/small_202512191018142761.jpg" data-original="AEkQiQPZApJOB4aW+ucpS7rqF/fdCshiCqzYRRCQ9I+MoeiOFCKVufo0CyNdO2hntJyMzxtWXo6nuGXyGM+x1A==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Emporio Armani x EA7_夹克_欧洲大牌资料服装" pid="C0AF22BD2F64870332929AE80714894B"></a></li><li><div class="cz4"><a href="/qszx/show_jtss-907-31705-1.html" target="_blank">47+</a></div><img src="/uploadFiles/20251219/jtss/small_202512191018146378.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/qszx/show_jtss-907-31664-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/qszx/show_jtss-907-31664-1.html" target="_blank"><img src="/uploadFiles/20251201/jtss/202512011023429583.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/qszx/show_jtss-907-31664-1.html" target="_blank">2026秋冬_Sacai_夹克_欧洲大牌资料服装 </a></div><div class="cz1"><a href="dhh-907-0-274-0-937-0-1.html">SACAI 萨卡伊</a></div><div class="cz2">2026秋冬 | 2025/12/1</div><div class="cz3 viewBox_31664"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251201/jtss/small_202512011023481991.jpg" data-original="AEkQiQPZApJOB4aW+ucpSy1GlE5SmV1ItvgzRP7KHYFW2UkRMooIlLFC9ljdxQ81juENQHsmywIswcBk9fQ1og==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Sacai_夹克_欧洲大牌资料服装" pid="ACC82D7B79F5DFD7A2EF4D0673C44AD4"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251201/jtss/small_202512011023487799.jpg" data-original="AEkQiQPZApJOB4aW+ucpSy1GlE5SmV1ItvgzRP7KHYFI2/prLueZeAJP3Xc7jmjeGl1O56PZGfJ9WBzBw4Tg/g==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Sacai_夹克_欧洲大牌资料服装" pid="ACC82D7B79F5DFD7A2EF4D0673C44AD4"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251201/jtss/small_202512011023491407.jpg" data-original="AEkQiQPZApJOB4aW+ucpSy1GlE5SmV1ItvgzRP7KHYFEnFR555l8yLPv5usOWPUNuJDALR1s7lQW3F4Cg7oSug==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Sacai_夹克_欧洲大牌资料服装" pid="ACC82D7B79F5DFD7A2EF4D0673C44AD4"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251201/jtss/small_202512011023495493.jpg" data-original="AEkQiQPZApJOB4aW+ucpSy1GlE5SmV1ItvgzRP7KHYGQXXzhst2MOs9acxk/PW19MXpxG2+CAYXAvoqYE+xWJA==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Sacai_夹克_欧洲大牌资料服装" pid="ACC82D7B79F5DFD7A2EF4D0673C44AD4"></a></li><li><div class="cz4"><a href="/qszx/show_jtss-907-31664-1.html" target="_blank">31+</a></div><img src="/uploadFiles/20251201/jtss/small_202512011023498945.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/qszx/show_jtss-907-31638-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/qszx/show_jtss-907-31638-1.html" target="_blank"><img src="/uploadFiles/20251121/jtss/202511211112426937.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/qszx/show_jtss-907-31638-1.html" target="_blank">2026秋冬_Karl Lagerfeld_夹克_欧洲大牌资料服装 </a></div><div class="cz1"><a href="dhh-907-0-216-0-937-0-1.html">KARL LAGERFELD 卡尔·拉格斐</a></div><div class="cz2">2026秋冬 | 2025/11/21</div><div class="cz3 viewBox_31638"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251121/jtss/small_202511211112533883.jpg" data-original="AEkQiQPZApJOB4aW+ucpS5BMwCy+4O91vPQyc6DfkrcmLCgTO+3dHIoNYQ+CS1+cnoOKoPwfaQcf8KJBFZ7tLg==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Karl Lagerfeld_夹克_欧洲大牌资料服装" pid="830C3A78136A470958954025A5A2CE66"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251121/jtss/small_202511211112537648.jpg" data-original="AEkQiQPZApJOB4aW+ucpS5BMwCy+4O91vPQyc6DfkrdbjZIdvxPr6/41pd/zxiMhQtG/G5Fp8UTz9dNMr7fUuQ==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Karl Lagerfeld_夹克_欧洲大牌资料服装" pid="830C3A78136A470958954025A5A2CE66"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251121/jtss/small_202511211112541249.jpg" data-original="AEkQiQPZApJOB4aW+ucpS5BMwCy+4O91vPQyc6DfkrdoKGYfHooMcwNwYfH2BQuiAPVqC4mlnkJGrMpN2zyvsw==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Karl Lagerfeld_夹克_欧洲大牌资料服装" pid="830C3A78136A470958954025A5A2CE66"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251121/jtss/small_202511211112544534.jpg" data-original="AEkQiQPZApJOB4aW+ucpS5BMwCy+4O91vPQyc6Dfkrcg8IC7hD+/RmCWVKyuzoHxMqQdqhO6Jm3sg3ODU63fsA==" ifaj="5" typeid="3" alt="订货会-订货会-2026秋冬_Karl Lagerfeld_夹克_欧洲大牌资料服装" pid="830C3A78136A470958954025A5A2CE66"></a></li><li><div class="cz4"><a href="/qszx/show_jtss-907-31638-1.html" target="_blank">22+</a></div><img src="/uploadFiles/20251121/jtss/small_202511211112472591.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/qszx/show_jtss-907-31566-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/qszx/show_jtss-907-31566-1.html" target="_blank"><img src="/uploadFiles/20251116/jtss/202511160134061143.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/qszx/show_jtss-907-31566-1.html" target="_blank">2026春夏_FENDI_夹克_欧洲大牌资料服装 </a></div><div class="cz1"><a href="dhh-907-0-188-0-937-0-1.html">Fendi 芬迪</a></div><div class="cz2">2026春夏 | 2025/11/16</div><div class="cz3 viewBox_31566"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251116/jtss/small_202511160134117003.jpg" data-original="AEkQiQPZApJOB4aW+ucpS/CsSpQGENS51i52hwyfmT/bNypseuacFFecePYb9setJMPUlKyZsqOPHEyIC5iS3g==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_FENDI_夹克_欧洲大牌资料服装" pid="9144D91AE3B3483CD9CD903C8E526B34"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251116/jtss/small_202511160134125472.jpg" data-original="AEkQiQPZApJOB4aW+ucpS/CsSpQGENS51i52hwyfmT/yzR/l8ubTf7yotRQ4iu8hPzm8PvcuWAAaxBSusKvazg==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_FENDI_夹克_欧洲大牌资料服装" pid="9144D91AE3B3483CD9CD903C8E526B34"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251116/jtss/small_202511160134130174.jpg" data-original="AEkQiQPZApJOB4aW+ucpS/CsSpQGENS51i52hwyfmT+if3rV+EuMJy+Bgfet5pmkatd9MK+px4CyzmNdbpwDTg==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_FENDI_夹克_欧洲大牌资料服装" pid="9144D91AE3B3483CD9CD903C8E526B34"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251116/jtss/small_202511160134135352.jpg" data-original="AEkQiQPZApJOB4aW+ucpS/CsSpQGENS51i52hwyfmT+x7gbOnnH+HU5j4MUlmjP4bDTgvxwsteRRG17YnR/G2Q==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_FENDI_夹克_欧洲大牌资料服装" pid="9144D91AE3B3483CD9CD903C8E526B34"></a></li><li><div class="cz4"><a href="/qszx/show_jtss-907-31566-1.html" target="_blank">22+</a></div><img src="/uploadFiles/20251116/jtss/small_202511160134139900.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/qszx/show_jtss-907-31512-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/qszx/show_jtss-907-31512-1.html" target="_blank"><img src="/uploadFiles/20251023/jtss/202510231011103882.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/qszx/show_jtss-907-31512-1.html" target="_blank">2026春夏_Louis Vuitton_夹克_欧洲大牌资料服装 </a></div><div class="cz1"><a href="dhh-907-0-541-0-937-0-1.html">Louis Vuitton 路易威登</a></div><div class="cz2">2026春夏 | 2025/10/23</div><div class="cz3 viewBox_31512"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251023/jtss/small_202510231011146852.jpg" data-original="AEkQiQPZApJOB4aW+ucpS2+8e0b1WrUnucV7409ZTuRLEcwvGzgL2RfoPV9FOA5nrrKKnRVWQbKbC8TJlbBbbQ==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_Louis Vuitton_夹克_欧洲大牌资料服装" pid="7B1AE938233CAD73E92251D3AF94323D"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251023/jtss/small_202510231011152963.jpg" data-original="AEkQiQPZApJOB4aW+ucpS2+8e0b1WrUnucV7409ZTuTQKpKEsgJJqmKdMAfESFVRTLDSYaNzHcRIIO3YvhXYmQ==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_Louis Vuitton_夹克_欧洲大牌资料服装" pid="7B1AE938233CAD73E92251D3AF94323D"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251023/jtss/small_202510231011157663.jpg" data-original="AEkQiQPZApJOB4aW+ucpS2+8e0b1WrUnucV7409ZTuQAsmIbBUJp85NeFxMXgZR4VWXSJmlPr5LRA9FZ+dnmBA==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_Louis Vuitton_夹克_欧洲大牌资料服装" pid="7B1AE938233CAD73E92251D3AF94323D"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251023/jtss/small_202510231011162522.jpg" data-original="AEkQiQPZApJOB4aW+ucpS2+8e0b1WrUnucV7409ZTuQN+Q5kCaWv6HFHP/crIGD/YVOdm6xcSX5IcaFwYru4Zg==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_Louis Vuitton_夹克_欧洲大牌资料服装" pid="7B1AE938233CAD73E92251D3AF94323D"></a></li><li><div class="cz4"><a href="/qszx/show_jtss-907-31512-1.html" target="_blank">26+</a></div><img src="/uploadFiles/20251023/jtss/small_202510231011166748.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/qszx/show_jtss-907-31506-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/qszx/show_jtss-907-31506-1.html" target="_blank"><img src="/uploadFiles/20251023/jtss/202510231006381709.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/qszx/show_jtss-907-31506-1.html" target="_blank">2026春夏_C.P Company_夹克_欧洲大牌资料服装 </a></div><div class="cz1"><a href="dhh-907-0-284-0-937-0-1.html">C.P Company</a></div><div class="cz2">2026春夏 | 2025/10/23</div><div class="cz3 viewBox_31506"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251023/jtss/small_202510231006425967.jpg" data-original="AEkQiQPZApJOB4aW+ucpS2+8e0b1WrUnucV7409ZTuSLpG8KgIQ4YGdOLZ76TOldRxgiw3TJGH5Nc5M0YriB7g==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_C.P Company_夹克_欧洲大牌资料服装" pid="143C56F27A80BC62AD2AE28BF8F90659"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251023/jtss/small_202510231006430984.jpg" data-original="AEkQiQPZApJOB4aW+ucpS2+8e0b1WrUnucV7409ZTuRYwdfTcyy2ywbQMWMOh7NUtVS/6wHcXG8czhFBsjq5fA==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_C.P Company_夹克_欧洲大牌资料服装" pid="143C56F27A80BC62AD2AE28BF8F90659"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251023/jtss/small_202510231006436165.jpg" data-original="AEkQiQPZApJOB4aW+ucpS2+8e0b1WrUnucV7409ZTuQpwf+m+K8ls66UzE9LR7hbfMvSFvmhjTuWutYzWP6QKg==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_C.P Company_夹克_欧洲大牌资料服装" pid="143C56F27A80BC62AD2AE28BF8F90659"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20251023/jtss/small_202510231006440090.jpg" data-original="AEkQiQPZApJOB4aW+ucpS2+8e0b1WrUnucV7409ZTuSNWONm2JBGeCq5J8ekTDKkmBToXBni64CtgN5OUQPIUg==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_C.P Company_夹克_欧洲大牌资料服装" pid="143C56F27A80BC62AD2AE28BF8F90659"></a></li><li><div class="cz4"><a href="/qszx/show_jtss-907-31506-1.html" target="_blank">22+</a></div><img src="/uploadFiles/20251023/jtss/small_202510231006444643.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/qszx/show_jtss-907-31226-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/qszx/show_jtss-907-31226-1.html" target="_blank"><img src="/uploadFiles/20250827/jtss/202508271259223122.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/qszx/show_jtss-907-31226-1.html" target="_blank">2026春夏_Iceberg_夹克_欧洲大牌资料服装 </a></div><div class="cz1"><a href="dhh-907-0-238-0-937-0-1.html">ICEBERG 冰山</a></div><div class="cz2">2026春夏 | 2025/8/27</div><div class="cz3 viewBox_31226"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20250827/jtss/small_202508271259261886.jpg" data-original="AEkQiQPZApJOB4aW+ucpS3ZdiTNX6B0gF1vVPbxCdsBmyPmsZsBVJk1Znm5wpfiC16SiOiBJ+f2iK4RfXUz9HQ==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_Iceberg_夹克_欧洲大牌资料服装" pid="2399D6B3AD56063D05216ACBFB2045DA"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20250827/jtss/small_202508271259263135.jpg" data-original="AEkQiQPZApJOB4aW+ucpS3ZdiTNX6B0gF1vVPbxCdsCIaXqGtp1J6VUo/pyBE7aIVAWOWS0P6AXP4vf4HvJrog==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_Iceberg_夹克_欧洲大牌资料服装" pid="2399D6B3AD56063D05216ACBFB2045DA"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20250827/jtss/small_202508271259264548.jpg" data-original="AEkQiQPZApJOB4aW+ucpS3ZdiTNX6B0gF1vVPbxCdsCE5t7t0OhSK0R2POQruxBZ4Rpd2GH/BhFjDU9bW5mVTw==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_Iceberg_夹克_欧洲大牌资料服装" pid="2399D6B3AD56063D05216ACBFB2045DA"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20250827/jtss/small_202508271259265800.jpg" data-original="AEkQiQPZApJOB4aW+ucpS3ZdiTNX6B0gF1vVPbxCdsDqPl20o/0gq4sd/BmGXi/NQtj4I8FnAg6XeabrTFd6YQ==" ifaj="5" typeid="3" alt="订货会-订货会-2026春夏_Iceberg_夹克_欧洲大牌资料服装" pid="2399D6B3AD56063D05216ACBFB2045DA"></a></li><li><div class="cz4"><a href="/qszx/show_jtss-907-31226-1.html" target="_blank">15+</a></div><img src="/uploadFiles/20250827/jtss/small_202508271259267835.jpg" ></li></ul></div></div></div>
+
+
+         <div style="clear:both"></div>
+<div class="pages" style="margin-top:0"><span id="Pagination"><span class="pagination"><a href='dhh-907-0-0-0-937-0-1.html' style=" display:none">上一页</a><a href="dhh-907-0-0-0-937-0-1.html" class="current">1</a><a href="dhh-907-0-0-0-937-0-2.html" class="prev">2</a><a href="dhh-907-0-0-0-937-0-3.html" class="prev">3</a><a href="dhh-907-0-0-0-937-0-4.html" class="prev">4</a><a href="dhh-907-0-0-0-937-0-5.html" class="prev">5</a><a href="dhh-907-0-0-0-937-0-6.html">…</a><a href="dhh-907-0-0-0-937-0-57.html"  class="next">57</a><a href="dhh-907-0-0-0-937-0-2.html"  class="next">下一页</a></span><input id="formatString" type="hidden" value="dhh-907-0-0-0-937-0-" /><span class="searchPage"><span class="page-sum">共<strong class="allPage">57</strong>页</span> <span class="page-go"><input type='text' class='textPut' placeholder="输入页码" id='gotopagepager' onKeyUp='if((event.keyCode ? event.keyCode : event.which ? event.which : event.charCode)==13){gotoPage()}'/><a href="javascript:;" onclick="gotoPage()">跳转</a></span></span></span></div>
+    </div>
+  
+<script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+            <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+            <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
+<script src="/js/smcm.js"></script>
+<link rel="stylesheet" href="/css/validate.css" />
+    <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
+<ul class="kf">
+  <li class="li1">
+    <div class="show_a"><em></em>
+      <div style="padding-left:10px">
+        <div class="kf_titel">在线客服</div>
+        <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px" title="点击这里给我发消息" alt="点击这里给我发消息" src="http://wpa.qq.com/pa?p=2:18550168:41"></a></div>
+      <div><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3871105&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px; margin-left:10px" title="点击这里给我发消息" alt="点击这里给我发消息" src="http://wpa.qq.com/pa?p=2:3871105:41"></a></div>
+    </div>
+  </li>
+  <li class="li2">
+    <div class="show_b"><em></em>
+      <div class="kf_titel">联系我们</div>
+      <p>020-31232355</p>
+    </div>
+  </li>
+  <li class="li3">
+     <div class="show_c">
+    <form id="feedbackform" name="feedbackform" url="/Ajax/addneed.ashx">
+      <div class="kf_titel">会员需求与建议</div>
+      <em></em>
+      <textarea rows="5" name="xqjy" class="textarea" placeholder="请在此详细输入您公司目前所需资料类型或提交宝贵意见，我司将会在最短的时间内为您上传所需的资料，谢谢！"></textarea>
+      <div class="lay"><input type="submit" id="btnSubmit_feedback" class="Submission1" value="提交"></div>
+        </form>
+    </div>
+  </li>
+  <a href="http://widget.weibo.com/dialog/follow.php?fuid=2825343592&refer=www.r355.com&language=zh_cn&type=widget_page&vsrc=app_followbutton&backurl=http%3A%2F%2Fwww.r355.com%2F&rnd=1395281896175" title="新浪微博" target="_blank">
+  <li class="li4"></li>
+  </a>
+  <li class="li5">
+    <div class="show_d"><em></em><img src="/images/weixin_code.png?v=0.133" width="106" height="240"></div>
+  </li>
+  <li class="li7"></li>
+</ul>
+<section>
+  <link href="/css/footer.css" rel="stylesheet" type="text/css" />
+  <div id="footer">
+    <img src="/images/footer/innovative-future.png" class="footer-future" />
+    <div class="footer-contact">
+      <img src="/images/footer/wechat-icon.png" />
+      <img src="/images/footer/qq-icon.png" />
+      <img src="/images/footer/phone-icon.png" />
+    </div>
+    <div class="footer-line"></div>
+    <div class="footer-bot">
+      <div class="footer-bot-left">
+        <div class="footer-bot-navs">
+          <li class="nav-item">
+            <a href="/about/R355-1636.html">关于我们</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1637.html">联系我们</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1632.html">免责声明</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1633.html">会员须知</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1639.html">收费说明</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1640.html">汇款方式</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1641.html">办理流程</a>
+          </li>
+        </div>
+        <p>Copyright 2007-2025 R355.com， All Rights Reserved <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备 07502261号-1</a></p>
+      </div>
+      <img src="/images/footer/qrcode.png" style="width: 94px; height: 94px;">
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript" src="/js/Mouse.js" charset="utf-8"></script>
+   <script>
+       $(function () {
+           AjaxInitForm('#feedbackform', '#btnSubmit_feedback', 0);
+      });
+  </script>
+<script src="/js/purify.min.js"></script>
+  <script src="/js/jquery.SuperSlide.js"></script>
+      <script src="/js/base.js"></script>
+      <script src="/js/smcm.js"></script> 
+
+   <script type="text/javascript">
+           $(function () {
+               $("ul.nav—b>li").eq(4).addClass("on—b");
+                $(this).keypress(function (e) {
+                    var key = window.event ? e.keyCode : e.which;
+                    if (key.toString() == "13") {
+                        return false;
+                    }
+                });
+                var searchEmptyHtml = '<div class="wrap-tips"><div class="search-tips"><p class="cnt-tips">您可以点击上面字母快速检索品牌；</p><div class="extra"><p class="cnt">需要查看所有品牌，请点击：</p><a href="javascript:void(0)" onClick="getSiftData(\'id\',\'brandStr\',\'all\');" title="查看所有品牌" class="link-btn">查看所有品牌</a></div><i class="notice-status"></i></div></div>';
+                var tipText = '请输入品牌名称';
+                $(".DropmenuSpc").click(function () {
+                    $(".ChoiceLayer").removeClass("currentTagR");
+
+                    //默认选中A
+                    $("#searchLetter a.current").removeClass('current');
+                    //$("#searchLetter a").eq(0).addClass('current');
+                    var text = $(".DropmenuSpc").val();
+                    if (text != '' && text.substr(0, 1) != '请') {
+                        checkLetter(text);
+                        getSiftData('id', 'brandStr', text.substr(0, 1).toUpperCase());
+                    } else {
+                        $('#searchContent').html(searchEmptyHtml);
+                    }
+                    if (text == tipText)
+                        $(".DropmenuSpc").val('');
+                });
+
+                $("#searchLetter a").click(function () {
+                    $("#searchLetter a.current").removeClass('current');
+                    $(this).addClass('current');
+                    var lt = ($(this).text() == '其他') ? 'qt' : $(this).text();
+                    getSiftData('id', 'brandStr', lt);
+                });
+
+                $(".Btnclose").click(function () {
+                    $(".ChoiceLayer").addClass("currentTagR");
+                    var text = $(".DropmenuSpc").val();
+                    if (text == '')
+                        $(".DropmenuSpc").val(tipText);
+                });
+
+                $("#brandStr").keyup(function (e) {
+                    var arr = [13, 37, 38, 39, 40];
+                    if (jQuery.inArray(e.keyCode, arr) != -1) return;
+                    var lt = $(this).val();
+                    if (lt == '') {
+                        $('#searchContent').html(searchEmptyHtml);
+                    } else {
+                        checkLetter(lt);
+                        getSiftData('text', 'brandStr', lt);
+                    }
+                });
+            });
+
+            function getSiftData(tp, tag, lt) {
+                 var hi = '加载中...';
+                    $('#searchContent').html(hi);
+                    $.ajax({
+                        type: "post",
+                        url: "/ajax/ret_brand_list_2.ashx",
+                        data:{ cartype:lt,gid:907,oid:907,a1id:937,bid:0,tp:tp,url:"/kstk/dhh-" },
+                        dataType: "html",
+                        success: function (data) {
+                            $('#searchContent').html(data);
+                        }
+                    });
+            }
+        </script>
+    
+<link rel="stylesheet" href="/css/validate.css" />
+    <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
+<link href="/css/time.css" rel="stylesheet" type="text/css">
+<div id="popDiv_b" class="mydiv_b" style="display:none">
+  <div class="pop_titel">请先完善您的真实资料，获得更多免费资讯。</div>
+  <div class="register_main">
+    <form id="regform" name="regform" url="/ajax/cheuser.ashx?act=user_register_2">
+      <div class="fill_in">
+      <div class="left">公司名称：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="company" value="" class="Required" placeholder="请填写公司的全称" datatype="s6-16" nullmsg="请填写公司的全称" errormsg="范围在6-16位之间" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">公司电话：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="tel" value="" class="Required" placeholder="公司电话" datatype="*" nullmsg="请填写公司电话" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">经营类别：</div>
+      <div class="right" style="width:74%">
+           <div class="vali">
+        <select class="select" name="tion_id" datatype="*" nullmsg="请选择经营类别" sucmsg=" " style="width:65%">
+           <option value="">请选择企业主营类别</option>
+         <option value="女装">女装</option>
+		<option value="男装">男装</option>
+		<option value="童装" >童装</option>
+		<option value="内衣" >内衣</option>
+		<option value="家居服" >家居服</option>
+		<option value="制服" >制服</option>
+		<option value="运动服" >运动服</option>
+		<option value="牛仔" >牛仔</option>
+		<option value="礼服" >礼服</option>
+		<option value="羽绒服" >羽绒服</option>
+		<option value="皮衣皮草" >皮衣皮草</option>
+		<option value="其他" >其他</option>
+        </select>
+               </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">所在省份：</div>
+      <div class="right" style="width:74%">
+        <div class="vali">
+          <select name="country" id="selCountries_new" onchange="region.changed(this, 1, 'user_role1_selProvinces_new')" style='display:none;'>
+        <option value="1" selected>中国</option></select>
+          <select name="user_role1$selProvinces_new" id="user_role1_selProvinces_new" onchange="region.changed(this, 2, &#39;selCities_new&#39;)">
+	<option value="0">请选择省</option>
+	<option value="2">北京</option>
+	<option value="3">安徽</option>
+	<option value="4">福建</option>
+	<option value="5">甘肃</option>
+	<option value="6">广东</option>
+	<option value="7">广西</option>
+	<option value="8">贵州</option>
+	<option value="9">海南</option>
+	<option value="10">河北</option>
+	<option value="11">河南</option>
+	<option value="12">黑龙江</option>
+	<option value="13">湖北</option>
+	<option value="14">湖南</option>
+	<option value="15">吉林</option>
+	<option value="16">江苏</option>
+	<option value="17">江西</option>
+	<option value="18">辽宁</option>
+	<option value="19">内蒙古</option>
+	<option value="20">宁夏</option>
+	<option value="21">青海</option>
+	<option value="22">山东</option>
+	<option value="23">山西</option>
+	<option value="24">陕西</option>
+	<option value="25">上海</option>
+	<option value="26">四川</option>
+	<option value="27">天津</option>
+	<option value="28">西藏</option>
+	<option value="29">新疆</option>
+	<option value="30">云南</option>
+	<option value="31">浙江</option>
+	<option value="32">重庆</option>
+	<option value="33">香港</option>
+	<option value="34">澳门</option>
+	<option value="35">台湾</option>
+</select>
+          <select id="selCities_new" name="selCities_new" onchange="region.changed(this, 3, 'selDistricts_new')"><option value="0">请选择市</option>
+              </select>
+          <select id="selDistricts_new" name="selDistricts_new" datatype="n" nullmsg="请选择地区" sucmsg=" "><option value="">请选择区域</option></select>
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">公司地址：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="address" value="" class="Required" placeholder="请填写详细填写公司地址" datatype="*" nullmsg="请填写详细填写公司地址" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">QQ：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="qq" value="" class="nub" placeholder="请填写" datatype="n" nullmsg="请填写QQ号码" errormsg="QQ号码格式不正确" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+      <div class="protocol"></div>
+      <input type="submit" class="Submission" id="btnSubmit_Reg" value="完成信息填写" style="margin-bottom:30px">
+    </form>
+  </div>
+</div>
+<div id="bg_b" class="bg_show_b" style="display:none;"></div>
+<iframe id='popIframe_b' class='popIframe_b' frameborder='0' ></iframe>
+<!-- 补充资料结束 --> 
+
+
+
+<!-- 登录弹框 -->
+<div id="popDiv" class="mydiv" style="display:none">
+  <div class="Login_box" style="margin:0px">
+    <div class="top">
+      <div class="txt" style="float:left">请先登录</div>
+      <div class="close" style="float:right; padding-right:10px"><a href="javascript:closeDiv()"><span class="icon1 iconfont">&#xe620;</span></a></div>
+      <div style="clear:both"></div>
+    </div>
+      <form id="loginform" name="loginform" url="/Ajax/cheuser.ashx?act=user_login">
+    <div class="main1">
+    <div class="left1">
+      <div class="text_box1">
+        <div class="text_left">用户名：</div>
+        <div class="text_right">
+          <input class="input" type="text" name="txtUserName" id="txtUserName" value="" />
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">密码：</div>
+        <div class="text_right">
+          <input class="input" type="password" name="txtPassword" id="txtPassword" value="" />
+        </div>
+      </div>
+         <div class="text_box1">
+        <div class="text_left">验证码：</div>
+        <div class="text_right">
+          <input class="input" type="text" name="txtcode" id="txtcode" value="" style="width:100px"  dataType="Limit" min="5" max="5" msg="请输入5位验证码" /> <a href="javascript:fGetCode()"><img id="imgCount" name="imgCount" src="/VerifyCode.aspx" style="margin: auto 5px;  height: 46px" align="absmiddle"></a>
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">&nbsp;</div>
+        <div class="text_right" style="font-size:12px; color:#a8a7a7">
+          <label>
+            <input name="user_role1$remember" type="checkbox" id="user_role1_remember" value="1" />
+            下次自动登录</label> <div id="msgtips" class="tip-box"></div>
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">&nbsp;</div>
+        <div class="text_right" style="font-size:12px; color:#a8a7a7">
+          <div class="Login_btn">
+              <input id="btnSubmit" name="btnSubmit" value="立即登录" type="submit" class="submit_btn reglogin_btn">
+              </div>
+          <div class="get_back"><a href="#">忘记密码？</a></div>
+          <div class="ge"><a href="/about/R355-1636.html">关于我们</a> | <a href="/about/R355-1641.html">办理流程</a> | <a href="/about/downLoadUrl.aspx">客户端下载</a> | <a href="https://www.r355.com/">返回首页</a></div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="right1" style="position:relative">
+        <div class="r1">马上注册成为R355服饰资讯会员开通试用服务，就可以浏览更多精彩资讯！</div>
+        <div class="r2">客服电话：020-31232355</div>
+        <div class="r3"> <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px" title="点击这里给我发消息" alt="点击这里给我发消息" src="/images/qq.png"></a></div>
+        <div class="r4">微信咨询
+          <div class="wx_show"><img src="/images/wx_box.png" width="121" height="106"></div>
+        </div>
+        <div class="r5 award"><a href="/member/reg.aspx"><img src="/images/btn.png" width="114" height="46"></a></div>
+      </div>
+    </div>
+          </form>
+  </div>
+</div>
+<script type="text/javascript" charset="utf-8" src="/js/login-validate.js"></script>
+<div id="bg" class="bg_show" style="display:none;"></div>
+<iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
+
+<!-- 登录弹框结束 --> 
+
+
+<style>
+   .sm_u_right .Validform_checktip { top:5px
+    }
+    
+</style>
+
+
+<!-- 上门服务弹框 -->
+<div id="popDiv_c" class="mydiv_c" style="display:none">
+  <div class="drop_in">
+    <div class="right_btn"><img src="/images/s2.png" width="27" height="126"></div>
+    <div class="sm_box">
+      <div class="sm_Close"><a href="#"><span class="icon1 iconfont">&#xe620;</span></a></div>
+      <div style="clear:both"></div>
+      <div class="sm_titel">上门信息填写</div>
+         <form id="smform" name="smform" url="/Ajax/add_service.ashx">
+      <div class="sm_u">
+        <div class="sm_u_left">上门时间：</div>
+        <div class="sm_u_right">
+            <input type="text" name="act_start_time" value="" placeholder="请选择上门时间" datatype="*" nullmsg="请选择" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">公司名称：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_company" value="" placeholder="请填写公司名称" datatype="s6-18" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">联系地址：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_address" value="" placeholder="请填写联系地址" datatype="s6-18" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">手机号码：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_mobile" value="" placeholder="请填写手机号码" datatype="m" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">联系人：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_truename" value="" placeholder="请填写联系人" datatype="*" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">备注信息：</div>
+        <div class="sm_u_right">
+          <input type="text" name="remark" value="" placeholder="不超过20字">
+        </div>
+      </div>
+      <input type="submit" id="btnSubmit_sm" class="Submission1" value="发送">
+      </form>
+    </div>
+    <div class="drop_in_Close"><a href="javascript:closeDiv_c()"><span class="icon1 iconfont">&#xe620;</span></a></div>
+    <div class="drop_in_top"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe63d;</span>温馨提示：您的账号没有权限浏览当前内容，请联系客服<a href="/member/reg.aspx"><strong style="color:red">开通VIP会员</strong></a>或<a href="/member/buyPoint.aspx"><strong style="color:red">充值点数</strong></a>。</div>
+    <div class="do-1"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe618;</span>线上咨询客服</div>
+    <div class="tel">客服电话：020-31232355</div>
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=18550168&site=qq&menu=yes" target="_blank" style="float:left;padding-left:210px;color:#ddbb6d"><span class="icon1 iconfont">&#xe617;</span>在线咨询</a>
+    <div class="r14 r15" style="background-image:none;"><a href="javascript:;" style="color:#ddbb6d"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe6db;</span>微信咨询</a>
+      <div class="wx_show1"><img src="/images/wx_box.png" width="121" height="106"></div>
+    </div>
+    <div style="clear:both"></div>
+    <div class="do_img"><a href="/about/downLoadUrl.aspx"><img src="/images/s1.png" width="181" height="38"></a></div>
+  </div>
+</div>
+<div id="bg_c" class="bg_show_c" style="display:none;"></div>
+<iframe id='popIframe_c' class='popIframe_c' frameborder='0' ></iframe>
+<script type="text/javascript" src="/js/global.js"></script>
+    <script type="text/javascript" src="/js/region.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+            <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+            <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
+    <script src="/js/time.js"></script>
+            <script type="text/javascript">
+            $(function(){
+                //初始化表单
+                AjaxInitForm('#regform', '#btnSubmit_Reg', 0);
+                AjaxInitForm('#smform', '#btnSubmit_sm', 0, "#user_role1_turl");
+            });
+            </script>
+<script type="text/javascript">$( "input[name='act_start_time'],input[name='act_stop_time']" ).datetimepicker();</script>
+<!-- 上门服务弹框结束 --> 
+<input name="user_role1$turl" type="hidden" id="user_role1_turl" value="https://www.r355.com/kstk/dhh.aspx?cid=907&amp;scid=0&amp;nameid=0&amp;sexid=0&amp;alfid=937&amp;kid=0&amp;p=1" />
+   
+  <script src="/js/jquery.lazyload.js"></script>
+    <script src="/js/viewer-jquery.min.js"></script>
+      <script src="/js/aes.js"></script> 
+
+<link rel="stylesheet" href="/css/validate.css" />
+    <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
+<link href="/css/time.css" rel="stylesheet" type="text/css">
+<div id="popDiv_b" class="mydiv_b" style="display:none">
+  <div class="pop_titel">请先完善您的真实资料，获得更多免费资讯。</div>
+  <div class="register_main">
+    <form id="regform" name="regform" url="/ajax/cheuser.ashx?act=user_register_2">
+      <div class="fill_in">
+      <div class="left">公司名称：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="company" value="" class="Required" placeholder="请填写公司的全称" datatype="s6-16" nullmsg="请填写公司的全称" errormsg="范围在6-16位之间" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">公司电话：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="tel" value="" class="Required" placeholder="公司电话" datatype="*" nullmsg="请填写公司电话" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">经营类别：</div>
+      <div class="right" style="width:74%">
+           <div class="vali">
+        <select class="select" name="tion_id" datatype="*" nullmsg="请选择经营类别" sucmsg=" " style="width:65%">
+           <option value="">请选择企业主营类别</option>
+         <option value="女装">女装</option>
+		<option value="男装">男装</option>
+		<option value="童装" >童装</option>
+		<option value="内衣" >内衣</option>
+		<option value="家居服" >家居服</option>
+		<option value="制服" >制服</option>
+		<option value="运动服" >运动服</option>
+		<option value="牛仔" >牛仔</option>
+		<option value="礼服" >礼服</option>
+		<option value="羽绒服" >羽绒服</option>
+		<option value="皮衣皮草" >皮衣皮草</option>
+		<option value="其他" >其他</option>
+        </select>
+               </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">所在省份：</div>
+      <div class="right" style="width:74%">
+        <div class="vali">
+          <select name="country" id="selCountries_new" onchange="region.changed(this, 1, 'user_role1_selProvinces_new')" style='display:none;'>
+        <option value="1" selected>中国</option></select>
+          <select name="user_role2$selProvinces_new" id="user_role2_selProvinces_new" onchange="region.changed(this, 2, &#39;selCities_new&#39;)">
+	<option value="0">请选择省</option>
+	<option value="2">北京</option>
+	<option value="3">安徽</option>
+	<option value="4">福建</option>
+	<option value="5">甘肃</option>
+	<option value="6">广东</option>
+	<option value="7">广西</option>
+	<option value="8">贵州</option>
+	<option value="9">海南</option>
+	<option value="10">河北</option>
+	<option value="11">河南</option>
+	<option value="12">黑龙江</option>
+	<option value="13">湖北</option>
+	<option value="14">湖南</option>
+	<option value="15">吉林</option>
+	<option value="16">江苏</option>
+	<option value="17">江西</option>
+	<option value="18">辽宁</option>
+	<option value="19">内蒙古</option>
+	<option value="20">宁夏</option>
+	<option value="21">青海</option>
+	<option value="22">山东</option>
+	<option value="23">山西</option>
+	<option value="24">陕西</option>
+	<option value="25">上海</option>
+	<option value="26">四川</option>
+	<option value="27">天津</option>
+	<option value="28">西藏</option>
+	<option value="29">新疆</option>
+	<option value="30">云南</option>
+	<option value="31">浙江</option>
+	<option value="32">重庆</option>
+	<option value="33">香港</option>
+	<option value="34">澳门</option>
+	<option value="35">台湾</option>
+</select>
+          <select id="selCities_new" name="selCities_new" onchange="region.changed(this, 3, 'selDistricts_new')"><option value="0">请选择市</option>
+              </select>
+          <select id="selDistricts_new" name="selDistricts_new" datatype="n" nullmsg="请选择地区" sucmsg=" "><option value="">请选择区域</option></select>
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">公司地址：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="address" value="" class="Required" placeholder="请填写详细填写公司地址" datatype="*" nullmsg="请填写详细填写公司地址" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">QQ：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="qq" value="" class="nub" placeholder="请填写" datatype="n" nullmsg="请填写QQ号码" errormsg="QQ号码格式不正确" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+      <div class="protocol"></div>
+      <input type="submit" class="Submission" id="btnSubmit_Reg" value="完成信息填写" style="margin-bottom:30px">
+    </form>
+  </div>
+</div>
+<div id="bg_b" class="bg_show_b" style="display:none;"></div>
+<iframe id='popIframe_b' class='popIframe_b' frameborder='0' ></iframe>
+<!-- 补充资料结束 --> 
+
+
+
+<!-- 登录弹框 -->
+<div id="popDiv" class="mydiv" style="display:none">
+  <div class="Login_box" style="margin:0px">
+    <div class="top">
+      <div class="txt" style="float:left">请先登录</div>
+      <div class="close" style="float:right; padding-right:10px"><a href="javascript:closeDiv()"><span class="icon1 iconfont">&#xe620;</span></a></div>
+      <div style="clear:both"></div>
+    </div>
+      <form id="loginform" name="loginform" url="/Ajax/cheuser.ashx?act=user_login">
+    <div class="main1">
+    <div class="left1">
+      <div class="text_box1">
+        <div class="text_left">用户名：</div>
+        <div class="text_right">
+          <input class="input" type="text" name="txtUserName" id="txtUserName" value="" />
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">密码：</div>
+        <div class="text_right">
+          <input class="input" type="password" name="txtPassword" id="txtPassword" value="" />
+        </div>
+      </div>
+         <div class="text_box1">
+        <div class="text_left">验证码：</div>
+        <div class="text_right">
+          <input class="input" type="text" name="txtcode" id="txtcode" value="" style="width:100px"  dataType="Limit" min="5" max="5" msg="请输入5位验证码" /> <a href="javascript:fGetCode()"><img id="imgCount" name="imgCount" src="/VerifyCode.aspx" style="margin: auto 5px;  height: 46px" align="absmiddle"></a>
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">&nbsp;</div>
+        <div class="text_right" style="font-size:12px; color:#a8a7a7">
+          <label>
+            <input name="user_role2$remember" type="checkbox" id="user_role2_remember" value="1" />
+            下次自动登录</label> <div id="msgtips" class="tip-box"></div>
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">&nbsp;</div>
+        <div class="text_right" style="font-size:12px; color:#a8a7a7">
+          <div class="Login_btn">
+              <input id="btnSubmit" name="btnSubmit" value="立即登录" type="submit" class="submit_btn reglogin_btn">
+              </div>
+          <div class="get_back"><a href="#">忘记密码？</a></div>
+          <div class="ge"><a href="/about/R355-1636.html">关于我们</a> | <a href="/about/R355-1641.html">办理流程</a> | <a href="/about/downLoadUrl.aspx">客户端下载</a> | <a href="https://www.r355.com/">返回首页</a></div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="right1" style="position:relative">
+        <div class="r1">马上注册成为R355服饰资讯会员开通试用服务，就可以浏览更多精彩资讯！</div>
+        <div class="r2">客服电话：020-31232355</div>
+        <div class="r3"> <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px" title="点击这里给我发消息" alt="点击这里给我发消息" src="/images/qq.png"></a></div>
+        <div class="r4">微信咨询
+          <div class="wx_show"><img src="/images/wx_box.png" width="121" height="106"></div>
+        </div>
+        <div class="r5 award"><a href="/member/reg.aspx"><img src="/images/btn.png" width="114" height="46"></a></div>
+      </div>
+    </div>
+          </form>
+  </div>
+</div>
+<script type="text/javascript" charset="utf-8" src="/js/login-validate.js"></script>
+<div id="bg" class="bg_show" style="display:none;"></div>
+<iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
+
+<!-- 登录弹框结束 --> 
+
+
+<style>
+   .sm_u_right .Validform_checktip { top:5px
+    }
+    
+</style>
+
+
+<!-- 上门服务弹框 -->
+<div id="popDiv_c" class="mydiv_c" style="display:none">
+  <div class="drop_in">
+    <div class="right_btn"><img src="/images/s2.png" width="27" height="126"></div>
+    <div class="sm_box">
+      <div class="sm_Close"><a href="#"><span class="icon1 iconfont">&#xe620;</span></a></div>
+      <div style="clear:both"></div>
+      <div class="sm_titel">上门信息填写</div>
+         <form id="smform" name="smform" url="/Ajax/add_service.ashx">
+      <div class="sm_u">
+        <div class="sm_u_left">上门时间：</div>
+        <div class="sm_u_right">
+            <input type="text" name="act_start_time" value="" placeholder="请选择上门时间" datatype="*" nullmsg="请选择" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">公司名称：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_company" value="" placeholder="请填写公司名称" datatype="s6-18" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">联系地址：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_address" value="" placeholder="请填写联系地址" datatype="s6-18" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">手机号码：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_mobile" value="" placeholder="请填写手机号码" datatype="m" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">联系人：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_truename" value="" placeholder="请填写联系人" datatype="*" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">备注信息：</div>
+        <div class="sm_u_right">
+          <input type="text" name="remark" value="" placeholder="不超过20字">
+        </div>
+      </div>
+      <input type="submit" id="btnSubmit_sm" class="Submission1" value="发送">
+      </form>
+    </div>
+    <div class="drop_in_Close"><a href="javascript:closeDiv_c()"><span class="icon1 iconfont">&#xe620;</span></a></div>
+    <div class="drop_in_top"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe63d;</span>温馨提示：您的账号没有权限浏览当前内容，请联系客服<a href="/member/reg.aspx"><strong style="color:red">开通VIP会员</strong></a>或<a href="/member/buyPoint.aspx"><strong style="color:red">充值点数</strong></a>。</div>
+    <div class="do-1"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe618;</span>线上咨询客服</div>
+    <div class="tel">客服电话：020-31232355</div>
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=18550168&site=qq&menu=yes" target="_blank" style="float:left;padding-left:210px;color:#ddbb6d"><span class="icon1 iconfont">&#xe617;</span>在线咨询</a>
+    <div class="r14 r15" style="background-image:none;"><a href="javascript:;" style="color:#ddbb6d"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe6db;</span>微信咨询</a>
+      <div class="wx_show1"><img src="/images/wx_box.png" width="121" height="106"></div>
+    </div>
+    <div style="clear:both"></div>
+    <div class="do_img"><a href="/about/downLoadUrl.aspx"><img src="/images/s1.png" width="181" height="38"></a></div>
+  </div>
+</div>
+<div id="bg_c" class="bg_show_c" style="display:none;"></div>
+<iframe id='popIframe_c' class='popIframe_c' frameborder='0' ></iframe>
+<script type="text/javascript" src="/js/global.js"></script>
+    <script type="text/javascript" src="/js/region.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+            <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+            <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
+    <script src="/js/time.js"></script>
+            <script type="text/javascript">
+            $(function(){
+                //初始化表单
+                AjaxInitForm('#regform', '#btnSubmit_Reg', 0);
+                AjaxInitForm('#smform', '#btnSubmit_sm', 0, "#user_role1_turl");
+            });
+            </script>
+<script type="text/javascript">$( "input[name='act_start_time'],input[name='act_stop_time']" ).datetimepicker();</script>
+<!-- 上门服务弹框结束 --> 
+<input name="user_role2$turl" type="hidden" id="user_role2_turl" value="https://www.r355.com/kstk/dhh.aspx?cid=907&amp;scid=0&amp;nameid=0&amp;sexid=0&amp;alfid=937&amp;kid=0&amp;p=1" />
+ 
+    <script>
+        $(function() {
+            //$(".patterns-ul img").lazyload({
+            //    placeholder: "/images/vip_b.png",
+            //    effect: "fadeIn"
+            //});
+            var $images = $('.cz3 img');
+            var totalImages = $images.length;
+            var loadedCount = 0;
+
+            // 如果没有图片直接执行
+            if (totalImages === 0) {
+                executeAfterLoad();
+                return;
+            }
+            // 遍历所有图片
+            $images.each(function () {
+                var $img = $(this);
+
+                // 检查图片是否已加载完成（包括缓存情况）
+                if ($img[0].complete && $img[0].naturalHeight !== 0) {
+                    handleLoad();
+                } else {
+                    // 绑定加载和错误事件
+                    $img.one('load error', handleLoad);
+                }
+            });
+            // 定义加载处理器（同时处理成功和失败）
+            function handleLoad() {
+                loadedCount++;
+                if (loadedCount === totalImages) {
+                    executeAfterLoad();
+                }
+            }
+            // 所有图片加载完成后执行的回调
+            function executeAfterLoad() {
+                $('.cz3 img').each(function () {
+                    // 当前遍历到的 img 元素
+                    var img = new Image();
+                    img.src = $(this).attr('src');
+                    var canvas = document.createElement('canvas');
+                    var ctx = canvas.getContext('2d');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0);
+                    var base64 = canvas.toDataURL('image/jpeg');
+                    //console.log(base64);
+                    $(this).attr('src', base64);
+                });
+            };
+            $('.viewBox_32077').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_31800').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_31753').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_31746').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_31720').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_31705').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_31664').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_31638').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_31566').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_31512').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_31506').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_31226').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });
+});
+</script>
+</body>
+</html>

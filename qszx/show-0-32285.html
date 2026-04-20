@@ -1,0 +1,502 @@
+
+<html>
+<head><title>
+	2026/27春夏男装裤装面料趋势：条纹实验-趋势在线-R355服饰资讯网
+</title><meta name="Description" content="R355服饰资讯网,专业的服装设计网站,为您提供最专业的时装设计,时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会等信息" /><meta name="keywords" content="时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会" /><meta name="subject" content="服装设计" /><meta name="searchtitle" content="服装设计,R355服饰资讯网" /><meta name="language" content="chinese" /><meta name="location" content="China" /><meta name="resource-type" content="Good WebSites" /><meta name="email" content="R355@R355.com" /><meta http-equiv="X-UA-Compatible" content="IE=Edge" /><meta name="author" content="R355服饰资讯网,http://www.R355.com" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /><link href="/css/base.css" rel="stylesheet" type="text/css" /><link href="/css/master.css" rel="stylesheet" type="text/css" /><link href="/css/list.css" rel="stylesheet" type="text/css" /><link href="/css/independent.css" rel="stylesheet" type="text/css" /><link href="/css/smcm.css" rel="stylesheet" type="text/css" /><link href="/css/new2022.css" rel="stylesheet" type="text/css" /></head>
+<body>
+   
+<script src="/js/jquery-1.7.2.min.js"></script>
+<section>
+  <link href="/css/header.css" rel="stylesheet" type="text/css" />
+  <link href="//at.alicdn.com/t/c/font_4789865_f95hj9izwcr.css" rel="stylesheet">
+  <script src="/js/vue.global.js"></script>
+  <script src="/js/i18n-init.js"></script>
+  <script src="/js/menu.js?v=0.0121"></script>
+  <!-- 引入防xss攻击js -->
+  <script src="/js/purify.min.js"></script>
+
+  <div id="header">
+    <div class="lang-switcher">
+      <div class="lang-current">
+        <i class="iconfont icon-yuyan"></i>
+        <span class="lang-text">中文</span>
+        <i class="iconfont icon-xiajiantou"></i>
+      </div>
+      <ul class="lang-list">
+        <li data-lang="zh">中文</li>
+        <li data-lang="en">English</li>
+        <li data-lang="es">Español</li>
+        <li data-lang="fr">Français</li>
+        <li data-lang="ru">Русский</li>
+      </ul>
+    </div>
+    <a href="/" title="R355服饰资讯网"><img src="/images/header/logo.png" class="header-logo"></a>
+    <div class="header-first">
+      <div class="search">
+        <div class="search-icon">
+          <img src="/images/header/icon-search.png" alt="">
+        </div>
+        <input placeholder="请输入品牌名" class="search-input" value="" id="key_barnd" data-localize="header.search_placeholder" />
+        <div class="search-camera">
+          <img src="/images/header/camera-icon.png" />
+        </div>
+        <div class="search-btn" data-localize="header.search_btn">全站搜</div>
+        <!-- 拍照搜索弹框 -->
+        <div class="search-pop">
+          <div class="search-content">
+            <div class="search-drop" data-localize="header.drag_hint">拖拽图片到这里</div>
+            <div class="upload-wrap">
+              <input type="file" class="upload-pic" />
+              <span class="upload-text" data-localize="header.choose_file">选择文件</span>
+            </div>
+             
+          </div>
+          <div class="upload-error" style="display: none;">
+            <div class="upload-error-text" style="color:red"><span data-localize="header.upload_error_hint">抱歉，您上传的文件不是图片格式，请</span><a href="javascript:void(0)" data-localize="header.re_upload">重新上传</a></div>
+            <div class="upload-error-text" data-localize="header.upload_format_hint">仅支持2M以下jpg，jpeg，png，bmp，gif格式图片</div>
+          </div>
+          <div class="upload-loading" style="display: none;" data-localize="header.loading">正在加载图片...</div>
+          <div class="upload-close"></div>
+        </div>
+      </div>
+      <div class="header-first-right">
+        <a href="/about/downLoadUrl.aspx"><div class="header-first-exe"><img src="/images/header/exe-icon.png" /><span data-localize="header.desktop_client">桌面客户端</span></div></a>
+        
+         <div class="header-first-user"><span data-localize="header.welcome">欢迎您，</span><span>wusuowei(点数会员) <a href="/member/default.aspx" class="app" style="color: #ff0000;" data-localize="header.member_center">会员中心</a> | <a href="/member/loginOut.aspx" data-localize="header.logout">退 出</a></span></div>
+   
+      </div>
+    </div>
+    <!-- 导航菜单 -->
+    <div class="navs">
+       <li
+        class="navs-item"
+        v-for="(item, index) in menuList"
+        :key="index"
+        @mouseenter="mouseEnterNav($event, item)"
+        @mouseleave="handleMouseLeave"
+        @click="handleClickMenu($event, item)"
+      >
+        <img :src="item.icon" v-if="item.icon" style="pointer-events: none;" />
+        <span v-if="item.name" style="pointer-events: none;">{{ t(item.key || item.name) }}</span>
+      </li>
+       <!-- 导航菜单箭头 -->
+      <span
+        id="navArrow"
+        class="iconfont icon-a-xingzhuang12"
+        :style="{color: currentNav.backgroundTop, transform: navModalVisible ? 'translate3D(0, -40%, 0)' : 'translate3D(0, 0, 0)'}"
+        @mouseenter="navModalVisible = true"
+        @mouseleave="navModalVisible = false"
+      >
+      </span>
+    </div>
+    <!-- 导航菜单下拉项 -->
+    <div class="nav-modal-wrap">
+      <div
+        class="navs-modal"
+        ref="navModal"
+        :style="{background: currentNav.background, transform: navModalVisible ? 'translate3D(0, 0, 0)' : 'translate3D(0, calc(-100% - 1px), 0)'}"
+        :class="currentNav.class"
+        
+        @mouseenter="navModalVisible = true"
+        @mouseleave="navModalVisible = false"
+      >
+        <div class="navs-modal-top" :style="{background: currentNav.backgroundTop}">
+          <span class="circle" :style="{background: currentNav.backgroundTop}"></span>
+        </div>
+        <div class="navs-modal-content">
+          <div class="navs-modal-content-left">
+            <div class="category" v-for="(item, index) in currentNav.children" :key="index">
+              <div class="section" @click="jumpTo(item)">
+                <div class="icon-wrap">
+                  <img :src="item.icon" />
+                </div>
+                <p class="label">{{ t(item.key || item.name) }}</p>
+              </div>
+              <div class="wrap-nav">
+                <li class="sub-nav" v-for="(child, index) in item.subMenu" :key="index" @click="jumpTo(child)">{{ t(child.key || child.name) }}</li>
+              </div>
+              <div class="desc" v-if="item.desc">{{ item.desc }}</div>
+            </div>
+          </div>
+          <div class="navs-modal-content-right" v-if="currentNav.category_intro">
+            <div>
+              <p class="intro-title">
+                <img src="/images/header/intro-title.png" style="margin-right: 5px;">{{ t('menu.column_intro') }}
+              </p>
+              <p class="intro-text">{{ t(currentNav.category_intro_key || currentNav.category_intro) }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <script>
+    
+    $(function() {
+        $(".search-btn").on("click", function(){
+            var brandkey=$("#key_barnd").val();
+            if(brandkey!='')
+            {
+                window.location.href="/kstk/search-0-0-0-"+brandkey+"-1.html";
+            }
+        });
+    })
+
+    const {createApp, ref, computed, onMounted} = Vue
+
+    const app = createApp({
+      setup() {
+        const navModalVisible = ref(false)
+        const currentNav = ref({})
+        const i18nData = ref(window.i18nData || {})
+
+        const hoverFontColor = computed(() => currentNav.value.backgroundTop)
+
+        const menuList = window.menuList
+
+        let timeId = 0  // 定时器id，计算鼠标停留时间
+
+        onMounted(() => {
+          $(document).on('localize.completed', () => {
+            i18nData.value = window.i18nData
+          })
+        })
+
+        // 鼠标移动到菜单
+        function mouseEnterNav(e, item) {
+          timeId = setTimeout(() => {
+            showModal(e, item)
+          }, 200)
+        }
+
+        // 显示菜单
+        function showModal(e, item) {
+          currentNav.value = item
+          if (item.children) navModalVisible.value = true
+          let navArrowDom = document.querySelector('#navArrow')
+          navArrowDom.style.left = (e.target.offsetLeft + 20 * (window.innerWidth / 1920)) + 'px'
+        }
+
+        // 鼠标离开菜单
+        function handleMouseLeave() {
+          clearTimeout(timeId)
+          navModalVisible.value = false
+        }
+
+        // 点击菜单
+        function handleClickMenu(e, item) {
+          clearTimeout(timeId)
+          showModal(e, item)
+          jumpTo(item)
+        }
+
+        // 点击导航菜单跳转
+        function jumpTo(item) {
+          if (item.link) {
+            item.open ? window.open(item.link) : window.location.href = item.link
+          }
+        }
+
+        const t = (key) => {
+          if (!key) return ''
+          if (window.i18nHandler && window.i18nHandler.translate) {
+            const val = i18nData.value
+            return window.i18nHandler.translate(key)
+          }
+          return key
+        }
+
+        return {
+          navModalVisible,
+          currentNav,
+          hoverFontColor,
+          menuList,
+          mouseEnterNav,
+          handleMouseLeave,
+          jumpTo,
+          handleClickMenu,
+          t,
+          i18nData
+        }
+      }
+    })
+
+    app.mount("#header")
+
+  </script>
+
+</section>
+
+   <div class="brand">
+  <div class="de5"><a href="https://www.r355.com/" data-localize="menu.home">首 页</a><em>></em><span data-localize="menu.future_analysis">浅析未来</span></div>
+  <div class="de5" style="margin-top:8px">
+    <div class="brand_info"><span data-localize="common.season">季度</span>：26/27春夏&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span data-localize="common.time">时间</span>：2026年3月23日</div>
+  </div>
+  <div class="brand_box">
+    <div class="brand_titel">2026/27春夏男装裤装面料趋势：条纹实验</div>
+  </div>
+</div>
+     <script type="text/javascript">var pageData = { "arrPicList": [{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "1", "sSmallSrc": "/uploadFiles/20260323/small_202603232103346857.jpg", "sBigSrc": "/uploadFiles/20260323/202603232103346857.jpg", "sSpic": "/uploadFiles/20260323/202603232103346857.jpg", "sBpic": "/uploadFiles/20260323/202603232103346857.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "2", "sSmallSrc": "/uploadFiles/20260323/small_202603232103408813.jpg", "sBigSrc": "/uploadFiles/20260323/202603232103408813.jpg", "sSpic": "/uploadFiles/20260323/202603232103408813.jpg", "sBpic": "/uploadFiles/20260323/202603232103408813.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "3", "sSmallSrc": "/uploadFiles/20260323/small_202603232103495411.jpg", "sBigSrc": "/uploadFiles/20260323/202603232103495411.jpg", "sSpic": "/uploadFiles/20260323/202603232103495411.jpg", "sBpic": "/uploadFiles/20260323/202603232103495411.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "4", "sSmallSrc": "/uploadFiles/20260323/small_202603232103570724.jpg", "sBigSrc": "/uploadFiles/20260323/202603232103570724.jpg", "sSpic": "/uploadFiles/20260323/202603232103570724.jpg", "sBpic": "/uploadFiles/20260323/202603232103570724.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "5", "sSmallSrc": "/uploadFiles/20260323/small_202603232104033650.jpg", "sBigSrc": "/uploadFiles/20260323/202603232104033650.jpg", "sSpic": "/uploadFiles/20260323/202603232104033650.jpg", "sBpic": "/uploadFiles/20260323/202603232104033650.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "6", "sSmallSrc": "/uploadFiles/20260323/small_202603232104095803.jpg", "sBigSrc": "/uploadFiles/20260323/202603232104095803.jpg", "sSpic": "/uploadFiles/20260323/202603232104095803.jpg", "sBpic": "/uploadFiles/20260323/202603232104095803.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "7", "sSmallSrc": "/uploadFiles/20260323/small_202603232104403658.jpg", "sBigSrc": "/uploadFiles/20260323/202603232104403658.jpg", "sSpic": "/uploadFiles/20260323/202603232104403658.jpg", "sBpic": "/uploadFiles/20260323/202603232104403658.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "8", "sSmallSrc": "/uploadFiles/20260323/small_202603232104474420.jpg", "sBigSrc": "/uploadFiles/20260323/202603232104474420.jpg", "sSpic": "/uploadFiles/20260323/202603232104474420.jpg", "sBpic": "/uploadFiles/20260323/202603232104474420.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "9", "sSmallSrc": "/uploadFiles/20260323/small_202603232104552700.jpg", "sBigSrc": "/uploadFiles/20260323/202603232104552700.jpg", "sSpic": "/uploadFiles/20260323/202603232104552700.jpg", "sBpic": "/uploadFiles/20260323/202603232104552700.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "10", "sSmallSrc": "/uploadFiles/20260323/small_202603232105018605.jpg", "sBigSrc": "/uploadFiles/20260323/202603232105018605.jpg", "sSpic": "/uploadFiles/20260323/202603232105018605.jpg", "sBpic": "/uploadFiles/20260323/202603232105018605.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "11", "sSmallSrc": "/uploadFiles/20260323/small_202603232105103178.jpg", "sBigSrc": "/uploadFiles/20260323/202603232105103178.jpg", "sSpic": "/uploadFiles/20260323/202603232105103178.jpg", "sBpic": "/uploadFiles/20260323/202603232105103178.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "12", "sSmallSrc": "/uploadFiles/20260323/small_202603232105161194.jpg", "sBigSrc": "/uploadFiles/20260323/202603232105161194.jpg", "sSpic": "/uploadFiles/20260323/202603232105161194.jpg", "sBpic": "/uploadFiles/20260323/202603232105161194.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "13", "sSmallSrc": "/uploadFiles/20260323/small_202603232105220801.jpg", "sBigSrc": "/uploadFiles/20260323/202603232105220801.jpg", "sSpic": "/uploadFiles/20260323/202603232105220801.jpg", "sBpic": "/uploadFiles/20260323/202603232105220801.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "14", "sSmallSrc": "/uploadFiles/20260323/small_202603232105282910.jpg", "sBigSrc": "/uploadFiles/20260323/202603232105282910.jpg", "sSpic": "/uploadFiles/20260323/202603232105282910.jpg", "sBpic": "/uploadFiles/20260323/202603232105282910.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "15", "sSmallSrc": "/uploadFiles/20260323/small_202603232105581139.jpg", "sBigSrc": "/uploadFiles/20260323/202603232105581139.jpg", "sSpic": "/uploadFiles/20260323/202603232105581139.jpg", "sBpic": "/uploadFiles/20260323/202603232105581139.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "16", "sSmallSrc": "/uploadFiles/20260323/small_202603232106038897.jpg", "sBigSrc": "/uploadFiles/20260323/202603232106038897.jpg", "sSpic": "/uploadFiles/20260323/202603232106038897.jpg", "sBpic": "/uploadFiles/20260323/202603232106038897.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "17", "sSmallSrc": "/uploadFiles/20260323/small_202603232106101016.jpg", "sBigSrc": "/uploadFiles/20260323/202603232106101016.jpg", "sSpic": "/uploadFiles/20260323/202603232106101016.jpg", "sBpic": "/uploadFiles/20260323/202603232106101016.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "18", "sSmallSrc": "/uploadFiles/20260323/small_202603232106164532.jpg", "sBigSrc": "/uploadFiles/20260323/202603232106164532.jpg", "sSpic": "/uploadFiles/20260323/202603232106164532.jpg", "sBpic": "/uploadFiles/20260323/202603232106164532.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "19", "sSmallSrc": "/uploadFiles/20260323/small_202603232106231163.jpg", "sBigSrc": "/uploadFiles/20260323/202603232106231163.jpg", "sSpic": "/uploadFiles/20260323/202603232106231163.jpg", "sBpic": "/uploadFiles/20260323/202603232106231163.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "20", "sSmallSrc": "/uploadFiles/20260323/small_202603232106285284.jpg", "sBigSrc": "/uploadFiles/20260323/202603232106285284.jpg", "sSpic": "/uploadFiles/20260323/202603232106285284.jpg", "sBpic": "/uploadFiles/20260323/202603232106285284.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "21", "sSmallSrc": "/uploadFiles/20260323/small_202603232106343030.jpg", "sBigSrc": "/uploadFiles/20260323/202603232106343030.jpg", "sSpic": "/uploadFiles/20260323/202603232106343030.jpg", "sBpic": "/uploadFiles/20260323/202603232106343030.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "22", "sSmallSrc": "/uploadFiles/20260323/small_202603232106403595.jpg", "sBigSrc": "/uploadFiles/20260323/202603232106403595.jpg", "sSpic": "/uploadFiles/20260323/202603232106403595.jpg", "sBpic": "/uploadFiles/20260323/202603232106403595.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "23", "sSmallSrc": "/uploadFiles/20260323/small_202603232107108138.jpg", "sBigSrc": "/uploadFiles/20260323/202603232107108138.jpg", "sSpic": "/uploadFiles/20260323/202603232107108138.jpg", "sBpic": "/uploadFiles/20260323/202603232107108138.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "24", "sSmallSrc": "/uploadFiles/20260323/small_202603232107174025.jpg", "sBigSrc": "/uploadFiles/20260323/202603232107174025.jpg", "sSpic": "/uploadFiles/20260323/202603232107174025.jpg", "sBpic": "/uploadFiles/20260323/202603232107174025.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "25", "sSmallSrc": "/uploadFiles/20260323/small_202603232107273823.jpg", "sBigSrc": "/uploadFiles/20260323/202603232107273823.jpg", "sSpic": "/uploadFiles/20260323/202603232107273823.jpg", "sBpic": "/uploadFiles/20260323/202603232107273823.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "26", "sSmallSrc": "/uploadFiles/20260323/small_202603232107349452.jpg", "sBigSrc": "/uploadFiles/20260323/202603232107349452.jpg", "sSpic": "/uploadFiles/20260323/202603232107349452.jpg", "sBpic": "/uploadFiles/20260323/202603232107349452.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "27", "sSmallSrc": "/uploadFiles/20260323/small_202603232107423654.jpg", "sBigSrc": "/uploadFiles/20260323/202603232107423654.jpg", "sSpic": "/uploadFiles/20260323/202603232107423654.jpg", "sBpic": "/uploadFiles/20260323/202603232107423654.jpg"},{"sTid": "32285", "sPid": "1", "sType": "1", "sSex": "2", "sCid": 0, "sPicNo": "28", "sSmallSrc": "/uploadFiles/20260323/small_202603232107494507.jpg", "sBigSrc": "/uploadFiles/20260323/202603232107494507.jpg", "sSpic": "/uploadFiles/20260323/202603232107494507.jpg", "sBpic": "/uploadFiles/20260323/202603232107494507.jpg"}], "cid": 0 };</script>
+    <div id="imgList">
+   <p>
+	条纹元素在2026年男装潮流中强势回归，但它的呈现方式已超越传统的商务形象，演变出多种风格。无论是作为核心设计的睡衣风条纹裤，还是结合了运动与复古的侧条纹运动裤，亦或是换上了舒适腰头的休闲条纹西裤，都表明条纹正以一种更松弛、更生活化的方式融入男士衣橱。
+</p>
+<p>
+	<br />
+</p>
+<div class="brand">
+	<div class="brand_main">
+		<p class="brand_main_titel">
+			1. 复古款褶涧条纹裤
+		</p>
+		<p>
+			<span class="iconfont xi"></span>以90 年代学院风为基底，主打高腰直筒 / 微阔版型，前片保留单 / 双褶裥设计，增加垂坠感与空间感。条纹采用0.3–0.8cm 窄条，黑白 / 藏青 / 米白经典配色，融入手绘模糊 / 错位条纹的实验感。面料选高支棉、亚麻混纺，轻薄透气且自带肌理；打造松弛又有质感的复古通勤风。
+		</p>
+		<div class="img_box">
+			<div class="a07-1">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232103346857.jpg" width="361" height="470" /></a> 
+			</div>
+			<div class="a07-2">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232103408813.jpg" width="396" height="469" /></a> 
+			</div>
+			<div class="a07-3">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232103495411.jpg" width="364" height="470" /></a> 
+			</div>
+			<div class="a07-4">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232103570724.jpg" width="361" height="470" /></a> 
+			</div>
+			<div class="a07-5">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232104033650.jpg" width="396" height="470" /></a> 
+			</div>
+			<div class="a07-6">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232104095803.jpg" width="364" height="470" /></a> 
+			</div>
+		</div>
+	</div>
+</div>
+<div class="brand">
+	<div class="brand_main">
+		<p class="brand_main_titel">
+			2. 轻商条纹西裤
+		</p>
+		<p>
+			<span class="iconfont xi"></span>轻商条纹西裤聚焦智性通勤，以极细竖条纹（0.1–0.3cm）为主，远看近纯色、近看有精致肌理。版型为高腰九分直筒，修饰腿型且显利落，线条干净不浮夸。色彩以藏青 / 炭灰 / 浅灰为主，兼顾专业感与春夏清爽；搭配白衬衫、简约针织衫，适配职场、商务休闲等多场景，是 “轻商务” 衣橱核心刚需。
+		</p>
+		<div class="img_box">
+			<div class="a12-1">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232104403658.jpg" width="274" height="470" /></a> 
+			</div>
+			<div class="a12-2">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232104474420.jpg" width="278" height="470" /></a> 
+			</div>
+			<div class="a12-3">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232104552700.jpg" width="280" height="470" /></a> 
+			</div>
+			<div class="a12-4">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232105018605.jpg" width="282" height="470" /></a> 
+			</div>
+			<div class="a12-5">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232105103178.jpg" width="274" height="470" /></a> 
+			</div>
+			<div class="a12-6">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232105161194.jpg" width="280" height="470" /></a> 
+			</div>
+			<div class="a12-7">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232105220801.jpg" width="282" height="470" /></a> 
+			</div>
+			<div class="a12-8">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232105282910.jpg" width="274" height="470" /></a> 
+			</div>
+		</div>
+	</div>
+</div>
+<div class="brand">
+	<div class="brand_main">
+		<p class="brand_main_titel">
+			3. 睡衣风条纹裤
+		</p>
+		<p>
+			<span class="iconfont xi"></span>睡衣风条纹裤主打居家松弛感外穿，核心是宽松阔腿 / 锥形廓形，强调无束缚感。条纹以2–4cm 宽条为主，蓝白 / 黑白经典配色，或加入低饱和莫兰迪撞色（如浅灰 + 雾蓝）。面料选用天丝、真丝混纺、轻薄垂感棉，自带丝滑光泽与透气感。延续慵懒松弛美学，强调居家外穿的“出街”属性，带有浪漫的度假气息。
+		</p>
+		<div class="img_box">
+			<div class="a12-1">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232105581139.jpg" width="274" height="470" /></a> 
+			</div>
+			<div class="a12-2">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232106038897.jpg" width="278" height="470" /></a> 
+			</div>
+			<div class="a12-3">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232106101016.jpg" width="280" height="470" /></a> 
+			</div>
+			<div class="a12-4">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232106164532.jpg" width="282" height="470" /></a> 
+			</div>
+			<div class="a12-5">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232106231163.jpg" width="274" height="470" /></a> 
+			</div>
+			<div class="a12-6">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232106285284.jpg" width="280" height="470" /></a> 
+			</div>
+			<div class="a12-7">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232106343030.jpg" width="282" height="470" /></a> 
+			</div>
+			<div class="a12-8">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232106403595.jpg" width="274" height="470" /></a> 
+			</div>
+		</div>
+	</div>
+</div>
+<div class="brand">
+	<div class="brand_main">
+		<p class="brand_main_titel">
+			4. 休闲时尚条纹款
+		</p>
+		<p>
+			<span class="iconfont xi"></span>主打视觉实验与个性表达，条纹形态两极分化 —— 既有宽条纹（3–5cm）打造活力街头感，也有不规则 / 渐变条纹强化艺术氛围。版型以宽松直筒、工装束脚为主，融入口袋、抽绳等机能细节。色彩突破经典，加入明黄、橙红、墨绿等高饱和撞色。
+		</p>
+		<div class="img_box">
+			<div class="a07-1">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232107108138.jpg" width="361" height="470" /></a> 
+			</div>
+			<div class="a07-2">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232107174025.jpg" width="396" height="469" /></a> 
+			</div>
+			<div class="a07-3">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232107273823.jpg" width="364" height="470" /></a> 
+			</div>
+			<div class="a07-4">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232107349452.jpg" width="361" height="470" /></a> 
+			</div>
+			<div class="a07-5">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232107423654.jpg" width="396" height="470" /></a> 
+			</div>
+			<div class="a07-6">
+				<a href="javascript:; "><img src="/uploadFiles/20260323/small_202603232107494507.jpg" width="364" height="470" /></a> 
+			</div>
+		</div>
+	</div>
+</div>
+<p>
+	<br />
+</p>
+<p>
+	<br />
+</p>
+<p>
+	<br />
+</p>
+<p>
+	<br />
+</p>
+</div>
+<div class="next">
+  <div class="next_l"><span data-localize="common.prev_article">上一篇：</span><span data-localize="common.first_article_hint">已经是第一篇了</span></div>
+  <div class="next_r"><span data-localize="common.next_article">下一篇：</span><a href="show-0-31804.html">2026/27春夏男装面料趋势：多变条纹</a></div>
+</div>
+   
+<script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+            <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+            <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
+<script src="/js/smcm.js"></script>
+<link rel="stylesheet" href="/css/validate.css" />
+    <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
+<ul class="kf">
+  <li class="li1">
+    <div class="show_a"><em></em>
+      <div style="padding-left:10px">
+        <div class="kf_titel" data-localize="common.online_service">在线客服</div>
+        <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px" title="点击这里给我发消息" alt="点击这里给我发消息" src="http://wpa.qq.com/pa?p=2:18550168:41"></a></div>
+      <div><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3871105&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px; margin-left:10px" title="点击这里给我发消息" alt="点击这里给我发消息" src="http://wpa.qq.com/pa?p=2:3871105:41"></a></div>
+    </div>
+  </li>
+  <li class="li2">
+    <div class="show_b"><em></em>
+      <div class="kf_titel" data-localize="footer.contact_us">联系我们</div>
+      <p>020-31232355</p>
+    </div>
+  </li>
+  <li class="li3">
+     <div class="show_c">
+    <form id="feedbackform" name="feedbackform" url="/Ajax/addneed.ashx">
+      <div class="kf_titel" data-localize="common.feedback_title">会员需求与建议</div>
+      <em></em>
+      <textarea rows="5" name="xqjy" class="textarea" data-localize="common.feedback_placeholder" placeholder="请在此详细输入您公司目前所需资料类型或提交宝贵意见，我司将会在最短的时间内为您上传所需的资料，谢谢！"></textarea>
+      <div class="lay"><input type="submit" id="btnSubmit_feedback" class="Submission1" data-localize="common.submit" value="提交"></div>
+        </form>
+    </div>
+  </li>
+  <a href="http://widget.weibo.com/dialog/follow.php?fuid=2825343592&refer=www.r355.com&language=zh_cn&type=widget_page&vsrc=app_followbutton&backurl=http%3A%2F%2Fwww.r355.com%2F&rnd=1395281896175" title="新浪微博" target="_blank">
+  <li class="li4"></li>
+  </a>
+  <li class="li5">
+    <div class="show_d"><em></em><img src="/images/weixin_code.png?v=0.133" width="106" height="240"></div>
+  </li>
+  <li class="li7"></li>
+</ul>
+<section>
+  <link href="/css/footer.css" rel="stylesheet" type="text/css" />
+  <div id="footer">
+    <img src="/images/footer/innovative-future.png" class="footer-future" />
+    <div class="footer-contact">
+      <img src="/images/footer/wechat-icon.png" />
+      <img src="/images/footer/qq-icon.png" />
+      <img src="/images/footer/phone-icon.png" />
+    </div>
+    <div class="footer-line"></div>
+    <div class="footer-bot">
+      <div class="footer-bot-left">
+        <div class="footer-bot-navs">
+          <li class="nav-item">
+            <a href="/about/R355-1636.html" data-localize="footer.about_us">关于我们</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1637.html" data-localize="footer.contact_us">联系我们</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1632.html" data-localize="footer.disclaimer">免责声明</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1633.html" data-localize="footer.member_notice">会员须知</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1639.html" data-localize="footer.payment_notice">收费说明</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1640.html" data-localize="footer.remittance_method">汇款方式</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1641.html" data-localize="footer.process">办理流程</a>
+          </li>
+        </div>
+        <p data-localize="footer.copyright">Copyright 2007-2025 R355.com， All Rights Reserved <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备 07502261号-1</a></p>
+      </div>
+      <img src="/images/footer/qrcode.png" style="width: 94px; height: 94px;">
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript" src="/js/Mouse.js" charset="utf-8"></script>
+   <script>
+       $(function () {
+           AjaxInitForm('#feedbackform', '#btnSubmit_feedback', 0);
+      });
+  </script>
+<script src="/js/purify.min.js"></script>
+  <script src="/js/jquery.SuperSlide.js"></script>
+      <script src="/js/base.js"></script> 
+    <script src="/js/smcm.js"></script> 
+   
+       <script type="text/javascript">
+           $(document).ready(function () {
+               $('#imgList img').each(function (i) {
+                   $(this).click(function (e) {
+                       viewPic.setPic(i);
+                   });
+               });
+              
+           });      
+       </script>
+         <script type="text/javascript" src="/js/enlarge_file.js"></script>
+</body>
+</html>

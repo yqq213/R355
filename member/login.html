@@ -1,7 +1,7 @@
 
 <html>
 <head>
-<title>会员中心-R355服饰资讯网</title>
+<title>会员登录-帮助中心-R355服饰资讯网</title>
 <meta name="Description"  content="R355服饰资讯网,专业的服装设计网站,为您提供最专业的时装设计,时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会等信息">
 <meta name="keywords" content="时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装书籍,时装书籍,时装发布,时装发布会">
 <meta name="subject" content="服装设计" />
@@ -10,10 +10,11 @@
 <meta name="location" content="China" />
 <meta name="resource-type" content="Good WebSites" />
 <meta name="email" content="R355@R355.com" />
-<meta name="author" content="R355服饰资讯网,http://www.R355.com" />
+<meta name="author" content="R355服饰资讯网,https://www.R355.com" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link href="/css/base.css" rel="stylesheet" type="text/css">
 <link href="/css/master.css" rel="stylesheet" type="text/css">
-<link href="/css/user.css" rel="stylesheet" type="text/css">
+<link href="/css/smcm.css" rel="stylesheet" type="text/css">
     <link href="/css/list.css" rel="stylesheet" type="text/css">
     <link href="/css/new2022.css" rel="stylesheet" type="text/css">
 </head>
@@ -24,29 +25,44 @@
   <link href="/css/header.css" rel="stylesheet" type="text/css" />
   <link href="//at.alicdn.com/t/c/font_4789865_f95hj9izwcr.css" rel="stylesheet">
   <script src="/js/vue.global.js"></script>
+  <script src="/js/i18n-init.js"></script>
   <script src="/js/menu.js?v=0.0121"></script>
   <!-- 引入防xss攻击js -->
   <script src="/js/purify.min.js"></script>
 
   <div id="header">
+    <div class="lang-switcher">
+      <div class="lang-current">
+        <i class="iconfont icon-yuyan"></i>
+        <span class="lang-text">中文</span>
+        <i class="iconfont icon-xiajiantou"></i>
+      </div>
+      <ul class="lang-list">
+        <li data-lang="zh">中文</li>
+        <li data-lang="en">English</li>
+        <li data-lang="es">Español</li>
+        <li data-lang="fr">Français</li>
+        <li data-lang="ru">Русский</li>
+      </ul>
+    </div>
     <a href="/" title="R355服饰资讯网"><img src="/images/header/logo.png" class="header-logo"></a>
     <div class="header-first">
       <div class="search">
         <div class="search-icon">
           <img src="/images/header/icon-search.png" alt="">
         </div>
-        <input placeholder="请输入品牌名" class="search-input" value="" id="key_barnd" />
+        <input placeholder="请输入品牌名" class="search-input" value="" id="key_barnd" data-localize="header.search_placeholder" />
         <div class="search-camera">
           <img src="/images/header/camera-icon.png" />
         </div>
-        <div class="search-btn">全站搜</div>
+        <div class="search-btn" data-localize="header.search_btn">全站搜</div>
         <!-- 拍照搜索弹框 -->
         <div class="search-pop">
           <div class="search-content">
-            <div class="search-drop">拖拽图片到这里</div>
+            <div class="search-drop" data-localize="header.drag_hint">拖拽图片到这里</div>
             <div class="upload-wrap">
               <input type="file" class="upload-pic" />
-              <span class="upload-text">选择文件</span>
+              <span class="upload-text" data-localize="header.choose_file">选择文件</span>
             </div>
              
           </div>
@@ -54,14 +70,14 @@
             <div class="upload-error-text" style="color:red">抱歉，您上传的文件不是图片格式，请<a href="javascript:void(0)">重新上传</a></div>
             <div class="upload-error-text">仅支持2M以下jpg，jpeg，png，bmp，gif格式图片</div>
           </div>
-          <div class="upload-loading" style="display: none;">正在加载图片...</div>
+          <div class="upload-loading" style="display: none;" data-localize="header.loading">正在加载图片...</div>
           <div class="upload-close"></div>
         </div>
       </div>
       <div class="header-first-right">
-        <a href="/about/downLoadUrl.aspx"><div class="header-first-exe"><img src="/images/header/exe-icon.png" />桌面客户端</div></a>
+        <a href="/about/downLoadUrl.aspx"><div class="header-first-exe"><img src="/images/header/exe-icon.png" /><span data-localize="header.desktop_client">桌面客户端</span></div></a>
         
-         <div class="header-first-user">欢迎您，<span>wusuowei(点数会员) <a href="/member/default.aspx" class="app" style="color: #ff0000;">会员中心</a> | <a href="/member/loginOut.aspx">退 出</a></span></div>
+         <div class="header-first-login"><a href="/member/login.aspx" data-localize="header.login">登录</a><span class="header-first-login-line"></span><a href="/member/reg.aspx" data-localize="header.register">注册</a></div>
    
       </div>
     </div>
@@ -76,7 +92,7 @@
         @click="handleClickMenu($event, item)"
       >
         <img :src="item.icon" v-if="item.icon" style="pointer-events: none;" />
-        <span v-if="item.name" style="pointer-events: none;">{{ item.name }}</span>
+        <span v-if="item.name" style="pointer-events: none;">{{ t(item.key || item.name) }}</span>
       </li>
        <!-- 导航菜单箭头 -->
       <span
@@ -109,10 +125,10 @@
                 <div class="icon-wrap">
                   <img :src="item.icon" />
                 </div>
-                <p class="label">{{ item.name }}</p>
+                <p class="label">{{ t(item.key || item.name) }}</p>
               </div>
               <div class="wrap-nav">
-                <li class="sub-nav" v-for="(child, index) in item.subMenu" :key="index" @click="jumpTo(child)">{{ child.name }}</li>
+                <li class="sub-nav" v-for="(child, index) in item.subMenu" :key="index" @click="jumpTo(child)">{{ t(child.key || child.name) }}</li>
               </div>
               <div class="desc" v-if="item.desc">{{ item.desc }}</div>
             </div>
@@ -120,9 +136,9 @@
           <div class="navs-modal-content-right" v-if="currentNav.category_intro">
             <div>
               <p class="intro-title">
-                <img src="/images/header/intro-title.png" style="margin-right: 5px;">栏目介绍
+                <img src="/images/header/intro-title.png" style="margin-right: 5px;">{{ t('menu.column_intro') }}
               </p>
-              <p class="intro-text">{{ currentNav.category_intro }}</p>
+              <p class="intro-text">{{ t(currentNav.category_intro_key || currentNav.category_intro) }}</p>
             </div>
           </div>
         </div>
@@ -142,13 +158,13 @@
         });
     })
 
-    const {createApp, ref, computed} = Vue
+    const {createApp, ref, computed, onMounted} = Vue
 
     const app = createApp({
       setup() {
         const navModalVisible = ref(false)
-
         const currentNav = ref({})
+        const i18nData = ref(window.i18nData || {})
 
         const hoverFontColor = computed(() => currentNav.value.backgroundTop)
 
@@ -156,11 +172,17 @@
 
         let timeId = 0  // 定时器id，计算鼠标停留时间
 
+        onMounted(() => {
+          $(document).on('localize.completed', () => {
+            i18nData.value = window.i18nData
+          })
+        })
+
         // 鼠标移动到菜单
         function mouseEnterNav(e, item) {
           timeId = setTimeout(() => {
             showModal(e, item)
-          }, 2000)
+          }, 200)
         }
 
         // 显示菜单
@@ -191,6 +213,15 @@
           }
         }
 
+        const t = (key) => {
+          if (!key) return ''
+          if (window.i18nHandler && window.i18nHandler.translate) {
+            const val = i18nData.value
+            return window.i18nHandler.translate(key)
+          }
+          return key
+        }
+
         return {
           navModalVisible,
           currentNav,
@@ -199,7 +230,9 @@
           mouseEnterNav,
           handleMouseLeave,
           jumpTo,
-          handleClickMenu
+          handleClickMenu,
+          t,
+          i18nData
         }
       }
     })
@@ -210,51 +243,78 @@
 
 </section>
 
-    <div class="user">
-
-<div class="user_titel">我的资料库</div>
-<div class="user_info" style="margin-bottom:0">
-<div class="info_left"><img src="/images/user.png" width="61" height="61"><p>wusuowei</p></div>
-<div class="info_right"><h3>您的会员信息</h3>
-  <p>会员类型：<span>点数会员</span></p><p>账户信息：<span>剩余点数：621，到期时间：2026/10/21 11:32:22</span></p></div>
-<div class="info_btn"><a href="default.aspx">个人资料</a></div>
-<div style="clear:both"></div>
-</div>
-</div>
-<div class="user_nav">
-<ul>
-<li class="on"><a href="memberData.aspx"><span class="icon1 iconfont">&#xe614;</span>我的资料库</a></li>
-
-<li><a href="feedback.aspx"><span class="icon1 iconfont">&#xe613;</span>需求与建议反馈</a></li>
-<li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><span class="icon1 iconfont">&#xe612;</span>客服中心</a></li>
-
-
-</ul>
-</div>
-<div class="user_tab"><table width="100%" border="0" cellspacing="0" cellpadding="5">
-
-  <tr class="hr">
-    <td width="62%" nowrap>资料名称</td>
-    <td width="15%" nowrap>上传时间</td>
-    <td width="14%" nowrap>浏览状态</td>
-    <td width="9%" nowrap>操作</td>
-  </tr>
- 
     
-</table>
-     <div style="clear:both"></div>
-<div class="pages" style="margin-top:15px"><span id="Pagination"></span></div>
+    <div class="Login_box">
+  <div class="top">
+    <div class="txt" data-localize="login.title">欢迎登录</div>
+  </div>
+         <form id="loginform" name="loginform" url="/Ajax/cheuser.ashx?act=user_login">
+                 <div class="main1">
+    <div class="left1">
+      <div class="text_box1">
+        <div class="text_left" data-localize="login.username">用户名：</div>
+        <div class="text_right">
+          <input class="input" type="text" name="txtUserName" id="txtUserName" value="" />
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left" data-localize="login.password">密码：</div>
+        <div class="text_right">
+          <input class="input" type="password" name="txtPassword" id="txtPassword" value="" />
+        </div>
+      </div>
+    <div class="text_box1">
+        <div class="text_left" data-localize="member.verification_code">验证码：</div>
+        <div class="text_right">
+          <input class="input" type="text" name="txtcode" id="txtcode" value="" style="width:100px" placeholder="请输入5位验证码" data-localize="member.placeholder_code" /> <a href="javascript:fGetCode()"><img id="imgCount" name="imgCount" src="/VerifyCode.aspx" style="margin: auto 5px;  height: 46px" align="absmiddle"></a>
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">&nbsp;</div>
+        <div class="text_right" style="font-size:12px; color:#a8a7a7">
+          <label>
+            <input name="remember" type="checkbox" id="remember" value="1" />
+            <span data-localize="login.remember">下次自动登录</span></label> <div id="msgtips" class="tip-box"></div>
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">&nbsp;</div>
+        <div class="text_right" style="font-size:12px; color:#a8a7a7">
+          <div class="Login_btn">
+              <input id="btnSubmit" name="btnSubmit" value="立即登录" type="submit" class="submit_btn reglogin_btn">
+              </div>
+          <div class="get_back"><a href="javascript:;" onClick="javascript:showDiv_c()">忘记密码？</a></div>
+          <div class="ge"><a href="/about/R355-1636.html">关于我们</a> | <a href="/about/R355-1641.html">办理流程</a> | <a href="/about/downLoadUrl.aspx">客户端下载</a> | <a href="https://www.r355.com/">返回首页</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="right1">
+      <div class="r1">马上注册成为R355服饰资讯会员开通试用服务，就可以浏览更多精彩资讯！</div>
+      <div class="r2">客服电话：020-31232355</div>
+      <div class="r3"> <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px" title="点击这里给我发消息" alt="点击这里给我发消息" src="/images/qq.png"></a></div>
+      <div class="r4">微信咨询
+        <div class="wx_show"><img src="/images/wx_box.png" width="121" height="106"></div>
+      </div>
+      <div class="r5"><a href="/member/reg.aspx"><img src="/images/btn.png" width="114" height="46"></a></div>
+    </div>
+  </div>
+             </form>
 </div>
-
- <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
+     <input name="turl" type="hidden" id="turl" value="https://www.r355.com/member/default.aspx" />
+ 
+<script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+            <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+            <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
+<script src="/js/smcm.js"></script>
 <link rel="stylesheet" href="/css/validate.css" />
+    <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
 <ul class="kf">
   <li class="li1">
-    <div class="show_a"> <em></em>
+    <div class="show_a"><em></em>
       <div style="padding-left:10px">
         <div class="kf_titel">在线客服</div>
         <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px" title="点击这里给我发消息" alt="点击这里给我发消息" src="http://wpa.qq.com/pa?p=2:18550168:41"></a></div>
-     
+      <div><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3871105&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px; margin-left:10px" title="点击这里给我发消息" alt="点击这里给我发消息" src="http://wpa.qq.com/pa?p=2:3871105:41"></a></div>
     </div>
   </li>
   <li class="li2">
@@ -264,7 +324,7 @@
     </div>
   </li>
   <li class="li3">
-    <div class="show_c">
+     <div class="show_c">
     <form id="feedbackform" name="feedbackform" url="/Ajax/addneed.ashx">
       <div class="kf_titel">会员需求与建议</div>
       <em></em>
@@ -273,12 +333,11 @@
         </form>
     </div>
   </li>
-  <a href="http://widget.weibo.com/dialog/follow.php?fuid=2825343592&refer=www.r355.com&language=zh_cn&type=widget_page&vsrc=app_followbutton&backurl=http%3A%2F%2Fwww.r355.com%2F&rnd=1395281896175" title="新浪微博
-  " target="_blank">
+  <a href="http://widget.weibo.com/dialog/follow.php?fuid=2825343592&refer=www.r355.com&language=zh_cn&type=widget_page&vsrc=app_followbutton&backurl=http%3A%2F%2Fwww.r355.com%2F&rnd=1395281896175" title="新浪微博" target="_blank">
   <li class="li4"></li>
   </a>
   <li class="li5">
-    <div class="show_d"><em></em><img src="/images/weixin_code.png" width="106" height="240"></div>
+    <div class="show_d"><em></em><img src="/images/weixin_code.png?v=0.133" width="106" height="240"></div>
   </li>
   <li class="li7"></li>
 </ul>
@@ -317,90 +376,41 @@
             <a href="/about/R355-1641.html">办理流程</a>
           </li>
         </div>
-        <p>Copyright 2007-2024 R355.com， All Rights Reserved 闽 ICP 备 07502261 号-1</p>
+        <p>Copyright 2007-2025 R355.com， All Rights Reserved <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备 07502261号-1</a></p>
       </div>
       <img src="/images/footer/qrcode.png" style="width: 94px; height: 94px;">
     </div>
   </div>
 </section>
-<script src="/js/jquery.min.js"></script>
-<script src="/js/jquery.SuperSlide.js"></script> 
-<script src="/js/base.js"></script>
-<script src="/js/smcm.js"></script>
+
 <script type="text/javascript" src="/js/Mouse.js" charset="utf-8"></script>
-<script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
-            <script type="text/javascript" src="/js/jquery.form.min.js"></script>
-            <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
-<input name="webBot1$turl" type="hidden" id="webBot1_turl" value="https://www.r355.com/member/memberData.aspx" />
-<script src="/js/purify.min.js"></script>
- <script>
+   <script>
        $(function () {
            AjaxInitForm('#feedbackform', '#btnSubmit_feedback', 0);
-          $(this).keypress(function (e) {
-              var key = window.event ? e.keyCode : e.which;
-              if (key.toString() == "13") {
-                  return false;
-              }
-          });
-          var searchEmptyHtml = '<div class="wrap-tips"><div class="search-tips"><p class="cnt-tips">您可以点击上面字母快速检索品牌；</p><div class="extra"><p class="cnt">需要查看所有品牌，请点击：</p><a href="javascript:void(0)" onClick="getSiftDataTop(\'id\',\'topBrandStr\',\'all\');" title="查看所有品牌" class="link-btn">查看所有品牌</a></div><i class="notice-status"></i></div></div>';
-          var tipText = '请输入品牌名称';
-          $(".text_a").click(function () {
-              $(".ChoiceLayerTop").removeClass("currentTagR");
-
-              //默认选中A
-              $("#searchLetterTop a.current").removeClass('current');
-              //$("#searchLetterTop a").eq(0).addClass('current');
-              var text = $(".text_a").val();
-              if (text != '' && text.substr(0, 1) != '请') {
-                  checkLetter(text);
-                  getSiftDataTop('id', 'topBrandStr', text.substr(0, 1).toUpperCase());
-              } else {
-                  $('#searchContentTop').html(searchEmptyHtml);
-              }
-              if (text == tipText)
-                  $(".text_a").val('');
-          });
-
-          $("#searchLetterTop a").click(function () {
-              $("#searchLetterTop a.current").removeClass('current');
-              $(this).addClass('current');
-              var lt = ($(this).text() == '其他') ? 'qt' : $(this).text();
-              getSiftDataTop('id', 'topBrandStr', lt);
-          });
-
-          $(".Btnclose").click(function () {
-              $(".ChoiceLayerTop").addClass("currentTagR");
-              var text = $(".text_a").val();
-              if (text == '')
-                  $(".text_a").val(tipText);
-          });
-
-          $("#topBrandStr").keyup(function (e) {
-              var arr = [13, 37, 38, 39, 40];
-              if (jQuery.inArray(e.keyCode, arr) != -1) return;
-              var lt = $(this).val();
-              if (lt == '') {
-                  $('#searchContentTop').html(searchEmptyHtml);
-              } else {
-                  checkLetter(lt);
-                  getSiftDataTop('text', 'topBrandStr', lt);
-              }
-          });
       });
-
-      function getSiftDataTop(tp, tag, lt) {
-          var hi = '加载中...';
-          $('#searchContentTop').html(hi);
-          $.ajax({
-              type: "post",
-              url: "/ajax/ret_brand_list_all.ashx",
-              data:{ cartype:lt,bid:0,tp:tp },
-              dataType: "html",
-              success: function (data) {
-                  $('#searchContentTop').html(data);
-              }
-          });
-      }
-  </script> 
+  </script>
+<script src="/js/purify.min.js"></script>
+  <script src="/js/jquery.SuperSlide.js"></script>
+      <script src="/js/base.js"></script> 
+  <script type="text/javascript" charset="utf-8" src="/js/login-validate.js?t=0.213"></script>
 </body>
 </html>
+<!-- 找回密码弹框结束 --> 
+<div id="popDiv_c" class="mydiv_c" style="display:none">
+  <div class="drop_in">
+    <div class="drop_in_Close" style="background:#d8b056; width:100%; margin-right:0px"><span style="float:left; line-height:50px; color:#FFF; padding-left:15px; font-size:18px">找回密码</span><a href="javascript:closeDiv_c()" style="float:right; color:#FFF; padding-right:10px"><span class="icon1 iconfont">&#xe620;</span></a></div>
+    <div class="drop_in_top" style="line-height:4px !important; padding-top:70px; padding-left:30px; padding-right:30px; padding-bottom:30px"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe63d;</span>考虑到贵司账号多台电脑使用，修改后会导致其他电脑无法正常使用，请您用签约时的手机号码，联系客服人员进行查询或修改，谢谢！</div>
+    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank" style="float:left;padding-left:210px;color:#ddbb6d"><span class="icon1 iconfont"></span>在线咨询</a>
+    <div class="r14 r15" style="background-image:none;"><a href="javascript:;" style="color:#ddbb6d"><span class="icon1 iconfont" style="color:#ddbb6d"></span>微信咨询</a>
+      <div class="wx_show1" style="display: none;"><img src="/images/wx_box.png" width="121" height="106"></div>
+    </div>
+    <div style="clear:both"></div>
+    <div class="do_img">
+      <input type="submit" onClick="javascript:closeDiv_c()"  class="Submission" value="我知道了" style="width:180px; margin-left:auto; margin-right:auto; font-size:18px">
+    </div>
+  </div>
+</div>
+<div id="bg_c" class="bg_show_c" style="display:none;"></div>
+<iframe id='popIframe_c' class='popIframe_c' frameborder='0' ></iframe>
+
+<!-- 找回密码弹框结束 --> 

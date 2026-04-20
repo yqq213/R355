@@ -25,222 +25,232 @@
     <link href="/css/new2022.css" rel="stylesheet" type="text/css" />
     <!-- 引入防xss攻击js -->
     <script src="/js/purify.min.js"></script>
+    <script src="/js/jquery-1.7.2.min.js"></script>
+    <script src="/js/i18n-init.js"></script>
   </head>
   <body>
     <script src="/js/jquery-1.7.2.min.js"></script>
-    <div id="top_nav">
-      <div class="new_top">
-        <div class="new_top_box">
-          <div class="new_top_l">
-            <a href="http://2024.r355.com/"
-              ><img src="/images/n_logo.png" alt="R355服饰资讯网"
-            /></a>
+<section>
+  <link href="/css/header.css" rel="stylesheet" type="text/css" />
+  <link href="//at.alicdn.com/t/c/font_4789865_f95hj9izwcr.css" rel="stylesheet">
+  <script src="/js/vue.global.js"></script>
+  <script src="/js/i18n-init.js"></script>
+  <script src="/js/menu.js?v=0.0121"></script>
+  <!-- 引入防xss攻击js -->
+  <script src="/js/purify.min.js"></script>
+
+  <div id="header">
+    <div class="lang-switcher">
+      <div class="lang-current">
+        <i class="iconfont icon-yuyan"></i>
+        <span class="lang-text">中文</span>
+        <i class="iconfont icon-xiajiantou"></i>
+      </div>
+      <ul class="lang-list">
+        <li data-lang="zh">中文</li>
+        <li data-lang="en">English</li>
+        <li data-lang="es">Español</li>
+        <li data-lang="fr">Français</li>
+        <li data-lang="ru">Русский</li>
+      </ul>
+    </div>
+    <a href="/" title="R355服饰资讯网"><img src="/images/header/logo.png" class="header-logo"></a>
+    <div class="header-first">
+      <div class="search">
+        <div class="search-icon">
+          <img src="/images/header/icon-search.png" alt="">
+        </div>
+        <input placeholder="请输入品牌名" class="search-input" value="" id="key_barnd" data-localize="header.search_placeholder" />
+        <div class="search-camera">
+          <img src="/images/header/camera-icon.png" />
+        </div>
+        <div class="search-btn" data-localize="header.search_btn">全站搜</div>
+        <!-- 拍照搜索弹框 -->
+        <div class="search-pop">
+          <div class="search-content">
+            <div class="search-drop" data-localize="header.drag_hint">拖拽图片到这里</div>
+            <div class="upload-wrap">
+              <input type="file" class="upload-pic" />
+              <span class="upload-text" data-localize="header.choose_file">选择文件</span>
+            </div>
+             
           </div>
-          <div class="new_top_r1">
-            <div class="n_search">
-              <div class="n_s1">
-                <img src="/images/n_icon_c.png" alt="R355服饰资讯网" />
+          <div class="upload-error" style="display: none;">
+            <div class="upload-error-text" style="color:red"><span data-localize="header.upload_error_hint">抱歉，您上传的文件不是图片格式，请</span><a href="javascript:void(0)" data-localize="header.re_upload">重新上传</a></div>
+            <div class="upload-error-text" data-localize="header.upload_format_hint">仅支持2M以下jpg，jpeg，png，bmp，gif格式图片</div>
+          </div>
+          <div class="upload-loading" style="display: none;" data-localize="header.loading">正在加载图片...</div>
+          <div class="upload-close"></div>
+        </div>
+      </div>
+      <div class="header-first-right">
+        <a href="/about/downLoadUrl.aspx"><div class="header-first-exe"><img src="/images/header/exe-icon.png" /><span data-localize="header.desktop_client">桌面客户端</span></div></a>
+        
+         <div class="header-first-user"><span data-localize="header.welcome">欢迎您，</span><span>wusuowei(点数会员) <a href="/member/default.aspx" class="app" style="color: #ff0000;" data-localize="header.member_center">会员中心</a> | <a href="/member/loginOut.aspx" data-localize="header.logout">退 出</a></span></div>
+   
+      </div>
+    </div>
+    <!-- 导航菜单 -->
+    <div class="navs">
+       <li
+        class="navs-item"
+        v-for="(item, index) in menuList"
+        :key="index"
+        @mouseenter="mouseEnterNav($event, item)"
+        @mouseleave="handleMouseLeave"
+        @click="handleClickMenu($event, item)"
+      >
+        <img :src="item.icon" v-if="item.icon" style="pointer-events: none;" />
+        <span v-if="item.name" style="pointer-events: none;">{{ t(item.key || item.name) }}</span>
+      </li>
+       <!-- 导航菜单箭头 -->
+      <span
+        id="navArrow"
+        class="iconfont icon-a-xingzhuang12"
+        :style="{color: currentNav.backgroundTop, transform: navModalVisible ? 'translate3D(0, -40%, 0)' : 'translate3D(0, 0, 0)'}"
+        @mouseenter="navModalVisible = true"
+        @mouseleave="navModalVisible = false"
+      >
+      </span>
+    </div>
+    <!-- 导航菜单下拉项 -->
+    <div class="nav-modal-wrap">
+      <div
+        class="navs-modal"
+        ref="navModal"
+        :style="{background: currentNav.background, transform: navModalVisible ? 'translate3D(0, 0, 0)' : 'translate3D(0, calc(-100% - 1px), 0)'}"
+        :class="currentNav.class"
+        
+        @mouseenter="navModalVisible = true"
+        @mouseleave="navModalVisible = false"
+      >
+        <div class="navs-modal-top" :style="{background: currentNav.backgroundTop}">
+          <span class="circle" :style="{background: currentNav.backgroundTop}"></span>
+        </div>
+        <div class="navs-modal-content">
+          <div class="navs-modal-content-left">
+            <div class="category" v-for="(item, index) in currentNav.children" :key="index">
+              <div class="section" @click="jumpTo(item)">
+                <div class="icon-wrap">
+                  <img :src="item.icon" />
+                </div>
+                <p class="label">{{ t(item.key || item.name) }}</p>
               </div>
-              <div class="n_s2">
-                <input
-                  name=""
-                  type="text"
-                  placeholder="请输入关键词"
-                  class=""
-                />
+              <div class="wrap-nav">
+                <li class="sub-nav" v-for="(child, index) in item.subMenu" :key="index" @click="jumpTo(child)">{{ t(child.key || child.name) }}</li>
               </div>
-              <div class="n_s4"><a>全站搜</a></div>
-              <div class="n_s3">
-                <a><img src="/images/n_icon_b.png" alt="" /></a>
-              </div>
+              <div class="desc" v-if="item.desc">{{ item.desc }}</div>
             </div>
           </div>
-
-          <div class="n-user">
-            欢迎您，<span style="background-color: #eeeeee"
-              >yqq(未授权)
-              <a href="/member/default.aspx" class="app" style="color: #ff0000"
-                >会员中心</a
-              >
-              | <a href="/member/loginOut.aspx">退 出</a></span
-            >
-            <a href="/about/downLoadUrl.aspx"
-              ><img src="/images/app.png" width="118" height="31"
-            /></a>
+          <div class="navs-modal-content-right" v-if="currentNav.category_intro">
+            <div>
+              <p class="intro-title">
+                <img src="/images/header/intro-title.png" style="margin-right: 5px;">{{ t('menu.column_intro') }}
+              </p>
+              <p class="intro-text">{{ t(currentNav.category_intro_key || currentNav.category_intro) }}</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="color_box">
-        <ul
-          id="nav—b"
-          class="nav—b clearfix—b"
-          style="width: 100%; text-align: center"
-        >
-          <li class="nLi—b">
-            <h3><a href="http://2024.r355.com/">首页</a></h3>
-          </li>
-          <li class="nLi—b">
-            <h3><a>|</a></h3>
-          </li>
-          <li class="nLi—b">
-            <h3><a href="/qszx/scqs-0-0-0-0--1.html">浅析未来</a></h3>
-            <ul class="sub—b">
-              <li><a href="/qszx/scqs-0-0-0-0--1.html">全部</a></li>
-              <li><a href="/qszx/scqs-10-0-0-0--1.html">色彩趋势</a></li>
-              <li><a href="/qszx/scqs-13-0-0-0--1.html">图案趋势</a></li>
-              <li><a href="/qszx/scqs-11-0-0-0--1.html">面料趋势</a></li>
-            </ul>
-          </li>
-          <li class="nLi—b">
-            <h3><a href="/jdfx/jdfx-0-0-0-0--1.html">流行分析</a></h3>
-            <ul class="sub—b">
-              <li><a href="/jdfx/jdfx-12-0-0-0--1.html">T台分析</a></li>
-              <li><a href="/jdfx/jdfx-942-0-0-0--1.html">品牌分析</a></li>
-              <li><a href="/jdfx/jdfx-943-0-0-0--1.html">零售分析</a></li>
-              <li><a href="/jdfx/jdfx-945-0-0-0--1.html">展会分析</a></li>
-              <li><a href="/jdfx/jdfx-944-0-0-0--1.html">订货会分析</a></li>
-            </ul>
-          </li>
-          <li class="nLi—b">
-            <h3><a href="javascript:;">品牌图库</a></h3>
-            <ul class="sub—b">
-              <li><a href="/kstk/xiangce-881.html">设计师品牌</a></li>
-              <li><a href="/kstk/xiangce-3.html">商品品牌</a></li>
-              <li><a href="/kstk/xiangce-7.html">运动品牌</a></li>
-              <li><a href="/kstk/xiangce-8.html">户外品牌</a></li>
-
-              <li><a href="/qszx/dhh-0-0-0-0-1.html">订货会款式</a></li>
-            </ul>
-          </li>
-
-          <li class="nLi—b">
-            <h3><a href="javascript:;">市场款式</a></h3>
-            <ul class="sub—b">
-              <li>
-                <a href="/kstk/scks-2-75-0-0-0-0-0-0-0-0-0-0--0-1.html">T恤</a>
-              </li>
-              <li>
-                <a href="/kstk/scks-2-80-0-0-0-0-0-0-0-0-0-0--0-1.html">卫衣</a>
-              </li>
-              <li>
-                <a href="/kstk/scks-2-270-0-0-0-0-0-0-0-0-0-0--0-1.html"
-                  >夹克</a
-                >
-              </li>
-              <li>
-                <a href="/kstk/scks-2-67-0-0-0-0-0-0-0-0-0-0--0-1.html"
-                  >棉衣/羽绒</a
-                >
-              </li>
-              <li>
-                <a href="/kstk/scks-2-271-0-0-0-0-0-0-0-0-0-0--0-1.html"
-                  >马夹</a
-                >
-              </li>
-              <li>
-                <a href="/kstk/scks-2-73-0-0-0-0-0-0-0-0-0-0--0-1.html">皮衣</a>
-              </li>
-              <li>
-                <a href="/kstk/scks-2-74-0-0-0-0-0-0-0-0-0-0--0-1.html">单西</a>
-              </li>
-              <li>
-                <a href="/kstk/scks-2-272-0-0-0-0-0-0-0-0-0-0--0-1.html"
-                  >中长外套</a
-                >
-              </li>
-              <li>
-                <a href="/kstk/scks-2-76-0-0-0-0-0-0-0-0-0-0--0-1.html">衬衫</a>
-              </li>
-              <li>
-                <a href="/kstk/scks-2-77-0-0-0-0-0-0-0-0-0-0--0-1.html">毛衫</a>
-              </li>
-              <li>
-                <a href="/kstk/scks-2-845-0-0-0-0-0-0-0-0-0-0--0-1.html"
-                  >套装</a
-                >
-              </li>
-              <li>
-                <a href="/kstk/scks-872-873-0-0-0-0-0-0-0-0-0-0--0-1.html"
-                  >商务裤</a
-                >
-              </li>
-              <li>
-                <a href="/kstk/scks-872-874-0-0-0-0-0-0-0-0-0-0--0-1.html"
-                  >休闲裤</a
-                >
-              </li>
-              <li>
-                <a href="/kstk/scks-872-875-0-0-0-0-0-0-0-0-0-0--0-1.html"
-                  >牛仔裤</a
-                >
-              </li>
-              <li>
-                <a href="/kstk/scks-872-876-0-0-0-0-0-0-0-0-0-0--0-1.html"
-                  >欧货裤</a
-                >
-              </li>
-              <li>
-                <a href="/kstk/scks-872-877-0-0-0-0-0-0-0-0-0-0--0-1.html"
-                  >多袋裤</a
-                >
-              </li>
-            </ul>
-          </li>
-
-          <li class="nLi—b">
-            <h3><a href="/qszx/fbh-0-0-0-0-0-0-0-1.html">时装发布</a></h3>
-          </li>
-
-          <li class="nLi—b">
-            <h3><a href="javascript:;">读物探究</a></h3>
-            <ul class="sub—b">
-              <li><a href="/books/list-946-0-0-0-0-0-1.html">月刊</a></li>
-              <li><a href="/books/list-947-0-0-0-0-0-1.html">趋势书籍</a></li>
-              <li><a href="/books/list-18-0-0-0-0-0-1.html">国外杂志</a></li>
-            </ul>
-          </li>
-
-          <li class="nLi—b">
-            <h3><a href="javascript:;">流行图案</a></h3>
-            <ul class="sub—b">
-              <li><a href="/sctk/list-23-0-0-0-0-0-0--1.html">灵感素材</a></li>
-              <li><a href="/sctk/list-948-0-0-0-0-0-0--1.html">原创图案</a></li>
-              <li>
-                <a href="/sctk/dptaList-949-0-0-0-0-0-0--1.html">大牌图案</a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nLi—b">
-            <h3><a href="javascript:;">独家原创</a></h3>
-            <ul class="sub—b">
-              <li><a href="/djyc/books-946-0-0-0-0-0-1.html">BRT</a></li>
-              <li><a href="/djyc/books-947-0-0-0-0-0-1.html">趋势</a></li>
-              <li><a href="/djyc/tuan-948-0-0-0-0-0-0--1.html">图案</a></li>
-            </ul>
-          </li>
-          <li class="nLi—b">
-            <h3><a>|</a></h3>
-          </li>
-          <li class="nLi—b n-bo">
-            <h3><a href="/djyc/books-946-0-0-0-0-0-1.html">BRT Book</a></h3>
-          </li>
-
-          <li class="nLi—b">
-            <h3><a href="/books/list-947-0-0-0-0-0-1.html">趋势书籍</a></h3>
-          </li>
-
-          <li class="nLi—b">
-            <h3><a href="/sctk/list-948-0-0-0-0-0-0--1.html">原创图案</a></h3>
-          </li>
-          <li class="nLi—b">
-            <h3>
-              <a href="/sctk/dptaList-949-0-0-0-0-0-0--1.html">大牌图案</a>
-            </h3>
-          </li>
-        </ul>
-      </div>
     </div>
+  </div>
+
+ <script>
+    
+    $(function() {
+        $(".search-btn").on("click", function(){
+            var brandkey=$("#key_barnd").val();
+            if(brandkey!='')
+            {
+                window.location.href="/kstk/search-0-0-0-"+brandkey+"-1.html";
+            }
+        });
+    })
+
+    const {createApp, ref, computed, onMounted} = Vue
+
+    const app = createApp({
+      setup() {
+        const navModalVisible = ref(false)
+        const currentNav = ref({})
+        const i18nData = ref(window.i18nData || {})
+
+        const hoverFontColor = computed(() => currentNav.value.backgroundTop)
+
+        const menuList = window.menuList
+
+        let timeId = 0  // 定时器id，计算鼠标停留时间
+
+        onMounted(() => {
+          $(document).on('localize.completed', () => {
+            i18nData.value = window.i18nData
+          })
+        })
+
+        // 鼠标移动到菜单
+        function mouseEnterNav(e, item) {
+          timeId = setTimeout(() => {
+            showModal(e, item)
+          }, 200)
+        }
+
+        // 显示菜单
+        function showModal(e, item) {
+          currentNav.value = item
+          if (item.children) navModalVisible.value = true
+          let navArrowDom = document.querySelector('#navArrow')
+          navArrowDom.style.left = (e.target.offsetLeft + 20 * (window.innerWidth / 1920)) + 'px'
+        }
+
+        // 鼠标离开菜单
+        function handleMouseLeave() {
+          clearTimeout(timeId)
+          navModalVisible.value = false
+        }
+
+        // 点击菜单
+        function handleClickMenu(e, item) {
+          clearTimeout(timeId)
+          showModal(e, item)
+          jumpTo(item)
+        }
+
+        // 点击导航菜单跳转
+        function jumpTo(item) {
+          if (item.link) {
+            item.open ? window.open(item.link) : window.location.href = item.link
+          }
+        }
+
+        const t = (key) => {
+          if (!key) return ''
+          if (window.i18nHandler && window.i18nHandler.translate) {
+            const val = i18nData.value
+            return window.i18nHandler.translate(key)
+          }
+          return key
+        }
+
+        return {
+          navModalVisible,
+          currentNav,
+          hoverFontColor,
+          menuList,
+          mouseEnterNav,
+          handleMouseLeave,
+          jumpTo,
+          handleClickMenu,
+          t,
+          i18nData
+        }
+      }
+    })
+
+    app.mount("#header")
+
+  </script>
+
+</section>
 
     <div
       class="top_banner"
@@ -254,11 +264,11 @@
           class="ChoiceLayer currentTagR"
         >
           <div class="SearchArea">
-            <strong
+            <strong data-localize="common.brand_select_hint"
               >品牌选择：单击品牌首字母，出现该字母开头的品牌名，通过按输入检索精确您的需求！</strong
             >
             <span id="brandStrClose" class="Btnclose right"
-              >[<a id="Btnclose" href="javascript:void(0)">点击关闭</a>]</span
+              >[<a id="Btnclose" href="javascript:void(0)" data-localize="common.click_close">点击关闭</a>]</span
             >
           </div>
           <h1 id="searchLetter" class="alphabeticalSearch">
@@ -288,19 +298,20 @@
             <a id="check_X" href="javascript:void(0);">X</a>
             <a id="check_Y" href="javascript:void(0);">Y</a>
             <a id="check_Z" href="javascript:void(0);">Z</a>
-            <a class="others" href="javascript:void(0);">其他</a>
+            <a class="others" href="javascript:void(0);" data-localize="menu.other">其他</a>
           </h1>
           <div id="searchContent">
             <div class="wrap-tips">
               <div class="search-tips">
-                <p class="cnt-tips">您可以点击上面字母快速检索品牌；</p>
+                <p class="cnt-tips" data-localize="common.quick_search_hint">您可以点击上面字母快速检索品牌；</p>
                 <div class="extra">
-                  <p class="cnt">需要查看所有品牌，请点击：</p>
+                  <p class="cnt" data-localize="common.view_all_brands">需要查看所有品牌，请点击：</p>
                   <a
                     href="javascript:void(0)"
                     onClick="getSiftData('id','brandStr','all');"
                     title="查看所有品牌"
                     class="link-btn"
+                    data-localize="common.view_all_btn"
                     >查看所有品牌</a
                   >
                 </div>
@@ -309,7 +320,7 @@
             </div>
           </div>
         </div>
-        <div class="right_search_titel">订货会款式</div>
+        <div class="right_search_titel" data-localize="menu.order_style">订货会款式</div>
         <div class="right_search_box">
           <input
             name="brandStr"
@@ -318,19 +329,20 @@
             value="请输入品牌名称"
             onFocus="javascript:if(this.value==&#39;请输入品牌名称&#39;)this.value=&#39;&#39;;"
             class="DropmenuSpc search_b"
+            data-localize="common.search_placeholder_brand"
             onBlur="javascript:if(this.value==&#39;&#39;)this.value=&#39;请输入品牌名称&#39;"
           />
         </div>
       </div>
       <div class="list1">
-        <a href="/qszx/dhh-0-0-0-0-1.html" class="e4 list_h1">订货会款式</a>
+        <a href="/qszx/dhh-0-0-0-0-1.html" class="e4 list_h1" data-localize="menu.order_style">订货会款式</a>
       </div>
       <div style="clear: both"></div>
     </ul>
 
     <div class="rightc_top contentW">
       <div class="de2">
-        <span style="float: left">筛选项：</span>
+        <span style="float: left" data-localize="common.filter">筛选项：</span>
         <div class="selectBox">
           <div class="inputCase">
             <input
@@ -339,6 +351,7 @@
               id="txtjd"
               class="imitationSelect"
               value="季度"
+              data-localize="common.season"
               readonly=""
             />
             <i class="fa fa-caret-down"></i>
@@ -366,32 +379,33 @@
               id="txtkey"
               class="imitationSelect"
               value="款式"
+              data-localize="common.style"
               readonly=""
             />
             <i class="fa fa-caret-down"></i>
           </div>
           <ul class="selectUl">
-            <li><a href="dhh-0-0-0-0-1.html" class="actived_li">全部</a></li>
-            <li><a href="dhh-0-0-0-937-1.html">夹克</a></li>
-            <li><a href="dhh-0-0-0-936-1.html">棉服/羽绒</a></li>
-            <li><a href="dhh-0-0-0-935-1.html">皮衣</a></li>
-            <li><a href="dhh-0-0-0-914-1.html">大衣</a></li>
-            <li><a href="dhh-0-0-0-913-1.html">休闲裤</a></li>
-            <li><a href="dhh-0-0-0-939-1.html">牛仔裤</a></li>
-            <li><a href="dhh-0-0-0-912-1.html">卫衣</a></li>
-            <li><a href="dhh-0-0-0-911-1.html">衬衫</a></li>
-            <li><a href="dhh-0-0-0-910-1.html">T恤</a></li>
-            <li><a href="dhh-0-0-0-909-1.html">毛衫</a></li>
-            <li><a href="dhh-0-0-0-941-1.html">套装</a></li>
-            <li><a href="dhh-0-0-0-940-1.html">运动</a></li>
-            <li><a href="dhh-0-0-0-918-1.html">正装套装</a></li>
-            <li><a href="dhh-0-0-0-938-1.html">画册</a></li>
-            <li><a href="dhh-0-0-0-915-1.html">配件辅料</a></li>
-            <li><a href="dhh-0-0-0-956-1.html">其它</a></li>
+            <li><a href="dhh-0-0-0-0-1.html" class="actived_li" data-localize="common.all">全部</a></li>
+            <li><a href="dhh-0-0-0-937-1.html" data-localize="menu.jacket">夹克</a></li>
+            <li><a href="dhh-0-0-0-936-1.html" data-localize="menu.cotton_padded">棉服/羽绒</a></li>
+            <li><a href="dhh-0-0-0-935-1.html" data-localize="menu.leather">皮衣</a></li>
+            <li><a href="dhh-0-0-0-914-1.html" data-localize="menu.coat">大衣</a></li>
+            <li><a href="dhh-0-0-0-913-1.html" data-localize="menu.casual_pants">休闲裤</a></li>
+            <li><a href="dhh-0-0-0-939-1.html" data-localize="menu.jeans">牛仔裤</a></li>
+            <li><a href="dhh-0-0-0-912-1.html" data-localize="menu.hoodie">卫衣</a></li>
+            <li><a href="dhh-0-0-0-911-1.html" data-localize="menu.shirt">衬衫</a></li>
+            <li><a href="dhh-0-0-0-910-1.html" data-localize="menu.t_shirt">T恤</a></li>
+            <li><a href="dhh-0-0-0-909-1.html" data-localize="menu.sweater">毛衫</a></li>
+            <li><a href="dhh-0-0-0-941-1.html" data-localize="menu.set">套装</a></li>
+            <li><a href="dhh-0-0-0-940-1.html" data-localize="menu.sport">运动</a></li>
+            <li><a href="dhh-0-0-0-918-1.html" data-localize="menu.suit">正装套装</a></li>
+            <li><a href="dhh-0-0-0-938-1.html" data-localize="menu.album">画册</a></li>
+            <li><a href="dhh-0-0-0-915-1.html" data-localize="menu.accessories">配件辅料</a></li>
+            <li><a href="dhh-0-0-0-956-1.html" data-localize="menu.other">其它</a></li>
           </ul>
         </div>
         <div class="fr clearfix" id="s_result">
-          <p class="findstyle">共 <a title="9439">9439</a> 个</p>
+          <p class="findstyle"><span data-localize="common.total_prefix">共 </span><a title="9439">9439</a><span data-localize="common.total_suffix"> 个</span></p>
           <div class="btn_page">
             <a class="leftBtn neiyeList" href="javascript:void(0);"></a
             ><span class="pageN">1</span>/<span class="totalN" title="472"
@@ -993,7 +1007,7 @@
     <div class="pages">
       <span id="Pagination"
         ><span class="pagination"
-          ><a href="dhh-0-0-0-0-1.html" style="display: none">上一页</a
+          ><a href="dhh-0-0-0-0-1.html" style="display: none" data-localize="common.prev_page">上一页</a
           ><a href="dhh-0-0-0-0-1.html" class="current">1</a
           ><a href="dhh-0-0-0-0-2.html" class="prev">2</a
           ><a href="dhh-0-0-0-0-3.html" class="prev">3</a
@@ -1001,20 +1015,21 @@
           ><a href="dhh-0-0-0-0-5.html" class="prev">5</a
           ><a href="dhh-0-0-0-0-6.html">…</a
           ><a href="dhh-0-0-0-0-472.html" class="next">472</a
-          ><a href="dhh-0-0-0-0-2.html" class="next">下一页</a></span
+          ><a href="dhh-0-0-0-0-2.html" class="next" data-localize="common.next_page">下一页</a></span
         ><input id="formatString" type="hidden" value="dhh-0-0-0-0-" /><span
           class="searchPage"
           ><span class="page-sum"
-            >共<strong class="allPage">472</strong>页</span
+            ><span data-localize="common.page_sum_prefix">共</span><strong class="allPage">472</strong><span data-localize="common.page_sum_suffix">页</span></span
           >
           <span class="page-go"
             ><input
               type="text"
               class="textPut"
               placeholder="输入页码"
+              data-localize="common.input_page"
               id="gotopagepager"
               onKeyUp="if((event.keyCode ? event.keyCode : event.which ? event.which : event.charCode)==13){gotoPage()}"
-            /><a href="javascript:;" onclick="gotoPage()">跳转</a></span
+            /><a href="javascript:;" onclick="gotoPage()" data-localize="common.jump">跳转</a></span
           ></span
         ></span
       >
@@ -1035,7 +1050,7 @@
         <div class="show_a">
           <em></em>
           <div style="padding-left: 10px">
-            <div class="kf_titel">在线客服</div>
+            <div class="kf_titel" data-localize="common.online_service">在线客服</div>
             <a
               href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes"
               target="_blank"
@@ -1064,19 +1079,20 @@
       <li class="li2">
         <div class="show_b">
           <em></em>
-          <div class="kf_titel">联系我们</div>
+          <div class="kf_titel" data-localize="footer.contact_us">联系我们</div>
           <p>020-31232355</p>
         </div>
       </li>
       <li class="li3">
         <div class="show_c">
           <form id="feedbackform" name="feedbackform" url="/Ajax/addneed.ashx">
-            <div class="kf_titel">会员需求与建议</div>
+            <div class="kf_titel" data-localize="common.feedback_title">会员需求与建议</div>
             <em></em>
             <textarea
               rows="5"
               name="xqjy"
               class="textarea"
+              data-localize="common.feedback_placeholder"
               placeholder="请在此详细输入您公司目前所需资料类型或提交宝贵意见，我司将会在最短的时间内为您上传所需的资料，谢谢！"
             ></textarea>
             <div class="lay">
@@ -1084,6 +1100,7 @@
                 type="submit"
                 id="btnSubmit_feedback"
                 class="Submission1"
+                data-localize="common.submit"
                 value="提交"
               />
             </div>
@@ -1105,36 +1122,47 @@
       </li>
       <li class="li7"></li>
     </ul>
-    <div class="n-bottom">
-      <div class="n-bottom-l">
-        <p class="n-n1">UNLIMITED</p>
-        <p class="n-n1">INFORMATION</p>
-        <p>Accurate market information and effective innovation information</p>
-        <p>Capture information from all over the world at the fastest speed.</p>
-      </div>
-      <div class="n-bottom-c">
-        <p>
-          <a href="/about/R355-1636.html">关于我们</a><i>|</i
-          ><a href="/about/R355-1637.html">联系我们</a><i>|</i
-          ><a href="/about/R355-1632.html">免责声明</a><i>|</i
-          ><a href="/about/R355-1633.html">会员须知</a><i>|</i
-          ><a href="/about/R355-1639.html">收费说明</a><i>|</i
-          ><a href="/about/R355-1640.html">汇款方式</a><i>|</i
-          ><a href="/about/R355-1641.html">办理流程</a>
-        </p>
-        <p class="n-copy">
-          Copyright 2007-2023 R355.com, All Rights Reserved
-          <a
-            href="https://beian.miit.gov.cn"
-            target="_blank"
-            style="font-size: 10px"
-            >闽ICP备07502261号-1</a
-          >
-        </p>
-        <p class="n-copy">R355服饰资讯网（R355.com）版权所有</p>
-      </div>
-      <div class="n-bottom-r"><img src="/images/ply-2.png" alt="" /></div>
+<section>
+  <link href="/css/footer.css" rel="stylesheet" type="text/css" />
+  <div id="footer">
+    <img src="/images/footer/innovative-future.png" class="footer-future" />
+    <div class="footer-contact">
+      <img src="/images/footer/wechat-icon.png" />
+      <img src="/images/footer/qq-icon.png" />
+      <img src="/images/footer/phone-icon.png" />
     </div>
+    <div class="footer-line"></div>
+    <div class="footer-bot">
+      <div class="footer-bot-left">
+        <div class="footer-bot-navs">
+          <li class="nav-item">
+            <a href="/about/R355-1636.html" data-localize="footer.about_us">关于我们</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1637.html" data-localize="footer.contact_us">联系我们</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1632.html" data-localize="footer.disclaimer">免责声明</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1633.html" data-localize="footer.member_notice">会员须知</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1639.html" data-localize="footer.payment_notice">收费说明</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1640.html" data-localize="footer.remittance_method">汇款方式</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1641.html" data-localize="footer.process">办理流程</a>
+          </li>
+        </div>
+        <p data-localize="footer.copyright">Copyright 2007-2025 R355.com， All Rights Reserved <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备 07502261号-1</a></p>
+      </div>
+      <img src="/images/footer/qrcode.png" style="width: 94px; height: 94px;">
+    </div>
+  </div>
+</section>
 
     <script>
       $(function () {
