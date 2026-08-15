@@ -231,7 +231,7 @@ window.menuList = [
       {
         icon: '/images/header/shangchangpinpai.png',
         name: '商场品牌',
-        key: 'menu.brand_gallery',
+        key: 'menu.mall_brand',
         link: '/kstk/main-3-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
         subMenu: [
           {
@@ -274,7 +274,7 @@ window.menuList = [
       {
         icon: '/images/header/yundongpinpai.png',
         name: '运动品牌',
-        key: 'menu.brand_gallery',
+        key: 'menu.sport_brand',
         link: '/kstk/main-7-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
         subMenu: [
           {
@@ -298,7 +298,7 @@ window.menuList = [
             link: '/kstk/main-7-95-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
-            name: '棉服/羽绒',
+            name: '棉衣/羽绒',
             key: 'menu.cotton_padded',
             link: '/kstk/main-7-92-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
@@ -309,7 +309,7 @@ window.menuList = [
           },
           {
             name: '单裤',
-            key: 'menu.pants',
+            key: 'menu.single_pants',
             link: '/kstk/main-7-94-0-0-0-0-0-0-0-0-0-0--0-1.html'
           }
         ]
@@ -317,7 +317,7 @@ window.menuList = [
       {
         icon: '/images/header/huwaipinpai.png',
         name: '户外品牌',
-        key: 'menu.brand_gallery',
+        key: 'menu.outdoor_brand',
         link: '/kstk/main-8-0-0-0-0-0-0-0-0-0-0-0--0-1.html',
         subMenu: [
           {
@@ -337,12 +337,12 @@ window.menuList = [
           },
           {
               name: '滑雪服',
-              key: 'menu.other',
+              key: 'menu.skiing',
               link: '/kstk/main-8-100-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
               name: '赛车服',
-              key: 'menu.other',
+              key: 'menu.racing',
               link: '/kstk/main-8-107-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
@@ -352,22 +352,22 @@ window.menuList = [
           },
           {
               name: '户外外套',
-              key: 'menu.outerwear',
+              key: 'menu.outdoor_jacket',
               link: '/kstk/main-8-97-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
               name: '水洗外套',
-              key: 'menu.outerwear',
+              key: 'menu.wash_jacket',
               link: '/kstk/main-8-108-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
               name: '皮肤衣',
-              key: 'menu.other',
+              key: 'menu.skinny',
               link: '/kstk/main-8-99-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
               name: '户外裤',
-              key: 'menu.pants',
+              key: 'menu.outdoor_pants',
               link: '/kstk/main-8-106-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
         ]
@@ -401,12 +401,12 @@ window.menuList = [
           },
           {
               name: '马甲',
-              key: 'menu.other',
+              key: 'menu.waistcoat',
               link: '/kstk/scks-2-271-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
               name: '单西',
-              key: 'menu.suit',
+              key: 'menu.blazer',
               link: '/kstk/scks-2-74-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
@@ -416,7 +416,7 @@ window.menuList = [
           },
           {
               name: '中长外套',
-              key: 'menu.outerwear',
+              key: 'menu.mid_length_coat',
               link: '/kstk/scks-2-272-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
@@ -445,8 +445,12 @@ window.menuList = [
               link: '/kstk/scks-2-845-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
+              name: '',
+              link: ''
+          },
+          {
               name: '商务裤',
-              key: 'menu.pants',
+              key: 'menu.dress_pants',
               link: '/kstk/scks-872-873-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
@@ -461,12 +465,12 @@ window.menuList = [
           },
           {
               name: '欧货裤',
-              key: 'menu.pants',
+              key: 'menu.european_style_pants',
               link: '/kstk/scks-872-876-0-0-0-0-0-0-0-0-0-0--0-1.html'
           },
           {
               name: '多袋裤',
-              key: 'menu.pants',
+              key: 'menu.multi_pocket_pants',
               link: '/kstk/scks-872-877-0-0-0-0-0-0-0-0-0-0--0-1.html'
           }
         ]
@@ -519,7 +523,7 @@ window.menuList = [
   },
   {
     name: '流行图案',
-    key: 'menu.pattern',
+    key: 'menu.popular_patterns',
     background: 'rgb(2, 84, 157)',
     backgroundTop: 'rgb(238, 164, 127)',
     category_intro: '预测未来趋势方向，链接全球灵感资讯，了解时尚历史演变，掌握最全的艺术家、缪斯、古着单品图库。',
@@ -645,12 +649,21 @@ window.menuList = [
       },
       {
         icon: '/images/header/zhizhanyimo.png',
-        link: 'https://www.r355.com/ai-dress',
+        link: '/free-style',
         open:true,
         name: '智展衣模Ai',
         key: 'menu.zhizhan_ai',
         desc_key: 'menu.zhizhan_ai_desc',
         desc: '不用模特拍摄也能打造逼真上身效果，让平铺服装仿佛有了灵魂，穿搭细节尽显，助力您快速营销。'
+      },
+      {
+        icon: '/images/header/zhizhanyimo.png',
+        link: '/img-to-video',
+        open:true,
+        name: 'AI视频',
+        key: 'menu.ai_video',
+        desc_key: 'menu.ai_video_desc',
+        desc: '帮助电商商家快速生成商品视频素材，告别模特邀约、实景拍摄、反复修图的高昂成本，实现产品上新效率跨越式提升。'
       },
     ]
   },

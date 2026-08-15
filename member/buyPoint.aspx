@@ -28,62 +28,47 @@
 
 <script src="/js/jquery-1.7.2.min.js"></script>
 <section>
-  <link href="/css/header.css" rel="stylesheet" type="text/css" />
+  <link href="/css/header.css?v=0.01213" rel="stylesheet" type="text/css" />
   <link href="//at.alicdn.com/t/c/font_4789865_f95hj9izwcr.css" rel="stylesheet">
   <script src="/js/vue.global.js"></script>
-  <script src="/js/i18n-init.js"></script>
-  <script src="/js/menu.js?v=0.0121"></script>
+  <script src="/js/menu.js?v=0.13"></script>
   <!-- 引入防xss攻击js -->
   <script src="/js/purify.min.js"></script>
 
   <div id="header">
-    <div class="lang-switcher">
-      <div class="lang-current">
-        <i class="iconfont icon-yuyan"></i>
-        <span class="lang-text">中文</span>
-        <i class="iconfont icon-xiajiantou"></i>
-      </div>
-      <ul class="lang-list">
-        <li data-lang="zh">中文</li>
-        <li data-lang="en">English</li>
-        <li data-lang="es">Español</li>
-        <li data-lang="fr">Français</li>
-        <li data-lang="ru">Русский</li>
-      </ul>
-    </div>
     <a href="/" title="R355服饰资讯网"><img src="/images/header/logo.png" class="header-logo"></a>
     <div class="header-first">
       <div class="search">
         <div class="search-icon">
           <img src="/images/header/icon-search.png" alt="">
         </div>
-        <input placeholder="请输入品牌名" class="search-input" value="" id="key_barnd" data-localize="header.search_placeholder" />
+        <input placeholder="请输入品牌名" class="search-input" value="" id="key_barnd" />
         <div class="search-camera">
           <img src="/images/header/camera-icon.png" />
         </div>
-        <div class="search-btn" data-localize="header.search_btn">全站搜</div>
+        <div class="search-btn">全站搜</div>
         <!-- 拍照搜索弹框 -->
         <div class="search-pop">
           <div class="search-content">
-            <div class="search-drop" data-localize="header.drag_hint">拖拽图片到这里</div>
+            <div class="search-drop">拖拽图片到这里</div>
             <div class="upload-wrap">
               <input type="file" class="upload-pic" />
-              <span class="upload-text" data-localize="header.choose_file">选择文件</span>
+              <span class="upload-text">选择文件</span>
             </div>
              
           </div>
           <div class="upload-error" style="display: none;">
-            <div class="upload-error-text" style="color:red" data-localize="header.upload_error_hint">抱歉，您上传的文件不是图片格式，请<a href="javascript:void(0)" data-localize="header.re_upload">重新上传</a></div>
-            <div class="upload-error-text" data-localize="header.upload_format_hint">仅支持2M以下jpg，jpeg，png，bmp，gif格式图片</div>
+            <div class="upload-error-text" style="color:red">抱歉，您上传的文件不是图片格式，请<a href="javascript:void(0)">重新上传</a></div>
+            <div class="upload-error-text">仅支持2M以下jpg，jpeg，png，bmp，gif格式图片</div>
           </div>
-          <div class="upload-loading" style="display: none;" data-localize="header.loading">正在加载图片...</div>
+          <div class="upload-loading" style="display: none;">正在加载图片...</div>
           <div class="upload-close"></div>
         </div>
       </div>
       <div class="header-first-right">
-        <a href="/about/downLoadUrl.aspx"><div class="header-first-exe"><img src="/images/header/exe-icon.png" /><span data-localize="header.desktop_client">桌面客户端</span></div></a>
+        <a href="/about/downLoadUrl.aspx"><div class="header-first-exe"><img src="/images/header/exe-icon.png" />桌面客户端</div></a>
         
-         <div class="header-first-user"><span data-localize="header.welcome">欢迎您，</span><span>wusuowei(点数会员) <a href="/member/default.aspx" class="app" style="color: #ff0000;" data-localize="header.member_center">会员中心</a> | <a href="/member/loginOut.aspx" data-localize="header.logout">退 出</a></span></div>
+         <div class="header-first-user">欢迎您，<span>wusuowei(点数会员) <a href="/member/default.aspx" class="app" style="color: #ff0000;">会员中心</a> | <a href="/member/loginOut.aspx">退 出</a></span></div>
    
       </div>
     </div>
@@ -98,7 +83,7 @@
         @click="handleClickMenu($event, item)"
       >
         <img :src="item.icon" v-if="item.icon" style="pointer-events: none;" />
-        <span v-if="item.name" style="pointer-events: none;">{{ t(item.key || item.name) }}</span>
+        <span v-if="item.name" style="pointer-events: none;">{{ item.name }}</span>
       </li>
        <!-- 导航菜单箭头 -->
       <span
@@ -131,10 +116,10 @@
                 <div class="icon-wrap">
                   <img :src="item.icon" />
                 </div>
-                <p class="label">{{ t(item.key || item.name) }}</p>
+                <p class="label">{{ item.name }}</p>
               </div>
               <div class="wrap-nav">
-                <li class="sub-nav" v-for="(child, index) in item.subMenu" :key="index" @click="jumpTo(child)">{{ t(child.key || child.name) }}</li>
+                <li class="sub-nav" v-for="(child, index) in item.subMenu" :key="index" @click="jumpTo(child)">{{ child.name }}</li>
               </div>
               <div class="desc" v-if="item.desc">{{ item.desc }}</div>
             </div>
@@ -142,9 +127,9 @@
           <div class="navs-modal-content-right" v-if="currentNav.category_intro">
             <div>
               <p class="intro-title">
-                <img src="/images/header/intro-title.png" style="margin-right: 5px;">{{ t('menu.column_intro') }}
+                <img src="/images/header/intro-title.png" style="margin-right: 5px;">栏目介绍
               </p>
-              <p class="intro-text">{{ t(currentNav.category_intro_key || currentNav.category_intro) }}</p>
+              <p class="intro-text">{{ currentNav.category_intro }}</p>
             </div>
           </div>
         </div>
@@ -164,13 +149,13 @@
         });
     })
 
-    const {createApp, ref, computed, onMounted} = Vue
+    const {createApp, ref, computed} = Vue
 
     const app = createApp({
       setup() {
         const navModalVisible = ref(false)
+
         const currentNav = ref({})
-        const i18nData = ref(window.i18nData || {})
 
         const hoverFontColor = computed(() => currentNav.value.backgroundTop)
 
@@ -178,17 +163,11 @@
 
         let timeId = 0  // 定时器id，计算鼠标停留时间
 
-        onMounted(() => {
-          $(document).on('localize.completed', () => {
-            i18nData.value = window.i18nData
-          })
-        })
-
         // 鼠标移动到菜单
         function mouseEnterNav(e, item) {
           timeId = setTimeout(() => {
             showModal(e, item)
-          }, 200)
+          }, 2000)
         }
 
         // 显示菜单
@@ -219,15 +198,6 @@
           }
         }
 
-        const t = (key) => {
-          if (!key) return ''
-          if (window.i18nHandler && window.i18nHandler.translate) {
-            const val = i18nData.value
-            return window.i18nHandler.translate(key)
-          }
-          return key
-        }
-
         return {
           navModalVisible,
           currentNav,
@@ -236,9 +206,7 @@
           mouseEnterNav,
           handleMouseLeave,
           jumpTo,
-          handleClickMenu,
-          t,
-          i18nData
+          handleClickMenu
         }
       }
     })
@@ -250,25 +218,25 @@
 </section>
 
      <div style="width:1198px;font-size: 30px;
-	color: #666666; margin:30px auto 0px auto;" data-localize="member.recharge_points_title">充值点数</div>
+	color: #666666; margin:30px auto 0px auto;">充值点数</div>
 
     <div class="user" style="width:1198px">
        
 <div class="user_info" style="margin-bottom:0; width:100%">
 <div class="info_left"><img src="/images/user.png" width="61" height="61"><p>wusuowei</p></div>
-<div class="info_right"><h3 data-localize="member.account_info">您的会员信息</h3>
-  <p><span data-localize="member.member_type">会员类型：</span><span data-localize="member.point_member">点数会员</span></p><p><span data-localize="member.account_info">账户信息：</span><span><span data-localize="member.remaining_points">剩余点数：</span>621，<span data-localize="member.expiry_time">到期时间：</span>2026/10/21 11:32:22</span></p></div>
-<div class="info_btn"><a href="memberPoint.aspx" data-localize="member.consumption_records">点数消费记录</a></div>
+<div class="info_right"><h3>您的会员信息</h3>
+  <p>会员类型：<span>点数会员</span></p><p>账户信息：<span>剩余点数：986，到期时间：2026/10/21 11:32:22</span></p></div>
+<div class="info_btn"><a href="memberPoint.aspx">点数消费记录</a></div>
 
 </div>
 </div>
 <div class="user_nav">
 <ul>
-<li class="on"><a href="buyPoint.aspx"><span class="icon1 iconfont">&#xe615;</span>&nbsp;<span data-localize="member.recharge_points_title">充值点数</span></a></li>
-<li><a href="user_recharge.aspx"><span class="icon1 iconfont">&#xe615;</span>&nbsp;<span data-localize="member.recharge_records">充值记录</span></a></li>
-<li><a href="memberPoint.aspx"><span class="icon1 iconfont">&#xe615;</span>&nbsp;<span data-localize="member.consumption_records">点数消费记录</span></a></li>
+<li class="on"><a href="buyPoint.aspx"><span class="icon1 iconfont">&#xe615;</span>充值点数</a></li>
+<li><a href="user_recharge.aspx"><span class="icon1 iconfont">&#xe615;</span>充值记录</a></li>
+<li><a href="memberPoint.aspx"><span class="icon1 iconfont">&#xe615;</span>点数消费记录</a></li>
 
-<li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><span class="icon1 iconfont">&#xe612;</span>&nbsp;<span data-localize="member.customer_service_nav">客服中心</span></a></li>
+<li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><span class="icon1 iconfont">&#xe612;</span>客服中心</a></li>
 
 
 </ul>
@@ -281,56 +249,69 @@
             <input value="wxnatpay" id="pay_id" name="pay_id" type="hidden" />
           <div class="pay-choose">
             
-            <li class="pay-item on" data-id="2">
+            
+
+              <li class="pay-item on" data-id="2">
                 <div class="pay-item-top">
                   <div class="pay-counts">
-                    <p class="pay-counts-expire" data-localize="member.recharge_expire_6months">6个月</p>
-                    <p class="pay-value">¥<span class="red">5800</span></p>
-                    <div class="pay-item-bottom"><span data-localize="member.recharge_get_points_prefix">获得</span> <span>5万</span> <span data-localize="member.recharge_get_points_suffix">点数</span></div>
+                    <p class="pay-counts-expire">7天</p>
+                    <p class="pay-value">¥<span class="red">99</span></p>
+                    <div class="pay-item-bottom">获得 <span>1000</span> 点数</div>
                     <div class="pay-intro">
-                      <p data-localize="member.ai_rights_title">AI生成图扣点专属权益</p>
+                      <p>AI生成图扣点专属权益</p>
                       <div class="pay-intro-row">
                         <img src="../images/user/pay-intro-check.png" />
-                        <span data-localize="menu.huixiang_ai">绘享智图AI</span>
-                        <span class="pay-intro-price"><span style="font-weight: bold;">25</span><span data-localize="member.point_per_pic">点/图</span></span>
+                        <span>绘享智图AI</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">30</span>点/图</span>
                       </div>
                       <div class="pay-intro-row">
                         <img src="../images/user/pay-intro-check.png" />
-                        <span data-localize="member.vector_convert">转矢量图</span>
-                        <span class="pay-intro-price"><span style="font-weight: bold;">50</span><span data-localize="member.point_per_pic">点/图</span></span>
+                        <span>转矢量图</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">50</span>点/图</span>
                       </div>
                       <div class="pay-intro-row">
                         <img src="../images/user/pay-intro-check.png" />
-                        <span data-localize="menu.zhizhan_ai">智展衣模AI</span>
-                        <span class="pay-intro-price"><span style="font-weight: bold;">45</span><span data-localize="member.point_per_pic">点/图</span></span>
+                        <span>智展衣模AI</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">50</span>点/图</span>
+                      </div>
+                      <div class="pay-intro-row">
+                        <img src="../images/user/pay-intro-check.png" />
+                        <span>AI视频</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">6</span>点/秒</span>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="discount" data-localize="member.experience_price">体验价</div>
+                <div class="discount">体验价</div>
               </li>
+
              <li class="pay-item" data-id="3">
                 <div class="pay-item-top">
                   <div class="pay-counts">
-                    <p class="pay-counts-expire" data-localize="member.recharge_expire_1year">一年</p>
+                    <p class="pay-counts-expire">一年</p>
                     <p class="pay-value">¥<span class="red">9980</span></p>
-                    <div class="pay-item-bottom"><span data-localize="member.recharge_get_points_prefix">获得</span> <span>10万</span> <span data-localize="member.recharge_get_points_suffix">点数</span></div>
+                    <div class="pay-item-bottom">获得 <span>10万</span> 点数</div>
                     <div class="pay-intro">
-                      <p data-localize="member.ai_rights_title">AI生成图扣点专属权益</p>
+                      <p>AI生成图扣点专属权益</p>
                       <div class="pay-intro-row">
                         <img src="../images/user/pay-intro-check.png" />
-                        <span data-localize="menu.huixiang_ai">绘享智图AI</span>
-                        <span class="pay-intro-price"><span style="font-weight: bold;">20</span><span data-localize="member.point_per_pic">点/图</span></span>
+                        <span>绘享智图AI</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">20</span>点/图</span>
                       </div>
                       <div class="pay-intro-row">
                         <img src="../images/user/pay-intro-check.png" />
-                        <span data-localize="member.vector_convert">转矢量图</span>
-                        <span class="pay-intro-price"><span style="font-weight: bold;">50</span><span data-localize="member.point_per_pic">点/图</span></span>
+                        <span>转矢量图</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">50</span>点/图</span>
                       </div>
                       <div class="pay-intro-row">
                         <img src="../images/user/pay-intro-check.png" />
-                        <span data-localize="menu.zhizhan_ai">智展衣模AI</span>
-                        <span class="pay-intro-price"><span style="font-weight: bold;">35</span><span data-localize="member.point_per_pic">点/图</span></span>
+                        <span>智展衣模AI</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">35</span>点/图</span>
+                      </div>
+                      <div class="pay-intro-row">
+                        <img src="../images/user/pay-intro-check.png" />
+                        <span>AI视频</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">5</span>点/秒</span>
                       </div>
                     </div>
                   </div>
@@ -341,25 +322,30 @@
            <li class="pay-item" data-id="4">
                 <div class="pay-item-top">
                   <div class="pay-counts">
-                    <p class="pay-counts-expire" data-localize="member.recharge_expire_2years">两年</p>
+                    <p class="pay-counts-expire">两年</p>
                     <p class="pay-value">¥<span class="red">29980</span></p>
-                    <div class="pay-item-bottom"><span data-localize="member.recharge_get_points_prefix">获得</span> <span>30万</span> <span data-localize="member.recharge_get_points_suffix">点数</span></div>
+                    <div class="pay-item-bottom">获得 <span>30万</span> 点数</div>
                     <div class="pay-intro">
-                      <p data-localize="member.ai_rights_title">AI生成图扣点专属权益</p>
+                      <p>AI生成图扣点专属权益</p>
                       <div class="pay-intro-row">
                         <img src="../images/user/pay-intro-check.png" />
-                        <span data-localize="menu.huixiang_ai">绘享智图AI</span>
-                        <span class="pay-intro-price"><span style="font-weight: bold;">18</span><span data-localize="member.point_per_pic">点/图</span></span>
+                        <span>绘享智图AI</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">18</span>点/图</span>
                       </div>
                       <div class="pay-intro-row">
                         <img src="../images/user/pay-intro-check.png" />
-                        <span data-localize="member.vector_convert">转矢量图</span>
-                        <span class="pay-intro-price"><span style="font-weight: bold;">50</span><span data-localize="member.point_per_pic">点/图</span></span>
+                        <span>转矢量图</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">50</span>点/图</span>
                       </div>
                       <div class="pay-intro-row">
                         <img src="../images/user/pay-intro-check.png" />
-                        <span data-localize="menu.zhizhan_ai">智展衣模AI</span>
-                        <span class="pay-intro-price"><span style="font-weight: bold;">25</span><span data-localize="member.point_per_pic">点/图</span></span>
+                        <span>智展衣模AI</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">25</span>点/图</span>
+                      </div>
+                      <div class="pay-intro-row">
+                        <img src="../images/user/pay-intro-check.png" />
+                        <span>AI视频</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">4</span>点/秒</span>
                       </div>
                     </div>
                   </div>
@@ -369,25 +355,30 @@
              <li class="pay-item" data-id="5">
                 <div class="pay-item-top">
                   <div class="pay-counts">
-                    <p class="pay-counts-expire" data-localize="member.recharge_expire_3years">三年</p>
+                    <p class="pay-counts-expire">三年</p>
                     <p class="pay-value">¥<span class="red">49980</span></p>
-                    <div class="pay-item-bottom"><span data-localize="member.recharge_get_points_prefix">获得</span> <span>50万</span> <span data-localize="member.recharge_get_points_suffix">点数</span></div>
+                    <div class="pay-item-bottom">获得 <span>50万</span> 点数</div>
                     <div class="pay-intro">
-                      <p data-localize="member.ai_rights_title">AI生成图扣点专属权益</p>
+                      <p>AI生成图扣点专属权益</p>
                       <div class="pay-intro-row">
                         <img src="../images/user/pay-intro-check.png" />
-                        <span data-localize="menu.huixiang_ai">绘享智图AI</span>
-                        <span class="pay-intro-price"><span style="font-weight: bold;">15</span><span data-localize="member.point_per_pic">点/图</span></span>
+                        <span>绘享智图AI</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">15</span>点/图</span>
                       </div>
                       <div class="pay-intro-row">
                         <img src="../images/user/pay-intro-check.png" />
-                        <span data-localize="member.vector_convert">转矢量图</span>
-                        <span class="pay-intro-price"><span style="font-weight: bold;">50</span><span data-localize="member.point_per_pic">点/图</span></span>
+                        <span>转矢量图</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">50</span>点/图</span>
                       </div>
                       <div class="pay-intro-row">
                         <img src="../images/user/pay-intro-check.png" />
-                        <span data-localize="menu.zhizhan_ai">智展衣模AI</span>
-                        <span class="pay-intro-price"><span style="font-weight: bold;">20</span><span data-localize="member.point_per_pic">点/图</span></span>
+                        <span>智展衣模AI</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">20</span>点/图</span>
+                      </div>
+                      <div class="pay-intro-row">
+                        <img src="../images/user/pay-intro-check.png" />
+                        <span>AI视频</span>
+                        <span class="pay-intro-price"><span style="font-weight: bold;">3</span>点/秒</span>
                       </div>
                     </div>
                   </div>
@@ -396,7 +387,7 @@
               </li>
           </div>
           <div class="pay-type">
-            <p class="pay-type-title" data-localize="member.choose_pay_type">选择支付方式</p>
+            <p class="pay-type-title">选择支付方式</p>
             <div class="pay-type-bottom">
                 <input value="2" id="pay_item" name="pay_item" type="hidden" />
               <div class="pay-imgs">
@@ -411,17 +402,17 @@
               </div>
               <div class="agreement">
                 <input type="checkbox" id="agree" value="0" class="checkbox"/>
-                <span data-localize="member.agree">同意</span>
-                <a href="javascript: void(0)" data-localize="member.service_agreement">R355VIP会员服务协议</a>
+                <span>同意</span>
+                <a href="javascript: void(0)">R355VIP会员服务协议</a>
               </div>
-              <div class="pay-btn" data-localize="member.confirm_pay">确认支付</div>
+              <div class="pay-btn">确认支付</div>
             </div>
           </div>
           <div class="pay-tips">
-            <p class="bold-p" data-localize="member.recharge_notice_title">开通点数会员注意事项：</p>
-            <p data-localize="member.recharge_notice_1">1.开通点数会员时拥有相同有效期，自开通之日起计算;</p>
-            <p data-localize="member.recharge_notice_2">2.请在有效期内使用您的点数，期限到期后，相关权益将收回，未用完的点数将清零；</p>
-            <p data-localize="member.recharge_notice_3">3.期限未到期又继续开通了其他套餐，当前有效期以最新开通的为准，有效期不叠加;</p>
+            <p class="bold-p">开通点数会员注意事项：</p>
+            <p>1.开通点数会员时拥有相同有效期，自开通之日起计算;</p>
+            <p>2.请在有效期内使用您的点数，期限到期后，相关权益将收回，未用完的点数将清零；</p>
+            <p>3.期限未到期又继续开通了其他套餐，当前有效期以最新开通的为准，有效期不叠加;</p>
           </div>
         </div>
       </div>
@@ -445,7 +436,7 @@
         $(function () {
             $(".pay-btn").click(function () {
                 if (!$("#agree").get(0).checked) {
-                    alert(i18nHandler.translate("member.agree_agreement_alert"));
+                    alert("请先勾选“R355VIP会员服务协议”");
                     return;
                 }
                 var $form = $('#order-create-form');
@@ -463,24 +454,24 @@
   <li class="li1">
     <div class="show_a"> <em></em>
       <div style="padding-left:10px">
-        <div class="kf_titel" data-localize="common.online_service">在线客服</div>
-        <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px" title="点击这里给我发消息" data-localize="member.send_message_hint" alt="点击这里给我发消息" src="http://wpa.qq.com/pa?p=2:18550168:41"></a></div>
+        <div class="kf_titel">在线客服</div>
+        <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px" title="点击这里给我发消息" alt="点击这里给我发消息" src="http://wpa.qq.com/pa?p=2:18550168:41"></a></div>
      
     </div>
   </li>
   <li class="li2">
     <div class="show_b"><em></em>
-      <div class="kf_titel" data-localize="footer.contact_us">联系我们</div>
+      <div class="kf_titel">联系我们</div>
       <p>020-31232355</p>
     </div>
   </li>
   <li class="li3">
     <div class="show_c">
     <form id="feedbackform" name="feedbackform" url="/Ajax/addneed.ashx">
-      <div class="kf_titel" data-localize="common.feedback_title">会员需求与建议</div>
+      <div class="kf_titel">会员需求与建议</div>
       <em></em>
-      <textarea rows="5" name="xqjy" class="textarea" placeholder="请在此详细输入您公司目前所需资料类型或提交宝贵意见，我司将会在最短的时间内为您上传所需的资料，谢谢！" data-localize="common.feedback_placeholder"></textarea>
-      <div class="lay"><input type="submit" id="btnSubmit_feedback" class="Submission1" value="提交" data-localize="common.submit"></div>
+      <textarea rows="5" name="xqjy" class="textarea" placeholder="请在此详细输入您公司目前所需资料类型或提交宝贵意见，我司将会在最短的时间内为您上传所需的资料，谢谢！"></textarea>
+      <div class="lay"><input type="submit" id="btnSubmit_feedback" class="Submission1" value="提交"></div>
         </form>
     </div>
   </li>
@@ -507,28 +498,28 @@
       <div class="footer-bot-left">
         <div class="footer-bot-navs">
           <li class="nav-item">
-            <a href="/about/R355-1636.html" data-localize="footer.about_us">关于我们</a>
+            <a href="/about/R355-1636.html">关于我们</a>
           </li>
           <li class="nav-item">
-            <a href="/about/R355-1637.html" data-localize="footer.contact_us">联系我们</a>
+            <a href="/about/R355-1637.html">联系我们</a>
           </li>
           <li class="nav-item">
-            <a href="/about/R355-1632.html" data-localize="footer.disclaimer">免责声明</a>
+            <a href="/about/R355-1632.html">免责声明</a>
           </li>
           <li class="nav-item">
-            <a href="/about/R355-1633.html" data-localize="footer.member_notice">会员须知</a>
+            <a href="/about/R355-1633.html">会员须知</a>
           </li>
           <li class="nav-item">
-            <a href="/about/R355-1639.html" data-localize="footer.payment_notice">收费说明</a>
+            <a href="/about/R355-1639.html">收费说明</a>
           </li>
           <li class="nav-item">
-            <a href="/about/R355-1640.html" data-localize="footer.remittance_method">汇款方式</a>
+            <a href="/about/R355-1640.html">汇款方式</a>
           </li>
           <li class="nav-item">
-            <a href="/about/R355-1641.html" data-localize="footer.process">办理流程</a>
+            <a href="/about/R355-1641.html">办理流程</a>
           </li>
         </div>
-        <p data-localize="footer.copyright">Copyright 2007-2024 R355.com， All Rights Reserved 闽 ICP 备 07502261 号-1</p>
+        <p>Copyright 2007-2024 R355.com， All Rights Reserved 闽 ICP 备 07502261 号-1</p>
       </div>
       <img src="/images/footer/qrcode.png" style="width: 94px; height: 94px;">
     </div>
@@ -553,8 +544,8 @@
                   return false;
               }
           });
-          var searchEmptyHtml = '<div class="wrap-tips"><div class="search-tips"><p class="cnt-tips">' + i18nHandler.translate('common.quick_search_hint') + '</p><div class="extra"><p class="cnt">' + i18nHandler.translate('common.view_all_brands') + '</p><a href="javascript:void(0)" onClick="getSiftDataTop(\'id\',\'topBrandStr\',\'all\');" title="' + i18nHandler.translate('common.view_all_btn') + '" class="link-btn">' + i18nHandler.translate('common.view_all_btn') + '</a></div><i class="notice-status"></i></div></div>';
-          var tipText = i18nHandler.translate('common.search_placeholder_brand');
+          var searchEmptyHtml = '<div class="wrap-tips"><div class="search-tips"><p class="cnt-tips">您可以点击上面字母快速检索品牌；</p><div class="extra"><p class="cnt">需要查看所有品牌，请点击：</p><a href="javascript:void(0)" onClick="getSiftDataTop(\'id\',\'topBrandStr\',\'all\');" title="查看所有品牌" class="link-btn">查看所有品牌</a></div><i class="notice-status"></i></div></div>';
+          var tipText = '请输入品牌名称';
           $(".text_a").click(function () {
               $(".ChoiceLayerTop").removeClass("currentTagR");
 
@@ -575,7 +566,7 @@
           $("#searchLetterTop a").click(function () {
               $("#searchLetterTop a.current").removeClass('current');
               $(this).addClass('current');
-              var lt = ($(this).text() == i18nHandler.translate('common.other')) ? 'qt' : $(this).text();
+              var lt = ($(this).text() == '其他') ? 'qt' : $(this).text();
               getSiftDataTop('id', 'topBrandStr', lt);
           });
 
@@ -600,7 +591,7 @@
       });
 
       function getSiftDataTop(tp, tag, lt) {
-          var hi = i18nHandler.translate('header.loading_simple');
+          var hi = '加载中...';
           $('#searchContentTop').html(hi);
           $.ajax({
               type: "post",

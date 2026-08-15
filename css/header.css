@@ -178,7 +178,7 @@
 .header-first-login {
   background: #0057FF;
   width: 120px;
-  height: 37px;
+  height: 37px; line-height:37px; text-align:center;
   border-radius: 50px;
   color: #fff;
   font-size: 16px;

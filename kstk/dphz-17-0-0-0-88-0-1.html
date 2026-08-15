@@ -1,0 +1,1070 @@
+
+<html>
+<head>
+ <title>单品合辑-品牌图库-R355服饰资讯网</title>
+<meta name="Description"  content="R355服饰资讯网,专业的服装设计网站,为您提供最专业的时装设计,时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装品牌,时装品牌,时装发布,时装发布会等信息">
+<meta name="keywords" content="时装设计图,时尚服装图片,环保时装设计,时装设计图片,个性时尚服装图片,服装设计图片,服装款式设计图,服装图案,服装杂志,时装杂志,服装品牌,时装品牌,时装发布,时装发布会">
+<meta name="subject" content="服装设计" />
+<meta name="searchtitle" content="服装设计,R355服饰资讯网" />
+<meta name="language" content="chinese" />
+<meta name="location" content="China" />
+<meta name="resource-type" content="Good WebSites" />
+<meta name="email" content="R355@R355.com" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="author" content="R355服饰资讯网,http://www.R355.com" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link href="/css/base.css" rel="stylesheet" type="text/css">
+<link href="/css/master.css" rel="stylesheet" type="text/css">
+<link href="/css/list.css" rel="stylesheet" type="text/css">
+<link href="/css/independent.css" rel="stylesheet" type="text/css">
+    <link href="/css/smcm.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/viewer.min.css">
+    <link href="/css/new2022.css" rel="stylesheet" type="text/css">
+      <style>
+         .accordion { padding:0; background-color:none
+         }
+        .patterns-ul .patter-left-label-position {
+            text-align: left;
+            padding: 10px 5px 0;
+            height: 45px;
+            min-height: 45px;
+        }
+        .left_btn{
+	position: fixed;
+	z-index: 999999;
+	left: 5px;
+	top: 40%;
+}
+.right_btn_1{
+	position: fixed;
+	z-index: 999999;
+	right: 5px;
+	top: 40% !important;
+}
+        .new-patterns-ul>li {
+            height: 330px;
+        }
+    </style>
+    <link href="/css/smcm.css" rel="stylesheet" type="text/css">
+</head>
+<body style="background-color: #fff;">
+   
+<script src="/js/jquery-1.7.2.min.js"></script>
+<section>
+  <link href="/css/header.css?v=0.01213" rel="stylesheet" type="text/css" />
+  <link href="//at.alicdn.com/t/c/font_4789865_f95hj9izwcr.css" rel="stylesheet">
+  <script src="/js/vue.global.js"></script>
+  <script src="/js/menu.js?v=0.133"></script>
+  <!-- 引入防xss攻击js -->
+  <script src="/js/purify.min.js"></script>
+
+  <div id="header">
+    <a href="/" title="R355服饰资讯网"><img src="/images/header/logo.png" class="header-logo"></a>
+    <div class="header-first">
+      <div class="search">
+        <div class="search-icon">
+          <img src="/images/header/icon-search.png" alt="">
+        </div>
+        <input placeholder="请输入品牌名" class="search-input" value="" id="key_barnd" />
+        <div class="search-camera">
+          <img src="/images/header/camera-icon.png" />
+        </div>
+        <div class="search-btn">全站搜</div>
+        <!-- 拍照搜索弹框 -->
+        <div class="search-pop">
+          <div class="search-content">
+            <div class="search-drop">拖拽图片到这里</div>
+            <div class="upload-wrap">
+              <input type="file" class="upload-pic" />
+              <span class="upload-text">选择文件</span>
+            </div>
+             
+          </div>
+          <div class="upload-error" style="display: none;">
+            <div class="upload-error-text" style="color:red">抱歉，您上传的文件不是图片格式，请<a href="javascript:void(0)">重新上传</a></div>
+            <div class="upload-error-text">仅支持2M以下jpg，jpeg，png，bmp，gif格式图片</div>
+          </div>
+          <div class="upload-loading" style="display: none;">正在加载图片...</div>
+          <div class="upload-close"></div>
+        </div>
+      </div>
+      <div class="header-first-right">
+        <a href="/about/downLoadUrl.aspx"><div class="header-first-exe"><img src="/images/header/exe-icon.png" />桌面客户端</div></a>
+        
+         <div class="header-first-user">欢迎您，<span>wusuowei(点数会员) <a href="/member/default.aspx" class="app" style="color: #ff0000;">会员中心</a> | <a href="/member/loginOut.aspx">退 出</a></span></div>
+   
+      </div>
+    </div>
+    <!-- 导航菜单 -->
+    <div class="navs">
+       <li
+        class="navs-item"
+        v-for="(item, index) in menuList"
+        :key="index"
+        @mouseenter="mouseEnterNav($event, item)"
+        @mouseleave="handleMouseLeave"
+        @click="handleClickMenu($event, item)"
+      >
+        <img :src="item.icon" v-if="item.icon" style="pointer-events: none;" />
+        <span v-if="item.name" style="pointer-events: none;">{{ item.name }}</span>
+      </li>
+       <!-- 导航菜单箭头 -->
+      <span
+        id="navArrow"
+        class="iconfont icon-a-xingzhuang12"
+        :style="{color: currentNav.backgroundTop, transform: navModalVisible ? 'translate3D(0, -40%, 0)' : 'translate3D(0, 0, 0)'}"
+        @mouseenter="navModalVisible = true"
+        @mouseleave="navModalVisible = false"
+      >
+      </span>
+    </div>
+    <!-- 导航菜单下拉项 -->
+    <div class="nav-modal-wrap">
+      <div
+        class="navs-modal"
+        ref="navModal"
+        :style="{background: currentNav.background, transform: navModalVisible ? 'translate3D(0, 0, 0)' : 'translate3D(0, calc(-100% - 1px), 0)'}"
+        :class="currentNav.class"
+        
+        @mouseenter="navModalVisible = true"
+        @mouseleave="navModalVisible = false"
+      >
+        <div class="navs-modal-top" :style="{background: currentNav.backgroundTop}">
+          <span class="circle" :style="{background: currentNav.backgroundTop}"></span>
+        </div>
+        <div class="navs-modal-content">
+          <div class="navs-modal-content-left">
+            <div class="category" v-for="(item, index) in currentNav.children" :key="index">
+              <div class="section" @click="jumpTo(item)">
+                <div class="icon-wrap">
+                  <img :src="item.icon" />
+                </div>
+                <p class="label">{{ item.name }}</p>
+              </div>
+              <div class="wrap-nav">
+                <li class="sub-nav" v-for="(child, index) in item.subMenu" :key="index" @click="jumpTo(child)">{{ child.name }}</li>
+              </div>
+              <div class="desc" v-if="item.desc">{{ item.desc }}</div>
+            </div>
+          </div>
+          <div class="navs-modal-content-right" v-if="currentNav.category_intro">
+            <div>
+              <p class="intro-title">
+                <img src="/images/header/intro-title.png" style="margin-right: 5px;">栏目介绍
+              </p>
+              <p class="intro-text">{{ currentNav.category_intro }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <script>
+    
+    $(function() {
+        $(".search-btn").on("click", function(){
+            var brandkey=$("#key_barnd").val();
+            if(brandkey!='')
+            {
+                window.location.href="/kstk/search-0-0-0-"+brandkey+"-1.html";
+            }
+        });
+    })
+
+    const {createApp, ref, computed} = Vue
+
+    const app = createApp({
+      setup() {
+        const navModalVisible = ref(false)
+
+        const currentNav = ref({})
+
+        const hoverFontColor = computed(() => currentNav.value.backgroundTop)
+
+        const menuList = window.menuList
+
+        let timeId = 0  // 定时器id，计算鼠标停留时间
+
+        // 鼠标移动到菜单
+        function mouseEnterNav(e, item) {
+          timeId = setTimeout(() => {
+            showModal(e, item)
+          }, 2000)
+        }
+
+        // 显示菜单
+        function showModal(e, item) {
+          currentNav.value = item
+          if (item.children) navModalVisible.value = true
+          let navArrowDom = document.querySelector('#navArrow')
+          navArrowDom.style.left = (e.target.offsetLeft + 20 * (window.innerWidth / 1920)) + 'px'
+        }
+
+        // 鼠标离开菜单
+        function handleMouseLeave() {
+          clearTimeout(timeId)
+          navModalVisible.value = false
+        }
+
+        // 点击菜单
+        function handleClickMenu(e, item) {
+          clearTimeout(timeId)
+          showModal(e, item)
+          jumpTo(item)
+        }
+
+        // 点击导航菜单跳转
+        function jumpTo(item) {
+          if (item.link) {
+            item.open ? window.open(item.link) : window.location.href = item.link
+          }
+        }
+
+        return {
+          navModalVisible,
+          currentNav,
+          hoverFontColor,
+          menuList,
+          mouseEnterNav,
+          handleMouseLeave,
+          jumpTo,
+          handleClickMenu
+        }
+      }
+    })
+
+    app.mount("#header")
+
+  </script>
+
+</section>
+
+     <div class="n-li">
+        <ul>
+              <li class="n-li-hover"><a href="dphz-17-0-0-0-88-0-1.html">潮流前卫</a></li><li><a href="dphz-17-0-0-0-89-0-1.html">休闲时尚</a></li><li><a href="dphz-17-0-0-0-91-0-1.html">运动户外</a></li><li><a href="dphz-17-0-0-0-893-0-1.html">商务休闲</a></li>
+        </ul>
+    </div>
+<div class="se-box1">
+     <span>单品合辑<img src="/images/t11.png" alt="" ></span>
+     <div class="se-box">
+         <div class="selectBox">
+      <div class="inputCase">
+        <input name="txtsex" type="text" id="txtsex" class="imitationSelect" readonly="" value="季度" />
+        <i class="fa fa-caret-down"></i> </div>
+      <ul class="selectUl">
+         <li><a href="dphz-17-0-0-4342-88-0-1.html">2023秋冬</a></li><li><a href="dphz-17-0-0-4174-88-0-1.html">2023春夏</a></li><li><a href="dphz-17-0-0-4102-88-0-1.html">2022秋冬</a></li><li><a href="dphz-17-0-0-3613-88-0-1.html">2022春夏</a></li><li><a href="dphz-17-0-0-3340-88-0-1.html">2021秋冬</a></li><li><a href="dphz-17-0-0-3130-88-0-1.html">2021春夏</a></li><li><a href="dphz-17-0-0-3112-88-0-1.html">2020秋冬</a></li>
+      </ul>
+    </div>
+      <div class="selectBox" style="width:150px">
+                <div class="inputCase">
+                    <input name="brandStr" type="text" id="brandStr" class="DropmenuSpc search_b imitationSelect" onFocus="javascript:if(this.value==&#39;请输入品牌名称&#39;)this.value=&#39;&#39;;" value="请输入品牌名称" onBlur="javascript:if(this.value==&#39;&#39;)this.value=&#39;请输入品牌名称&#39;" style=" background: url(../images/t12.png) no-repeat 130px center;" />
+                    <i class="fa fa-caret-down"></i> </div>
+            </div>
+     </div>
+    <div id="filter_selected_box" class="filter_selected_box">
+                <a class="clear_label" href="/kstk/dphz-17-0-0-0-0-0-1.html"><i class="list_icon"></i>清空</a>
+                <div class="filter_label_box"><p style="border:0">潮流前卫</p><a class="list_icon" href="dphz-17-0-0-0-0-0-1.html"></a></div>
+                <span style="font-weight:normal">已选择:</span>
+            </div>
+</div>
+     <ul id="accordion" class="accordion">
+   <div style="position:absolute;top:2px;left:245px;" id="brandStrLayer" class="ChoiceLayer currentTagR">
+      <div class="SearchArea"> <strong>品牌选择：单击品牌首字母，出现该字母开头的设计师，通过按输入检索精确您的需求！</strong> <span id="brandStrClose" class="Btnclose right">[<a id="Btnclose" href="javascript:void(0)">点击关闭</a>]</span></div>
+      <h1 id="searchLetter" class="alphabeticalSearch"> <a id="check_A" href="javascript:void(0);">A</a> <a id="check_B" href="javascript:void(0);">B</a> <a id="check_C" href="javascript:void(0);">C</a> <a id="check_D" href="javascript:void(0);">D</a> <a id="check_E" href="javascript:void(0);">E</a> <a id="check_F" href="javascript:void(0);">F</a> <a id="check_G" href="javascript:void(0);">G</a> <a id="check_H" href="javascript:void(0);">H</a> <a id="check_I" href="javascript:void(0);">I</a> <a id="check_J" href="javascript:void(0);">J</a> <a id="check_K" href="javascript:void(0);">K</a> <a id="check_L" href="javascript:void(0);">L</a> <a id="check_M" href="javascript:void(0);">M</a> <a id="check_N" href="javascript:void(0);">N</a> <a id="check_O" href="javascript:void(0);">O</a> <a id="check_P" href="javascript:void(0);">P</a> <a id="check_Q" href="javascript:void(0);">Q</a> <a id="check_R" href="javascript:void(0);">R</a> <a id="check_S" href="javascript:void(0);">S</a> <a id="check_T" href="javascript:void(0);">T</a> <a id="check_U" href="javascript:void(0);">U</a> <a id="check_V" href="javascript:void(0);">V</a> <a id="check_W" href="javascript:void(0);">W</a> <a id="check_X" href="javascript:void(0);">X</a> <a id="check_Y" href="javascript:void(0);">Y</a> <a id="check_Z" href="javascript:void(0);">Z</a> <a class="others" href="javascript:void(0);">其他</a></h1>
+      <div id="searchContent">
+        <div class="wrap-tips">
+          <div class="search-tips">
+            <p class="cnt-tips">您可以点击上面字母快速检索品牌；</p>
+            <div class="extra">
+              <p class="cnt">需要查看所有品牌，请点击：</p>
+              <a href="javascript:void(0)" onClick="getSiftData('id','brandStr','all');" title="查看所有品牌" class="link-btn">查看所有品牌</a></div>
+            <i class="notice-status"></i> </div>
+        </div>
+      </div>
+    </div>
+</ul>
+
+<div style="clear:both; margin-top:30px"></div>
+    <div class="n-cp patterns-ul">
+      
+         <div class="cz" ><div class="cz5"><a href="/books/show-17-18942-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/books/show-17-18942-1.html" target="_blank"><img src="/uploadFiles/20260812/books/202608121834430026.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/books/show-17-18942-1.html" target="_blank">日本《BAPE x  mastermind JAPAN》2026秋冬潮流前卫男装 </a></div><div class="cz1"><a href="dphz-17-0-3014-0-88-0-1.html">BAPE</a></div><div class="cz2">2026秋冬 | 2026/8/12</div><div class="cz3 viewBox_18942"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260812/books/small_202608121834579029.png" data-original="AEkQiQPZApJOB4aW+ucpSxVtFqy5/KlTfABO7T3GmJRpFNX3K9NtJlBpvTLdK7Ow9PsvFeH6qHgHmQnHSHrPdQ==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-日本《BAPE x  mastermind JAPAN》2026秋冬潮流前卫男装" pid="C849409A6727431EAAD7004CAA83D97C"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260812/books/small_202608121834583897.png" data-original="AEkQiQPZApJOB4aW+ucpSxVtFqy5/KlTfABO7T3GmJSlrkJl/AqDtH81ouF685PnyOQaTw/0+Ewx8CNRjwlYFw==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-日本《BAPE x  mastermind JAPAN》2026秋冬潮流前卫男装" pid="C849409A6727431EAAD7004CAA83D97C"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260812/books/small_202608121834589688.png" data-original="AEkQiQPZApJOB4aW+ucpSxVtFqy5/KlTfABO7T3GmJSzsY+23KWJkWPB1Ir6IoUJw6eUz3QpoO5UmWU3pNQY7g==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-日本《BAPE x  mastermind JAPAN》2026秋冬潮流前卫男装" pid="C849409A6727431EAAD7004CAA83D97C"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260812/books/small_202608121834595178.png" data-original="AEkQiQPZApJOB4aW+ucpSxVtFqy5/KlTfABO7T3GmJQzmYS/Uqm6VFlPYUOj7tjIrEeCzVhatobSHL/IxLRXZQ==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-日本《BAPE x  mastermind JAPAN》2026秋冬潮流前卫男装" pid="C849409A6727431EAAD7004CAA83D97C"></a></li><li><div class="cz4"><a href="/books/show-17-18942-1.html" target="_blank">9+</a></div><img src="/uploadFiles/20260812/books/small_202608121835000200.png" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/books/show-17-18936-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/books/show-17-18936-1.html" target="_blank"><img src="/uploadFiles/20260807/books/202608071711466395.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/books/show-17-18936-1.html" target="_blank">日本《KIDILL x UMBRO 》2026秋冬潮流前卫男女装 </a></div><div class="cz1"><a href="dphz-17-0-2045-0-88-0-1.html">Kidill</a></div><div class="cz2">2026秋冬 | 2026/8/7</div><div class="cz3 viewBox_18936"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260807/books/small_202608071711529120.jpg" data-original="AEkQiQPZApJOB4aW+ucpS4x3WqzhK2U4q/eSw3NQ0WM6tgcfSten9CLSmOzpx7yrCTeteEENKBPKeotLNFZtvA==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-日本《KIDILL x UMBRO 》2026秋冬潮流前卫男女装" pid="3D0C418E3823DA0E84AE5C4B79A77F3D"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260807/books/small_202608071711534453.jpg" data-original="AEkQiQPZApJOB4aW+ucpS4x3WqzhK2U4q/eSw3NQ0WMrPliyroKV34ONFCAmKyqMJlI7vOCnY76KR1IoiDrHUg==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-日本《KIDILL x UMBRO 》2026秋冬潮流前卫男女装" pid="3D0C418E3823DA0E84AE5C4B79A77F3D"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260807/books/small_202608071711539624.jpg" data-original="AEkQiQPZApJOB4aW+ucpS4x3WqzhK2U4q/eSw3NQ0WMYZcFQeW+/8Wx3qhpPyWSD13rO3A40VpqPUAxInwGtNQ==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-日本《KIDILL x UMBRO 》2026秋冬潮流前卫男女装" pid="3D0C418E3823DA0E84AE5C4B79A77F3D"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260807/books/small_202608071711544956.jpg" data-original="AEkQiQPZApJOB4aW+ucpS4x3WqzhK2U4q/eSw3NQ0WOdRvDP1t5ahhGhZvYGAPQiEIGz/ky24xLxBgThQ9F5cw==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-日本《KIDILL x UMBRO 》2026秋冬潮流前卫男女装" pid="3D0C418E3823DA0E84AE5C4B79A77F3D"></a></li><li><div class="cz4"><a href="/books/show-17-18936-1.html" target="_blank">14+</a></div><img src="/uploadFiles/20260807/books/small_202608071711550293.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/books/show-17-18935-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/books/show-17-18935-1.html" target="_blank"><img src="/uploadFiles/20260807/books/202608071705568825.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/books/show-17-18935-1.html" target="_blank">美国《Denim Tears》2026秋冬潮流时尚男装 </a></div><div class="cz1"><a href="dphz-17-0-3513-0-88-0-1.html">Denim Tears</a></div><div class="cz2">2026秋冬 | 2026/8/7</div><div class="cz3 viewBox_18935"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260807/books/small_202608071706023872.jpg" data-original="AEkQiQPZApJOB4aW+ucpS4x3WqzhK2U4q/eSw3NQ0WPbjUB1PARdUrEihwCd8e3wEwGLiDCiZnHpvQrvDAXmIg==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Denim Tears》2026秋冬潮流时尚男装" pid="287FFFCA76DED47A7ADABCCA620656E6"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260807/books/small_202608071706028579.jpg" data-original="AEkQiQPZApJOB4aW+ucpS4x3WqzhK2U4q/eSw3NQ0WPgZwbit+rq3hqeEEftf7fhV5aiorcJQ64tG6KBdZkcug==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Denim Tears》2026秋冬潮流时尚男装" pid="287FFFCA76DED47A7ADABCCA620656E6"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260807/books/small_202608071706034221.jpg" data-original="AEkQiQPZApJOB4aW+ucpS4x3WqzhK2U4q/eSw3NQ0WNtI3oEB1JGjzySz4+zvwAHj9/9yGbqlaq2gL4oQlZ4/A==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Denim Tears》2026秋冬潮流时尚男装" pid="287FFFCA76DED47A7ADABCCA620656E6"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260807/books/small_202608071706038614.jpg" data-original="AEkQiQPZApJOB4aW+ucpS4x3WqzhK2U4q/eSw3NQ0WPazb1aU7dk2tYwc0VIqjSevnCsFyGzbcWQ4cGz19vDKw==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Denim Tears》2026秋冬潮流时尚男装" pid="287FFFCA76DED47A7ADABCCA620656E6"></a></li><li><div class="cz4"><a href="/books/show-17-18935-1.html" target="_blank">20+</a></div><img src="/uploadFiles/20260807/books/small_202608071706043473.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/books/show-17-18925-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/books/show-17-18925-1.html" target="_blank"><img src="/uploadFiles/20260801/books/202608011832358219.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/books/show-17-18925-1.html" target="_blank">欧美《Versace》2026秋冬潮流前卫男装 </a></div><div class="cz1"><a href="dphz-17-0-1084-0-88-0-1.html">Versace</a></div><div class="cz2">2026秋冬 | 2026/8/1</div><div class="cz3 viewBox_18925"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260801/books/small_202608011832408554.jpg" data-original="AEkQiQPZApJOB4aW+ucpSwzP0HxYpL2x+NKXIz9MrWsyzn8PdbbbkYP+v2/fbJkLGgNi3YWLEafgTYWSy8Yecw==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-欧美《Versace》2026秋冬潮流前卫男装" pid="6B69B581270E373475CFCF2C52ED10E8"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260801/books/small_202608011832415764.jpg" data-original="AEkQiQPZApJOB4aW+ucpSwzP0HxYpL2x+NKXIz9MrWvB+SMFpj7IdXqBn/H52y9v2tfoQ+39Uhc4cBe2QD7w1A==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-欧美《Versace》2026秋冬潮流前卫男装" pid="6B69B581270E373475CFCF2C52ED10E8"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260801/books/small_202608011832421565.jpg" data-original="AEkQiQPZApJOB4aW+ucpSwzP0HxYpL2x+NKXIz9MrWvRGSsrjFOlKMi5w8a084C824Ua8TbkwDGJGRIRsRoLIA==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-欧美《Versace》2026秋冬潮流前卫男装" pid="6B69B581270E373475CFCF2C52ED10E8"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260801/books/small_202608011832429405.jpg" data-original="AEkQiQPZApJOB4aW+ucpSwzP0HxYpL2x+NKXIz9MrWu0ud14Uy5cqQ6MUM2wiJXErJnftxB0jXm4AX3TpBg+Qg==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-欧美《Versace》2026秋冬潮流前卫男装" pid="6B69B581270E373475CFCF2C52ED10E8"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260801/books/small_202608011832435832.jpg" data-original="AEkQiQPZApJOB4aW+ucpSwzP0HxYpL2x+NKXIz9MrWubAa758m6LBwPH2uSQrkV46lhCMZJxOVupkoaNYoeDwg==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-欧美《Versace》2026秋冬潮流前卫男装" pid="6B69B581270E373475CFCF2C52ED10E8"></a></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/books/show-17-18896-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/books/show-17-18896-1.html" target="_blank"><img src="/uploadFiles/20260714/books/202607141138587735.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/books/show-17-18896-1.html" target="_blank">欧美《KidSuper x  McDonald》2026春夏潮流前卫男装 </a></div><div class="cz1"><a href="dphz-17-0-4113-0-88-0-1.html">Kidsuper</a></div><div class="cz2">2026春夏 | 2026/7/14</div><div class="cz3 viewBox_18896"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260714/books/small_202607141139048731.jpg" data-original="AEkQiQPZApJOB4aW+ucpS0IHEDrXSTK1UddpPzeJPqDQIu+DzSkMb6+/rEaT+IrZ7LxeQEY5M5gcM6+87h35qw==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-欧美《KidSuper x  McDonald》2026春夏潮流前卫男装" pid="73DE8709E4B1B0E212EE08C06E79DC6B"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260714/books/small_202607141139056411.jpg" data-original="AEkQiQPZApJOB4aW+ucpS0IHEDrXSTK1UddpPzeJPqAkdlg9jQcg7z0uxMeEBlHnvnRsyXshQXJj3nYBmpe07Q==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-欧美《KidSuper x  McDonald》2026春夏潮流前卫男装" pid="73DE8709E4B1B0E212EE08C06E79DC6B"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260714/books/small_202607141139063157.jpg" data-original="AEkQiQPZApJOB4aW+ucpS0IHEDrXSTK1UddpPzeJPqCyLkr4o4snavpYwZPraGpABAVqXY6nlkdaHSXrsQXbJw==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-欧美《KidSuper x  McDonald》2026春夏潮流前卫男装" pid="73DE8709E4B1B0E212EE08C06E79DC6B"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260714/books/small_202607141139069272.jpg" data-original="AEkQiQPZApJOB4aW+ucpS0IHEDrXSTK1UddpPzeJPqBplgXdVWQgW7bhm77B3gg0aBI3FSJs2fHCLq4a58wL3A==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-欧美《KidSuper x  McDonald》2026春夏潮流前卫男装" pid="73DE8709E4B1B0E212EE08C06E79DC6B"></a></li><li><div class="cz4"><a href="/books/show-17-18896-1.html" target="_blank">23+</a></div><img src="/uploadFiles/20260714/books/small_202607141139074760.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/books/show-17-18894-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/books/show-17-18894-1.html" target="_blank"><img src="/uploadFiles/20260714/books/202607141130351569.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/books/show-17-18894-1.html" target="_blank">美国《Denim Tears》2026春夏潮流时尚男装 </a></div><div class="cz1"><a href="dphz-17-0-3513-0-88-0-1.html">Denim Tears</a></div><div class="cz2">2026春夏 | 2026/7/14</div><div class="cz3 viewBox_18894"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260714/books/small_202607141130433267.jpg" data-original="AEkQiQPZApJOB4aW+ucpS0IHEDrXSTK1UddpPzeJPqA2tXkKHC05TMdTSM0l9n8VrYerRa4SWUL7XM5RFz9lKw==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Denim Tears》2026春夏潮流时尚男装" pid="63AD65727877E0DB480ADFD9BAFA1B72"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260714/books/small_202607141130442046.jpg" data-original="AEkQiQPZApJOB4aW+ucpS0IHEDrXSTK1UddpPzeJPqD94i2yHwH15dVUG/BaQ7s0dolDOirTztXZomZKaR49Cw==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Denim Tears》2026春夏潮流时尚男装" pid="63AD65727877E0DB480ADFD9BAFA1B72"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260714/books/small_202607141130448316.jpg" data-original="AEkQiQPZApJOB4aW+ucpS0IHEDrXSTK1UddpPzeJPqCTg+VzD0yvFA0nmRw8f9wb/DBj/3xJupbuBkW1gkDvXQ==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Denim Tears》2026春夏潮流时尚男装" pid="63AD65727877E0DB480ADFD9BAFA1B72"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260714/books/small_202607141130455062.jpg" data-original="AEkQiQPZApJOB4aW+ucpS0IHEDrXSTK1UddpPzeJPqDmQWBdnWyIkS8nR6J6ewskuctotGhyC/BMyelel4LbYA==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Denim Tears》2026春夏潮流时尚男装" pid="63AD65727877E0DB480ADFD9BAFA1B72"></a></li><li><div class="cz4"><a href="/books/show-17-18894-1.html" target="_blank">19+</a></div><img src="/uploadFiles/20260714/books/small_202607141130466666.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/books/show-17-18893-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/books/show-17-18893-1.html" target="_blank"><img src="/uploadFiles/20260714/books/202607141129014524.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/books/show-17-18893-1.html" target="_blank">意大利《Alpinestars Reserve》2026春夏潮流前卫男装 </a></div><div class="cz1"><a href="dphz-17-0-4598-0-88-0-1.html">Alpinestars Reserve</a></div><div class="cz2">2026春夏 | 2026/7/14</div><div class="cz3 viewBox_18893"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260714/books/small_202607141129164081.png" data-original="AEkQiQPZApJOB4aW+ucpS0IHEDrXSTK1UddpPzeJPqBCT6S2Fciq8T42YggRTL7KB6v9Rl4HpF4LWN3d6meL9Q==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-意大利《Alpinestars Reserve》2026春夏潮流前卫男装" pid="E15FF77D72FC0A71CAB61A9A5B91BCC9"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260714/books/small_202607141129183842.png" data-original="AEkQiQPZApJOB4aW+ucpS0IHEDrXSTK1UddpPzeJPqD+mf9Lj/M3S/Cz7AHZXFFY/P4lVnx3i18paHI7+dc3yg==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-意大利《Alpinestars Reserve》2026春夏潮流前卫男装" pid="E15FF77D72FC0A71CAB61A9A5B91BCC9"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260714/books/small_202607141129202671.png" data-original="AEkQiQPZApJOB4aW+ucpS0IHEDrXSTK1UddpPzeJPqD3tw6+AmB1CyJ4TiPRo0yo7eIxn5rlAWc67w1miwK0Rg==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-意大利《Alpinestars Reserve》2026春夏潮流前卫男装" pid="E15FF77D72FC0A71CAB61A9A5B91BCC9"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260714/books/small_202607141129223366.png" data-original="AEkQiQPZApJOB4aW+ucpS0IHEDrXSTK1UddpPzeJPqDVSAFF40MX9t1otN8JpJ379EENlIV/v44vd0v+v6MM8w==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-意大利《Alpinestars Reserve》2026春夏潮流前卫男装" pid="E15FF77D72FC0A71CAB61A9A5B91BCC9"></a></li><li><div class="cz4"><a href="/books/show-17-18893-1.html" target="_blank">9+</a></div><img src="/uploadFiles/20260714/books/small_202607141129248929.png" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/books/show-17-18881-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/books/show-17-18881-1.html" target="_blank"><img src="/uploadFiles/20260618/books/202606181123447559.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/books/show-17-18881-1.html" target="_blank">美国《Supreme x Spitfire》 》2026春夏时尚潮流男装 </a></div><div class="cz1"><a href="dphz-17-0-2463-0-88-0-1.html">Supreme</a></div><div class="cz2">2026春夏 | 2026/6/18</div><div class="cz3 viewBox_18881"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260618/books/small_202606181123486134.jpg" data-original="AEkQiQPZApJOB4aW+ucpS8cJ43hKJVCzVlXkY1J13hB/nvf4cVI2kCjEFsokVhcppfz7JIX5glMg262sYMpRQQ==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Supreme x Spitfire》 》2026春夏时尚潮流男装" pid="395C27447B05B52794B2968FE53053C3"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260618/books/small_202606181123490686.jpg" data-original="AEkQiQPZApJOB4aW+ucpS8cJ43hKJVCzVlXkY1J13hB+teTTNVwRlEgdmFrbDWTOTtufJlK+cPYFu6fOE/iP5A==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Supreme x Spitfire》 》2026春夏时尚潮流男装" pid="395C27447B05B52794B2968FE53053C3"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260618/books/small_202606181123494923.jpg" data-original="AEkQiQPZApJOB4aW+ucpS8cJ43hKJVCzVlXkY1J13hD+rcVQ+HJlsFFEG0jDCIpuxJ63FzRDlFM1Ga1q2uYQ8Q==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Supreme x Spitfire》 》2026春夏时尚潮流男装" pid="395C27447B05B52794B2968FE53053C3"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260618/books/small_202606181123499631.jpg" data-original="AEkQiQPZApJOB4aW+ucpS8cJ43hKJVCzVlXkY1J13hCs2VIehg8gzXhFzSSMPQvfwpCcRSg9LS/1tomv02da4g==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Supreme x Spitfire》 》2026春夏时尚潮流男装" pid="395C27447B05B52794B2968FE53053C3"></a></li><li><div class="cz4"><a href="/books/show-17-18881-1.html" target="_blank">22+</a></div><img src="/uploadFiles/20260618/books/small_202606181123503716.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/books/show-17-18865-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/books/show-17-18865-1.html" target="_blank"><img src="/uploadFiles/20260609/books/202606091703343792.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/books/show-17-18865-1.html" target="_blank">美国《Supreme x La Martina》 》2026春夏时尚潮流男装 </a></div><div class="cz1"><a href="dphz-17-0-2463-0-88-0-1.html">Supreme</a></div><div class="cz2">2026春夏 | 2026/6/9</div><div class="cz3 viewBox_18865"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260609/books/small_202606091703395078.jpg" data-original="AEkQiQPZApJOB4aW+ucpS60RzrQUnWbwFPzDaePoNs/D8Yd2YX6ZehndDmT7f1IzQnLZbx3eIYECwWTbeXbvEA==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Supreme x La Martina》 》2026春夏时尚潮流男装" pid="8738C1FD2A06A2CB0FC433076478E6CB"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260609/books/small_202606091703399469.jpg" data-original="AEkQiQPZApJOB4aW+ucpS60RzrQUnWbwFPzDaePoNs882p98jd2cgzA2Dy3dVU6DV9fQLCPG8yYVy5hEYuILMQ==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Supreme x La Martina》 》2026春夏时尚潮流男装" pid="8738C1FD2A06A2CB0FC433076478E6CB"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260609/books/small_202606091703404010.jpg" data-original="AEkQiQPZApJOB4aW+ucpS60RzrQUnWbwFPzDaePoNs/e9cqI/j7nKNS454/Kr0jrUR/cQNvWDs5NWwKouwtVHg==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Supreme x La Martina》 》2026春夏时尚潮流男装" pid="8738C1FD2A06A2CB0FC433076478E6CB"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260609/books/small_202606091703408712.jpg" data-original="AEkQiQPZApJOB4aW+ucpS60RzrQUnWbwFPzDaePoNs++vZdwJCzFz+ems9kQoUVSpGXWkJrogx0ml819+m+1sg==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-美国《Supreme x La Martina》 》2026春夏时尚潮流男装" pid="8738C1FD2A06A2CB0FC433076478E6CB"></a></li><li><div class="cz4"><a href="/books/show-17-18865-1.html" target="_blank">19+</a></div><img src="/uploadFiles/20260609/books/small_202606091703412954.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/books/show-17-18862-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/books/show-17-18862-1.html" target="_blank"><img src="/uploadFiles/20260609/books/202606091700088268.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/books/show-17-18862-1.html" target="_blank">丹麦《HELIOT EMIL x SONGZIO 》2026春夏潮流时尚男装 </a></div><div class="cz1"><a href="dphz-17-0-2925-0-88-0-1.html">Heliot Emil</a></div><div class="cz2">2026春夏 | 2026/6/9</div><div class="cz3 viewBox_18862"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260609/books/small_202606091700141913.jpg" data-original="AEkQiQPZApJOB4aW+ucpS60RzrQUnWbwFPzDaePoNs8Pc0uPjeNSgI6dMQIL20jspjPQldMb+6mRS1Fkp+JwzQ==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-丹麦《HELIOT EMIL x SONGZIO 》2026春夏潮流时尚男装" pid="365113ECCE693A757C92C4E3DD6565DD"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260609/books/small_202606091700145989.jpg" data-original="AEkQiQPZApJOB4aW+ucpS60RzrQUnWbwFPzDaePoNs+KoSDf8Ga2ryA2DyGunHFiDxMMsdtwZY362xZfmTlzkw==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-丹麦《HELIOT EMIL x SONGZIO 》2026春夏潮流时尚男装" pid="365113ECCE693A757C92C4E3DD6565DD"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260609/books/small_202606091700149437.jpg" data-original="AEkQiQPZApJOB4aW+ucpS60RzrQUnWbwFPzDaePoNs+R0QsZLCbNVrU9huChbBrUPYC++dJmH459JZL9EUHFXw==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-丹麦《HELIOT EMIL x SONGZIO 》2026春夏潮流时尚男装" pid="365113ECCE693A757C92C4E3DD6565DD"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260609/books/small_202606091700153823.jpg" data-original="AEkQiQPZApJOB4aW+ucpS60RzrQUnWbwFPzDaePoNs+fPNDvnP235eLmN3WZlT0+EVbRlvVQ2dKsiM3iTKzbxw==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-丹麦《HELIOT EMIL x SONGZIO 》2026春夏潮流时尚男装" pid="365113ECCE693A757C92C4E3DD6565DD"></a></li><li><div class="cz4"><a href="/books/show-17-18862-1.html" target="_blank">30+</a></div><img src="/uploadFiles/20260609/books/small_202606091700157743.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/books/show-17-18859-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/books/show-17-18859-1.html" target="_blank"><img src="/uploadFiles/20260609/books/202606091655119703.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/books/show-17-18859-1.html" target="_blank">日本《BAPE x CR7 LIFE》2026春夏潮流前卫男装 </a></div><div class="cz1"><a href="dphz-17-0-3014-0-88-0-1.html">BAPE</a></div><div class="cz2">2026春夏 | 2026/6/9</div><div class="cz3 viewBox_18859"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260609/books/small_202606091655165821.jpg" data-original="AEkQiQPZApJOB4aW+ucpS60RzrQUnWbwFPzDaePoNs+oGbCEnTLynZGFmKdMUCTBkErRJ0nUw1JtoVdT3qf2SA==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-日本《BAPE x CR7 LIFE》2026春夏潮流前卫男装" pid="3F4E7C6798AF4A69A8F3EDD04B616839"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260609/books/small_202606091655169122.jpg" data-original="AEkQiQPZApJOB4aW+ucpS60RzrQUnWbwFPzDaePoNs9DfPRLnNRbnd1ZM0Kd6e0p53oLy6qRLRCmkL8tIsl9RQ==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-日本《BAPE x CR7 LIFE》2026春夏潮流前卫男装" pid="3F4E7C6798AF4A69A8F3EDD04B616839"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260609/books/small_202606091655173671.jpg" data-original="AEkQiQPZApJOB4aW+ucpS60RzrQUnWbwFPzDaePoNs93Vj78R4oOZEZhpbPaHOt8tZBnK0drwptDXmURrLJ9xA==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-日本《BAPE x CR7 LIFE》2026春夏潮流前卫男装" pid="3F4E7C6798AF4A69A8F3EDD04B616839"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260609/books/small_202606091655177274.jpg" data-original="AEkQiQPZApJOB4aW+ucpS60RzrQUnWbwFPzDaePoNs/8QoKr/WIn5mwRwFA1jo7/MI7NmzbFiyLyfukSbglrqw==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-日本《BAPE x CR7 LIFE》2026春夏潮流前卫男装" pid="3F4E7C6798AF4A69A8F3EDD04B616839"></a></li><li><div class="cz4"><a href="/books/show-17-18859-1.html" target="_blank">7+</a></div><img src="/uploadFiles/20260609/books/small_202606091655181508.jpg" ></li></ul></div></div></div><div class="cz" ><div class="cz5"><a href="/books/show-17-18828-1.html" target="_blank"><img src="/images/x5.png" alt=""></a></div><div class="cz-left"><a href="/books/show-17-18828-1.html" target="_blank"><img src="/uploadFiles/20260604/books/202606041340015319.jpg"></a></div><div class="cz-right"><div class="cz1"><a href="/books/show-17-18828-1.html" target="_blank">洛杉矶《424 x Under Armour》2026春夏潮流前卫男装 </a></div><div class="cz1"><a href="dphz-17-0-2973-0-88-0-1.html">424</a></div><div class="cz2">2026春夏 | 2026/6/4</div><div class="cz3 viewBox_18828"><ul><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260604/books/small_202606041340162861.jpg" data-original="AEkQiQPZApJOB4aW+ucpS6ARjYgfRXTYGBTbHqO6LA+qJ6G0CAHdL0yeI6NuZkHAklQMz9jdgv35JFutFaHgtQ==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-洛杉矶《424 x Under Armour》2026春夏潮流前卫男装" pid="FC44F7A341605778388F5C5991809BB2"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260604/books/small_202606041340166940.jpg" data-original="AEkQiQPZApJOB4aW+ucpS6ARjYgfRXTYGBTbHqO6LA+/f8sCizPgIH2Bp+M+woOzYqCezGHvs6E9zYtiGrou/A==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-洛杉矶《424 x Under Armour》2026春夏潮流前卫男装" pid="FC44F7A341605778388F5C5991809BB2"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260604/books/small_202606041340170703.jpg" data-original="AEkQiQPZApJOB4aW+ucpS6ARjYgfRXTYGBTbHqO6LA85+UAPeca2Iu0o18o7S56VCzR9EjKOOPa5fRuHFi8gnA==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-洛杉矶《424 x Under Armour》2026春夏潮流前卫男装" pid="FC44F7A341605778388F5C5991809BB2"></a></li><li><a href="javascript:;" itemprop="url" class="img_click js-data-collect"><img src="/uploadFiles/20260604/books/small_202606041340175249.jpg" data-original="AEkQiQPZApJOB4aW+ucpS6ARjYgfRXTYGBTbHqO6LA8gW1gbwdTpPxu6Or/EhX/6eKw4kipQbgOcwfJdhoq1Og==" ifaj="5" typeid="4" alt="单品合辑-单品合辑-洛杉矶《424 x Under Armour》2026春夏潮流前卫男装" pid="FC44F7A341605778388F5C5991809BB2"></a></li><li><div class="cz4"><a href="/books/show-17-18828-1.html" target="_blank">10+</a></div><img src="/uploadFiles/20260604/books/small_202606041340180103.jpg" ></li></ul></div></div></div>
+
+
+         <div style="clear:both"></div>
+<div class="pages" style="margin-top:0"><span id="Pagination"><span class="pagination"><a href='dphz-17-0-0-0-88-0-1.html' style=" display:none">上一页</a><a href="dphz-17-0-0-0-88-0-1.html" class="current">1</a><a href="dphz-17-0-0-0-88-0-2.html" class="prev">2</a><a href="dphz-17-0-0-0-88-0-3.html" class="prev">3</a><a href="dphz-17-0-0-0-88-0-4.html" class="prev">4</a><a href="dphz-17-0-0-0-88-0-5.html" class="prev">5</a><a href="dphz-17-0-0-0-88-0-6.html">…</a><a href="dphz-17-0-0-0-88-0-167.html"  class="next">167</a><a href="dphz-17-0-0-0-88-0-2.html"  class="next">下一页</a></span><input id="formatString" type="hidden" value="dphz-17-0-0-0-88-0-" /><span class="searchPage"><span class="page-sum">共<strong class="allPage">167</strong>页</span> <span class="page-go"><input type='text' class='textPut' placeholder="输入页码" id='gotopagepager' onKeyUp='if((event.keyCode ? event.keyCode : event.which ? event.which : event.charCode)==13){gotoPage()}'/><a href="javascript:;" onclick="gotoPage()">跳转</a></span></span></span></div>
+    </div>
+  
+<script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+            <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+            <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
+<script src="/js/smcm.js"></script>
+<link rel="stylesheet" href="/css/validate.css" />
+    <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
+<ul class="kf">
+  <li class="li1">
+    <div class="show_a"><em></em>
+      <div style="padding-left:10px">
+        <div class="kf_titel">在线客服</div>
+        <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px" title="点击这里给我发消息" alt="点击这里给我发消息" src="http://wpa.qq.com/pa?p=2:18550168:41"></a></div>
+      <div><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3871105&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px; margin-left:10px" title="点击这里给我发消息" alt="点击这里给我发消息" src="http://wpa.qq.com/pa?p=2:3871105:41"></a></div>
+    </div>
+  </li>
+  <li class="li2">
+    <div class="show_b"><em></em>
+      <div class="kf_titel">联系我们</div>
+      <p>020-31232355</p>
+    </div>
+  </li>
+  <li class="li3">
+     <div class="show_c">
+    <form id="feedbackform" name="feedbackform" url="/Ajax/addneed.ashx">
+      <div class="kf_titel">会员需求与建议</div>
+      <em></em>
+      <textarea rows="5" name="xqjy" class="textarea" placeholder="请在此详细输入您公司目前所需资料类型或提交宝贵意见，我司将会在最短的时间内为您上传所需的资料，谢谢！"></textarea>
+      <div class="lay"><input type="submit" id="btnSubmit_feedback" class="Submission1" value="提交"></div>
+        </form>
+    </div>
+  </li>
+  <a href="http://widget.weibo.com/dialog/follow.php?fuid=2825343592&refer=www.r355.com&language=zh_cn&type=widget_page&vsrc=app_followbutton&backurl=http%3A%2F%2Fwww.r355.com%2F&rnd=1395281896175" title="新浪微博" target="_blank">
+  <li class="li4"></li>
+  </a>
+  <li class="li5">
+    <div class="show_d"><em></em><img src="/images/weixin_code.png?v=0.133" width="106" height="240"></div>
+  </li>
+  <li class="li7"></li>
+</ul>
+<section>
+  <link href="/css/footer.css" rel="stylesheet" type="text/css" />
+  <div id="footer">
+    <img src="/images/footer/innovative-future.png" class="footer-future" />
+    <div class="footer-contact">
+      <img src="/images/footer/wechat-icon.png" />
+      <img src="/images/footer/qq-icon.png" />
+      <img src="/images/footer/phone-icon.png" />
+    </div>
+    <div class="footer-line"></div>
+    <div class="footer-bot">
+      <div class="footer-bot-left">
+        <div class="footer-bot-navs">
+          <li class="nav-item">
+            <a href="/about/R355-1636.html">关于我们</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1637.html">联系我们</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1632.html">免责声明</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1633.html">会员须知</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1639.html">收费说明</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1640.html">汇款方式</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/R355-1641.html">办理流程</a>
+          </li>
+        </div>
+        <p>Copyright 2007-2025 R355.com， All Rights Reserved <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备 07502261号-1</a></p>
+      </div>
+      <img src="/images/footer/qrcode.png" style="width: 94px; height: 94px;">
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript" src="/js/Mouse.js" charset="utf-8"></script>
+   <script>
+       $(function () {
+           AjaxInitForm('#feedbackform', '#btnSubmit_feedback', 0);
+      });
+  </script>
+<script src="/js/purify.min.js"></script>
+  <script src="/js/jquery.SuperSlide.js"></script>
+      <script src="/js/base.js"></script>
+      <script src="/js/smcm.js"></script> 
+
+     <script type="text/javascript">
+         $(function () {
+             $("ul.nav—b>li").eq(7).addClass("on—b");
+                $(this).keypress(function (e) {
+                    var key = window.event ? e.keyCode : e.which;
+                    if (key.toString() == "13") {
+                        return false;
+                    }
+                });
+                var searchEmptyHtml = '<div class="wrap-tips"><div class="search-tips"><p class="cnt-tips">您可以点击上面字母快速检索品牌；</p><div class="extra"><p class="cnt">需要查看所有品牌，请点击：</p><a href="javascript:void(0)" onClick="getSiftData(\'id\',\'brandStr\',\'all\');" title="查看所有品牌" class="link-btn">查看所有品牌</a></div><i class="notice-status"></i></div></div>';
+                var tipText = '请输入品牌';
+                $(".DropmenuSpc").click(function () {
+                    $(".ChoiceLayer").removeClass("currentTagR");
+
+                    //默认选中A
+                    $("#searchLetter a.current").removeClass('current');
+                    //$("#searchLetter a").eq(0).addClass('current');
+                    var text = $(".DropmenuSpc").val();
+                    if (text != '' && text.substr(0, 1) != '请') {
+                        checkLetter(text);
+                        getSiftData('id', 'brandStr', text.substr(0, 1).toUpperCase());
+                    } else {
+                        $('#searchContent').html(searchEmptyHtml);
+                    }
+                    if (text == tipText)
+                        $(".DropmenuSpc").val('');
+                });
+
+                $("#searchLetter a").click(function () {
+                    $("#searchLetter a.current").removeClass('current');
+                    $(this).addClass('current');
+                    var lt = ($(this).text() == '其他') ? 'qt' : $(this).text();
+                    getSiftData('id', 'brandStr', lt);
+                });
+
+                $(".Btnclose").click(function () {
+                    $(".ChoiceLayer").addClass("currentTagR");
+                    var text = $(".DropmenuSpc").val();
+                    if (text == '')
+                        $(".DropmenuSpc").val(tipText);
+                });
+
+                $("#brandStr").keyup(function (e) {
+                    var arr = [13, 37, 38, 39, 40];
+                    if (jQuery.inArray(e.keyCode, arr) != -1) return;
+                    var lt = $(this).val();
+                    if (lt == '') {
+                        $('#searchContent').html(searchEmptyHtml);
+                    } else {
+                        checkLetter(lt);
+                        getSiftData('text', 'brandStr', lt);
+                    }
+                });
+            });
+
+            function getSiftData(tp, tag, lt) {
+                 var hi = '加载中...';
+                    $('#searchContent').html(hi);
+                    $.ajax({
+                        type: "post",
+                        url: "/ajax/ret_books_list.ashx",
+                        data:{ cartype:lt,cid:17,alfid:88,sexid:0,scid:0,nameid:0,tp:tp,url:"/kstk/dphz" },
+                        dataType: "html",
+                        success: function (data) {
+                            $('#searchContent').html(data);
+                        }
+                    });
+            }
+        </script>
+    
+<link rel="stylesheet" href="/css/validate.css" />
+    <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
+<link href="/css/time.css" rel="stylesheet" type="text/css">
+<div id="popDiv_b" class="mydiv_b" style="display:none">
+  <div class="pop_titel">请先完善您的真实资料，获得更多免费资讯。</div>
+  <div class="register_main">
+    <form id="regform" name="regform" url="/ajax/cheuser.ashx?act=user_register_2">
+      <div class="fill_in">
+      <div class="left">公司名称：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="company" value="" class="Required" placeholder="请填写公司的全称" datatype="s6-16" nullmsg="请填写公司的全称" errormsg="范围在6-16位之间" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">公司电话：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="tel" value="" class="Required" placeholder="公司电话" datatype="*" nullmsg="请填写公司电话" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">经营类别：</div>
+      <div class="right" style="width:74%">
+           <div class="vali">
+        <select class="select" name="tion_id" datatype="*" nullmsg="请选择经营类别" sucmsg=" " style="width:65%">
+           <option value="">请选择企业主营类别</option>
+         <option value="女装">女装</option>
+		<option value="男装">男装</option>
+		<option value="童装" >童装</option>
+		<option value="内衣" >内衣</option>
+		<option value="家居服" >家居服</option>
+		<option value="制服" >制服</option>
+		<option value="运动服" >运动服</option>
+		<option value="牛仔" >牛仔</option>
+		<option value="礼服" >礼服</option>
+		<option value="羽绒服" >羽绒服</option>
+		<option value="皮衣皮草" >皮衣皮草</option>
+		<option value="其他" >其他</option>
+        </select>
+               </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">所在省份：</div>
+      <div class="right" style="width:74%">
+        <div class="vali">
+          <select name="country" id="selCountries_new" onchange="region.changed(this, 1, 'user_role1_selProvinces_new')" style='display:none;'>
+        <option value="1" selected>中国</option></select>
+          <select name="user_role1$selProvinces_new" id="user_role1_selProvinces_new" onchange="region.changed(this, 2, &#39;selCities_new&#39;)">
+	<option value="0">请选择省</option>
+	<option value="2">北京</option>
+	<option value="3">安徽</option>
+	<option value="4">福建</option>
+	<option value="5">甘肃</option>
+	<option value="6">广东</option>
+	<option value="7">广西</option>
+	<option value="8">贵州</option>
+	<option value="9">海南</option>
+	<option value="10">河北</option>
+	<option value="11">河南</option>
+	<option value="12">黑龙江</option>
+	<option value="13">湖北</option>
+	<option value="14">湖南</option>
+	<option value="15">吉林</option>
+	<option value="16">江苏</option>
+	<option value="17">江西</option>
+	<option value="18">辽宁</option>
+	<option value="19">内蒙古</option>
+	<option value="20">宁夏</option>
+	<option value="21">青海</option>
+	<option value="22">山东</option>
+	<option value="23">山西</option>
+	<option value="24">陕西</option>
+	<option value="25">上海</option>
+	<option value="26">四川</option>
+	<option value="27">天津</option>
+	<option value="28">西藏</option>
+	<option value="29">新疆</option>
+	<option value="30">云南</option>
+	<option value="31">浙江</option>
+	<option value="32">重庆</option>
+	<option value="33">香港</option>
+	<option value="34">澳门</option>
+	<option value="35">台湾</option>
+</select>
+          <select id="selCities_new" name="selCities_new" onchange="region.changed(this, 3, 'selDistricts_new')"><option value="0">请选择市</option>
+              </select>
+          <select id="selDistricts_new" name="selDistricts_new" datatype="n" nullmsg="请选择地区" sucmsg=" "><option value="">请选择区域</option></select>
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">公司地址：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="address" value="" class="Required" placeholder="请填写详细填写公司地址" datatype="*" nullmsg="请填写详细填写公司地址" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">QQ：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="qq" value="" class="nub" placeholder="请填写" datatype="n" nullmsg="请填写QQ号码" errormsg="QQ号码格式不正确" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+      <div class="protocol"></div>
+      <input type="submit" class="Submission" id="btnSubmit_Reg" value="完成信息填写" style="margin-bottom:30px">
+    </form>
+  </div>
+</div>
+<div id="bg_b" class="bg_show_b" style="display:none;"></div>
+<iframe id='popIframe_b' class='popIframe_b' frameborder='0' ></iframe>
+<!-- 补充资料结束 --> 
+
+
+
+<!-- 登录弹框 -->
+<div id="popDiv" class="mydiv" style="display:none">
+  <div class="Login_box" style="margin:0px">
+    <div class="top">
+      <div class="txt" style="float:left">请先登录</div>
+      <div class="close" style="float:right; padding-right:10px"><a href="javascript:closeDiv()"><span class="icon1 iconfont">&#xe620;</span></a></div>
+      <div style="clear:both"></div>
+    </div>
+      <form id="loginform" name="loginform" url="/Ajax/cheuser.ashx?act=user_login">
+    <div class="main1">
+    <div class="left1">
+      <div class="text_box1">
+        <div class="text_left">用户名：</div>
+        <div class="text_right">
+          <input class="input" type="text" name="txtUserName" id="txtUserName" value="" />
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">密码：</div>
+        <div class="text_right">
+          <input class="input" type="password" name="txtPassword" id="txtPassword" value="" />
+        </div>
+      </div>
+         <div class="text_box1">
+        <div class="text_left">验证码：</div>
+        <div class="text_right">
+          <input class="input" type="text" name="txtcode" id="txtcode" value="" style="width:100px"  dataType="Limit" min="5" max="5" msg="请输入5位验证码" /> <a href="javascript:fGetCode()"><img id="imgCount" name="imgCount" src="/VerifyCode.aspx" style="margin: auto 5px;  height: 46px" align="absmiddle"></a>
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">&nbsp;</div>
+        <div class="text_right" style="font-size:12px; color:#a8a7a7">
+          <label>
+            <input name="user_role1$remember" type="checkbox" id="user_role1_remember" value="1" />
+            下次自动登录</label> <div id="msgtips" class="tip-box"></div>
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">&nbsp;</div>
+        <div class="text_right" style="font-size:12px; color:#a8a7a7">
+          <div class="Login_btn">
+              <input id="btnSubmit" name="btnSubmit" value="立即登录" type="submit" class="submit_btn reglogin_btn">
+              </div>
+          <div class="get_back"><a href="#">忘记密码？</a></div>
+          <div class="ge"><a href="/about/R355-1636.html">关于我们</a> | <a href="/about/R355-1641.html">办理流程</a> | <a href="/about/downLoadUrl.aspx">客户端下载</a> | <a href="https://www.r355.com/">返回首页</a></div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="right1" style="position:relative">
+        <div class="r1">马上注册成为R355服饰资讯会员开通试用服务，就可以浏览更多精彩资讯！</div>
+        <div class="r2">客服电话：020-31232355</div>
+        <div class="r3"> <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px" title="点击这里给我发消息" alt="点击这里给我发消息" src="/images/qq.png"></a></div>
+        <div class="r4">微信咨询
+          <div class="wx_show"><img src="/images/wx_box.png" width="121" height="106"></div>
+        </div>
+        <div class="r5 award"><a href="/member/reg.aspx"><img src="/images/btn.png" width="114" height="46"></a></div>
+      </div>
+    </div>
+          </form>
+  </div>
+</div>
+<script type="text/javascript" charset="utf-8" src="/js/login-validate.js"></script>
+<div id="bg" class="bg_show" style="display:none;"></div>
+<iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
+
+<!-- 登录弹框结束 --> 
+
+
+<style>
+   .sm_u_right .Validform_checktip { top:5px
+    }
+    
+</style>
+
+
+<!-- 上门服务弹框 -->
+<div id="popDiv_c" class="mydiv_c" style="display:none">
+  <div class="drop_in">
+    <div class="right_btn"><img src="/images/s2.png" width="27" height="126"></div>
+    <div class="sm_box">
+      <div class="sm_Close"><a href="#"><span class="icon1 iconfont">&#xe620;</span></a></div>
+      <div style="clear:both"></div>
+      <div class="sm_titel">上门信息填写</div>
+         <form id="smform" name="smform" url="/Ajax/add_service.ashx">
+      <div class="sm_u">
+        <div class="sm_u_left">上门时间：</div>
+        <div class="sm_u_right">
+            <input type="text" name="act_start_time" value="" placeholder="请选择上门时间" datatype="*" nullmsg="请选择" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">公司名称：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_company" value="" placeholder="请填写公司名称" datatype="s6-18" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">联系地址：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_address" value="" placeholder="请填写联系地址" datatype="s6-18" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">手机号码：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_mobile" value="" placeholder="请填写手机号码" datatype="m" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">联系人：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_truename" value="" placeholder="请填写联系人" datatype="*" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">备注信息：</div>
+        <div class="sm_u_right">
+          <input type="text" name="remark" value="" placeholder="不超过20字">
+        </div>
+      </div>
+      <input type="submit" id="btnSubmit_sm" class="Submission1" value="发送">
+      </form>
+    </div>
+    <div class="drop_in_Close"><a href="javascript:closeDiv_c()"><span class="icon1 iconfont">&#xe620;</span></a></div>
+    <div class="drop_in_top"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe63d;</span>温馨提示：您的账号没有权限浏览当前内容，请联系客服<a href="/member/reg.aspx"><strong style="color:red">开通VIP会员</strong></a>或<a href="/member/buyPoint.aspx"><strong style="color:red">充值点数</strong></a>。</div>
+    <div class="do-1"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe618;</span>线上咨询客服</div>
+    <div class="tel">客服电话：020-31232355</div>
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=18550168&site=qq&menu=yes" target="_blank" style="float:left;padding-left:210px;color:#ddbb6d"><span class="icon1 iconfont">&#xe617;</span>在线咨询</a>
+    <div class="r14 r15" style="background-image:none;"><a href="javascript:;" style="color:#ddbb6d"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe6db;</span>微信咨询</a>
+      <div class="wx_show1"><img src="/images/wx_box.png" width="121" height="106"></div>
+    </div>
+    <div style="clear:both"></div>
+    <div class="do_img"><a href="/about/downLoadUrl.aspx"><img src="/images/s1.png" width="181" height="38"></a></div>
+  </div>
+</div>
+<div id="bg_c" class="bg_show_c" style="display:none;"></div>
+<iframe id='popIframe_c' class='popIframe_c' frameborder='0' ></iframe>
+<script type="text/javascript" src="/js/global.js"></script>
+    <script type="text/javascript" src="/js/region.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+            <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+            <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
+    <script src="/js/time.js"></script>
+            <script type="text/javascript">
+            $(function(){
+                //初始化表单
+                AjaxInitForm('#regform', '#btnSubmit_Reg', 0);
+                AjaxInitForm('#smform', '#btnSubmit_sm', 0, "#user_role1_turl");
+            });
+            </script>
+<script type="text/javascript">$( "input[name='act_start_time'],input[name='act_stop_time']" ).datetimepicker();</script>
+<!-- 上门服务弹框结束 --> 
+<input name="user_role1$turl" type="hidden" id="user_role1_turl" value="https://www.r355.com/kstk/dphz.aspx?cid=17&amp;scid=0&amp;nameid=0&amp;sexid=0&amp;alfid=88&amp;kid=0&amp;p=1" />
+   
+  <script src="/js/jquery.lazyload.js"></script>
+    <script src="/js/viewer-jquery.min.js"></script>
+      <script src="/js/aes.js"></script> 
+
+<link rel="stylesheet" href="/css/validate.css" />
+    <link rel="stylesheet" type="text/css" href="/js/artdialog/ui-dialog.css" />
+<link href="/css/time.css" rel="stylesheet" type="text/css">
+<div id="popDiv_b" class="mydiv_b" style="display:none">
+  <div class="pop_titel">请先完善您的真实资料，获得更多免费资讯。</div>
+  <div class="register_main">
+    <form id="regform" name="regform" url="/ajax/cheuser.ashx?act=user_register_2">
+      <div class="fill_in">
+      <div class="left">公司名称：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="company" value="" class="Required" placeholder="请填写公司的全称" datatype="s6-16" nullmsg="请填写公司的全称" errormsg="范围在6-16位之间" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">公司电话：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="tel" value="" class="Required" placeholder="公司电话" datatype="*" nullmsg="请填写公司电话" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">经营类别：</div>
+      <div class="right" style="width:74%">
+           <div class="vali">
+        <select class="select" name="tion_id" datatype="*" nullmsg="请选择经营类别" sucmsg=" " style="width:65%">
+           <option value="">请选择企业主营类别</option>
+         <option value="女装">女装</option>
+		<option value="男装">男装</option>
+		<option value="童装" >童装</option>
+		<option value="内衣" >内衣</option>
+		<option value="家居服" >家居服</option>
+		<option value="制服" >制服</option>
+		<option value="运动服" >运动服</option>
+		<option value="牛仔" >牛仔</option>
+		<option value="礼服" >礼服</option>
+		<option value="羽绒服" >羽绒服</option>
+		<option value="皮衣皮草" >皮衣皮草</option>
+		<option value="其他" >其他</option>
+        </select>
+               </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">所在省份：</div>
+      <div class="right" style="width:74%">
+        <div class="vali">
+          <select name="country" id="selCountries_new" onchange="region.changed(this, 1, 'user_role1_selProvinces_new')" style='display:none;'>
+        <option value="1" selected>中国</option></select>
+          <select name="user_role2$selProvinces_new" id="user_role2_selProvinces_new" onchange="region.changed(this, 2, &#39;selCities_new&#39;)">
+	<option value="0">请选择省</option>
+	<option value="2">北京</option>
+	<option value="3">安徽</option>
+	<option value="4">福建</option>
+	<option value="5">甘肃</option>
+	<option value="6">广东</option>
+	<option value="7">广西</option>
+	<option value="8">贵州</option>
+	<option value="9">海南</option>
+	<option value="10">河北</option>
+	<option value="11">河南</option>
+	<option value="12">黑龙江</option>
+	<option value="13">湖北</option>
+	<option value="14">湖南</option>
+	<option value="15">吉林</option>
+	<option value="16">江苏</option>
+	<option value="17">江西</option>
+	<option value="18">辽宁</option>
+	<option value="19">内蒙古</option>
+	<option value="20">宁夏</option>
+	<option value="21">青海</option>
+	<option value="22">山东</option>
+	<option value="23">山西</option>
+	<option value="24">陕西</option>
+	<option value="25">上海</option>
+	<option value="26">四川</option>
+	<option value="27">天津</option>
+	<option value="28">西藏</option>
+	<option value="29">新疆</option>
+	<option value="30">云南</option>
+	<option value="31">浙江</option>
+	<option value="32">重庆</option>
+	<option value="33">香港</option>
+	<option value="34">澳门</option>
+	<option value="35">台湾</option>
+</select>
+          <select id="selCities_new" name="selCities_new" onchange="region.changed(this, 3, 'selDistricts_new')"><option value="0">请选择市</option>
+              </select>
+          <select id="selDistricts_new" name="selDistricts_new" datatype="n" nullmsg="请选择地区" sucmsg=" "><option value="">请选择区域</option></select>
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">公司地址：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="address" value="" class="Required" placeholder="请填写详细填写公司地址" datatype="*" nullmsg="请填写详细填写公司地址" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+    <div class="fill_in">
+      <div class="left">QQ：</div>
+      <div class="right">
+        <div class="vali">
+          <input type="text" name="qq" value="" class="nub" placeholder="请填写" datatype="n" nullmsg="请填写QQ号码" errormsg="QQ号码格式不正确" sucmsg=" ">
+        </div>
+      </div>
+    </div>
+      <div class="protocol"></div>
+      <input type="submit" class="Submission" id="btnSubmit_Reg" value="完成信息填写" style="margin-bottom:30px">
+    </form>
+  </div>
+</div>
+<div id="bg_b" class="bg_show_b" style="display:none;"></div>
+<iframe id='popIframe_b' class='popIframe_b' frameborder='0' ></iframe>
+<!-- 补充资料结束 --> 
+
+
+
+<!-- 登录弹框 -->
+<div id="popDiv" class="mydiv" style="display:none">
+  <div class="Login_box" style="margin:0px">
+    <div class="top">
+      <div class="txt" style="float:left">请先登录</div>
+      <div class="close" style="float:right; padding-right:10px"><a href="javascript:closeDiv()"><span class="icon1 iconfont">&#xe620;</span></a></div>
+      <div style="clear:both"></div>
+    </div>
+      <form id="loginform" name="loginform" url="/Ajax/cheuser.ashx?act=user_login">
+    <div class="main1">
+    <div class="left1">
+      <div class="text_box1">
+        <div class="text_left">用户名：</div>
+        <div class="text_right">
+          <input class="input" type="text" name="txtUserName" id="txtUserName" value="" />
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">密码：</div>
+        <div class="text_right">
+          <input class="input" type="password" name="txtPassword" id="txtPassword" value="" />
+        </div>
+      </div>
+         <div class="text_box1">
+        <div class="text_left">验证码：</div>
+        <div class="text_right">
+          <input class="input" type="text" name="txtcode" id="txtcode" value="" style="width:100px"  dataType="Limit" min="5" max="5" msg="请输入5位验证码" /> <a href="javascript:fGetCode()"><img id="imgCount" name="imgCount" src="/VerifyCode.aspx" style="margin: auto 5px;  height: 46px" align="absmiddle"></a>
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">&nbsp;</div>
+        <div class="text_right" style="font-size:12px; color:#a8a7a7">
+          <label>
+            <input name="user_role2$remember" type="checkbox" id="user_role2_remember" value="1" />
+            下次自动登录</label> <div id="msgtips" class="tip-box"></div>
+        </div>
+      </div>
+      <div class="text_box1">
+        <div class="text_left">&nbsp;</div>
+        <div class="text_right" style="font-size:12px; color:#a8a7a7">
+          <div class="Login_btn">
+              <input id="btnSubmit" name="btnSubmit" value="立即登录" type="submit" class="submit_btn reglogin_btn">
+              </div>
+          <div class="get_back"><a href="#">忘记密码？</a></div>
+          <div class="ge"><a href="/about/R355-1636.html">关于我们</a> | <a href="/about/R355-1641.html">办理流程</a> | <a href="/about/downLoadUrl.aspx">客户端下载</a> | <a href="https://www.r355.com/">返回首页</a></div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="right1" style="position:relative">
+        <div class="r1">马上注册成为R355服饰资讯会员开通试用服务，就可以浏览更多精彩资讯！</div>
+        <div class="r2">客服电话：020-31232355</div>
+        <div class="r3"> <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=18550168&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" style="margin-top:5px" title="点击这里给我发消息" alt="点击这里给我发消息" src="/images/qq.png"></a></div>
+        <div class="r4">微信咨询
+          <div class="wx_show"><img src="/images/wx_box.png" width="121" height="106"></div>
+        </div>
+        <div class="r5 award"><a href="/member/reg.aspx"><img src="/images/btn.png" width="114" height="46"></a></div>
+      </div>
+    </div>
+          </form>
+  </div>
+</div>
+<script type="text/javascript" charset="utf-8" src="/js/login-validate.js"></script>
+<div id="bg" class="bg_show" style="display:none;"></div>
+<iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
+
+<!-- 登录弹框结束 --> 
+
+
+<style>
+   .sm_u_right .Validform_checktip { top:5px
+    }
+    
+</style>
+
+
+<!-- 上门服务弹框 -->
+<div id="popDiv_c" class="mydiv_c" style="display:none">
+  <div class="drop_in">
+    <div class="right_btn"><img src="/images/s2.png" width="27" height="126"></div>
+    <div class="sm_box">
+      <div class="sm_Close"><a href="#"><span class="icon1 iconfont">&#xe620;</span></a></div>
+      <div style="clear:both"></div>
+      <div class="sm_titel">上门信息填写</div>
+         <form id="smform" name="smform" url="/Ajax/add_service.ashx">
+      <div class="sm_u">
+        <div class="sm_u_left">上门时间：</div>
+        <div class="sm_u_right">
+            <input type="text" name="act_start_time" value="" placeholder="请选择上门时间" datatype="*" nullmsg="请选择" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">公司名称：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_company" value="" placeholder="请填写公司名称" datatype="s6-18" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">联系地址：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_address" value="" placeholder="请填写联系地址" datatype="s6-18" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">手机号码：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_mobile" value="" placeholder="请填写手机号码" datatype="m" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">联系人：</div>
+        <div class="sm_u_right">
+          <input type="text" name="sm_truename" value="" placeholder="请填写联系人" datatype="*" nullmsg="请填写" sucmsg=" ">
+        </div>
+      </div>
+      <div class="sm_u">
+        <div class="sm_u_left">备注信息：</div>
+        <div class="sm_u_right">
+          <input type="text" name="remark" value="" placeholder="不超过20字">
+        </div>
+      </div>
+      <input type="submit" id="btnSubmit_sm" class="Submission1" value="发送">
+      </form>
+    </div>
+    <div class="drop_in_Close"><a href="javascript:closeDiv_c()"><span class="icon1 iconfont">&#xe620;</span></a></div>
+    <div class="drop_in_top"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe63d;</span>温馨提示：您的账号没有权限浏览当前内容，请联系客服<a href="/member/reg.aspx"><strong style="color:red">开通VIP会员</strong></a>或<a href="/member/buyPoint.aspx"><strong style="color:red">充值点数</strong></a>。</div>
+    <div class="do-1"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe618;</span>线上咨询客服</div>
+    <div class="tel">客服电话：020-31232355</div>
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=18550168&site=qq&menu=yes" target="_blank" style="float:left;padding-left:210px;color:#ddbb6d"><span class="icon1 iconfont">&#xe617;</span>在线咨询</a>
+    <div class="r14 r15" style="background-image:none;"><a href="javascript:;" style="color:#ddbb6d"><span class="icon1 iconfont" style="color:#ddbb6d">&#xe6db;</span>微信咨询</a>
+      <div class="wx_show1"><img src="/images/wx_box.png" width="121" height="106"></div>
+    </div>
+    <div style="clear:both"></div>
+    <div class="do_img"><a href="/about/downLoadUrl.aspx"><img src="/images/s1.png" width="181" height="38"></a></div>
+  </div>
+</div>
+<div id="bg_c" class="bg_show_c" style="display:none;"></div>
+<iframe id='popIframe_c' class='popIframe_c' frameborder='0' ></iframe>
+<script type="text/javascript" src="/js/global.js"></script>
+    <script type="text/javascript" src="/js/region.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+            <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+            <script type="text/javascript" src="/js/Validform_v5.3.2_min.js"></script>
+    <script src="/js/time.js"></script>
+            <script type="text/javascript">
+            $(function(){
+                //初始化表单
+                AjaxInitForm('#regform', '#btnSubmit_Reg', 0);
+                AjaxInitForm('#smform', '#btnSubmit_sm', 0, "#user_role1_turl");
+            });
+            </script>
+<script type="text/javascript">$( "input[name='act_start_time'],input[name='act_stop_time']" ).datetimepicker();</script>
+<!-- 上门服务弹框结束 --> 
+<input name="user_role2$turl" type="hidden" id="user_role2_turl" value="https://www.r355.com/kstk/dphz.aspx?cid=17&amp;scid=0&amp;nameid=0&amp;sexid=0&amp;alfid=88&amp;kid=0&amp;p=1" />
+ 
+    <script>
+        $(function() {
+            //$(".patterns-ul img").lazyload({
+            //    placeholder: "/images/vip_b.png",
+            //    effect: "fadeIn"
+            //});
+            var $images = $('.cz3 img');
+            var totalImages = $images.length;
+            var loadedCount = 0;
+
+            // 如果没有图片直接执行
+            if (totalImages === 0) {
+                executeAfterLoad();
+                return;
+            }
+            // 遍历所有图片
+            $images.each(function () {
+                var $img = $(this);
+
+                // 检查图片是否已加载完成（包括缓存情况）
+                if ($img[0].complete && $img[0].naturalHeight !== 0) {
+                    handleLoad();
+                } else {
+                    // 绑定加载和错误事件
+                    $img.one('load error', handleLoad);
+                }
+            });
+            // 定义加载处理器（同时处理成功和失败）
+            function handleLoad() {
+                loadedCount++;
+                if (loadedCount === totalImages) {
+                    executeAfterLoad();
+                }
+            }
+            // 所有图片加载完成后执行的回调
+            function executeAfterLoad() {
+                $('.cz3 img').each(function () {
+                    // 当前遍历到的 img 元素
+                    var img = new Image();
+                    img.src = $(this).attr('src');
+                    var canvas = document.createElement('canvas');
+                    var ctx = canvas.getContext('2d');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0);
+                    var base64 = canvas.toDataURL('image/jpeg');
+                    //console.log(base64);
+                    $(this).attr('src', base64);
+                });
+            };
+            $('.viewBox_18942').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_18936').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_18935').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_18925').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_18896').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_18894').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_18893').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_18881').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_18865').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_18862').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_18859').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });$('.viewBox_18828').viewer({url: 'data-original',rotatable: false,scalable: false,title:false });
+});
+</script>
+</body>
+</html>
